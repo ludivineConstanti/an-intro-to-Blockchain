@@ -10,6 +10,7 @@ import './style.scss';
 import Header from 'src/components/Header';
 import Home from 'src/components/Home';
 import Quizzes from 'src/components/Quizzes';
+import Quiz from 'src/components/Quiz';
 import Login from 'src/components/Login';
 import Register from 'src/components/Register';
 import Error from 'src/components/Error';
@@ -20,26 +21,31 @@ const App = () => (
   <div className="app">
     <Header />
     <Switch>
-      {/* Page d'accueil */}
+      {/* Homepage */}
       <Route path="/" exact>
         <Home />
       </Route>
-      {/* Page répertoriant tout les quiz */}
+      {/* Page - All quizzes */}
       <Route path="/quizzes" exact>
         <Quizzes />
       </Route>
-      {/* Page de connexion */}
+      {/* Login Page */}
+      <Route path="/quiz/:id" exact>
+        <Quiz />
+      </Route>
+      {/* Login Page */}
       <Route path="/login" exact>
         <Login />
       </Route>
-      {/* Page d'inscription */}
+      {/* Register Page */}
       <Route path="/register" exact>
         <Register />
       </Route>
+      {/* Page profile */}
       <Route path="/profile" exact>
         <Profile />
       </Route>
-      {/* Page d'erreur */}
+      {/* 404 error */}
       <Route>
         <Error />
       </Route>
