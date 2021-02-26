@@ -6,7 +6,7 @@
 
 ### Route GET /quiz
 
-GET {{baseUrl}}/quiz
+GET {{baseUrl}}/quizzes
 
 ###
 
