@@ -6,6 +6,8 @@ const { Pool } = require('pg');
 // PGPASSWORD pour le mot de passe
 // PGDATABASE pour la base de données
 
-const db = new Pool();
+const db = new Pool({
+    connectionString: process.env.DATABASE_URL
+});
 
 module.exports = db;
