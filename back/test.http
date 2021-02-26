@@ -10,6 +10,10 @@ GET {{baseUrl}}/quiz
 
 ###
 
-GET {{baseUrl}}/quiz/1
+GET {{baseUrl}}/quiz/2
+
+###
+
+GET {{baseUrl}}/quiz/category/1
 
 ###

@@ -26,6 +26,20 @@ const quizController = {
         }
     },
 
+    quizByCategoryId : async (request, response) => {
+        try {
+        const id = parseInt(request.params.id, 10);
+        const theQuiz = await Quiz.findOneQuizByCategory(id);
+
+        console.log(theQuiz);
+        response.json(theQuiz);
+        } catch (error) {
+        // si le jeu n'existe pas
+        response.status(404).json(error.message);
+        console.log("Erreur dans l'id demandé : ", error);
+        }
+    },
+
 };
 
 module.exports = quizController;

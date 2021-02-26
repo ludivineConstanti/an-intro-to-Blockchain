@@ -8,7 +8,8 @@ const router = Router();
 router.get('/');
 
 // Pages quiz
-router.get('/quiz', quizController.allQuiz);
+router.get('/quizzes', quizController.allQuiz);
 router.get('/quiz/:id', quizController.quizById);
+router.get('/quiz/category/:id', quizController.quizByCategoryId);
 
 module.exports = router;
