@@ -1,6 +1,7 @@
 {
   "name": "back",
   "version": "1.0.0",
+
   "description": "The Back from Blockchain",
   "main": "index.js",
   "dependencies": {
