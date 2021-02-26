@@ -1,0 +1,24 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "The Back from Blockchain",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express-session": "^1.17.1",
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "projet-intro-to-blockchain"
+  },
+  "author": "Anthony Paccaud",
+  "license": "ISC"
+}
