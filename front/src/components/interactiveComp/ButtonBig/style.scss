@@ -1,0 +1,12 @@
+.buttonBig {
+  display: inline-block;
+  font-size: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+
+  &__triangle {
+    display: inline-block;
+    margin-left: 15px;
+  }
+}
