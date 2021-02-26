@@ -1,0 +1,19 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@path=v1
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
+
+### Route GET /quiz
+
+GET {{baseUrl}}/quiz
+
+###
+
+GET {{baseUrl}}/quiz/2
+
+###
+
+GET {{baseUrl}}/quiz/category/1
+
+###
