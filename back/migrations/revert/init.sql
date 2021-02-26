@@ -2,6 +2,13 @@
 
 BEGIN;
 
--- XXX Add DDLs here.
+DROP TABLE "article",
+"user",
+"quiz",
+"user_has_quiz",
+"category",
+"answer",
+"question",
+"user_has_article";
 
 COMMIT;

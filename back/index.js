@@ -8,6 +8,17 @@ const port = process.env.PORT || 4000;
 
 const apiRouter = require('./app/router');
 
+const cors = require('cors');
+
+app.use(express.json());
+
+app.use(cors());
+
+app.use((req, res, next) => {
+    console.log('Server received ', req.body);
+    next();
+  });
+
 // on rajoute la gestion des POST body
 app.use(express.urlencoded({extended: true}));
 

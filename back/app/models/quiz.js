@@ -1,3 +1,4 @@
+// Modèle Active Record
 const db = require('../database');
 
 class Quiz {
