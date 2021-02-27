@@ -6,7 +6,7 @@ import './style.scss';
 
 // == Composant
 const Error = () => (
-  <h1>Retourne pleurer</h1>
+  <h1>404 <span>not found</span></h1>
 );
 
 // == Export

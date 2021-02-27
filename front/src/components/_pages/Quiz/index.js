@@ -2,7 +2,7 @@
 import React from 'react';
 
 // == Import
-import quizzes from 'src/fakeData/Quizzes';
+// import quizzes from 'src/fakeData/Quizzes';
 import './style.scss';
 
 // == Composant

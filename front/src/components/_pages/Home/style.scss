@@ -1,14 +1,17 @@
+@use 'src/styles/fontSizes';
+@use 'src/styles/margins';
 
 // min width 992px
 @media only screen and (min-width: 99px) {
 .home {
-
+height: margins.$widthBorderDesktop;
+padding-top: 10vh;
   &__subtitle {
     // 16 columns => put 6 columns of margin
     // (100vw / 16) * 6
     margin-left: 37.5%;
-    font-size: 30px;
-    letter-spacing: -1.5px;
+    font-size: fontSizes.$subtitleDesktop;
+    letter-spacing: fontSizes.$subtitleKerningDesktop;
     font-weight: normal;
     text-transform: none;
   }
@@ -17,10 +20,10 @@
     // 16 columns => put 8 columns of margin
     // (100vw / 16) * 8
     margin-left: 50%;
-    font-size: 120px;
+    font-size: fontSizes.$titleDesktop;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: -9px;
+    letter-spacing: fontSizes.$titleKerningDesktop;
   }
 
   &__getStarted {
@@ -29,6 +32,10 @@
     margin-left: 68.75%;
     margin-top: 60px;
     display: inline-block;
+    // 100 - 68.75
+    width: 31.25%;
+    display: flex;
+    flex-direction: column;
   }
 
 }

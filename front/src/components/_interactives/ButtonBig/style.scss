@@ -1,7 +1,7 @@
 .buttonBig {
   display: inline-block;
   font-size: 20px;
-  border-bottom: 1px solid white;
+  border-bottom: 1.5px solid white;
   padding-bottom: 15px;
   margin-bottom: 20px;
 
@@ -9,4 +9,9 @@
     display: inline-block;
     margin-left: 15px;
   }
+}
+
+.buttonBig:hover, .triangle:hover {
+  fill: white;
+  stroke: red;
 }
