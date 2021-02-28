@@ -1,0 +1,14 @@
+[
+    {
+        "title": "/",
+        "link": "Accueil"
+    },
+    {
+        "title": "/angular",
+        "link": "Angular"
+    },
+    {
+        "title": "/react",
+        "link": "React"
+    }
+]

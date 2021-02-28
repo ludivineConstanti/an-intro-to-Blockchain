@@ -13,8 +13,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "sqitch deploy db:pg://acyzvaipkwdrcj:88fc803656455b4d7d02b95da7201ecc05bbcabb6c50a6712c59eeed817c222c@ec2-54-73-68-39.eu-west-1.compute.amazonaws.com:5432/d37e0t3b6ijs74",
-    "start": "node index.js"
+    "deploy": "sqitch deploy db:pg:apo",
+    "start": "npm run seed; node index.js",
+    "seed": "node app/import.js"
   },
   "repository": {
     "type": "git",
