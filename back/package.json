@@ -1,7 +1,6 @@
 {
   "name": "back",
   "version": "1.0.0",
-
   "description": "The Back from Blockchain",
   "main": "index.js",
   "dependencies": {
@@ -14,6 +13,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "sqitch deploy db:pg:apo",
     "start": "node index.js"
   },
   "repository": {
