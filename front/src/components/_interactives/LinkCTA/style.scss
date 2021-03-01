@@ -1,0 +1,31 @@
+.linkCTA {
+  display: flex;
+  align-items: center;
+
+      font-size: 14px;
+      //background-color: blue;
+      margin-bottom: 40px;
+      width: 100%;
+
+// svg can have width and height specified directly into them or outside
+// we want to have them specified in the CSS to be able to resize it
+// properties that are in the svg have priority over those that are in CSS
+// so if we precise the width, or fill color, and it's already in the svg, 
+// nothing will change
+&__icon {
+  width: 80px;
+  height: 80px;
+}
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 20px;
+    width: 100%;
+  }
+}
+
+.triangle {
+  margin-left: 8px;
+}

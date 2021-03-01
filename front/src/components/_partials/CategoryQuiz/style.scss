@@ -1,0 +1,10 @@
+.categoryQuiz {
+  &__linkCTA {
+    //background-color: pink;
+    // (100 / 16) * 10
+    width: 62,5%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 120px;
+  }
+}
