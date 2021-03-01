@@ -11,7 +11,7 @@ import triangle from 'src/assets/svg/interactives/triangle.svg';
 // == Composant
 const LinkCTA = ({ category, quiz }) => (
   <>
-    <Link to="/quiz">
+    <Link to="/quiz/:id">
       <div className="linkCTA">
         <svg className="linkCTA__icon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
 
@@ -24,7 +24,8 @@ const LinkCTA = ({ category, quiz }) => (
           <path opacity="0.25" fillRule="evenodd" clipRule="evenodd" d="M5 0.500003V2.5L75 2.5V0.5L5 0.500003ZM2 5.5H0V75.5H2V5.5ZM5 78.5V80.5H75V78.5H5ZM78 5.5H80V75.5H78V5.5Z" fill="white" />
         </svg>
         <div className="linkCTA__label">
-          <p>What is it long long long super super super long title lorem ipsum dolor sit amet?</p><embed className="triangle" src={triangle} type="image/svg+xml" width="11" height="11" />
+          <p>What is it long long long super super super long title lorem ipsum dolor sit amet?</p>
+          <embed className="triangle" src={triangle} type="image/svg+xml" width="11" height="11" />
         </div>
       </div>
     </Link>
