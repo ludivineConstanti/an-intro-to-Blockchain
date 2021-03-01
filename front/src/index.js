@@ -16,5 +16,4 @@ const rootReactElement = (
   </Provider>
 );
 
-// First and Main render
 render(rootReactElement, document.getElementById('root'));
