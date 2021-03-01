@@ -1,0 +1,25 @@
+@use 'src/styles/fontSizes';
+
+.submitButton input {
+  font-size: fontSizes.$labelS2Desktop;
+  letter-spacing: fontSizes.$labelS2KerningDesktop;
+}
+
+.linkS1, .submitButton {
+  display: inline-block;
+  font-size: fontSizes.$labelS2Desktop;
+  letter-spacing: fontSizes.$labelS2KerningDesktop;
+  border-bottom: 1.5px solid white;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+
+  &__triangle {
+    display: inline-block;
+    margin-left: 15px;
+  }
+}
+
+.linkS1__triangle:hover {
+  fill: white;
+  stroke: red;
+}

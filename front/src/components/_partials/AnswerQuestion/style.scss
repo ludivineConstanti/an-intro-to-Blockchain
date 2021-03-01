@@ -1,0 +1,18 @@
+@use 'src/styles/fontSizes';
+
+.answerQuestion {
+  width: 50%;
+  &__justification {
+    margin-bottom: 40px;
+    font-size: fontSizes.$textDesktop;
+    letter-spacing: fontSizes.$textKerningDesktop;
+    line-height: fontSizes.$textSpacingDesktop;
+    column-count: 2;
+    column-gap: 40px;
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
