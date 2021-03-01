@@ -7,10 +7,10 @@ import {
 
 // == Import
 import './style.scss';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import Frame from 'src/components/Frame';
 import BorderMargin from 'src/components/BorderMargin';
-import Home from 'src/components/_pages/Home';
+import Home from 'src/containers/_pages/Home';
 import Quizzes from 'src/components/_pages/Quizzes';
 import Quiz from 'src/components/_pages/Quiz';
 import Login from 'src/components/_pages/Login';

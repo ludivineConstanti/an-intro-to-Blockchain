@@ -6,10 +6,14 @@
 .home {
 height: margins.$widthBorderDesktop;
 padding-top: 10vh;
+//display: grid;
+//grid-template-columns: repeat(16, 1fr);
+//background-color: pink;
   &__subtitle {
     // 16 columns => put 6 columns of margin
     // (100vw / 16) * 6
     margin-left: 37.5%;
+    grid-column-start: span 9;
     font-size: fontSizes.$subtitleDesktop;
     letter-spacing: fontSizes.$subtitleKerningDesktop;
     font-weight: normal;
@@ -20,6 +24,7 @@ padding-top: 10vh;
     // 16 columns => put 8 columns of margin
     // (100vw / 16) * 8
     margin-left: 50%;
+    grid-column-start: span 7;
     font-size: fontSizes.$titleDesktop;
     font-weight: bold;
     text-transform: uppercase;
@@ -31,9 +36,7 @@ padding-top: 10vh;
     // (100vw / 16) * 11
     margin-left: 68.75%;
     margin-top: 60px;
-    display: inline-block;
-    // 100 - 68.75
-    width: 31.25%;
+    //display: inline-block;
     display: flex;
     flex-direction: column;
   }

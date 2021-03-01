@@ -1,0 +1,9 @@
+@use 'src/styles/fontSizes';
+
+.titlePage {
+  font-size: fontSizes.$titleDesktop;
+  text-align: right;
+  font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: fontSizes.$titleKerningDesktop;
+}

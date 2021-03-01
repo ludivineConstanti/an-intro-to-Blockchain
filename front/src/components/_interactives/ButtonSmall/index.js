@@ -10,7 +10,7 @@ import './style.scss';
 const ButtonSmall = ({ label, path }) => (
   <Link
     classname="buttonSmall"
-    to={{ pathname: { path } }}
+    to={path}
   >{label}
   </Link>
 );
