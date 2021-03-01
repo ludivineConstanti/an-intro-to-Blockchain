@@ -7,9 +7,9 @@ import './style.scss';
 
 // == Composant
 const CheckboxAnswer = () => (
-  <label className="checkboxAnswer">
+  <label className="checkboxAnswer">Proposition de réponse
     <input type="checkbox" id="id1" name="question1" value="value" />
-    <span htmlFor="id1">Proposition de réponse</span>
+    <span className="checkboxAnswer__checkmark" />
   </label>
 );
 
