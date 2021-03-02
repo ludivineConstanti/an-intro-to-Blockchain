@@ -12,7 +12,7 @@ const CategoryQuiz = () => (
   <div className="categoryQuiz">
     <TitleCategory label="Blockchain" />
     <div className="categoryQuiz__linkCTA">
-      <LinkCTA category={0} quiz={0} />
+      <LinkCTA category={1} quiz={1} />
       <LinkCTA category={0} quiz={1} />
       <LinkCTA category={0} quiz={2} />
       <LinkCTA category={0} quiz={3} />

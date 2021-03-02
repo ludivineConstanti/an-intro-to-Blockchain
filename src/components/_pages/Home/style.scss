@@ -14,8 +14,8 @@ padding-top: 10vh;
     // (100vw / 16) * 6
     margin-left: 37.5%;
     grid-column-start: span 9;
-    font-size: fontSizes.$subtitleDesktop;
-    letter-spacing: fontSizes.$subtitleKerningDesktop;
+    font-size: fontSizes.$labelS1Desktop;
+    letter-spacing: fontSizes.$labelS1KerningDesktop;
     font-weight: normal;
     text-transform: none;
   }
@@ -25,10 +25,10 @@ padding-top: 10vh;
     // (100vw / 16) * 8
     margin-left: 50%;
     grid-column-start: span 7;
-    font-size: fontSizes.$titleDesktop;
+    font-size: fontSizes.$titleS1Desktop;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: fontSizes.$titleKerningDesktop;
+    letter-spacing: fontSizes.$titleS1KerningDesktop;
   }
 
   &__getStarted {
@@ -36,9 +36,10 @@ padding-top: 10vh;
     // (100vw / 16) * 11
     margin-left: 68.75%;
     margin-top: 60px;
-    //display: inline-block;
+
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
   }
 
 }
