@@ -17,45 +17,53 @@ import Login from 'src/components/_pages/Login';
 import Register from 'src/components/_pages/Register';
 import Error from 'src/components/_pages/Error';
 import Profile from 'src/components/_pages/Profile';
+import Menu from 'src/components/_pages/Menu';
 
 // == Composant
-const App = () => (
+const App = ({ open }) => (
   <div className="app">
-    <Header />
-    <Frame />
-    <BorderMargin>
-      <Switch>
-        {/* Homepage */}
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        {/* Page - All quizzes */}
-        <Route path="/quizzes" exact>
-          <Quizzes />
-        </Route>
-        {/* Login Page */}
-        <Route path="/quiz/:id" exact>
-          <Quiz />
-        </Route>
-        {/* Login Page */}
-        <Route path="/login" exact>
-          <Login />
-        </Route>
-        {/* Register Page */}
-        <Route path="/register" exact>
-          <Register />
-        </Route>
-        {/* Page profile */}
-        <Route path="/profile" exact>
-          <Profile />
-        </Route>
-        {/* 404 error */}
-        <Route>
-          <Error />
-        </Route>
+    {open && (
+      <Menu />
+    )}
+    {!open && (
+      <>
+        <Header />
+        <Frame />
+        <BorderMargin>
+          <Switch>
+            {/* Homepage */}
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            {/* Page - All quizzes */}
+            <Route path="/quizzes" exact>
+              <Quizzes />
+            </Route>
+            {/* Login Page */}
+            <Route path="/quiz/:id" exact>
+              <Quiz />
+            </Route>
+            {/* Login Page */}
+            <Route path="/login" exact>
+              <Login />
+            </Route>
+            {/* Register Page */}
+            <Route path="/register" exact>
+              <Register />
+            </Route>
+            {/* Page profile */}
+            <Route path="/profile" exact>
+              <Profile />
+            </Route>
+            {/* 404 error */}
+            <Route>
+              <Error />
+            </Route>
 
-      </Switch>
-    </BorderMargin>
+          </Switch>
+        </BorderMargin>
+      </>
+    )}
   </div>
 );
 

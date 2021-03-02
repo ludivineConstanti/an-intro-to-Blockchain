@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
+
 import LinkS1 from 'src/components/_interactives/_buttons/LinkS1';
 
 // == Composant
