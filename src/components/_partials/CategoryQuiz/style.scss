@@ -1,10 +1,16 @@
 .categoryQuiz {
+  
+  &__groupLinks {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+  }
   &__linkCTA {
-    //background-color: pink;
-    // (100 / 16) * 10
-    width: 62,5%;
+    padding-bottom: 120px;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 120px;
+    grid-column-start: 3;
+    grid-column-end: 15;
+    display: grid;
+    grid-template-columns: repeat(3, 4fr);
   }
 }
