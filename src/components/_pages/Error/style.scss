@@ -1,0 +1,22 @@
+@use 'src/styles/fontSizes';
+
+.error {
+  &__title {
+    font-size: fontSizes.$titleS1Desktop;
+    letter-spacing: fontSizes.$titleS1KerningDesktop;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  &__subtitle {
+    font-size: fontSizes.$labelS1Desktop;
+    letter-spacing: fontSizes.$labelS1KerningDesktop;
+    font-weight: normal;
+    text-transform: none;
+  }
+  &__redirectLinks{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+}
