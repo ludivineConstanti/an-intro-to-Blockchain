@@ -1,0 +1,11 @@
+.progressionBar {
+  //background-color: rgba($color: #00ccff, $alpha: 0.5);
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  justify-content:center;
+  margin-top: 50px;
+  &__inside {
+  display: flex;
+  }
+}
