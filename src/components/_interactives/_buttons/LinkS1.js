@@ -12,9 +12,10 @@ const LinkS1 = ({ label, path }) => (
   <div className="linkS1">
     <Link
       to={path}
-    >{label}<div className="linkS1__triangle">
-      <embed className="triangle" src={triangle} type="image/svg+xml" width="16" height="16" />
-    </div>
+    >{label}
+      <div className="linkS1__triangle">
+        <embed className="triangle" src={triangle} type="image/svg+xml" width="16" height="16" />
+      </div>
     </Link>
   </div>
 );

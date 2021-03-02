@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Route,
   Switch,
@@ -17,7 +18,7 @@ import Login from 'src/components/_pages/Login';
 import Register from 'src/components/_pages/Register';
 import Error from 'src/components/_pages/Error';
 import Profile from 'src/components/_pages/Profile';
-import Menu from 'src/components/_pages/Menu';
+import Menu from 'src/containers/_pages/Menu';
 
 // == Composant
 const App = ({ open }) => (
@@ -67,5 +68,8 @@ const App = ({ open }) => (
   </div>
 );
 
+App.propTypes = {
+  open: PropTypes.bool.isRequired,
+};
 // == Export
 export default App;

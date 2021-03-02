@@ -13,13 +13,8 @@ const mapState = (state) => {
 };
 const mapDispatchToProps = (dispatch) => ({
   onClickButton: () => {
-    console.log('je veux modifier la valeur de open');
-    // pour modifier une valeur du state
-    // il faut créer une action : action types + action creator
     const action = toggleMenu();
-    // dispatch l'action
     dispatch(action);
-    // gérer l'action dans le reducer + renvoyer le nouveau state
   },
 });
 
