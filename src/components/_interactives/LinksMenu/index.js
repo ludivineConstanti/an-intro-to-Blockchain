@@ -12,8 +12,8 @@ const LinksMenu = ({ label, path, funcOnClick }) => (
       exact
       onClick={funcOnClick}
     >{label}
-      <div className="linkS1__triangle">
-        <embed className="triangle" src={triangle} type="image/svg+xml" width="16" height="16" />
+      <div className="link__triangle">
+        <embed className="triangle" src={triangle} type="image/svg+xml" width="48" height="48" />
       </div>
     </NavLink>
   </div>
@@ -22,6 +22,7 @@ const LinksMenu = ({ label, path, funcOnClick }) => (
 LinksMenu.propTypes = {
   label: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+  funcOnClick: PropTypes.func.isRequired,
 };
 
 export default LinksMenu;

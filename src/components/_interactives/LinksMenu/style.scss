@@ -1,0 +1,17 @@
+@use 'src/styles/fontSizes';
+
+.menu__link {
+  width: 60%;
+  font-size: fontSizes.$menuDesktop;
+  text-transform: uppercase;
+  text-align: right;
+  border-bottom: 1px solid white;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.link__triangle {
+  display: inline-block;
+  margin-left: 15px;
+  height: 20px;
+}
