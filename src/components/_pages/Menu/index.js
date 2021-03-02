@@ -1,25 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.scss';
 
-import { NavLink } from 'react-router-dom';
+import './style.scss';
+import LinksMenu from 'src/components/_interactives/LinksMenu';
 
 const Menu = ({ onClickButton }) => {
   const handleOnClick = () => {
     onClickButton();
-    console.log('yo');
   };
   return (
     <div className="menu">
-      <NavLink onClick={handleOnClick} exact to="/">Home</NavLink>
-      <NavLink onClick={handleOnClick} exact to="/quizzes">Quizzes</NavLink>
-      <NavLink onClick={handleOnClick} exact to="/articles">Articles</NavLink>
-      <NavLink onClick={handleOnClick} exact to="/profile/scores">Achievements</NavLink>
-      <NavLink onClick={handleOnClick} exact to="/profile">Settings</NavLink>
-      <NavLink onClick={handleOnClick} exact to="/">Log out</NavLink>
+      <LinksMenu path="/" label="Home" funcOnClick={handleOnClick} />
+      <LinksMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
+      <LinksMenu path="/articles" label="Articles" funcOnClick={handleOnClick} />
+      <LinksMenu path="/profile/scores" label="Achievements" funcOnClick={handleOnClick} />
+      <LinksMenu path="/settings" label="Settings" funcOnClick={handleOnClick} />
+      <LinksMenu path="/" label="Log Out" funcOnClick={handleOnClick} />
     </div>
   );
 };
+
 Menu.propTypes = {
   onClickButton: PropTypes.func.isRequired,
 };

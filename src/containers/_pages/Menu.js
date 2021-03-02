@@ -10,6 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
   onClickButton: () => {
     const action = toggleMenu();
     dispatch(action);
+    console.log('coucou container menu');
   },
 });
 
