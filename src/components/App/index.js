@@ -12,6 +12,7 @@ import Frame from 'src/components/Frame';
 import Home from 'src/containers/_pages/Home';
 import Quizzes from 'src/components/_pages/Quizzes';
 import Quiz from 'src/components/_pages/Quiz';
+import QuizResult from 'src/components/_pages/QuizResult';
 import Login from 'src/components/_pages/Login';
 import Register from 'src/components/_pages/Register';
 import Error from 'src/components/_pages/Error';
@@ -38,9 +39,13 @@ const App = ({ open }) => (
           <Route path="/quizzes" exact>
             <Quizzes />
           </Route>
-          {/* Login Page */}
+          {/* Quiz (answer questions) */}
           <Route path="/quiz/:id" exact>
             <Quiz />
+          </Route>
+          {/* Quiz result */}
+          <Route path="/quiz/:id/result" exact>
+            <QuizResult />
           </Route>
           {/* Login Page */}
           <Route path="/login" exact>

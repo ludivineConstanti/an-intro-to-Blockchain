@@ -13,12 +13,10 @@ import AnswerQuestion from 'src/components/_partials/AnswerQuestion';
 const Quiz = () => (
   <>
     <ProgressionBar totalNum={10} progressionNum={7} />
-    <BorderMargin>
-      <div className="quiz">
-        <FormQuestion />
-        <AnswerQuestion />
-      </div>
-    </BorderMargin>
+    <div className="quiz">
+      <FormQuestion />
+      <AnswerQuestion />
+    </div>
   </>
 );
 
