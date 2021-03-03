@@ -8,5 +8,3 @@
 
 ## Objectif:
 Créer un site éducatif sur les Blockchains qui sert d’introduction aux débutants avec des quiz et des redirections vers des articles explicatifs
-
-### Test du merge

@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 // == Import
 import './style.scss';
 import menuImage from 'src/assets/svg/interactives/menu.svg';
-import closeMenuImage from 'src/assets/svg/closeMenu.svg';
+import closeMenuImage from 'src/assets/svg/interactives/closeMenu.svg';
 import emptySquare from 'src/assets/svg/interactives/emptySquare.svg';
 import { NavLink } from 'react-router-dom';
 
 // == Composant
-const Header = ({ initials, onClickButtonMenu, isLoggedIn, open }) => {
+const Header = ({
+  initials, onClickButtonMenu, isLoggedIn, open,
+}) => {
   const handleOnClickMenu = () => {
     onClickButtonMenu();
   };

@@ -12,5 +12,9 @@ const FormUser = ({ children }) => (
   </div>
 );
 
+FormUser.propTypes = {
+  children: PropTypes.array.isRequired,
+};
+
 // == Export
 export default FormUser;
