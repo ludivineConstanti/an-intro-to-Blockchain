@@ -3,7 +3,7 @@
 .register, .login, .settings {
   width: 50%;
   margin: 0 auto;
-  padding-top: 160px;
+  padding-top: margins.$borderDesktop;
   min-height: 100vh;
 
   &__login {
@@ -12,13 +12,30 @@
     margin-bottom: 20px;
   }
 
+  &__columns {
+    display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  }
+
   &__firstColumn {
-    grid-column-start: 2;
+    grid-column-start: 1;
   }
   &__secondColumn {
-    grid-column-start: 4;
+    grid-column-start: 3;
   }
   &__submitButton {
     margin-top: 40px;
+  }
+}
+
+.settings {
+  padding-bottom: 80px;
+
+  &__buttonS1 {
+    margin-top: 40px;
+  }
+
+  &__buttonS2 {
+    margin-bottom: 40px;
   }
 }

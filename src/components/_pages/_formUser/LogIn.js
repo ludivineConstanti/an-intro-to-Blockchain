@@ -24,7 +24,13 @@ const LogIn = ({ email, password, changeField }) => (
         <div className="login__submitButton">
           <SubmitButton label="Log in" />
         </div>
-      </div>
+        <div className="login__secondColumn">
+          <InputText type="password" label="Password" />
+          <div className="login__submitButton">
+            <SubmitButton label="Log in" />
+          </div>
+        </div>
+      </form>
     </FormUser>
   </div>
 );

@@ -1,13 +1,13 @@
 @use 'src/styles/margins';
+@use 'src/styles/breakpoints';
+
 
 .frame{
-
   position: fixed;
-  margin: margins.$outsideBorderDesktop;
-  width: calc(100vw - 120px);
-  height: calc(100vh - 120px);
+  margin: margins.$outsideBorderMobile;
+  width: margins.$widthOutsideBorderMobile;
+  height: margins.$heightOutsideBorderMobile;
   z-index: -10;
-
 
   &__corner{
 
@@ -29,4 +29,15 @@
       left: 0;
     }
   }
+
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.frame{
+
+  margin: margins.$outsideBorderDesktop;
+  width: margins.$widthOutsideBorderDesktop;
+  height: margins.$heightOutsideBorderDesktop;
+
+}
 }

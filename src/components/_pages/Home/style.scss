@@ -1,40 +1,58 @@
 @use 'src/styles/fontSizes';
 @use 'src/styles/margins';
+@use 'src/styles/breakpoints';
 
-// min width 992px
-@media only screen and (min-width: 99px) {
 .home {
-height: margins.$widthBorderDesktop;
-padding-top: 10vh;
-//display: grid;
-//grid-template-columns: repeat(16, 1fr);
-//background-color: pink;
+  height: margins.$heightBorderMobile;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &__title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: fontSizes.$titleS1Mobile;
+    letter-spacing: fontSizes.$titleS1KerningMobile;
+    display: block;
+  }
   &__subtitle {
-    // 16 columns => put 6 columns of margin
-    // (100vw / 16) * 6
-    margin-left: 37.5%;
+    font-weight: normal;
+    text-transform: none;
+    font-size: fontSizes.$labelS1Mobile;
+    letter-spacing: fontSizes.$labelS1KerningMobile;
+    display: block;
+  }
+  &__getStarted {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.home {
+  height: margins.$heightBorderDesktop;
+  padding-top: 10vh;
+
+  &__subtitle {
+    // 16 columns => put 4 columns of margin
+    // (100vw / 16) * 4
+    margin-left: 25%;
     grid-column-start: span 9;
     font-size: fontSizes.$labelS1Desktop;
     letter-spacing: fontSizes.$labelS1KerningDesktop;
-    font-weight: normal;
-    text-transform: none;
   }
 
   &__title {
-    // 16 columns => put 8 columns of margin
-    // (100vw / 16) * 8
-    margin-left: 50%;
+    // 16 columns => put 5 columns of margin
+    // (100vw / 16) * 5
+    margin-left: 31.25%;
     grid-column-start: span 7;
     font-size: fontSizes.$titleS1Desktop;
-    font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: fontSizes.$titleS1KerningDesktop;
   }
 
   &__getStarted {
-    // 16 columns => put 11 columns of margin
-    // (100vw / 16) * 11
-    margin-left: 68.75%;
+    // 16 columns => put 10 columns of margin
+    // (100vw / 16) * 10
+    margin-left: 62.5%;
     margin-top: 60px;
 
     display: flex;
