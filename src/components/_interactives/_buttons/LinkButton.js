@@ -15,9 +15,10 @@ const LinkButton = ({ label, path, className }) => {
     <div className={classDiv}>
       <Link
         to={path}
-      >{label}<div className={classTriangle}>
-        <embed className="triangle" src={triangle} type="image/svg+xml" />
-      </div>
+      >{label}
+        <div className={classTriangle}>
+          <embed className="triangle" src={triangle} type="image/svg+xml" />
+        </div>
       </Link>
     </div>
   );
