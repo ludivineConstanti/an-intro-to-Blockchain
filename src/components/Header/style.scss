@@ -1,21 +1,39 @@
 @use 'src/styles/margins';
+@use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
 
 .header {
   position: fixed;
-  margin: margins.$outsideBorderDesktop;
-  width: margins.$widthOutsideBorderDesktop;
-  display: flex;
-  justify-content: space-between;
+  margin: margins.$outsideBorderMobile;
+  width: margins.$widthOutsideBorderMobile;
   background-color: transparent;
-
-  &__username {
-    font-size: 20px;
-    font-weight: bold;
-    position: absolute;
-    top: 20px;
-    right: 17px;
+  display: flex;
+  justify-content: flex-end;
+  &__svgMenu, &__svgSettings, &__username {
+    pointer-events: none;
+  }
+  &__svgSettings, &__username {
+    display: none;
   }
 }
-.svg {
-  pointer-events: none;
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .header {
+    margin: margins.$outsideBorderDesktop;
+    width: margins.$widthOutsideBorderDesktop;
+    display: flex;
+    justify-content: space-between;
+  
+    &__svgSettings, &__username {
+      display: block;
+    }
+
+    &__username {
+      font-size: fontSizes.$labelS2Desktop;
+      font-weight: bold;
+      position: absolute;
+      top: 20px;
+      right: 17px;
+    }
+  }
 }

@@ -1,5 +1,12 @@
 @use 'src/styles/margins';
+@use 'src/styles/breakpoints';
 
 .borderMargin {
+  padding: margins.$borderMobile;
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.borderMargin {
   padding: margins.$borderDesktop;
+}
 }

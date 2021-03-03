@@ -7,4 +7,12 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 120px;
+
+  &__subtile{
+    font-size: fontSizes.$labelS1Desktop;
+  letter-spacing: fontSizes.$labelS1KerningDesktop;
+  font-weight: normal;
+    text-transform: none;
+    display: block;
+  }
 }

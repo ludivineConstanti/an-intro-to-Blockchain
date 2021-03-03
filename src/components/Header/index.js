@@ -18,21 +18,21 @@ const Header = ({ initials, onClickButtonMenu, isLoggedIn }) => {
     <div className="header">
       <div className="header__menu">
         <button type="button" className="menu__button" onClick={handleOnClickMenu}>
-          <embed className="svg" src={menuImage} type="image/svg+xml" width="60" height="60" />
+          <embed className="header__svgMenu" src={menuImage} type="image/svg+xml" width="60" height="60" />
         </button>
       </div>
       <div className="header__profil">
         {
         isLoggedIn === true
           ? (
-            <NavLink to="/profile" label="Profile">
-              <embed className="svg" src={emptySquare} type="image/svg+xml" width="60" height="60" />
+            <NavLink to="/settings" label="Settings">
+              <embed className="header__svgSettings" src={emptySquare} type="image/svg+xml" width="60" height="60" />
               <span className="header__username">{initials}</span>
             </NavLink>
           )
           : (
-            <NavLink to="/register" label="Profile">
-              <embed className="svg" src={emptySquare} type="image/svg+xml" width="60" height="60" />
+            <NavLink to="/register" label="Settings">
+              <embed className="header__svgSettings" src={emptySquare} type="image/svg+xml" width="60" height="60" />
               <span className="header__username">{initials}</span>
             </NavLink>
           )

@@ -6,12 +6,19 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Composant
-const TitlePage = ({ label }) => (
-  <h1 className="titlePage">{label}</h1>
+const TitlePage = ({ label, subtitle }) => (
+  <>
+    <h1 className="titlePage">{label} { subtitle && <span className="titlePage__subtile">{subtitle}</span> }</h1>
+  </>
 );
+
+TitlePage.defaultProps = {
+  subtitle: '',
+};
 
 TitlePage.propTypes = {
   label: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
 };
 
 // == Export
