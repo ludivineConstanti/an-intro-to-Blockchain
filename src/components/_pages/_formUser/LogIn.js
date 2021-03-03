@@ -15,17 +15,15 @@ const Login = () => (
       <LinkButton label="Create a new account" path="/register" className="size2" />
     </div>
     <FormUser>
-      <form>
-        <div className="login__firstColumn">
-          <InputText type="email" label="email address" />
+      <div className="login__firstColumn">
+        <InputText type="email" label="email address" />
+      </div>
+      <div className="login__secondColumn">
+        <InputText type="password" label="Password" />
+        <div className="login__submitButton">
+          <SubmitButton label="Log in" />
         </div>
-        <div className="login__secondColumn">
-          <InputText type="password" label="Password" />
-          <div className="login__submitButton">
-            <SubmitButton label="Log in" />
-          </div>
-        </div>
-      </form>
+      </div>
     </FormUser>
   </div>
 );

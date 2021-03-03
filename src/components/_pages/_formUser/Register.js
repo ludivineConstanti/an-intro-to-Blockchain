@@ -15,20 +15,18 @@ const Register = () => (
       <LinkButton label="Log in" path="/login" className="size2" />
     </div>
     <FormUser>
-      <form>
-        <div className="register__firstColumn">
-          <InputText type="text" label="First Name" />
-          <InputText type="text" label="Family Name" />
+      <div className="register__firstColumn">
+        <InputText type="text" label="First Name" />
+        <InputText type="text" label="Family Name" />
+      </div>
+      <div className="register__secondColumn">
+        <InputText type="password" label="Password" />
+        <InputText type="password" label="Password confirmation" />
+        <InputText type="email" label="Your email address" />
+        <div className="register__submitButton">
+          <SubmitButton label="Create account" />
         </div>
-        <div className="register__secondColumn">
-          <InputText type="password" label="Password" />
-          <InputText type="password" label="Password confirmation" />
-          <InputText type="email" label="Your email address" />
-          <div className="register__submitButton">
-            <SubmitButton label="Create account" />
-          </div>
-        </div>
-      </form>
+      </div>
     </FormUser>
   </div>
 );
