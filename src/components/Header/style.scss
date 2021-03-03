@@ -9,6 +9,7 @@
   background-color: transparent;
   display: flex;
   justify-content: flex-end;
+  
   &__svgMenu, &__svgSettings, &__username {
     pointer-events: none;
   }

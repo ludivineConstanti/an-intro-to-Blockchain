@@ -1,6 +1,5 @@
 // == Import npm
 import React from 'react';
-import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -14,18 +13,14 @@ const CategoryQuiz = () => (
     <div className="categoryQuiz__groupLinks">
       <div className="categoryQuiz__linkCTA">
         <LinkCTA category={1} quiz={1} />
-        <LinkCTA category={0} quiz={1} />
-        <LinkCTA category={0} quiz={2} />
-        <LinkCTA category={0} quiz={3} />
-        <LinkCTA category={0} quiz={4} />
+        <LinkCTA category={1} quiz={2} />
+        <LinkCTA category={1} quiz={3} />
+        <LinkCTA category={1} quiz={4} />
+        <LinkCTA category={1} quiz={5} />
       </div>
     </div>
   </div>
 );
-
-/* CategoryQuiz.propTypes = {
-  label: PropTypes.string.isRequired,
-}; */
 
 // == Export
 export default CategoryQuiz;

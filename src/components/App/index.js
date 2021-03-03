@@ -23,14 +23,13 @@ import Menu from 'src/containers/_pages/Menu';
 // == Composant
 const App = ({ open }) => (
   <div className="app">
+    <Frame />
+    <Header />
     {open && (
       <Menu />
     )}
     {!open && (
       <>
-        <Header />
-        <Frame />
-
         <Switch>
           {/* Homepage */}
           <Route path="/" exact>

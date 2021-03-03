@@ -2,7 +2,6 @@
 import React from 'react';
 
 // == Import
-// import quizzes from 'src/fakeData/Quizzes';
 import './style.scss';
 import ProgressionBar from 'src/components/_statics/ProgressionBar';
 import FormQuestion from 'src/components/_partials/FormQuestion';

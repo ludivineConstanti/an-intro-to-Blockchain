@@ -3,7 +3,7 @@
 .register, .login, .settings {
   width: 50%;
   margin: 0 auto;
-  padding-top: 160px;
+  padding-top: margins.$borderDesktop;
   min-height: 100vh;
 
   &__login {
