@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './style.scss';
 import LinksMenu from 'src/components/_interactives/LinksMenu';
 
-const Menu = ({ onClickButton }) => {
+const Menu = ({ onClickButtonMenu }) => {
   const handleOnClick = () => {
-    onClickButton();
+    onClickButtonMenu();
   };
   return (
     <div className="menu">
@@ -21,7 +21,7 @@ const Menu = ({ onClickButton }) => {
 };
 
 Menu.propTypes = {
-  onClickButton: PropTypes.func.isRequired,
+  onClickButtonMenu: PropTypes.func.isRequired,
 };
 
 export default Menu;

@@ -9,10 +9,11 @@ const mapState = (state) => {
   return ({
     initials: letters,
     open: state.global.open,
+    isLoggedIn: state.user.isLoggedIn,
   });
 };
 const mapDispatchToProps = (dispatch) => ({
-  onClickButton: () => {
+  onClickButtonMenu: () => {
     const action = toggleMenu();
     dispatch(action);
   },

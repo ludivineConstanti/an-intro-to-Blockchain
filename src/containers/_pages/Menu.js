@@ -7,10 +7,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickButton: () => {
+  onClickButtonMenu: () => {
     const action = toggleMenu();
     dispatch(action);
-    console.log('coucou container menu');
   },
 });
 
