@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -10,6 +11,10 @@ const BorderMargin = ({ children }) => (
     {children}
   </div>
 );
+
+BorderMargin.propTypes = {
+  children: PropTypes.object.isRequired,
+};
 
 // == Export
 export default BorderMargin;

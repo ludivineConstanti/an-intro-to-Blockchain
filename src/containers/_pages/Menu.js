@@ -4,6 +4,7 @@ import { toggleMenu } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   open: state.global.open,
+  isLoggedIn: state.user.isLoggedIn,
 });
 
 const mapDispatchToProps = (dispatch) => ({
