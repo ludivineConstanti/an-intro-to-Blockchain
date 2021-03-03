@@ -17,13 +17,13 @@ const Register = () => (
     <FormUser>
       <form className="register__columns">
         <div className="register__firstColumn">
-          <InputText type="text" label="First Name" />
-          <InputText type="text" label="Family Name" />
+          <InputText type="text" placeholder="First Name" />
+          <InputText type="text" placeholder="Family Name" />
         </div>
         <div className="register__secondColumn">
-          <InputText type="password" label="Password" />
-          <InputText type="password" label="Password confirmation" />
-          <InputText type="email" label="Your email address" />
+          <InputText type="password" placeholder="Password" />
+          <InputText type="password" placeholder="Password confirmation" />
+          <InputText type="email" placeholder="Your email address" />
           <div className="register__submitButton">
             <SubmitButton label="Create account" />
           </div>

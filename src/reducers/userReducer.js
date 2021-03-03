@@ -1,4 +1,4 @@
-import { CHANGE_VALUE } from 'src/actions/userActions';
+import { CHANGE_VALUE, LOGIN } from 'src/actions/userActions';
 
 const initialState = {
   email: '',
@@ -15,6 +15,12 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+    }
+    case LOGIN: {
+      return {
+        ...state,
+        isLoggedIn: true,
       };
     }
     default:

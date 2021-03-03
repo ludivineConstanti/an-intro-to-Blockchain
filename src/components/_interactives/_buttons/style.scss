@@ -9,9 +9,10 @@
   font-size: fontSizes.$labelS2Mobile;
   letter-spacing: fontSizes.$labelS2KerningMobile;
 
-& input {
+& input, & button {
   font-size: fontSizes.$labelS2Mobile;
   letter-spacing: fontSizes.$labelS2KerningMobile;
+  color: white;
 }
 
   &--size2, &--size2 input {

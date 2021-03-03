@@ -20,15 +20,15 @@ const Settings = () => (
       <div className="settings__columns">
         <div className="settings__firstColumn">
           <form>
-            <InputText type="email" label="Old password" />
-            <InputText type="email" label="New password" />
-            <InputText type="email" label="Confirm new password" />
+            <InputText type="email" placeholder="Old password" />
+            <InputText type="email" placeholder="New password" />
+            <InputText type="email" placeholder="Confirm new password" />
             <SubmitButton label="Change my password" className="size2" />
           </form>
         </div>
         <div className="settings__secondColumn">
           <form>
-            <InputText type="password" label="New email address" />
+            <InputText type="password" placeholder="New email address" />
             <SubmitButton label="Change my email" className="size2" />
           </form>
           <div className="settings__buttonS1"><LinkButton label="Delete my account" className="size2" /></div>
