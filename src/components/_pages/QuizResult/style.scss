@@ -1,17 +1,31 @@
 @use 'src/styles/fontSizes';
 @use 'src/styles/margins';
 
-.error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 0 margins.$borderDesktop 0 margins.$borderDesktop;
+.quizResult {
+display: flex;
+align-items: center;
+min-height: 100vh;
+padding: 0 margins.$borderDesktop 0 margins.$borderDesktop;
+
   &__title {
     font-size: fontSizes.$titleS1Desktop;
     letter-spacing: fontSizes.$titleS1KerningDesktop;
     font-weight: bold;
     text-transform: uppercase;
+    width: 100%;
+    
+    &Part1 {
+      //(100 / 16) * 4
+      margin-left: 25%;
+      display: block;
+    }
+    &Part2 {
+      //(100 / 16) * 6
+      margin-left: 37.5%;
+      margin-top: -20px;
+      // margin doesn't work without display: block
+      display: block;
+    }
   }
   &__subtitle {
     font-size: fontSizes.$labelS1Desktop;
@@ -32,5 +46,4 @@
   &__redirectLink2{
     right: 120px;
   }
-  
 }

@@ -1,0 +1,16 @@
+@use 'src/styles/fontSizes';
+
+.inputText {
+  padding-bottom: 10px;
+  border-bottom: 2px dashed white;
+  margin-bottom: 20px;
+
+  & input {
+    font-size: fontSizes.$textDesktop;
+    letter-spacing: fontSizes.$textKerningDesktop;
+  }
+
+  & input {
+    color: rgba($color: white, $alpha: 0.5)
+  }
+}
