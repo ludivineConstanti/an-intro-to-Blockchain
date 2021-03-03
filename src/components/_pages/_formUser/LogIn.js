@@ -15,7 +15,7 @@ const Login = () => (
       <LinkButton label="Create a new account" path="/register" className="size2" />
     </div>
     <FormUser>
-      <form className="register__columns">
+      <form className="login__columns">
         <div className="login__firstColumn">
           <InputText type="email" label="email address" />
         </div>

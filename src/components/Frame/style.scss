@@ -17,13 +17,11 @@
       right: 0;
     }
     &--bottomRight {
-      transform: rotate(180deg);
       position: absolute;
       bottom: 0;
       right: 0;
     }
     &--bottomLeft {
-      transform: rotate(270deg);
       position: absolute;
       bottom: 0;
       left: 0;
@@ -34,10 +32,8 @@
 
 @media only screen and (min-width: breakpoints.$desktop) {
 .frame{
-
   margin: margins.$outsideBorderDesktop;
   width: margins.$widthOutsideBorderDesktop;
   height: margins.$heightOutsideBorderDesktop;
-
 }
 }

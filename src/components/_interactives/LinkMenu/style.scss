@@ -1,25 +1,34 @@
 @use 'src/styles/fontSizes';
 
-.navLinkButton {
-  width: 60%;
+.linkMenu {
+  width: 65%;
+  font-weight: bold;
   font-size: fontSizes.$menuDesktop;
+  letter-spacing: fontSizes.$menuKerningDesktop;
   text-transform: uppercase;
   text-align: right;
-  border-bottom: 1px solid white;
-  margin: 2rem;
-  padding: 1rem;
+  border-bottom: 4px solid white;
+  margin-bottom: 5vh;
+  padding-bottom: 3vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+
+  &:last-child {
+    margin-bottom: 0;
+    margin-left: 5px;
+    width: calc(50% - 5px);
+  }
+  
+  &__triangle {
+    margin-left: 4.8vh;
+    height: fontSizes.$menuTriangleDesktop;
+    stroke-width: 1.6px;
+  }
+
+  &--margin2 {
+    width: 50%;
+  }
   
 }
-
-.link__triangle {
-  display: inline-block;
-  margin-left: 15px;
-  height: 20px;
-}
-
-.navLinkButton--margin2 {
-  display: block;
-  width: calc(60%-200px);
-}
-
-
