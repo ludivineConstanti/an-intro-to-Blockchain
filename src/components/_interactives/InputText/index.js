@@ -6,11 +6,28 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Composant
-const InputText = ({ type, label, value }) => (
-  <div className="inputText">
-    <input type={type} placeholder={label} value={value} />
-  </div>
-);
+const InputText = ({
+  type,
+  placeholder,
+  value,
+  onChange,
+  name,
+}) => {
+  const handleChange = (event) => {
+    onChange(event.target.value, name);
+  };
+  return (
+    <div className="inputText">
+      <input
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+        name={name}
+      />
+    </div>
+  );
+};
 
 InputText.defaultProps = {
   value: '',
@@ -18,8 +35,9 @@ InputText.defaultProps = {
 
 InputText.propTypes = {
   type: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
   value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };
 
 // == Export
