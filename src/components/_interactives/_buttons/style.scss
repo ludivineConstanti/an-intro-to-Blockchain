@@ -1,10 +1,5 @@
 @use 'src/styles/fontSizes';
 
-.submitButton input {
-  font-size: fontSizes.$labelS2Desktop;
-  letter-spacing: fontSizes.$labelS2KerningDesktop;
-}
-
 .linkButton, .submitButton {
   display: inline-block;
   border-bottom: 1.5px solid white;
@@ -12,9 +7,17 @@
   margin-bottom: 20px;
   font-size: fontSizes.$labelS2Desktop;
   letter-spacing: fontSizes.$labelS2KerningDesktop;
+
+& input {
+  font-size: fontSizes.$labelS2Desktop;
+  letter-spacing: fontSizes.$labelS2KerningDesktop;
 }
 
-.linkButton, .submitButton {
+  &--size2, &--size2 input {
+    font-size: fontSizes.$textDesktop;
+    letter-spacing: fontSizes.$textKerningDesktop;
+  }
+
   &__triangle {
     display: inline-block;
     margin-left: 15px;
@@ -22,22 +25,18 @@
     height: 20px;
     stroke-width: 16px;
     fill: red;
+
+    &--size2 {
+      width: 17px;
+      height: 17px;
+      stroke-width: 16px;
+      fill: red;
+      margin-left: 14px;
+    }
   }
+
   &__triangle:hover {
     fill: white;
     stroke: red;
   }
-}
-
-.linkButton--size2 {
-  font-size: fontSizes.$textDesktop;
-  letter-spacing: fontSizes.$textKerningDesktop;
-}
-
-.linkButton__triangle--size2 {
-  width: 17px;
-  height: 17px;
-  stroke-width: 16px;
-  fill: red;
-  margin-left: 14px;
 }
