@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
-import LinksMenu from 'src/components/_interactives/LinksMenu';
+import LinkMenu from 'src/components/_interactives/LinkMenu';
 
 const Menu = ({ onClickButtonMenu }) => {
   const handleOnClick = () => {
@@ -10,12 +10,12 @@ const Menu = ({ onClickButtonMenu }) => {
   };
   return (
     <div className="menu">
-      <LinksMenu path="/" label="Home" funcOnClick={handleOnClick} />
-      <LinksMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
-      <LinksMenu path="/articles" label="Articles" funcOnClick={handleOnClick} />
-      <LinksMenu path="/profile/scores" label="Achievements" funcOnClick={handleOnClick} />
-      <LinksMenu path="/settings" label="Settings" funcOnClick={handleOnClick} />
-      <LinksMenu path="/" label="Log Out" funcOnClick={handleOnClick} />
+      <LinkMenu path="/" label="Home" funcOnClick={handleOnClick} className="margin2" />
+      <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
+      <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} />
+      <LinkMenu path="/profile/scores" label="Achievements" funcOnClick={handleOnClick} className="margin2" />
+      <LinkMenu path="/settings" label="Settings" funcOnClick={handleOnClick} />
+      <LinkMenu path="/" label="Log Out" funcOnClick={handleOnClick} className="margin2" />
     </div>
   );
 };
