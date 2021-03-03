@@ -20,7 +20,7 @@ const LinkMenu = ({
         onClick={funcOnClick}
       >{label}
         <div className="link__triangle">
-          <embed className="triangle" src={triangle} type="image/svg+xml" width="48" height="48" />
+          <embed className="triangle" src={triangle} type="image/svg+xml" width="32" height="32" />
         </div>
       </NavLink>
     </div>
