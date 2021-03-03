@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 // == Import
 import './style.scss';
-import triangle from 'src/assets/svg/interactives/triangle.svg';
 
 // == Composant
 const LinkButton = ({ label, path, className }) => {

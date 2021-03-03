@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
-import triangle from 'src/assets/svg/interactives/triangle.svg';
 
 // == Composant
 const SubmitButton = ({ label, className }) => {

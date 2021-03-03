@@ -26,7 +26,7 @@ const LogIn = ({
         <LinkButton label="Create a new account" path="/register" className="size2" />
       </div>
       <FormUser>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login__columns">
           <div className="login__firstColumn">
             <InputText name="email" type="email" placeholder="Email" value={email} onChange={changeField} />
           </div>

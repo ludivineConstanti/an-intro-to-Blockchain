@@ -15,9 +15,9 @@ const Menu = ({ onClickButtonMenu, isLoggedIn }) => {
         ? (
           <div className="menu">
             <LinkMenu path="/" label="Home" funcOnClick={handleOnClick} className="margin2" />
-            <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} />
             <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
-            <LinkMenu path="/login" label="Login" funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/login" label="Login" funcOnClick={handleOnClick} />
             <LinkMenu path="/register" label="Register" funcOnClick={handleOnClick} />
           </div>
         )
@@ -32,6 +32,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn }) => {
           </div>
         )
     }
+      <div className="menu__border" />
     </>
   );
 };

@@ -14,18 +14,21 @@
 
   &__columns {
     display: grid;
-  grid-template-columns: 1fr 80px 1fr;
+    grid-template-columns: 1fr 80px 1fr;
   }
 
   &__firstColumn {
     grid-column-start: 1;
   }
+
   &__secondColumn {
     grid-column-start: 3;
   }
+
   &__submitButton {
     margin-top: 40px;
   }
+  
 }
 
 .settings {

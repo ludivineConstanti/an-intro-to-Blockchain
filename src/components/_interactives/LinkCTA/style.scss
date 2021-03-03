@@ -14,8 +14,8 @@
 // so if we precise the width, or fill color, and it's already in the svg, 
 // nothing will change
 &__icon {
-  width: 80px;
-  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
 }
 
   &__label {
@@ -28,5 +28,8 @@
 }
 
 .triangle {
-  margin-left: 8px;
+  margin-left: 15px;
+  min-height: 15px;
+  min-width: 15px;
+  stroke-width: 1.4px;
 }
