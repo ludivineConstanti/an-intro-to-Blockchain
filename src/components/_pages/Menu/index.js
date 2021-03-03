@@ -1,15 +1,27 @@
 import React from 'react';
-import './style.scss';
+import PropTypes from 'prop-types';
 
-const Menu = () => (
-  <div className="menu">
-    <a href="/">Home</a>
-    <a href="/quiz/home">Quizzes</a>
-    <a href="/articles">Articles</a>
-    <a href="/profile/scores">Achievements</a>
-    <a href="/profile">Settings</a>
-    <a href="/">Log out</a>
-  </div>
-);
+import './style.scss';
+import LinksMenu from 'src/components/_interactives/LinksMenu';
+
+const Menu = ({ onClickButton }) => {
+  const handleOnClick = () => {
+    onClickButton();
+  };
+  return (
+    <div className="menu">
+      <LinksMenu path="/" label="Home" funcOnClick={handleOnClick} />
+      <LinksMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
+      <LinksMenu path="/articles" label="Articles" funcOnClick={handleOnClick} />
+      <LinksMenu path="/profile/scores" label="Achievements" funcOnClick={handleOnClick} />
+      <LinksMenu path="/settings" label="Settings" funcOnClick={handleOnClick} />
+      <LinksMenu path="/" label="Log Out" funcOnClick={handleOnClick} />
+    </div>
+  );
+};
+
+Menu.propTypes = {
+  onClickButton: PropTypes.func.isRequired,
+};
 
 export default Menu;
