@@ -6,24 +6,38 @@ import PropTypes from 'prop-types';
 import './style.scss';
 import menuImage from 'src/assets/svg/interactives/menu.svg';
 import emptySquare from 'src/assets/svg/interactives/emptySquare.svg';
+import { NavLink } from 'react-router-dom';
 
 // == Composant
-const Header = ({ initials, onClickButton }) => {
-  const handleOnClick = () => {
-    onClickButton();
-    console.log('yo');
+const Header = ({ initials, onClickButtonMenu, isLoggedIn }) => {
+  const handleOnClickMenu = () => {
+    onClickButtonMenu();
   };
 
   return (
     <div className="header">
       <div className="header__menu">
-        <button type="button" className="menu__button" onClick={handleOnClick}>
+        <button type="button" className="menu__button" onClick={handleOnClickMenu}>
           <embed className="svg" src={menuImage} type="image/svg+xml" width="60" height="60" />
         </button>
       </div>
-      <div>
-        <embed src={emptySquare} type="image/svg+xml" width="60" height="60" />
-        <span className="header__username">{initials}</span>
+      <div className="header__profil">
+        {
+        isLoggedIn === true
+          ? (
+            <NavLink to="/profile" label="Profile">
+              <embed className="svg" src={emptySquare} type="image/svg+xml" width="60" height="60" />
+              <span className="header__username">{initials}</span>
+            </NavLink>
+          )
+          : (
+            <NavLink to="/register" label="Profile">
+              <embed className="svg" src={emptySquare} type="image/svg+xml" width="60" height="60" />
+              <span className="header__username">{initials}</span>
+            </NavLink>
+          )
+      }
+
       </div>
     </div>
   );
@@ -35,7 +49,8 @@ Header.defaultProps = {
 
 Header.propTypes = {
   initials: PropTypes.string,
-  onClickButton: PropTypes.func.isRequired,
+  onClickButtonMenu: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
 
 // == Export

@@ -1,7 +1,7 @@
 const initialState = {
   email: 'captain.nemo@herocorp.io',
   password: 'secret',
-  isLoggedIn: true,
+  isLoggedIn: false,
   firstName: 'captain',
   lastName: 'nemo',
 };
