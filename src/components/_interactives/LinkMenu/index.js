@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import './style.scss';
-import triangle from 'src/assets/svg/interactives/triangle.svg';
 
 const LinkMenu = ({
   label,
