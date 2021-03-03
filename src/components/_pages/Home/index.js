@@ -14,7 +14,7 @@ const Home = ({ isLoggedIn }) => (
       <h1><span className="home__subtitle">An introduction to </span><span className="home__title">Blockchain</span></h1>
       <div className="home__getStarted">
         <div><LinkButton path={isLoggedIn === true ? ('/quizzes') : ('/register')} label="Get Started" /></div>
-        <div><LinkButton path={isLoggedIn === true ? ('/profile') : ('/login')} label="I have an account" /></div>
+        <div><LinkButton path={isLoggedIn === true ? ('/settings') : ('/login')} label="I have an account" /></div>
       </div>
     </div>
   </BorderMargin>

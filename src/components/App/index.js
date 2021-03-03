@@ -16,8 +16,8 @@ import Quiz from 'src/components/_pages/Quiz';
 import QuizResult from 'src/components/_pages/QuizResult';
 import Register from 'src/components/_pages/_formUser/Register';
 import LogIn from 'src/components/_pages/_formUser/LogIn';
+import Settings from 'src/components/_pages/_formUser/Settings';
 import Error from 'src/components/_pages/Error';
-import Profile from 'src/components/_pages/Profile';
 import Menu from 'src/containers/_pages/Menu';
 
 // == Composant
@@ -56,9 +56,9 @@ const App = ({ open }) => (
           <Route path="/register" exact>
             <Register />
           </Route>
-          {/* Page profile */}
-          <Route path="/profile" exact>
-            <Profile />
+          {/* Page de settings du profile */}
+          <Route path="/settings" exact>
+            <Settings />
           </Route>
           {/* 404 error */}
           <Route>

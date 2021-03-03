@@ -12,21 +12,20 @@ import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 const Login = () => (
   <div className="login">
     <div className="login__login">
-      <LinkButton label="Log in" path="/login" className="size2" />
+      <LinkButton label="Create a new account" path="/register" className="size2" />
     </div>
     <FormUser>
-      <div className="login__firstColumn">
-        <InputText type="text" value="First Name" />
-        <InputText type="text" value="Family Name" />
-      </div>
-      <div className="login__secondColumn">
-        <InputText type="password" value="Password" />
-        <InputText type="password" value="Password confirmation" />
-        <InputText type="email" value="Your email address" />
-        <div className="login__submitButton">
-          <SubmitButton label="Create account" />
+      <form>
+        <div className="login__firstColumn">
+          <InputText type="email" label="email address" />
         </div>
-      </div>
+        <div className="login__secondColumn">
+          <InputText type="password" label="Password" />
+          <div className="login__submitButton">
+            <SubmitButton label="Log in" />
+          </div>
+        </div>
+      </form>
     </FormUser>
   </div>
 );

@@ -10,7 +10,7 @@
     letter-spacing: fontSizes.$textKerningDesktop;
   }
 
-  & input {
+  & input::placeholder {
     color: rgba($color: white, $alpha: 0.5)
   }
 }
