@@ -13,7 +13,7 @@ const FormUser = ({ children }) => (
 );
 
 FormUser.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 // == Export
