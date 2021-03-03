@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="60"
+   height="60"
+   fill="white"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="close_menu.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <style
+     id="style837"></style>
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#FFFFFF"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="10.017346"
+     inkscape:cx="25.117153"
+     inkscape:cy="29.298273"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     d="M55.654 0H40.25v4h16v16h4V4.596L55.654 0zM.25 20V4.596L4.846 0H20.25v4h-16v16h-4zm0 35.404L4.846 60H20.25v-4h-16V40h-4v15.404zM56.25 40v16h-16v4h15.404l4.596-4.596V40h-4z"
+     fill="#fff"
+     id="path2" />
+  <path
+     d="M13.277 6.489l17.47 20.864L46.22 6.589l-5.022 13.198 12.608-5.512-21.263 14.974 21.063 16.571-8.008-.431.721 8.217-15.174-21.962-14.874 22.461 1.408-8.189-11.59 1.999 23.359-18.368-23.16-16.072 11.722 4.042z"
+     fill="#white"
+     stroke="#white"
+     id="path4" />
+</svg>
