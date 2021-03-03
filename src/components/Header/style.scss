@@ -7,6 +7,7 @@
   display: flex;
   justify-content: space-between;
   background-color: transparent;
+  pointer-events: none;
 
   &__username {
     font-size: 20px;
@@ -14,6 +15,9 @@
     position: absolute;
     top: 20px;
     right: 17px;
+  }
+  &__menu, &__profil {
+    pointer-events: all;
   }
 }
 .svg {

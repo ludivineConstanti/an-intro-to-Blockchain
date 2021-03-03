@@ -57,6 +57,7 @@ Header.propTypes = {
   initials: PropTypes.string,
   onClickButtonMenu: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  open: PropTypes.bool.isRequired,
 };
 
 // == Export
