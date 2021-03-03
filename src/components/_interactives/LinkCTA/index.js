@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 // == Import
@@ -32,10 +32,10 @@ const LinkCTA = ({ category, quiz }) => (
   </>
 );
 
-/* ButtonSmall.propTypes = {
-  label: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-}; */
+LinkCTA.propTypes = {
+  category: PropTypes.number.isRequired,
+  quiz: PropTypes.number.isRequired,
+};
 
 // == Export
 export default LinkCTA;

@@ -1,6 +1,5 @@
 // == Import npm
 import React from 'react';
-import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -19,10 +18,6 @@ const FormQuestion = () => (
     <SubmitButton label="Submit" />
   </div>
 );
-
-/* CategoryQuiz.propTypes = {
-  label: PropTypes.string.isRequired,
-}; */
 
 // == Export
 export default FormQuestion;
