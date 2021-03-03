@@ -2,39 +2,78 @@
 @use 'src/styles/fontSizes';
 @use 'src/styles/breakpoints';
 
+// to remember => DO NOT use div to position elements in the header
+// otherwise blocks the other elements under it
+// (even if a background is transparent, if its z-index is above the other one
+// the elements under will not ba clickable
+
 .header {
-  position: fixed;
-  margin: margins.$outsideBorderMobile;
-  width: margins.$widthOutsideBorderMobile;
-  background-color: transparent;
-  display: flex;
-  justify-content: flex-end;
+
+  &__blackbox {
+    position: fixed;
+    background-color: black;
+    width: 100vw;
+    height: margins.$outsideBorderMobile;
+    left: 0;
+
+    &--top {
+      top: 0;
+    }
+
+    &--bottom {
+      bottom: 0;
+    }
+  }
+
+  &__buttonTL, &__buttonTR {
+    position: fixed;
+    top: margins.$outsideBorderMobile;
+  }
+
+  &__buttonTL {
+    right: margins.$outsideBorderMobile;
+    //right: 0;
+  }
   
-  &__svgMenu, &__svgSettings, &__username {
+  &__svgTL, &__svgTR, &__username {
     pointer-events: none;
   }
-  &__svgSettings, &__username {
+  &__svgTR, &__username {
     display: none;
   }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
   .header {
-    margin: margins.$outsideBorderDesktop;
-    width: margins.$widthOutsideBorderDesktop;
-    display: flex;
-    justify-content: space-between;
+
+    &__blackbox {
+      height: 0;
+      width: 0;
+      display: none;
+    }
+
+    &__buttonTL, &__buttonTR {
+      top: margins.$outsideBorderDesktop;
+    }
   
-    &__svgSettings, &__username {
+    &__buttonTL {
+      left: margins.$outsideBorderDesktop;
+    }
+  
+    &__buttonTR {
+      right: margins.$outsideBorderDesktop;
+    }
+  
+    &__svgTR, &__username {
       display: block;
     }
 
     &__username {
       font-size: fontSizes.$labelS2Desktop;
       font-weight: bold;
-      position: absolute;
-      top: 20px;
-      right: 17px;
+      position: relative;
+      top: -40px;
+      right: -17px;
     }
   }
 }

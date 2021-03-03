@@ -1,8 +1,35 @@
 @use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
 
 .linkCTA {
   display: flex;
   align-items: center;
+  margin-bottom: 40px;
+  z-index: 10;
+
+  &__icon {
+    min-width: 80px;
+    min-height: 80px;
+  }
+  
+    &__label {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      margin-left: 20px;
+      width: 100%;
+    }
+
+    &__triangle {
+      margin-left: 15px;
+      min-height: 15px;
+      min-width: 15px;
+      stroke-width: 1.4px;
+    }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.linkCTA {
   font-size: fontSizes.$textDesktop;
   letter-spacing: fontSizes.$textKerningDesktop;
   margin-bottom: 40px;
@@ -25,11 +52,12 @@
     margin-left: 20px;
     width: 100%;
   }
-}
 
-.triangle {
-  margin-left: 15px;
-  min-height: 15px;
-  min-width: 15px;
-  stroke-width: 1.4px;
+  &__triangle {
+    margin-left: 15px;
+    min-height: 15px;
+    min-width: 15px;
+    stroke-width: 1.4px;
+  }
+}
 }
