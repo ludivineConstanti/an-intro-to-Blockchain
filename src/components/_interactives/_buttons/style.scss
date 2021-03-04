@@ -41,10 +41,6 @@
   }
 }
 
-.linkButton::hover, .submitButton::hover {
-  fill: red;
-}
-
 @media only screen and (min-width: breakpoints.$desktop) {
   .linkButton, .submitButton {
     font-size: fontSizes.$labelS2Desktop;
