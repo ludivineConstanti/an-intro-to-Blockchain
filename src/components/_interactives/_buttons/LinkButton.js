@@ -33,12 +33,13 @@ const LinkButton = ({
 
 LinkButton.defaultProps = {
   className: 'size1',
+  path: '',
   onClickLink: () => {},
 };
 
 LinkButton.propTypes = {
   label: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string,
   className: PropTypes.string,
   onClickLink: PropTypes.func,
 };
