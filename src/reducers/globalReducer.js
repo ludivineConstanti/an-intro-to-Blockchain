@@ -1,8 +1,9 @@
-import { TOGGLE_MENU } from '../actions/userActions';
+import { TOGGLE_MENU, CHANGE_LOADING_STATE } from '../actions/userActions';
 
 const initialState = {
   language: 'english',
   open: false,
+  loading: false,
 };
 
 export default (state = initialState, action = {}) => {
@@ -11,6 +12,15 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         open: !state.open,
+      };
+    }
+    case CHANGE_LOADING_STATE: {
+      return {
+        ...state,
+        infos: {
+          ...state.infos,
+          isLoggedIn: true,
+        },
       };
     }
     default:
