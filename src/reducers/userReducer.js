@@ -1,8 +1,8 @@
 import { CHANGE_VALUE, SAVE_USER, LOGOUT } from 'src/actions/userActions';
 
 const initialState = {
-  email: '',
-  password: '',
+  email: 'azerty@oclock.io',
+  password: 'lesuperpasswordA45',
   name: '',
   infos: {
     isLoggedIn: false,

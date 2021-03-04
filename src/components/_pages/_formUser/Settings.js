@@ -11,9 +11,8 @@ import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
-const Settings = ({ isLogged, handleLogout }) => {
-  const handleOnClick = (event) => {
-    event.preventDefault();
+const Settings = ({ handleLogout }) => {
+  const handleOnClick = () => {
     handleLogout();
   };
   return (
@@ -21,7 +20,7 @@ const Settings = ({ isLogged, handleLogout }) => {
       <TitlePage label="Settings" subtitle="Firstname name" />
       <FormUser>
         <div className="settings__buttonS2">
-          <LinkButton label="Sign out" onClickLink={handleOnClick} />
+          <LinkButton path="/logout" label="Sign out" onClickLink={handleOnClick} />
         </div>
         <div className="settings__columns">
           <div className="settings__firstColumn">
@@ -46,12 +45,7 @@ const Settings = ({ isLogged, handleLogout }) => {
 };
 
 Settings.propTypes = {
-  isLogged: PropTypes.bool,
   handleLogout: PropTypes.func.isRequired,
-};
-
-Settings.defaultProps = {
-  isLogged: false,
 };
 
 // == Export
