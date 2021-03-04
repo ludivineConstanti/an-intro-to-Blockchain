@@ -16,7 +16,7 @@ import Quiz from 'src/components/_pages/Quiz';
 import QuizResult from 'src/components/_pages/QuizResult';
 import Register from 'src/components/_pages/_formUser/Register';
 import LogIn from 'src/containers/_pages/_formUser/LogIn';
-import Settings from 'src/components/_pages/_formUser/Settings';
+import Settings from 'src/containers/_pages/_formUser/Settings';
 import Error from 'src/components/_pages/Error';
 import Menu from 'src/containers/_pages/Menu';
 
