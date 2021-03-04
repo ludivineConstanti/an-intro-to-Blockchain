@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 
 // == Composant
-const LinkButton = ({ label, path, className }) => {
+const LinkButton = ({ label, path, className, onClickLink }) => {
   const classDiv = `linkButton linkButton--${className}`;
   const classTriangle = `linkButton__triangle linkButton__triangle--${className}`;
   return (
     <div className={classDiv}>
       <Link
         to={path}
+        onClick={onClickLink}
       >{label}
         <div className={classTriangle}>
           <svg viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
@@ -27,12 +28,14 @@ const LinkButton = ({ label, path, className }) => {
 
 LinkButton.defaultProps = {
   className: 'size1',
+  onClickLink: () => {},
 };
 
 LinkButton.propTypes = {
   label: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   className: PropTypes.string,
+  onClickLink: PropTypes.func,
 };
 
 // == Export
