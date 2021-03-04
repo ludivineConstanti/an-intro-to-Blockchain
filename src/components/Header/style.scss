@@ -28,6 +28,7 @@
   &__buttonTL, &__buttonTR {
     position: fixed;
     top: margins.$outsideBorderMobile;
+    z-index: 20;
   }
 
   &__buttonTL {
