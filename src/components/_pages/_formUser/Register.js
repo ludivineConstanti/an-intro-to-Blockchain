@@ -16,11 +16,11 @@ const Register = () => (
     </div>
     <FormUser>
       <form className="register__columns">
-        <div className="register__firstColumn">
+        <div className="register__column">
           <InputText type="text" placeholder="First Name" />
           <InputText type="text" placeholder="Family Name" />
         </div>
-        <div className="register__secondColumn">
+        <div className="register__column">
           <InputText type="password" placeholder="Password" />
           <InputText type="password" placeholder="Password confirmation" />
           <InputText type="email" placeholder="Your email address" />
