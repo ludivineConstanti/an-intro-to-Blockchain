@@ -20,8 +20,11 @@ FormUser.defaultProps = {
 };
 
 FormUser.propTypes = {
-  children: PropTypes.object.isRequired,
-  className: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]).isRequired,
+  className: PropTypes.string,
 };
 
 // == Export

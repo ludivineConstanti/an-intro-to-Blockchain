@@ -32,7 +32,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
             <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
             <LinkMenu path="/profile/scores" label="Achievements" funcOnClick={handleOnClick} className="margin2" />
             <LinkMenu path="/settings" label="Settings" funcOnClick={handleOnClick} />
-            <LinkMenu path="/" label="Sign Out" funcOnClick={handleOnLogout} className="margin2" />
+            <LinkMenu path="/logout" label="Sign Out" funcOnClick={handleOnLogout} className="margin2" />
           </div>
         )
     }
@@ -44,6 +44,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
 Menu.propTypes = {
   onClickButtonMenu: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  handleLogout: PropTypes.func.isRequired,
 };
 
 export default Menu;

@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  Redirect,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -21,7 +22,7 @@ import Error from 'src/components/_pages/Error';
 import Menu from 'src/containers/_pages/Menu';
 
 // == Composant
-const App = ({ open }) => (
+const App = ({ open, isLoggedIn }) => (
   <div className="app">
     <Frame />
     <Header />
@@ -49,7 +50,7 @@ const App = ({ open }) => (
           </Route>
           {/* Login Page */}
           <Route path="/login" exact>
-            <LogIn />
+            {isLoggedIn ? <Redirect to="/" /> : <LogIn />}
           </Route>
           {/* Register Page */}
           <Route path="/register" exact>
@@ -58,6 +59,9 @@ const App = ({ open }) => (
           {/* Page de settings du profile */}
           <Route path="/settings" exact>
             <Settings />
+          </Route>
+          <Route path="/logout" exact>
+            <Redirect to="/" />
           </Route>
           {/* 404 error */}
           <Route>
@@ -73,6 +77,7 @@ const App = ({ open }) => (
 
 App.propTypes = {
   open: PropTypes.bool.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
 // == Export
 export default App;

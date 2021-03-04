@@ -31,14 +31,16 @@ const InputText = ({
 
 InputText.defaultProps = {
   value: '',
+  onChange: () => {},
+  name: '',
 };
 
 InputText.propTypes = {
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  name: PropTypes.string,
 };
 
 // == Export

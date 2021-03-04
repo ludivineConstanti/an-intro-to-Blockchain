@@ -7,7 +7,12 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 
 // == Composant
-const LinkButton = ({ label, path, className, onClickLink }) => {
+const LinkButton = ({
+  label,
+  path,
+  className,
+  onClickLink,
+}) => {
   const classDiv = `linkButton linkButton--${className}`;
   const classTriangle = `linkButton__triangle linkButton__triangle--${className}`;
   return (
@@ -28,12 +33,13 @@ const LinkButton = ({ label, path, className, onClickLink }) => {
 
 LinkButton.defaultProps = {
   className: 'size1',
+  path: '',
   onClickLink: () => {},
 };
 
 LinkButton.propTypes = {
   label: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string,
   className: PropTypes.string,
   onClickLink: PropTypes.func,
 };
