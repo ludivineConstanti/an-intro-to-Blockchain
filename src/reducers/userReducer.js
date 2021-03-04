@@ -1,12 +1,13 @@
-import { CHANGE_VALUE, LOGIN } from 'src/actions/userActions';
+import { CHANGE_VALUE, LOGIN, CHANGE_LOADING_STATE } from 'src/actions/userActions';
 
 const initialState = {
   email: '',
   password: '',
   isLoggedIn: false,
-  firstName: 'captain',
-  lastName: 'nemo',
+  firstName: '',
+  lastName: '',
   name: '',
+  loading: false,
 };
 
 export default (state = initialState, action = {}) => {
@@ -18,6 +19,12 @@ export default (state = initialState, action = {}) => {
       };
     }
     case LOGIN: {
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+    }
+    case CHANGE_LOADING_STATE: {
       return {
         ...state,
         isLoggedIn: true,

@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { LOGIN } from 'src/actions/userActions';
+import { SEND_LOGIN, login, changeLoadingState } from 'src/actions/userActions';
 
 const baseUrl = 'https://apov6.herokuapp.com/v1';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOGIN: {
+    case SEND_LOGIN: {
+      store.dispatch(changeLoadingState(true));
       // const state = store.getState();
       // axios.get(`${baseUrl}/quizzes/en`, {
       //   email: state.email,
@@ -13,11 +14,13 @@ const user = (store) => (next) => (action) => {
       axios.get(`${baseUrl}/quizzes/en`)
         .then((response) => {
           console.log('response1', response);
-          response.statusText === 'OK' && console.log('truc mais ça marche');
-          // response.statusText === 'OK' && ;
+          if (response.statusText === 'OK') {
+            console.log('Connexion réussi');
+            store.dispatch(login());
+          }
         })
-        .catch((error) => {
-          console.log(error);
+        .finally(() => {
+          store.dispatch(changeLoadingState(false));
         });
       break;
     }
