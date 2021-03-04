@@ -1,9 +1,18 @@
 @use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
 
 .titleCategory {
-  font-size: fontSizes.$titleS2Desktop;
-  letter-spacing: fontSizes.$titleS2KerningDesktop;
+  font-size: fontSizes.$titleS2Mobile;
+  letter-spacing: fontSizes.$titleS2KerningMobile;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 40px;
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.titleCategory {
+  font-size: fontSizes.$titleS2Desktop;
+  letter-spacing: fontSizes.$titleS2KerningDesktop;
+  margin-bottom: 40px;
+}
 }

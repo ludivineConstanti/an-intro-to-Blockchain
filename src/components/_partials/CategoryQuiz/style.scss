@@ -1,5 +1,7 @@
+@use 'src/styles/breakpoints';
+
+@media only screen and (min-width: breakpoints.$desktop) {
 .categoryQuiz {
-  
   &__groupLinks {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -13,4 +15,5 @@
     display: grid;
     grid-template-columns: repeat(3, 4fr);
   }
+}
 }
