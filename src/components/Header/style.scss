@@ -15,6 +15,7 @@
     width: 100vw;
     height: margins.$outsideBorderMobile;
     left: 0;
+    z-index: 20;
 
     &--top {
       top: 0;

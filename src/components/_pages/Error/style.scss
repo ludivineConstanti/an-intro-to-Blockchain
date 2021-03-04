@@ -1,36 +1,67 @@
 @use 'src/styles/fontSizes';
 @use 'src/styles/margins';
+@use 'src/styles/breakpoints';
 
 .error {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 0 margins.$borderDesktop 0 margins.$borderDesktop;
+  height: 100vh;
+  width: 100vw;
+  padding: 0 margins.$borderDesktop 0 margins.$borderMobile;
+  text-align: center;
   &__title {
-    font-size: fontSizes.$titleS1Desktop;
-    letter-spacing: fontSizes.$titleS1KerningDesktop;
+    font-size: fontSizes.$titleS1Mobile;
+    letter-spacing: fontSizes.$titleS1KerningMobile;
     font-weight: bold;
     text-transform: uppercase;
   }
   &__subtitle {
-    font-size: fontSizes.$labelS1Desktop;
-    letter-spacing: fontSizes.$labelS1KerningDesktop;
+    font-size: fontSizes.$labelS1Mobile;
+    letter-spacing: fontSizes.$labelS1KerningMobile;
     font-weight: normal;
     text-transform: none;
   }
 
   &__redirectLink1, &__redirectLink2 {
-    position: absolute;
-    bottom: 120px;
+    position: fixed;
+    bottom: margins.$borderMobile;
   }
 
   &__redirectLink1{
-    left: 120px;
+    left: margins.$borderMobile;
   }
 
   &__redirectLink2{
-    right: 120px;
+    right: margins.$borderMobile;
   }
   
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .error {
+    padding: 0 margins.$borderDesktop 0 margins.$borderDesktop;
+    &__title {
+      font-size: fontSizes.$titleS1Desktop;
+      letter-spacing: fontSizes.$titleS1KerningDesktop;
+    }
+    &__subtitle {
+      font-size: fontSizes.$labelS1Desktop;
+      letter-spacing: fontSizes.$labelS1KerningDesktop;
+    }
+  
+    &__redirectLink1, &__redirectLink2 {
+      bottom: 120px;
+    }
+  
+    &__redirectLink1{
+      left: 120px;
+    }
+  
+    &__redirectLink2{
+      right: 120px;
+    }
+    
+  }
 }
