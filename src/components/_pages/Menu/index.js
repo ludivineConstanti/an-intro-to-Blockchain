@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 import './style.scss';
 import LinkMenu from 'src/components/_interactives/LinkMenu';
 
-const Menu = ({ onClickButtonMenu, isLoggedIn }) => {
+const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
   const handleOnClick = () => {
     onClickButtonMenu();
+  };
+  const handleOnLogout = (event) => {
+    event.preventDefault();
+    handleLogout();
   };
   return (
     <>
@@ -28,7 +32,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn }) => {
             <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
             <LinkMenu path="/profile/scores" label="Achievements" funcOnClick={handleOnClick} className="margin2" />
             <LinkMenu path="/settings" label="Settings" funcOnClick={handleOnClick} />
-            <LinkMenu path="/" label="Sign Out" funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/" label="Sign Out" funcOnClick={handleOnLogout} className="margin2" />
           </div>
         )
     }
