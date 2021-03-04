@@ -1,12 +1,14 @@
-import { CHANGE_VALUE, LOGIN } from 'src/actions/userActions';
+import { CHANGE_VALUE, SAVE_USER, LOGOUT } from 'src/actions/userActions';
 
 const initialState = {
   email: '',
   password: '',
-  isLoggedIn: false,
-  firstName: 'captain',
-  lastName: 'nemo',
   name: '',
+  infos: {
+    isLoggedIn: false,
+    firstname: '',
+    lastname: '',
+  },
 };
 
 export default (state = initialState, action = {}) => {
@@ -17,10 +19,22 @@ export default (state = initialState, action = {}) => {
         [action.name]: action.value,
       };
     }
-    case LOGIN: {
+    case SAVE_USER: {
       return {
         ...state,
-        isLoggedIn: true,
+        email: '',
+        password: '',
+        infos: {
+          ...state.infos,
+          isLoggedIn: true,
+          firstname: action.firstname,
+          lastname: action.lastname,
+        },
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...initialState,
       };
     }
     default:

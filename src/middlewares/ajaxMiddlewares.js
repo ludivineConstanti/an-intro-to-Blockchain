@@ -1,23 +1,24 @@
 import axios from 'axios';
-import { LOGIN } from 'src/actions/userActions';
+import { LOGIN_REQUEST, saveUser, changeLoadingState } from 'src/actions/userActions';
 
-const baseUrl = 'https://apov6.herokuapp.com/v1';
+const baseUrl = 'https://apov7.herokuapp.com';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOGIN: {
-      // const state = store.getState();
-      // axios.get(`${baseUrl}/quizzes/en`, {
-      //   email: state.email,
-      //   password: state.password,
-      axios.get(`${baseUrl}/quizzes/en`)
+    case LOGIN_REQUEST: {
+      store.dispatch(changeLoadingState(true));
+      const state = store.getState();
+      axios.post(`${baseUrl}/login`, {
+        email: state.user.email,
+        password: state.user.password,
+      })
         .then((response) => {
-          console.log('response1', response);
-          response.statusText === 'OK' && console.log('truc mais ça marche');
-          // response.statusText === 'OK' && ;
+          if (response.statusText === 'OK') {
+            store.dispatch(saveUser(response.data.firstname, response.data.lastname));
+          }
         })
-        .catch((error) => {
-          console.log(error);
+        .finally(() => {
+          store.dispatch(changeLoadingState(false));
         });
       break;
     }
