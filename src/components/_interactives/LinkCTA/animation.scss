@@ -1,6 +1,15 @@
 @use 'src/styles/animations';
+@use 'src/styles/breakpoints';
 
+@media only screen and (min-width: breakpoints.$desktop) {
 .linkCTA {
+
+  &:hover {
+    transition-duration: animations.$tDurationG;
+    transition-timing-function: animations.$tTimingFG;
+    width: calc(#{animations.$dLinkCTAWidth} + #{animations.$dLinkCTAHoverOffset} * 2 );
+    margin-right: calc(#{animations.$dLinkCTAMarginRight} - #{animations.$dLinkCTAHoverOffset} * 2 + 5px);
+  }
   
   &:hover .linkCTA {
     &__borders, &__triangle, &__icon, &__label {
@@ -27,7 +36,7 @@
   }
   
   &__label {
-    //margin-left: 40px; 
+    margin-left: calc(#{animations.$dLinkCTALabelMarginLeft} + #{animations.$dLinkCTAHoverOffset}); 
   }
   
   &__triangle {
@@ -36,4 +45,5 @@
 
   }
 
+}
 }

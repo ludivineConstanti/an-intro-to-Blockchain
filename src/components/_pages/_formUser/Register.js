@@ -39,11 +39,11 @@ const Register = ({
       </div>
       <FormUser>
         <form onSubmit={handleSubmit} className="register__columns">
-          <div className="register__firstColumn">
+          <div className="register__column">
             <InputText name="firstname" type="text" placeholder="First Name" value={firstname} onChange={changeField} />
             <InputText name="lastname" type="text" placeholder="Family Name" value={lastname} onChange={changeField} />
           </div>
-          <div className="register__secondColumn">
+          <div className="register__column">
             <InputText name="password" type="password" placeholder="Password" value={password} onChange={changeField} />
             <InputText name="controlPassword" type="password" placeholder="Password confirmation" value={controlPassword} onChange={changeField} />
             <div className="password__confirm-error"> </div>
