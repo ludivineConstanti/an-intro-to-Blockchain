@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import './style.scss';
+import './animation.scss';
 
 const LinkMenu = ({
   label,
