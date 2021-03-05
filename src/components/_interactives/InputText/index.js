@@ -12,6 +12,7 @@ const InputText = ({
   value,
   onChange,
   name,
+  className,
 }) => {
   const handleChange = (event) => {
     onChange(event.target.value, name);
@@ -24,6 +25,7 @@ const InputText = ({
         value={value}
         onChange={handleChange}
         name={name}
+        className={className}
       />
     </div>
   );
@@ -33,6 +35,7 @@ InputText.defaultProps = {
   value: '',
   onChange: () => {},
   name: '',
+  className: '',
 };
 
 InputText.propTypes = {
@@ -41,6 +44,7 @@ InputText.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   name: PropTypes.string,
+  className: PropTypes.string,
 };
 
 // == Export
