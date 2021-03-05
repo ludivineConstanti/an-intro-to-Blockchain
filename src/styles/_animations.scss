@@ -11,8 +11,4 @@ $tTimingFG: ease-in-out;
 $dSubmitButtonPadding: 15px;
 $dSubmitButtonBorder: 1.5px;
 
-$dLinkCTAMarginRight: calc((100vw - #{margins.$borderDesktop}) / 16);
-$dLinkCTAWidth: calc(((100vw - #{margins.$borderDesktop}) / 16) * 3);
 $dLinkCTALabelMarginLeft: 20px;
-$dLinkCTATriangleMarginLeft: 15px;
-$dLinkCTAHoverOffset: 20px;

@@ -20,7 +20,7 @@
     // properties that are in the svg have priority over those that are in CSS
     // so if we precise the width, or fill color, and it's already in the svg, 
     // nothing will change
-    &__icon {
+    &__iconDiv {
       min-width: 80px;
       min-height: 80px;
       position: relative;
@@ -45,7 +45,7 @@
     }
 
     &__triangle {
-      margin-left: animations.$dLinkCTATriangleMarginLeft;
+      margin-left: 15px;
       min-height: 15px;
       min-width: 15px;
       stroke-width: 1.4px;
@@ -58,9 +58,9 @@
   letter-spacing: fontSizes.$textKerningDesktop;
   line-height: fontSizes.$textSpacingDesktop;
   // takes 1 columns of the grid
-  margin-right: animations.$dLinkCTAMarginRight;
+  margin-right: calc((100vw - #{margins.$borderDesktop}) / 16);
   // takes 3 columns of the grid
-  width: animations.$dLinkCTAWidth;
+  width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 3);
   min-width: 250px;
   max-width: 500px;
 }
