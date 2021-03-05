@@ -24,7 +24,7 @@ import Menu from 'src/containers/_pages/Menu';
 
 // == Composant
 
-const App = ({ menuOpen, loading }) => (
+const App = ({ menuOpen, loading, isLoggedIn }) => (
   <div className="app">
     <Frame />
     <Header />
@@ -65,7 +65,7 @@ const App = ({ menuOpen, loading }) => (
               <Settings />
             </Route>
             <Route path="/logout" exact>
-            <Redirect to="/" />
+              <Redirect to="/" />
             </Route>
             {/* 404 error */}
             <Route>
@@ -82,6 +82,7 @@ const App = ({ menuOpen, loading }) => (
 App.propTypes = {
   menuOpen: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
 // == Export
 export default App;
