@@ -1,7 +1,9 @@
+
 import {
   CHANGE_VALUE,
   SAVE_USER,
 } from 'src/actions/userActions';
+
 
 const initialState = {
   email: 'azerty@oclock.io',
@@ -25,12 +27,19 @@ export default (state = initialState, action = {}) => {
     case SAVE_USER: {
       return {
         ...state,
+        email: '',
+        password: '',
         infos: {
           ...state.infos,
           isLoggedIn: true,
           firstname: action.firstname,
           lastname: action.lastname,
         },
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...initialState,
       };
     }
     default:

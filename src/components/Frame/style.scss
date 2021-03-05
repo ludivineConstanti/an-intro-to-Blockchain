@@ -3,37 +3,54 @@
 
 
 .frame{
-  position: fixed;
-  margin: margins.$outsideBorderMobile;
-  width: margins.$widthOutsideBorderMobile;
-  height: margins.$heightOutsideBorderMobile;
   z-index: -10;
 
   &__corner{
 
+    &--topRight, &--topLeft, &--bottomRight, &--bottomLeft {
+      position: fixed;
+    }
     &--topRight {
-      position: absolute;
-      top: 0;
-      right: 0;
+      top: margins.$outsideBorderMobile;
+      right: margins.$outsideBorderMobile;
+    }
+    &--topLeft {
+      top: margins.$outsideBorderMobile;
+      left: margins.$outsideBorderMobile;
     }
     &--bottomRight {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: margins.$outsideBorderMobile;
+      right: margins.$outsideBorderMobile;
     }
     &--bottomLeft {
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      bottom: margins.$outsideBorderMobile;
+      left: margins.$outsideBorderMobile;
     }
   }
 
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
+  
 .frame{
-  margin: margins.$outsideBorderDesktop;
-  width: margins.$widthOutsideBorderDesktop;
-  height: margins.$heightOutsideBorderDesktop;
+
+  &__corner{
+    &--topRight {
+      top: margins.$outsideBorderDesktop;
+      right: margins.$outsideBorderDesktop;
+    }
+    &--topLeft {
+      top: margins.$outsideBorderDesktop;
+      left: margins.$outsideBorderDesktop;
+    }
+    &--bottomRight {
+      bottom: margins.$outsideBorderDesktop;
+      right: margins.$outsideBorderDesktop;
+    }
+    &--bottomLeft {
+      bottom: margins.$outsideBorderDesktop;
+      left: margins.$outsideBorderDesktop;
+    }
+  }
 }
 }

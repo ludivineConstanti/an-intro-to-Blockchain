@@ -27,10 +27,10 @@ const LogIn = ({
       </div>
       <FormUser>
         <form onSubmit={handleSubmit} className="login__columns">
-          <div className="login__firstColumn">
+          <div className="login__column">
             <InputText name="email" type="email" placeholder="Email" value={email} onChange={changeField} />
           </div>
-          <div className="login__secondColumn">
+          <div className="login__column">
             <InputText name="password" type="password" placeholder="Password" value={password} onChange={changeField} />
             <div className="login__submitButton">
               <SubmitButton label="Log in" />

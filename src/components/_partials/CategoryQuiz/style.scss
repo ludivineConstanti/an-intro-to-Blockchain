@@ -1,16 +1,26 @@
+@use 'src/styles/breakpoints';
+
 .categoryQuiz {
-  
+  //background-color: yellow;
   &__groupLinks {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
+    display: flex;
+    
   }
   &__linkCTA {
-    padding-bottom: 120px;
     display: flex;
+    justify-content: flex-end;
     flex-wrap: wrap;
-    grid-column-start: 3;
-    grid-column-end: 15;
-    display: grid;
-    grid-template-columns: repeat(3, 4fr);
+    //background-color: red;
+    padding-bottom: 60px;
   }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.categoryQuiz {
+  &__linkCTA {
+    padding-bottom: 120px;
+    padding-left: 12.5%;
+    justify-content: flex-start;
+  }
+}
 }

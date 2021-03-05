@@ -6,14 +6,25 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Composant
-const FormUser = ({ children }) => (
-  <div className="formUser">
-    {children}
-  </div>
-);
+const FormUser = ({ children, className }) => {
+  const classDiv = `formUser formUser--${className}`;
+  return (
+    <div className={classDiv}>
+      {children}
+    </div>
+  );
+};
+
+FormUser.defaultProps = {
+  className: 'default',
+};
 
 FormUser.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]).isRequired,
+  className: PropTypes.string,
 };
 
 // == Export

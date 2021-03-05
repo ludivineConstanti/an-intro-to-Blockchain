@@ -5,6 +5,7 @@ export const SAVE_USER = 'SAVE_USER';
 export const CHANGE_LOADING_STATE = 'CHANGE_LOADING_STATE';
 export const GET_ALL_QUIZZES = 'GET_ALL_QUIZZES';
 export const STOCK_QUIZZES = 'STOCK_QUIZZES';
+export const LOGOUT = 'LOGOUT';
 
 export const toggleMenu = () => ({
   type: TOGGLE_MENU,
@@ -38,4 +39,8 @@ export const getAllQuizzes = () => ({
 export const stockQuizzes = (quizzes) => ({
   type: STOCK_QUIZZES,
   quizzes,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
 });

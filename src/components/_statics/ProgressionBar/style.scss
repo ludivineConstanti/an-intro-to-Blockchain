@@ -1,11 +1,29 @@
+@use 'src/styles/breakpoints';
+@use 'src/styles/margins';
+
 .progressionBar {
-  //background-color: rgba($color: #00ccff, $alpha: 0.5);
   position: absolute;
   width: 100vw;
   display: flex;
   justify-content:center;
-  margin-top: 50px;
+  //margin-top: calc(#{margins.$outsideBorderMobile} - 5px);
+  //z-index: 30;
+  margin-top: 100px;
+
   &__inside {
   display: flex;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .progressionBar {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content:center;
+    margin-top: calc(#{margins.$outsideBorderDesktop} - 10px);
+    &__inside {
+    display: flex;
+    }
   }
 }

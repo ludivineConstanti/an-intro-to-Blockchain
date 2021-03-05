@@ -1,8 +1,17 @@
 @use 'src/styles/margins';
+@use 'src/styles/breakpoints';
 
 .quiz {
   display: flex;
   min-height: 100vh;
   align-items: center;
-  padding: 0 margins.$borderDesktop 0 margins.$borderDesktop;
+  flex-wrap: wrap;
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+
+  .quiz {
+    flex-wrap: nowrap;
+  }
+
 }

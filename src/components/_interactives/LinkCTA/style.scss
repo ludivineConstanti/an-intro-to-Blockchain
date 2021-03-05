@@ -1,35 +1,55 @@
 @use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
+@use 'src/styles/margins';
 
 .linkCTA {
+  //background-color: pink;
+  font-size: fontSizes.$textMobile;
+  letter-spacing: fontSizes.$textKerningMobile;
+  line-height: fontSizes.$textSpacingMobile;
   display: flex;
   align-items: center;
+  margin-bottom: 40px;
+  max-width: 300px;
+  margin-right: 40px;
+  //z-index: 10;
+
+    // svg can have width and height specified directly into them or outside
+    // we want to have them specified in the CSS to be able to resize it
+    // properties that are in the svg have priority over those that are in CSS
+    // so if we precise the width, or fill color, and it's already in the svg, 
+    // nothing will change
+    &__icon {
+      min-width: 80px;
+      min-height: 80px;
+    }
+  
+    &__label {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      margin-left: 20px;
+      width: 100%;
+    }
+
+    &__triangle {
+      margin-left: 15px;
+      min-height: 15px;
+      min-width: 15px;
+      stroke-width: 1.4px;
+    }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.linkCTA {
   font-size: fontSizes.$textDesktop;
   letter-spacing: fontSizes.$textKerningDesktop;
-  margin-bottom: 40px;
-  margin-right: 25%;
-
-// svg can have width and height specified directly into them or outside
-// we want to have them specified in the CSS to be able to resize it
-// properties that are in the svg have priority over those that are in CSS
-// so if we precise the width, or fill color, and it's already in the svg, 
-// nothing will change
-&__icon {
-  min-width: 80px;
-  min-height: 80px;
+  line-height: fontSizes.$textSpacingDesktop;
+  // takes 1 columns of the grid
+  margin-right: calc((100vw - #{margins.$borderDesktop}) / 16);
+  // takes 3 columns of the grid
+  width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 3);
+  min-width: 250px;
+  max-width: 500px;
 }
-
-  &__label {
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
-    margin-left: 20px;
-    width: 100%;
-  }
-}
-
-.triangle {
-  margin-left: 15px;
-  min-height: 15px;
-  min-width: 15px;
-  stroke-width: 1.4px;
 }

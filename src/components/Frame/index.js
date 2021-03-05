@@ -7,9 +7,11 @@ import './style.scss';
 // == Composant
 const Frame = () => (
   <div className="frame">
-    <svg className="frame__corner--topLeft" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.5 20.5V5.09619L5.09619 0.5H20.5V4.5H4.5V20.5H0.5Z" fill="white" />
-    </svg>
+    <div className="frame__corner--topLeft">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.5 20.5V5.09619L5.09619 0.5H20.5V4.5H4.5V20.5H0.5Z" fill="white" />
+      </svg>
+    </div>
     <svg className="frame__corner--topRight" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0.5 0.499999L15.9038 0.5L20.5 5.09619L20.5 20.5L16.5 20.5L16.5 4.5L0.5 4.5L0.5 0.499999Z" fill="white" />
     </svg>
