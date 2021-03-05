@@ -4,7 +4,7 @@ import { toggleMenu, getAllQuizzes } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   quizzesList: state.quizzes.quizzesList,
-  isLoggedIn: state.user.infos.isLoggedIn,
+  loading: state.global.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
