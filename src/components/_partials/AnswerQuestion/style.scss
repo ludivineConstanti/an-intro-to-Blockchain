@@ -1,18 +1,35 @@
 @use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
+@use 'src/styles/margins';
 
 .answerQuestion {
-  width: 50%;
+  width: calc(100vw - #{margins.$borderMobile} * 2);
+  margin: 40px margins.$borderMobile 80px margins.$borderMobile;
   &__justification {
     margin-bottom: 40px;
-    font-size: fontSizes.$textDesktop;
-    letter-spacing: fontSizes.$textKerningDesktop;
-    line-height: fontSizes.$textSpacingDesktop;
+    font-size: fontSizes.$textMobile;
+    letter-spacing: fontSizes.$textKerningMobile;
+    line-height: fontSizes.$textSpacingMobile;
     column-count: 2;
     column-gap: 40px;
   }
   &__links {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .answerQuestion {
+    width: calc(50vw - #{margins.$borderDesktop} -20px);
+    margin-right: margins.$borderDesktop;
+    &__justification {
+      margin: 0 0 40px 0;
+      font-size: fontSizes.$textDesktop;
+      letter-spacing: fontSizes.$textKerningDesktop;
+      line-height: fontSizes.$textSpacingDesktop;
+      min-width: 500px;
+    }
   }
 }

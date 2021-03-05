@@ -13,6 +13,7 @@
     &--topRight {
       top: margins.$outsideBorderMobile;
       right: margins.$outsideBorderMobile;
+      display: none;
     }
     &--topLeft {
       top: margins.$outsideBorderMobile;
@@ -33,18 +34,17 @@
 @media only screen and (min-width: breakpoints.$desktop) {
   
 .frame{
-  margin: margins.$outsideBorderDesktop;
-  width: margins.$widthOutsideBorderDesktop;
-  height: margins.$heightOutsideBorderDesktop;
 
   &__corner{
     &--topRight {
       top: margins.$outsideBorderDesktop;
       right: margins.$outsideBorderDesktop;
+      display: block;
     }
     &--topLeft {
       top: margins.$outsideBorderDesktop;
       left: margins.$outsideBorderDesktop;
+      display: none;
     }
     &--bottomRight {
       bottom: margins.$outsideBorderDesktop;

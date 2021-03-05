@@ -1,20 +1,40 @@
 @use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
+@use 'src/styles/margins';
 
 .formQuestion {
   border: 2px solid rgba(255,255,255,.25);
   background-color: rgba(0,0,0,.25);
-  padding: 80px;
-  margin-right: 80px;
-  width: 50%;
+  padding: 40px;
+  width: calc(100vw - #{margins.$borderMobile} * 2);
+  margin: 160px margins.$borderMobile 0 margins.$borderMobile;
 
   &__text {
-    font-size: fontSizes.$labelS1Desktop;
-    letter-spacing: fontSizes.$labelS1KerningDesktop;
+    font-size: fontSizes.$labelS1Mobile;
+    letter-spacing: fontSizes.$labelS1KerningMobile;
   }
 
   &__instruction {
-    font-size: fontSizes.$textDesktop;
-    letter-spacing: fontSizes.$textKerningDesktop;
+    font-size: fontSizes.$textMobile;
+    letter-spacing: fontSizes.$textKerningMobile;
     margin-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .formQuestion {
+    margin: 0 40px 0 0;
+    width: calc(50vw - #{margins.$borderDesktop} -20px);
+    padding: 80px;
+    margin-left: margins.$borderDesktop;
+    &__text {
+      font-size: fontSizes.$labelS1Desktop;
+      letter-spacing: fontSizes.$labelS1KerningDesktop;
+    }
+  
+    &__instruction {
+      font-size: fontSizes.$textDesktop;
+      letter-spacing: fontSizes.$textKerningDesktop;
+    }
   }
 }

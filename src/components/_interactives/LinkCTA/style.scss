@@ -38,6 +38,14 @@
       min-width: 15px;
       stroke-width: 1.4px;
     }
+
+    &__borders {
+      opacity: 0.25;
+    }
+
+    &:hover &__borders {
+      opacity: 0;
+    }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {

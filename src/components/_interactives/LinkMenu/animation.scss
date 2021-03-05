@@ -1,0 +1,24 @@
+/*@use 'src/styles/breakpoints';
+@use 'src/styles/animations';
+
+@media only screen and (min-width: breakpoints.$desktop) {*/
+
+/*.linkMenu {
+
+  transition-duration: animations.$tDurationG;
+  transition-timing-function: animations.$tTimingFG;
+
+  &:hover, &:last-child:hover {
+  width: 75%;
+
+  &:hover &__triangle {
+    fill: white;
+    stroke-width: 5px;
+  }
+
+  &:hover, &--margin2 {
+    width: 100%;
+  }
+}
+}*/
+/*}*/

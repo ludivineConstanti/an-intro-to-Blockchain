@@ -7,7 +7,7 @@ import {
   saveRegister,
 } from 'src/actions/userActions';
 
-const baseUrl = 'https://apov7.herokuapp.com';
+import { baseUrl } from 'src/middlewares/baseUrl';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {

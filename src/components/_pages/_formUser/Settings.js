@@ -18,28 +18,38 @@ const Settings = ({ handleLogout }) => {
   return (
     <div className="settings">
       <TitlePage label="Settings" subtitle="Firstname name" />
-      <FormUser>
-        <div className="settings__buttonS2">
-          <LinkButton path="/logout" label="Sign out" onClickLink={handleOnClick} />
-        </div>
-        <div className="settings__columns">
-          <div className="settings__firstColumn">
-            <form>
+      <div className="settings__forms">
+        <FormUser className="marginB">
+          <div className="settings__column">
+            <LinkButton path="/logout" label="Sign out" onClickLink={handleOnClick} />
+          </div>
+        </FormUser>
+        <FormUser className="marginB">
+          <form className="settings__columns">
+            <div className="settings__column">
               <InputText type="email" placeholder="Old password" />
               <InputText type="email" placeholder="New password" />
+            </div>
+            <div className="settings__column">
               <InputText type="email" placeholder="Confirm new password" />
-              <SubmitButton label="Change my password" className="size2" />
-            </form>
-          </div>
-          <div className="settings__secondColumn">
-            <form>
+              <SubmitButton label="Change my password" />
+            </div>
+          </form>
+        </FormUser>
+        <FormUser className="marginB">
+          <form className="settings__columns">
+            <div className="settings__column">
               <InputText type="password" placeholder="New email address" />
-              <SubmitButton label="Change my email" className="size2" />
-            </form>
-            <div className="settings__buttonS1"><LinkButton label="Delete my account" className="size2" /></div>
-          </div>
-        </div>
-      </FormUser>
+            </div>
+            <div className="settings__column">
+              <SubmitButton label="Change my email" />
+            </div>
+          </form>
+        </FormUser>
+        <FormUser className="marginB">
+          <div className="settings__buttonS1"><LinkButton label="Delete my account" /></div>
+        </FormUser>
+      </div>
     </div>
   );
 };

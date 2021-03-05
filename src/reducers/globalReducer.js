@@ -2,7 +2,7 @@ import { TOGGLE_MENU, CHANGE_LOADING_STATE } from '../actions/userActions';
 
 const initialState = {
   language: 'english',
-  open: false,
+  menuOpen: false,
   loading: false,
 };
 
@@ -11,16 +11,13 @@ export default (state = initialState, action = {}) => {
     case TOGGLE_MENU: {
       return {
         ...state,
-        open: !state.open,
+        menuOpen: !state.menuOpen,
       };
     }
     case CHANGE_LOADING_STATE: {
       return {
         ...state,
-        infos: {
-          ...state.infos,
-          isLoggedIn: true,
-        },
+        loading: action.value,
       };
     }
     default:

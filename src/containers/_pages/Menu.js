@@ -3,7 +3,7 @@ import Menu from 'src/components/_pages/Menu';
 import { toggleMenu, logout } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
-  open: state.global.open,
+  menuOpen: state.global.menuOpen,
   isLoggedIn: state.user.infos.isLoggedIn,
 });
 

@@ -1,5 +1,22 @@
+@use 'src/styles/breakpoints';
+
 .formUser{
   background-color: rgba($color: #000000, $alpha: 0.5);
   border: 4px solid rgba($color: #ffffff, $alpha: 0.5);
-  padding: 80px;
+  padding: 40px;
+  padding-right: 0;
+  &--marginB {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .formUser{
+    padding: 80px;
+    padding-right: 0;
+
+    &--marginB {
+      margin-bottom: 40px;
+    }
+  }
 }
