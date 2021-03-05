@@ -1,20 +1,16 @@
 import axios from 'axios';
-import { LOGIN_REQUEST, saveUser, changeLoadingState } from 'src/actions/userActions';
+import { GET_ALL_QUIZZES, changeLoadingState, stockQuizzes } from 'src/actions/userActions';
 
-const baseUrl = 'https://apov7.herokuapp.com';
+import { baseUrl } from 'src/middlewares/baseUrl';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOGIN_REQUEST: {
+    case GET_ALL_QUIZZES: {
       store.dispatch(changeLoadingState(true));
-      const state = store.getState();
-      axios.post(`${baseUrl}/login`, {
-        email: state.user.email,
-        password: state.user.password,
-      })
+      axios.get(`${baseUrl}/en/quizzes`)
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUser(response.data.firstname, response.data.lastname));
+            store.dispatch(stockQuizzes(response.data));
           }
         })
         .finally(() => {

@@ -9,17 +9,18 @@ import { NavLink } from 'react-router-dom';
 
 // == Composant
 const Header = ({
-  initials, onClickButtonMenu, isLoggedIn, open,
+  initials, onClickButtonMenu, isLoggedIn, menuOpen,
 }) => {
   const handleOnClickMenu = () => {
     onClickButtonMenu();
   };
 
   return (
+
     <span className="header">
       <div className="header__blackbox header__blackbox--top" />
       <button type="button" className="header__buttonTL" onClick={handleOnClickMenu}>
-        { open === true
+        { menuOpen === true
           ? (
             <svg className="header__svgTL" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M60.75 4.84619L56.1538 0.25H5.34619L0.75 4.84619V55.6538L5.34619 60.25H56.1538L60.75 55.6538V4.84619Z" fill="black" fillOpacity="0.85" />
@@ -51,7 +52,7 @@ const Header = ({
       </button>
       <div className="header__buttonTR">
         {
-        !open && (
+        !menuOpen && (
         <NavLink to={isLoggedIn ? '/settings' : '/register'} label="Settings">
           <svg className="header__svgTR" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60.75 4.84619L56.1538 0.25H5.34619L0.75 4.84619V55.6538L5.34619 60.25H56.1538L60.75 55.6538V4.84619Z" fill="black" fillOpacity="0.85" />
@@ -81,7 +82,7 @@ Header.propTypes = {
   initials: PropTypes.string,
   onClickButtonMenu: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
-  open: PropTypes.bool.isRequired,
+  menuOpen: PropTypes.bool.isRequired,
 };
 
 // == Export

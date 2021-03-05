@@ -2,10 +2,12 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 
 const mapStateToProps = (state) => ({
-  open: state.global.open,
+  menuOpen: state.global.menuOpen,
+  loading: state.global.loading,
   isLoggedIn: state.user.infos.isLoggedIn,
 });
 
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = () => ({
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
