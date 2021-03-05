@@ -18,7 +18,7 @@
   }
 
   &:active {
-    border-bottom: 1.5px solid rgba($color: #ffffff, $alpha: 0.05);
+    border-bottom: animations.$dSubmitButtonBorder solid rgba($color: #ffffff, $alpha: 0.05);
     color: rgba($color: #ffffff, $alpha: 0.05);
   }
 
@@ -31,8 +31,8 @@
 
 .submitButton {
   &:hover {
-    border: 1.5px solid white;
-    padding: 15px;
+    border: animations.$dSubmitButtonBorder solid white;
+    padding: animations.$dSubmitButtonPadding;
     padding-left: 45px;
   }
 }

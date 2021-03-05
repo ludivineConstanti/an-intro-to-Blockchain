@@ -1,3 +1,5 @@
+@use 'src/styles/margins';
+
 // transitions properties
 // G => general / global
 $tDurationG: 0.25s;
@@ -6,4 +8,7 @@ $tTimingFG: ease-in-out;
 // dimensions (made in variables because they are used both in regular mode
 // and in hover mode (so changing one can break the hover mode)
 // names used are those of the components it is used for
-// $dSubmitButtonPadding:
+$dSubmitButtonPadding: 15px;
+$dSubmitButtonBorder: 1.5px;
+
+$dLinkCTALabelMarginLeft: 20px;

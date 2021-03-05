@@ -1,6 +1,7 @@
 @use 'src/styles/fontSizes';
 @use 'src/styles/breakpoints';
 @use 'src/styles/margins';
+@use 'src/styles/animations';
 
 .linkCTA {
   //background-color: pink;
@@ -19,16 +20,27 @@
     // properties that are in the svg have priority over those that are in CSS
     // so if we precise the width, or fill color, and it's already in the svg, 
     // nothing will change
-    &__icon {
+    &__iconDiv {
       min-width: 80px;
       min-height: 80px;
+      position: relative;
+
+      &__frame {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      &__borders {
+        opacity: 0.25;
+      }
     }
-  
+    
     &__label {
       display: inline-flex;
       align-items: center;
       height: 100%;
-      margin-left: 20px;
+      margin-left: animations.$dLinkCTALabelMarginLeft;
       width: 100%;
     }
 
@@ -37,14 +49,6 @@
       min-height: 15px;
       min-width: 15px;
       stroke-width: 1.4px;
-    }
-
-    &__borders {
-      opacity: 0.25;
-    }
-
-    &:hover &__borders {
-      opacity: 0;
     }
 }
 

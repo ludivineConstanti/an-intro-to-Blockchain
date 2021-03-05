@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
+import './animation.scss';
 
 // == Composant
 const InputText = ({

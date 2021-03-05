@@ -1,0 +1,16 @@
+@use 'src/styles/animations';
+
+.inputText {
+
+  &:hover {
+    transition-duration: animations.$tDurationG;
+    transition-timing-function: animations.$tTimingFG;
+    border-style: solid;
+
+& input::placeholder {
+  color: rgba($color: white, $alpha: 0.75)
+}
+
+  }
+
+}

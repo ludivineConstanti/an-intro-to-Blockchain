@@ -11,6 +11,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
   const handleOnLogout = (event) => {
     event.preventDefault();
     handleLogout();
+    onClickButtonMenu();
   };
   return (
     <>

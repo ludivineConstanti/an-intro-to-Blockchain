@@ -6,14 +6,14 @@ import {
 } from 'src/actions/userActions';
 
 const initialState = {
-  email: 'satanas@oclock.io',
-  password: 'lesuperpasswordA45',
-  controlPassword: 'lesuperpasswordA45',
+  email: 'laforce@gmail.com',
+  password: 'Obiwan12',
+  controlPassword: 'Obiwan12',
   name: '',
   infos: {
     isLoggedIn: false,
-    firstname: 'Michel',
-    lastname: 'Lartignan',
+    firstname: '',
+    lastname: '',
   },
 };
 
@@ -56,6 +56,8 @@ export default (state = initialState, action = {}) => {
         infos: {
           ...state.infos,
           ...state.user,
+          firstname: '',
+          lastname: '',
         },
       };
     }
