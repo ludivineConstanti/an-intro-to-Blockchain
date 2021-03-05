@@ -14,8 +14,10 @@ const AnswerQuestion = () => (
       937 caractères, c'était trop pour ESLint, donc voilà
     </p>
     <div className="answerQuestion__links">
-      <LinkButton label="Learn more" />
-      <LinkButton label="Next" path="/quiz/:id/result" />
+      <LinkButton label="Learn more" path="/" />
+      {/* Si le nombre de question est égale au numéro de la question, switch de lien */}
+      <LinkButton label="Next question" path="?" />
+      <LinkButton label="Results" path="/quiz/:id/result" />
     </div>
   </section>
 );
