@@ -1,0 +1,39 @@
+@use 'src/styles/animations';
+
+.linkCTA {
+  
+  &:hover .linkCTA {
+    &__borders, &__triangle, &__icon, &__label {
+  // need to put the animation transition on the element itself
+  // otherwise not taken into account
+  transition-duration: animations.$tDurationG;
+  transition-timing-function: animations.$tTimingFG;
+  }
+
+  &__icon {
+    transform: rotate(45deg);
+  }
+  
+  /*&:hover .icon {
+    transform: rotate(45deg);
+  }*/
+  
+  &__borders {
+    opacity: 0;
+  }
+  
+  &__triangle {
+    fill: white;
+  }
+  
+  &__label {
+    //margin-left: 40px; 
+  }
+  
+  &__triangle {
+    //margin-left: 35px;
+  }
+
+  }
+
+}
