@@ -1,8 +1,11 @@
-import { CHANGE_VALUE, SAVE_USER } from 'src/actions/userActions';
+import {
+  CHANGE_VALUE,
+  SAVE_USER,
+} from 'src/actions/userActions';
 
 const initialState = {
-  email: '',
-  password: '',
+  email: 'azerty@oclock.io',
+  password: 'lesuperpasswordA45',
   name: '',
   infos: {
     isLoggedIn: false,
