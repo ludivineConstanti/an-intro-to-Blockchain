@@ -7,41 +7,42 @@
   &:hover {
     transition-duration: animations.$tDurationG;
     transition-timing-function: animations.$tTimingFG;
-    width: calc(#{animations.$dLinkCTAWidth} + #{animations.$dLinkCTAHoverOffset} * 2 );
-    margin-right: calc(#{animations.$dLinkCTAMarginRight} - #{animations.$dLinkCTAHoverOffset} * 2 + 5px);
+    //width: calc(#{animations.$dLinkCTAWidth} + #{animations.$dLinkCTAHoverOffset} * 2 );
+    //margin-right: calc(#{animations.$dLinkCTAMarginRight} - #{animations.$dLinkCTAHoverOffset} * 2 + 5px);
   }
   
   &:hover .linkCTA {
     &__borders, &__triangle, &__icon, &__label {
-  // need to put the animation transition on the element itself
-  // otherwise not taken into account
-  transition-duration: animations.$tDurationG;
-  transition-timing-function: animations.$tTimingFG;
-  }
+    // need to put the animation transition on the element itself
+    // otherwise not taken into account
+    transition-duration: animations.$tDurationG;
+    transition-timing-function: animations.$tTimingFG;
+    &__frame, &__borders {
+    transition-duration: animations.$tDurationG;
+    transition-timing-function: animations.$tTimingFG;
+    }
+    }
 
-  &__icon {
-    transform: rotate(45deg);
-  }
+    &__icon {
+      &__frame {
+       transform: rotate(45deg);
+      }
+      &__borders {
+        opacity: 0;
+      }
+    }
   
-  /*&:hover .icon {
-    transform: rotate(45deg);
-  }*/
+    &__triangle {
+     fill: white;
+    }
   
-  &__borders {
-    opacity: 0;
-  }
-  
-  &__triangle {
-    fill: white;
-  }
-  
-  &__label {
-    margin-left: calc(#{animations.$dLinkCTALabelMarginLeft} + #{animations.$dLinkCTAHoverOffset}); 
-  }
-  
-  &__triangle {
-    //margin-left: 35px;
-  }
+    &__label {
+      margin-left: calc(#{animations.$dLinkCTALabelMarginLeft} + #{animations.$dLinkCTAHoverOffset}); 
+      &__text {
+        border-bottom: 1.5px solid white;
+        padding-bottom: 10px;
+      }
+    }
 
   }
 

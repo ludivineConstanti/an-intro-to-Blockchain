@@ -23,8 +23,19 @@
     &__icon {
       min-width: 80px;
       min-height: 80px;
+      position: relative;
+
+      &__frame {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      &__borders {
+        opacity: 0.25;
+      }
     }
-  
+    
     &__label {
       display: inline-flex;
       align-items: center;
@@ -38,10 +49,6 @@
       min-height: 15px;
       min-width: 15px;
       stroke-width: 1.4px;
-    }
-
-    &__borders {
-      opacity: 0.25;
     }
 }
 
