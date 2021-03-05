@@ -7,16 +7,16 @@ import TitleCategory from 'src/components/_statics/TitleCategory';
 import LinkCTA from 'src/components/_interactives/LinkCTA';
 
 // == Composant
-const CategoryQuiz = () => (
+const CategoryQuiz = (oneCategory) => (
   <div className="categoryQuiz">
-    <TitleCategory label="Blockchain" />
+    <TitleCategory label={oneCategory[0][0].en_category_name} />
     <div className="categoryQuiz__groupLinks">
       <div className="categoryQuiz__linkCTA">
-        <LinkCTA category={1} quiz={1} />
-        <LinkCTA category={1} quiz={2} />
-        <LinkCTA category={1} quiz={3} />
-        <LinkCTA category={1} quiz={4} />
-        <LinkCTA category={1} quiz={5} />
+        {
+          oneCategory[0].map((oneQuiz) => (
+            <LinkCTA key={oneQuiz.id} {...{ oneQuiz }} />
+          ))
+        }
       </div>
     </div>
   </div>

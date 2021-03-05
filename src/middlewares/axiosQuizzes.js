@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import axios from 'axios';
 import { GET_ALL_QUIZZES, changeLoadingState, stockQuizzes } from 'src/actions/userActions';
 
@@ -11,7 +10,6 @@ const user = (store) => (next) => (action) => {
       axios.get(`${baseUrl}/en/quizzes`)
         .then((response) => {
           if (response.statusText === 'OK') {
-            console.log(response);
             store.dispatch(stockQuizzes(response.data));
           }
         })

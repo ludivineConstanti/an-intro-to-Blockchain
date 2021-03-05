@@ -8,22 +8,27 @@ import TitlePage from 'src/components/_statics/TitlePage';
 import CategoryQuiz from 'src/components/_partials/CategoryQuiz';
 
 // == Composant
-const Quizzes = ({ getAllQuizzes, quizzesList }) => {
-  console.log(quizzesList);
-  // const categoryMax = 0;
-  // quizzesList.map((quiz) => {
-  //   quiz.category_name;
-  // });
+const Quizzes = ({ getAllQuizzes, quizzesList, loading }) => {
   useEffect(() => {
     getAllQuizzes();
   }, []);
+  let categoryMax = 1;
+  quizzesList.forEach((element) => {
+    if (element.categoryId >= categoryMax) {
+      categoryMax = element.categoryId;
+    }
+  });
+  const quizObject = [];
+  for (let i = 1; i < categoryMax + 1; i += 1) {
+    quizObject.push(quizzesList.filter((element) => (element.categoryId === i)));
+  }
   return (
     <div className="border-padding">
       <TitlePage label="Quizzes" />
-      {/* {quizzesList.map(())} */}
-      <CategoryQuiz />
-      <CategoryQuiz />
-      <CategoryQuiz />
+      {(!loading && quizObject.length >= 3)
+      && quizObject.map((oneCategory) => (
+        <CategoryQuiz key={oneCategory[0].categoryId} {...[oneCategory]} />
+      ))}
     </div>
   );
 };
@@ -31,6 +36,7 @@ const Quizzes = ({ getAllQuizzes, quizzesList }) => {
 Quizzes.propTypes = {
   getAllQuizzes: PropTypes.func,
   quizzesList: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 Quizzes.defaultProps = {
