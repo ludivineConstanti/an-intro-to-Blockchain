@@ -1,5 +1,6 @@
 @use 'src/styles/fontSizes';
 @use 'src/styles/breakpoints';
+@use 'src/styles/animations';
 
 .linkButton, .submitButton {
   display: inline-block;
@@ -42,9 +43,9 @@
 }
 
 .submitButton {
-  padding: 15px 0 15px 0;
-  border: 1.5px solid rgba($color: #000000, $alpha: 0.0);
-  border-bottom: 1.5px solid white;
+  padding: animations.$dSubmitButtonPadding 0 animations.$dSubmitButtonPadding 0;
+  border: animations.$dSubmitButtonBorder solid rgba($color: #000000, $alpha: 0.0);
+  border-bottom: animations.$dSubmitButtonBorder solid white;
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {

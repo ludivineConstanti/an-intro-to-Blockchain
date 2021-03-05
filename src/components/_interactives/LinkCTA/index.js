@@ -21,7 +21,7 @@ const LinkCTA = ({ oneQuiz }) => (
         <path d="M70 0.500001L75.4038 0.500001L80 5.09619L80 10.5L76 10.5L76 4.5L70 4.5L70 0.500001Z" fill="white" />
 
         <path className="linkCTA__borders" fillRule="evenodd" clipRule="evenodd" d="M5 0.500003V2.5L75 2.5V0.5L5 0.500003ZM2 5.5H0V75.5H2V5.5ZM5 78.5V80.5H75V78.5H5ZM78 5.5H80V75.5H78V5.5Z" fill="white" />
-        <path opacity="0.25" fillRule="evenodd" clipRule="evenodd" d="M5 0.500003V2.5L75 2.5V0.5L5 0.500003ZM2 5.5H0V75.5H2V5.5ZM5 78.5V80.5H75V78.5H5ZM78 5.5H80V75.5H78V5.5Z" fill="white" />
+
       </svg>
       <div className="linkCTA__label">
         <p>{oneQuiz.enTitle}</p>
