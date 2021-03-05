@@ -6,9 +6,9 @@ import {
 } from 'src/actions/userActions';
 
 const initialState = {
-  email: 'realmfgz@gmail.com',
-  password: 'impossibleadecoder*69',
-  controlPassword: 'impossibleadecoder*69',
+  email: 'laforce@gmail.com',
+  password: 'Obiwan12',
+  controlPassword: 'Obiwan12',
   name: '',
   infos: {
     isLoggedIn: false,

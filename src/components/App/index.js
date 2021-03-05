@@ -24,7 +24,12 @@ import Menu from 'src/containers/_pages/Menu';
 
 // == Composant
 
-const App = ({ menuOpen, loading, isLoggedIn }) => (
+const App = ({
+  menuOpen,
+  loading,
+  isLoggedIn,
+  formSubmit,
+}) => (
   <div className="app">
     <Frame />
     <Header />
@@ -58,7 +63,7 @@ const App = ({ menuOpen, loading, isLoggedIn }) => (
             </Route>
             {/* Register Page */}
             <Route path="/register" exact>
-              <Register />
+              {formSubmit ? <Redirect to="/login" /> : <Register />}
             </Route>
             {/* Page de settings du profile */}
             <Route path="/settings" exact>
@@ -83,6 +88,7 @@ App.propTypes = {
   menuOpen: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  formSubmit: PropTypes.bool.isRequired,
 };
 // == Export
 export default App;
