@@ -9,7 +9,7 @@ const mapState = (state) => {
   return ({
     isLoggedIn: state.user.infos.isLoggedIn,
     initials: letters,
-    open: state.global.open,
+    menuOpen: state.global.menuOpen,
   });
 };
 const mapDispatchToProps = (dispatch) => ({

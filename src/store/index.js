@@ -1,11 +1,14 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from 'src/reducers';
-import ajaxMiddlewares from 'src/middlewares/ajaxMiddlewares';
+import axiosUser from 'src/middlewares/axiosUser';
+import axiosQuizzes from 'src/middlewares/axiosQuizzes';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
-  applyMiddleware(ajaxMiddlewares),
+  applyMiddleware(
+    axiosUser, axiosQuizzes,
+  ),
 );
 
 const store = createStore(
