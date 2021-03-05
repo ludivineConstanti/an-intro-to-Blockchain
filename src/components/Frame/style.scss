@@ -33,9 +33,6 @@
 @media only screen and (min-width: breakpoints.$desktop) {
   
 .frame{
-  margin: margins.$outsideBorderDesktop;
-  width: margins.$widthOutsideBorderDesktop;
-  height: margins.$heightOutsideBorderDesktop;
 
   &__corner{
     &--topRight {

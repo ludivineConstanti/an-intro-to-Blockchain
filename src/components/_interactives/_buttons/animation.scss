@@ -1,0 +1,28 @@
+.linkButton, .submitButton {
+
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+
+  &:hover, &:hover &__triangle {
+    transition-duration: 0.25s;
+  }
+
+  &:hover {
+    padding-left: 45px;
+  }
+
+  &:hover &__triangle {
+    fill: white;
+  }
+
+  &:active {
+    border-bottom: 1.5px solid rgba($color: #ffffff, $alpha: 0.05);
+    color: rgba($color: #ffffff, $alpha: 0.05);
+  }
+
+  &:active &__triangle {
+    fill: rgba($color: #ffffff, $alpha: 0.05);
+    stroke-width: 0.5px;
+  }
+
+}
