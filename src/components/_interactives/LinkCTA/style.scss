@@ -1,6 +1,7 @@
 @use 'src/styles/fontSizes';
 @use 'src/styles/breakpoints';
 @use 'src/styles/margins';
+@use 'src/styles/animations';
 
 .linkCTA {
   //background-color: pink;
@@ -22,29 +23,32 @@
     &__icon {
       min-width: 80px;
       min-height: 80px;
+      position: relative;
+
+      &__frame {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      &__borders {
+        opacity: 0.25;
+      }
     }
-  
+    
     &__label {
       display: inline-flex;
       align-items: center;
       height: 100%;
-      margin-left: 20px;
+      margin-left: animations.$dLinkCTALabelMarginLeft;
       width: 100%;
     }
 
     &__triangle {
-      margin-left: 15px;
+      margin-left: animations.$dLinkCTATriangleMarginLeft;
       min-height: 15px;
       min-width: 15px;
       stroke-width: 1.4px;
-    }
-
-    &__borders {
-      opacity: 0.25;
-    }
-
-    &:hover &__borders {
-      opacity: 0;
     }
 }
 
@@ -54,9 +58,9 @@
   letter-spacing: fontSizes.$textKerningDesktop;
   line-height: fontSizes.$textSpacingDesktop;
   // takes 1 columns of the grid
-  margin-right: calc((100vw - #{margins.$borderDesktop}) / 16);
+  margin-right: animations.$dLinkCTAMarginRight;
   // takes 3 columns of the grid
-  width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 3);
+  width: animations.$dLinkCTAWidth;
   min-width: 250px;
   max-width: 500px;
 }
