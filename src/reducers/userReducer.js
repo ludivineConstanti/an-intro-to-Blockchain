@@ -2,16 +2,18 @@ import {
   CHANGE_VALUE,
   SAVE_USER,
   LOGOUT,
+  SAVE_REGISTER,
 } from 'src/actions/userActions';
 
 const initialState = {
-  email: 'azerty@oclock.io',
+  email: 'satanas@oclock.io',
   password: 'lesuperpasswordA45',
+  controlPassword: 'lesuperpasswordA45',
   name: '',
   infos: {
     isLoggedIn: false,
-    firstname: '',
-    lastname: '',
+    firstname: 'Michel',
+    lastname: 'Lartignan',
   },
 };
 
@@ -21,6 +23,10 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+        infos: {
+          ...state.infos,
+          [action.name]: action.value,
+        },
       };
     }
     case SAVE_USER: {
@@ -39,6 +45,18 @@ export default (state = initialState, action = {}) => {
     case LOGOUT: {
       return {
         ...initialState,
+      };
+    }
+    case SAVE_REGISTER: {
+      return {
+        ...state,
+        email: '',
+        password: '',
+        controlPassword: '',
+        infos: {
+          ...state.infos,
+          ...state.user,
+        },
       };
     }
     default:
