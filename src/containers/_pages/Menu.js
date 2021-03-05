@@ -8,13 +8,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickButtonMenu: () => {
-    const action = toggleMenu();
-    dispatch(action);
-  },
-  handleLogout: () => {
-    dispatch(logout());
-  },
+  onClickButtonMenu: () => dispatch(toggleMenu()),
+  handleLogout: () => dispatch(logout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

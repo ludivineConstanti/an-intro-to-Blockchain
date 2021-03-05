@@ -13,10 +13,7 @@ const mapState = (state) => {
   });
 };
 const mapDispatchToProps = (dispatch) => ({
-  onClickButtonMenu: () => {
-    const action = toggleMenu();
-    dispatch(action);
-  },
+  onClickButtonMenu: () => dispatch(toggleMenu()),
 });
 
 export default connect(mapState, mapDispatchToProps)(Header);
