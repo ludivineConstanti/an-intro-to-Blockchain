@@ -8,8 +8,8 @@ let quiz = {
     HowmanyGoodAnswer: 'String', //! Message changeant en fonction du nombre de bonne réponse pour cette question
     checkboxAnswer: {
       Proposition_de_reponse: 'string', //! Intitulé
-      ID: 228, //! Id de la question
-      name: 228, //! ID de la question
+      ID: 228, //! Id de la proposition
+      name: 228, //! ID de la proposition
       value: true, //! Pour la version intermédiaire, si la proposition est vraie ou fausse
     },
   },

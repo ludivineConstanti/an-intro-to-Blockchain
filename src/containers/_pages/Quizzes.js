@@ -8,9 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickButtonMenu: () => {
-    dispatch(toggleMenu());
-  },
+  onClickButtonMenu: () => dispatch(toggleMenu()),
   getAllQuizzes: () => dispatch(getAllQuizzes()),
 });
 
