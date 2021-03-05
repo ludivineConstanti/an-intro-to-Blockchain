@@ -8,6 +8,7 @@ export const STOCK_QUIZZES = 'STOCK_QUIZZES';
 export const LOGOUT = 'LOGOUT';
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const SAVE_REGISTER = 'SAVE_REGISTER';
+export const FORM_SUBMIT = 'FORM_SUBMIT';
 
 export const toggleMenu = () => ({
   type: TOGGLE_MENU,
@@ -54,4 +55,8 @@ export const registerRequest = () => ({
 export const saveRegister = (user) => ({
   type: SAVE_REGISTER,
   user,
+});
+
+export const formSubmit = () => ({
+  type: FORM_SUBMIT,
 });

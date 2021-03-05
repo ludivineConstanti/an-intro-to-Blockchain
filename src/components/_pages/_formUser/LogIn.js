@@ -43,10 +43,17 @@ const LogIn = ({
 };
 
 LogIn.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  changeField: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired,
+  email: PropTypes.string,
+  password: PropTypes.string,
+  changeField: PropTypes.func,
+  handleLogin: PropTypes.func,
+};
+
+LogIn.defaultProps = {
+  email: '',
+  password: '',
+  changeField: () => {},
+  handleLogin: () => {},
 };
 
 // == Export

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Register from 'src/components/_pages/_formUser/Register';
-import { changeValue, registerRequest } from 'src/actions/userActions';
+import { changeValue, registerRequest, formSubmit } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   firstname: state.user.infos.firstname,
@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   password: state.user.password,
   controlPassword: state.user.controlPassword,
   email: state.user.email,
+  formSubmit: state.global.formSubmit,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -15,8 +16,10 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeValue(value, name));
   },
   handleRegister: () => {
-    console.log('je veux dispatch l\'action register');
     dispatch(registerRequest());
+  },
+  handleFormSubmit: () => {
+    dispatch(formSubmit());
   },
 });
 
