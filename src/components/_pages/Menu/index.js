@@ -18,23 +18,23 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
       {
       isLoggedIn === false
         ? (
-          <div className="menu">
+          <ul className="menu">
             <LinkMenu path="/" label="Home" funcOnClick={handleOnClick} className="margin2" />
             <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
             <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} className="margin2" />
             <LinkMenu path="/login" label="Login" funcOnClick={handleOnClick} />
             <LinkMenu path="/register" label="Register" funcOnClick={handleOnClick} />
-          </div>
+          </ul>
         )
         : (
-          <div className="menu">
+          <ul className="menu">
             <LinkMenu path="/" label="Home" funcOnClick={handleOnClick} className="margin2" />
-            <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} />
             <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
+            <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} />
             <LinkMenu path="/profile/scores" label="Achievements" funcOnClick={handleOnClick} className="margin2" />
             <LinkMenu path="/settings" label="Settings" funcOnClick={handleOnClick} />
             <LinkMenu path="/logout" label="Sign Out" funcOnClick={handleOnLogout} className="margin2" />
-          </div>
+          </ul>
         )
     }
       <div className="menu__border" />
