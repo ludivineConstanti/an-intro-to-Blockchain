@@ -14,7 +14,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
     onClickButtonMenu();
   };
   return (
-    <>
+    <nav>
       {
       isLoggedIn === false
         ? (
@@ -23,7 +23,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
             <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
             <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} className="margin2" />
             <LinkMenu path="/login" label="Login" funcOnClick={handleOnClick} />
-            <LinkMenu path="/register" label="Register" funcOnClick={handleOnClick} />
+            <LinkMenu path="/register" label="Register" funcOnClick={handleOnClick} className="margin2" />
           </ul>
         )
         : (
@@ -38,7 +38,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
         )
     }
       <div className="menu__border" />
-    </>
+    </nav>
   );
 };
 

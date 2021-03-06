@@ -1,5 +1,6 @@
 @use 'src/styles/breakpoints';
 @use 'src/styles/animations';
+@use 'src/styles/margins';
 
 @media only screen and (min-width: breakpoints.$desktop) {
 
@@ -13,11 +14,13 @@
 }
 
 &--margin1:hover {
-  width: 70%;
+  // takes 14 columns of the grid
+  width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 14);
 }
 
-&--margin2:hover, &:last-child:hover {
-  width: 55%;
+&--margin2:hover {
+  // takes 11 columns of the grid
+  width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 11);
 }
 
 }

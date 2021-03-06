@@ -12,13 +12,13 @@
     animation-duration:5s;
     animation-iteration-count: infinite;
     &--TR {
-      animation-name: opacity1;
+      animation-name: opacity3;
     }
     &--TL {
       animation-name: opacity2;
     }
     &--B {
-      animation-name: opacity3;
+      animation-name: opacity1;
     }
   }
 }

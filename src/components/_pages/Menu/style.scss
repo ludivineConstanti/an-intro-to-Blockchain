@@ -4,8 +4,8 @@
 .menu {
   position: fixed;
   left: margins.$outsideBorderMobile;
-  bottom: margins.$outsideBorderMobile;
-  width: 100vw;
+  // value substracted linked to the css on the linkMenu Component
+  bottom: calc(#{margins.$outsideBorderMobile} - 5vh);
 
   &__border {
     border: 4px solid rgba($color: #ffffff, $alpha: 0.07);
@@ -20,13 +20,10 @@
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
-.menu {
-  left: margins.$outsideBorderDesktop;
-  bottom: margins.$outsideBorderDesktop;
-  //display: flex;
-  //justify-content: flex-end;
-  //flex-direction: column;
-
+  .menu {
+    left: margins.$outsideBorderDesktop;
+    // value substracted linked to the css on the linkMenu Component
+    bottom: calc(#{margins.$outsideBorderDesktop} - 5vh);
   &__border { 
     margin: margins.$outsideBorderDesktop;
     width: margins.$widthOutsideBorderDesktop;
