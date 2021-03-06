@@ -17,12 +17,13 @@ const LinkMenu = ({
       to={path}
       exact
       onClick={funcOnClick}
-    ><li className={classLink}>
-      <p>{label}</p>
-      <svg className="linkMenu__triangle" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.800002 1.95744L10.4 7.5L0.800002 13.0426L0.800002 1.95744Z" stroke="white" />
-      </svg>
-    </li>
+    >
+      <li className={classLink}>
+        <p>{label}</p>
+        <svg className="linkMenu__triangle" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.800002 1.95744L10.4 7.5L0.800002 13.0426L0.800002 1.95744Z" stroke="white" />
+        </svg>
+      </li>
     </NavLink>
   );
 };

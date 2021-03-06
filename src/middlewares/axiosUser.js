@@ -29,8 +29,8 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case REGISTER_REQUEST: {
+      store.dispatch(changeLoadingState(true));
       const state = store.getState();
-      console.log(state);
       axios({
         method: 'post',
         url: `${baseUrl}/register`,
@@ -47,8 +47,8 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveRegister());
           }
         })
-        .catch((error) => {
-          console.log('error', error);
+        .finally(() => {
+          store.dispatch(changeLoadingState(false));
         });
       break;
     }
