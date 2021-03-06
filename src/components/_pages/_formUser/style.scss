@@ -58,7 +58,7 @@
 
 @media only screen and (min-width: breakpoints.$desktop) {
   .register, .login, .settings {
-    width: 50%;
+    width: 50vw;
     padding: margins.$borderDesktop 0 0 0;
 
     &__column {
@@ -67,7 +67,7 @@
   }
 
  .settings {
-    width: 50%;
+    width: 50vw;
     padding: margins.$borderDesktop 0 margins.$borderDesktop 0;
   }
 }

@@ -1,13 +1,12 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
 import './animation.scss';
 
 // == Composant
-const Loading = ({ isLoading }) => {
+const Loading = () => {
   const arrayTroll = ['Connecting to the blockchain...', 'Calculating the angles of a square...', 'Counting the blocks...', 'Woops, a squirrel', 'Downloading the internet...', 'Putting clouds in the sky...', 'Thank you for your patience', 'Checking the price of Bitcoin...', "Hope you're having a good day", "Don't give up!"];
   const [message, setMessage] = useState(arrayTroll[Math.floor(Math.random() * arrayTroll.length)]);
   useEffect(() => {
@@ -16,7 +15,7 @@ const Loading = ({ isLoading }) => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-  return isLoading ? (
+  return (
     <div className="loading">
       <div className="loading__svgContainer">
         <svg className="loading__svg" width="56" height="63" viewBox="0 0 56 63" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,15 +27,7 @@ const Loading = ({ isLoading }) => {
       </div>
       <p className="loading__comment">{message}</p>
     </div>
-  ) : '';
-};
-
-Loading.defaultProps = {
-  isLoading: false,
-};
-
-Loading.propTypes = {
-  isLoading: PropTypes.bool,
+  );
 };
 
 // == Export
