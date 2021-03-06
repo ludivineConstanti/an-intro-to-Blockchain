@@ -32,7 +32,7 @@ const App = ({
 }) => (
   <div className="app">
     <Frame />
-    <Loading />
+    {loading && <Loading />}
     <Header />
     {menuOpen && (
     <Menu />
@@ -78,8 +78,6 @@ const App = ({
               <Error />
             </Route>
           </Switch>
-          {loading
-          && (<></>)}
         </>
         )}
   </div>
