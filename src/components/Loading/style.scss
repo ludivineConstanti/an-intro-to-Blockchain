@@ -9,13 +9,14 @@
   justify-content: center;
   flex-direction: column;
 
-  &__svg {
+  // size of the div linked to the animation
+  // in the other file
+  &__svgContainer {
     width: 120px;
     height: 120px;
-  }
-
-  &__transparentPart {
-    fill-opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__comment {
