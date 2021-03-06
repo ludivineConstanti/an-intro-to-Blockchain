@@ -1,0 +1,140 @@
+.icon {
+  &__strokes {
+    animation: pulseStrokes 3s infinite;
+  }
+
+  &__movingUpDown {
+    animation: movingUpDown 3s infinite;
+  }
+
+  &__strokes--inverse {
+    animation: pulseStrokesInverse 3s infinite;
+  }
+  &__transparentPart {
+    animation: pulseTransparentPart 3s infinite;
+    //animation-timing-function: ease-in-out;
+  }
+  &__transparentPart--inverse {
+    animation: pulseTransparentPartInverse 3s infinite;
+  }
+  &__smallPart {
+    animation: pulseSmallPart 3s infinite;
+  }
+  &__smallPart--inverse {
+    animation: pulseSmallPartInverse 3s infinite;
+  }
+  &__rotatePart {
+    animation: rotatePart 3s infinite;
+  }
+  &__rotatePart--inverse {
+    animation: rotatePartInverse 3s infinite;
+  }
+}
+
+@keyframes pulseTransparentPart {
+  0% {
+    fill-opacity: 0.5;
+  }
+  50% {
+    fill-opacity: 0.25;
+  }
+  100% {
+    fill-opacity: 0.5;
+  }
+}
+
+@keyframes pulseTransparentPartInverse {
+  0% {
+    fill-opacity: 0.25;
+  }
+  50% {
+    fill-opacity: 0.5;
+  }
+  100% {
+    fill-opacity: 0.25;
+  }
+}
+
+@keyframes pulseStrokes {
+  0% {
+    fill-opacity: 0.25;
+  }
+  50% {
+    fill-opacity: 1;
+  }
+  100% {
+    fill-opacity: 0.25;
+  }
+}
+
+@keyframes pulseStrokesInverse {
+  0% {
+    fill-opacity: 1;
+  }
+  50% {
+    fill-opacity: 0.25;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes pulseSmallPart {
+  0% {
+    fill-opacity: 1;
+  }
+  50% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes pulseSmallPartInverse {
+  0% {
+    fill-opacity: 0;
+  }
+  50% {
+    fill-opacity: 1;
+  }
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes rotatePart {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotatePartInverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes movingUpDown {
+  0% {
+    transform: translate(0, -5px);
+  }
+  50% {
+    transform: translate(0, 5px);
+  }
+  100% {
+    transform: translate(0, -5px);
+  }
+}

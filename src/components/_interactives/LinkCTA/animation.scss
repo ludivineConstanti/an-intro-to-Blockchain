@@ -8,31 +8,7 @@
     transition-duration: animations.$tDurationG;
     transition-timing-function: animations.$tTimingFG;
 
-    //!\\ WARNING css class from other component
-
-    & .icon {
-      &__transparentPart {
-        animation: pulseTransparentPart 3s infinite;
-        //animation-timing-function: ease-in-out;
-      }
-      &__transparentPart--inverse {
-        animation: pulseTransparentPartInverse 3s infinite;
-      }
-      &__smallPart {
-        animation: pulseSmallPart 3s infinite;
-      }
-      &__smallPart--inverse {
-        animation: pulseSmallPartInverse 3s infinite;
-      }
-      &__rotatePart {
-        animation: rotatePart 3s infinite;
-      }
-      &__rotatePart--inverse {
-        animation: rotatePartInverse 3s infinite;
-      }
-    }
-
-    //!\\ end of warning
+    
   }
   
   &:hover .linkCTA {
@@ -41,7 +17,7 @@
     // otherwise not taken into account
     transition-duration: animations.$tDurationG;
     transition-timing-function: animations.$tTimingFG;
-    &__frame, &__borders {
+    &__frame, &__borders, &__text {
     transition-duration: animations.$tDurationG;
     transition-timing-function: animations.$tTimingFG;
     }
@@ -71,76 +47,4 @@
   }
 
 }
-}
-
-@keyframes pulseTransparentPart {
-  0% {
-    fill-opacity: 0.5;
-  }
-  50% {
-    fill-opacity: 0.25;
-  }
-  100% {
-    fill-opacity: 0.5;
-  }
-}
-
-@keyframes pulseTransparentPartInverse {
-  0% {
-    fill-opacity: 0.25;
-  }
-  50% {
-    fill-opacity: 0.5;
-  }
-  100% {
-    fill-opacity: 0.25;
-  }
-}
-
-@keyframes pulseSmallPart {
-  0% {
-    fill-opacity: 1;
-  }
-  50% {
-    fill-opacity: 0;
-  }
-  100% {
-    fill-opacity: 1;
-  }
-}
-
-@keyframes pulseSmallPartInverse {
-  0% {
-    fill-opacity: 0;
-  }
-  50% {
-    fill-opacity: 1;
-  }
-  100% {
-    fill-opacity: 0;
-  }
-}
-
-@keyframes rotatePart {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotatePartInverse {
-  0% {
-    transform: rotate(360deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
 }

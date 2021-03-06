@@ -2,6 +2,14 @@
   display: block;
   margin: auto;
 
+  &__strokes {
+    fill-opacity: 0.25;
+  }
+
+  &__strokes--inverse {
+    fill-opacity: 1;
+  }
+
   &__transparentPart {
     fill-opacity: 0.5;
   }
