@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 // == Import
 import './style.scss';
 import './animation.scss';
+import 'src/styles/activeState.scss';
 import { NavLink } from 'react-router-dom';
 
 // == Composant
@@ -54,6 +55,7 @@ const Header = ({
         {
         !menuOpen && (
         <NavLink to={isLoggedIn ? '/settings' : '/register'} label="Settings">
+          <span className="header__username">{initials}</span>
           <svg className="header__svgTR" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60.75 4.84619L56.1538 0.25H5.34619L0.75 4.84619V55.6538L5.34619 60.25H56.1538L60.75 55.6538V4.84619Z" fill="black" fillOpacity="0.85" />
             <g className="header__corners">
@@ -63,7 +65,6 @@ const Header = ({
               <path d="M56.25 40V56H40.25V60H55.6538L60.25 55.4038V40H56.25Z" fill="white" />
             </g>
           </svg>
-          <span className="header__username">{initials}</span>
         </NavLink>
         )
         }

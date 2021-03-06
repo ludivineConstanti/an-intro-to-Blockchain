@@ -3,6 +3,7 @@ import React from 'react';
 
 // == Import
 import './style.scss';
+import 'src/styles/activeState.scss';
 
 // == Composant
 const Frame = () => (

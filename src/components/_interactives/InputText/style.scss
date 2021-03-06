@@ -4,14 +4,7 @@
   padding-bottom: 15px;
   border-bottom: 2px dashed white;
   margin-bottom: 20px;
-
-  & input {
-    font-size: fontSizes.$textDesktop;
-    letter-spacing: fontSizes.$textKerningDesktop;
-    
-  }
-
-  & input::placeholder {
-    color: rgba($color: white, $alpha: 0.5)
-  }
+  font-size: fontSizes.$textDesktop;
+  letter-spacing: fontSizes.$textKerningDesktop;
+  line-height: fontSizes.$textSpacingDesktop;
 }

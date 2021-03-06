@@ -13,22 +13,19 @@ const InputText = ({
   value,
   onChange,
   name,
-  className,
 }) => {
   const handleChange = (event) => {
     onChange(event.target.value, name);
   };
   return (
-    <div className="inputText">
-      <input
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={handleChange}
-        name={name}
-        className={className}
-      />
-    </div>
+    <input
+      className="inputText"
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={handleChange}
+      name={name}
+    />
   );
 };
 
@@ -36,7 +33,6 @@ InputText.defaultProps = {
   value: '',
   onChange: () => {},
   name: '',
-  className: '',
 };
 
 InputText.propTypes = {
@@ -45,7 +41,6 @@ InputText.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   name: PropTypes.string,
-  className: PropTypes.string,
 };
 
 // == Export

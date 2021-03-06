@@ -1,0 +1,19 @@
+@use 'src/styles/animations';
+
+.linkButton, .submitButton, .linkCTA, .header__buttonTL, .header__buttonTR {
+
+  transition-duration: animations.$tDurationG;
+  transition-timing-function: animations.$tTimingFG;
+  
+  &:active {
+    transition-duration: animations.$tDurationG;
+    transition-timing-function: animations.$tTimingFG;
+    opacity: 0.1;
+  }
+}
+
+.header__buttonTR:active .frame__corner--topRight {
+   
+    display: none;
+  
+}

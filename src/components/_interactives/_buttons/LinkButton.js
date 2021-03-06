@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 // == Import
 import './style.scss';
 import './animation.scss';
+import 'src/styles/activeState.scss';
 
 // == Composant
 const LinkButton = ({
