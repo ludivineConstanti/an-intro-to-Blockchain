@@ -3,51 +3,39 @@
 @use 'src/styles/margins';
 
 .linkMenu {
-  width: calc(#{margins.$widthOutsideBorderMobile} - 5px);
   font-weight: bold;
   font-size: fontSizes.$menuMobile;
   letter-spacing: fontSizes.$menuKerningMobile;
   text-transform: uppercase;
-  text-align: right;
-  border-bottom: 4px solid white;
-  margin-bottom: 5vh;
-  padding-bottom: 2vh;
   display: flex;
   justify-content: flex-end;
-  flex-direction: row;
   align-items: center;
-
-  &:last-child {
-    margin-left: 5px;
-    margin-bottom: 0;
-    width: calc(#{margins.$widthOutsideBorderMobile} - 10px);
-  }
-  
+  padding-bottom: 2vh;
+  margin-bottom: 5vh;
+  border-bottom: 4px solid white;
+  width: calc(#{margins.$widthOutsideBorderMobile} - 5px);
   &__triangle {
     margin-left: 3vh;
     height: fontSizes.$menuTriangleMobile;
     stroke-width: 1.6px;
   }
-  
+
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
   .linkMenu {
-    width: 65%;
     font-size: fontSizes.$menuDesktop;
     letter-spacing: fontSizes.$menuKerningDesktop;
-  
-    &:last-child {
-      width: calc(50% - 5px);
-    }
-    
-    &__triangle {
-      height: fontSizes.$menuTriangleDesktop;
-    }
-  
-    &--margin2 {
-      width: 50%;
-    }
-    
+    // takes 13 columns of the grid
+    width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 13);
+
+  &__triangle {
+    height: fontSizes.$menuTriangleDesktop;
+  }
+
+  &--margin2 {
+    // takes 10 columns of the grid
+    width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 10);
+  }
   }
 }

@@ -1,38 +1,34 @@
 @use 'src/styles/animations';
+@use 'src/styles/breakpoints';
 
-.linkButton, .submitButton {
-
-  transition-duration: animations.$tDurationG;
-  transition-timing-function: animations.$tTimingFG;
-
-  &:hover, &:hover &__triangle {
-    transition-duration: animations.$tDurationG;
+@media only screen and (min-width: breakpoints.$desktop) {
+  .linkButton, .submitButton {
+  
+    &:hover, &:hover &__triangle {
+      transition-duration: animations.$tDurationG;
+      transition-timing-function: animations.$tTimingFG;
+    }
+  
+    &:hover {
+      padding-left: 45px;
+    }
+  
+    &:hover &__triangle {
+      fill: white;
+    }
+  
+    &:active &__triangle {
+      fill: rgba($color: #ffffff, $alpha: 0.05);
+      stroke-width: 0.5px;
+    }
+  
   }
-
-  &:hover {
-    padding-left: 45px;
-  }
-
-  &:hover &__triangle {
-    fill: white;
-  }
-
-  &:active {
-    border-bottom: animations.$dSubmitButtonBorder solid rgba($color: #ffffff, $alpha: 0.05);
-    color: rgba($color: #ffffff, $alpha: 0.05);
-  }
-
-  &:active &__triangle {
-    fill: rgba($color: #ffffff, $alpha: 0.05);
-    stroke-width: 0.5px;
-  }
-
-}
-
-.submitButton {
-  &:hover {
-    border: animations.$dSubmitButtonBorder solid white;
-    padding: animations.$dSubmitButtonPadding;
-    padding-left: 45px;
+  
+  .submitButton {
+    &:hover {
+      border: animations.$dSubmitButtonBorder solid white;
+      padding: animations.$dSubmitButtonPadding;
+      padding-left: 45px;
+    }
   }
 }

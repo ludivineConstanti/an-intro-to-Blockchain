@@ -1,5 +1,6 @@
 @use 'src/styles/margins';
 @use 'src/styles/breakpoints';
+@use 'src/styles/fontSizes';
 
 .register, .login{
   padding: 120px margins.$outsideBorderMobile 0 margins.$outsideBorderMobile;
@@ -13,6 +14,12 @@
 .register, .login, .settings {
   margin: 0 auto;
   min-height: 100vh;
+
+  &__error {
+    font-size: fontSizes.$textDesktop;
+    letter-spacing: fontSizes.$textKerningDesktop;
+    line-height: fontSizes.$textSpacingDesktop;
+  }
 
   &__login {
     display: flex;

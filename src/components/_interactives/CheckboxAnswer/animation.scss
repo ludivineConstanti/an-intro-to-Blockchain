@@ -2,13 +2,9 @@
 @use 'src/styles/breakpoints';
 
 @media only screen and (min-width: breakpoints.$desktop) {
-  .inputText {
+  .checkboxAnswer:hover input ~ .checkboxAnswer__checkmark {
     transition-duration: animations.$tDurationG;
     transition-timing-function: animations.$tTimingFG;
-    &:hover {
-      transition-duration: animations.$tDurationG;
-      transition-timing-function: animations.$tTimingFG;
-      border-bottom: 2px solid white;
-    }
+    border: 4px solid white;
   }
 }

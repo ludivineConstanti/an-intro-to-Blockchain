@@ -16,6 +16,10 @@ input {
   width: 100%;
 }
 
+input::placeholder {
+  color: rgba($color: white, $alpha: 0.5)
+}
+
 button {
   background-color: transparent;
   border: none;

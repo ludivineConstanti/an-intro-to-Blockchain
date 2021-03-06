@@ -75,9 +75,12 @@
     &__username {
       font-size: fontSizes.$labelS2Desktop;
       font-weight: bold;
-      position: relative;
-      top: -40px;
-      right: -17px;
+      
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: auto;
     }
   }
 }

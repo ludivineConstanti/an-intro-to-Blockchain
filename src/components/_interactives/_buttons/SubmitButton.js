@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
+import './animation.scss';
+import 'src/styles/activeState.scss';
 
 // == Composant
 const SubmitButton = ({ label, className }) => {

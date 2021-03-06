@@ -3,18 +3,15 @@
 
 @media only screen and (min-width: breakpoints.$desktop) {
 .linkCTA {
-
-  &:hover {
-    transition-duration: animations.$tDurationG;
-    transition-timing-function: animations.$tTimingFG;
-
-    
-  }
   
-  &:hover .linkCTA {
+  // need the hover to be on the parent, otherwise will
+  // only work if you go over the element itself
+  &:hover .linkCTA, .linkCTA {
     &__borders, &__triangle, &__iconDiv, &__label {
     // need to put the animation transition on the element itself
     // otherwise not taken into account
+    // + needs to put it on the hover state and the normal state
+    // if want thhe exit hover state to also have a transition 
     transition-duration: animations.$tDurationG;
     transition-timing-function: animations.$tTimingFG;
     &__frame, &__borders, &__text {
@@ -22,7 +19,9 @@
     transition-timing-function: animations.$tTimingFG;
     }
     }
+  }
 
+  &:hover .linkCTA {
     &__iconDiv {
       &__frame {
        transform: rotate(45deg);

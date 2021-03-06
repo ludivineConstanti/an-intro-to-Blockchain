@@ -1,0 +1,127 @@
+.loading {
+  //double time of strokes animation
+  &__svg {
+    animation: 24s shrinkRotate infinite;
+  }
+  // duration dependant on the transparent part animation
+  &__strokes {
+    animation: 12s strokes infinite;
+  }
+
+  &__transparentPart {
+    animation-duration:5s;
+    animation-iteration-count: infinite;
+    &--TR {
+      animation-name: opacity3;
+    }
+    &--TL {
+      animation-name: opacity2;
+    }
+    &--B {
+      animation-name: opacity1;
+    }
+  }
+}
+
+// size of the cube depending on its parent div
+// in the other css file
+@keyframes shrinkRotate {
+  0% {
+    height: 60px;
+    width: 60px;
+    transform: rotate(0deg);
+  }
+  10% {
+    height: 120px;
+    width: 120px;
+    transform: rotate(180deg);
+  }
+  40% {
+    height: 120px;
+    width: 120px;
+    transform: rotate(180deg);
+  }
+  50% {
+    height: 60px;
+    width: 60px;
+    transform: rotate(180deg);
+  }
+  60% {
+    height: 120px;
+    width: 120px;
+    transform: rotate(360deg);
+  }
+  90% {
+    height: 120px;
+    width: 120px;
+    transform: rotate(360deg);
+  }
+  100% {
+    height: 60px;
+    width: 60px;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes strokes {
+  0% {
+    stroke-dasharray: 5;
+    //stroke-dashoffset: 0;
+  }
+  20% {
+    stroke-dasharray: 65;
+  }
+
+  80% {
+    stroke-dasharray: 65;
+  }
+  100% {
+
+    stroke-dasharray: 5;
+  }
+}
+
+@keyframes opacity1 {
+  0% {
+    fill-opacity: 0;
+  }
+  33% {
+    fill-opacity: 0.25;
+  }
+  66% {
+    fill-opacity: 0.75;
+  }
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes opacity2 {
+  0% {
+    fill-opacity: 0.25;
+  }
+  33% {
+    fill-opacity: 0.75;
+  }
+  66% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 0.25;
+  }
+}
+
+@keyframes opacity3 {
+  0% {
+    fill-opacity: 0.75;
+  }
+  33% {
+    fill-opacity: 0;
+  }
+  66% {
+    fill-opacity: 0.25;
+  }
+  100% {
+    fill-opacity: 0.75;
+  }
+}
