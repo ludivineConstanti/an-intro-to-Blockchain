@@ -1,5 +1,3 @@
-const quizFormateur = (quizData) => {
-  return quizData;
-};
+const quizFormateur = (quizData) => quizData;
 
 export default quizFormateur;
