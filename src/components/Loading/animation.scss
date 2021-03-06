@@ -1,0 +1,60 @@
+.loading {
+  &__transparentPart {
+    animation-duration:5s;
+    animation-iteration-count: infinite;
+    &--TR {
+      animation-name: opacity1;
+    }
+    &--TL {
+      animation-name: opacity2;
+    }
+    &--B {
+      animation-name: opacity3;
+    }
+  }
+}
+
+@keyframes opacity1 {
+  0% {
+    fill-opacity: 0;
+  }
+  33% {
+    fill-opacity: 0.25;
+  }
+  66% {
+    fill-opacity: 0.5;
+  }
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes opacity2 {
+  0% {
+    fill-opacity: 0.25;
+  }
+  33% {
+    fill-opacity: 0.5;
+  }
+  66% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 0.25;
+  }
+}
+
+@keyframes opacity3 {
+  0% {
+    fill-opacity: 0.5;
+  }
+  33% {
+    fill-opacity: 0;
+  }
+  66% {
+    fill-opacity: 0.25;
+  }
+  100% {
+    fill-opacity: 0.5;
+  }
+}
