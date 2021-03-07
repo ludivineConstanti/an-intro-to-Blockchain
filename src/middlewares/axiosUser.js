@@ -23,12 +23,16 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUser(response.data.firstname, response.data.lastname));
           }
         })
+        .catch((error) => {
+          console.log(error);
+        })
         .finally(() => {
           store.dispatch(changeLoadingState(false));
         });
       break;
     }
     case REGISTER_REQUEST: {
+      store.dispatch(changeLoadingState(true));
       const state = store.getState();
       console.log(state);
       axios({
@@ -48,7 +52,10 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch((error) => {
-          console.log('error', error);
+          console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(changeLoadingState(false));
         });
       break;
     }

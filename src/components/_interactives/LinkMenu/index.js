@@ -13,7 +13,13 @@ const LinkMenu = ({
 }) => {
   const classLink = `linkMenu linkMenu--${className}`;
   return (
-    <NavLink to={path} exact onClick={funcOnClick}>
+
+    <NavLink
+      to={path}
+      exact
+      onClick={funcOnClick}
+    >
+
       <li className={classLink}>
         <p>{label}</p>
         <svg className="linkMenu__triangle" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
