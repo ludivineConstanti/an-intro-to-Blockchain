@@ -19,6 +19,7 @@ const user = (store) => (next) => (action) => {
         password: state.user.password,
       })
         .then((response) => {
+          console.log(response);
           if (response.statusText === 'OK') {
             store.dispatch(saveUser(response.data.firstname, response.data.lastname));
           }
@@ -34,7 +35,6 @@ const user = (store) => (next) => (action) => {
     case REGISTER_REQUEST: {
       store.dispatch(changeLoadingState(true));
       const state = store.getState();
-      console.log(state);
       axios({
         method: 'post',
         url: `${baseUrl}/register`,
