@@ -28,7 +28,6 @@ const App = ({
   menuOpen,
   loading,
   isLoggedIn,
-  formSubmit,
 }) => (
   <div className="app">
     <Frame />
@@ -60,11 +59,11 @@ const App = ({
             </Route>
             {/* Login Page */}
             <Route path="/login" exact>
-              {isLoggedIn ? <Redirect to="/" /> : <LogIn />}
+              {isLoggedIn ? <Redirect to="/quizzes" /> : <LogIn />}
             </Route>
             {/* Register Page */}
             <Route path="/register" exact>
-              {formSubmit ? <Redirect to="/login" /> : <Register />}
+              {isLoggedIn ? <Redirect to="/" /> : <Register />}
             </Route>
             {/* Page de settings du profile */}
             <Route path="/settings" exact>
@@ -87,7 +86,6 @@ App.propTypes = {
   menuOpen: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
-  formSubmit: PropTypes.bool.isRequired,
 };
 // == Export
 export default App;

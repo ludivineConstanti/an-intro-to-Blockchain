@@ -6,7 +6,6 @@ const mapStateToProps = (state) => ({
   menuOpen: state.global.menuOpen,
   loading: state.global.loading,
   isLoggedIn: state.user.infos.isLoggedIn,
-  formSubmit: state.global.formSubmit,
 });
 
 const mapDispatchToProps = (dispatch) => ({
