@@ -19,7 +19,6 @@ const user = (store) => (next) => (action) => {
         password: state.user.password,
       })
         .then((response) => {
-          console.log(response);
           if (response.statusText === 'OK') {
             store.dispatch(saveUser(response.data.firstname, response.data.lastname));
           }

@@ -1,7 +1,12 @@
 import { STOCK_QUIZ } from 'src/actions/userActions';
 
 const initialState = {
-  quiz: [],
+  currentQuizData: [],
+  userQUizInfos: {
+    currentQuestion: 1,
+    showAnswer: false,
+    userResponses: {},
+  },
 };
 
 export default (state = initialState, action = {}) => {
@@ -9,7 +14,7 @@ export default (state = initialState, action = {}) => {
     case STOCK_QUIZ: {
       return {
         ...state,
-        quiz: action.quiz,
+        currentQuizData: action.currentQuizData,
       };
     }
     default:

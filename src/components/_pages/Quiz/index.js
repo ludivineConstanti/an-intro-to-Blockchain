@@ -10,26 +10,49 @@ import FormQuestion from 'src/components/_partials/FormQuestion';
 import AnswerQuestion from 'src/components/_partials/AnswerQuestion';
 
 // == Composant
-const Quiz = ({ getOneQuiz, quiz }) => {
+const Quiz = ({
+  getOneQuiz,
+  quizData,
+  currentQuestion,
+  showAnswer,
+}) => {
   const { id } = useParams();
   useEffect(() => {
     getOneQuiz(id);
   }, []);
-  console.log(quiz);
+  if (quizData.question1) {
+    const currentQuestionData = quizData[`question${currentQuestion}`];
+    return (
+      <>
+        <ProgressionBar totalNum={quizData.infos.totalQuestions} progressionNum={currentQuestion} />
+        <div className="quiz">
+          {!showAnswer
+            ? <FormQuestion question={currentQuestionData} />
+            : (
+              <AnswerQuestion
+                totalNum={quizData.infos.totalQuestions}
+                progressionNum={currentQuestion}
+                justification={currentQuestionData.justification}
+                articleLink={currentQuestionData.articleLink}
+              />
+            )}
+
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
-      <ProgressionBar totalNum={10} progressionNum={7} />
-      <div className="quiz">
-        <FormQuestion />
-        <AnswerQuestion />
-      </div>
     </>
   );
 };
 
 Quiz.propTypes = {
   getOneQuiz: PropTypes.func,
-  quiz: PropTypes.array.isRequired,
+  quizData: PropTypes.array.isRequired,
+  currentQuestion: PropTypes.number.isRequired,
+  showAnswer: PropTypes.bool.isRequired,
 };
 
 Quiz.defaultProps = {
