@@ -16,24 +16,22 @@ let cube; let
 let texture; let textureOpacity;
 
 function createScene() {
-  // container = document.createElement('div');
-  // document.body.appendChild(container);
-  container = document.getElementsByClassName('home__threeJs');
-  console.log(container[0]);
+  container = document.querySelector('.home__threeJs');
 
   scene = new THREE.Scene();
+
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-  container[0].appendChild(renderer.domElement);
+  container.appendChild(renderer.domElement);
   renderer.autoClear = false;
 
-  camera = new THREE.PerspectiveCamera(50, 0.5 * aspect, 1, 10000);
+  camera = new THREE.PerspectiveCamera(50, aspect, 1, 10000);
   camera.position.z = 2500;
 
   cameraPerspective = new THREE.PerspectiveCamera(
     50,
-    0.5 * aspect,
+    aspect,
     200,
     1500,
   );
@@ -83,10 +81,10 @@ function onWindowResize() {
 
   renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-  camera.aspect = 0.5 * aspect;
-  camera.updateProjectionMatrix();
+  // camera.aspect = aspect;
+  // camera.updateProjectionMatrix();
 
-  cameraPerspective.aspect = 0.5 * aspect;
+  cameraPerspective.aspect = aspect;
   cameraPerspective.updateProjectionMatrix();
 }
 
@@ -125,7 +123,7 @@ function render() {
 
   activeHelper.visible = false;
 
-  renderer.setViewport(0, 0, SCREEN_WIDTH / 2, SCREEN_HEIGHT);
+  renderer.setViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
   renderer.render(scene, activeCamera);
 
   activeHelper.visible = true;
