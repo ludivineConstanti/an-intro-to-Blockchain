@@ -14,8 +14,6 @@ export const GET_ONE_QUIZ = 'GET_ONE_QUIZ';
 export const STOCK_QUIZZES = 'STOCK_QUIZZES';
 export const STOCK_QUIZ = 'STOCK_QUIZ';
 
-export const FORM_SUBMIT = 'FORM_SUBMIT';
-
 export const toggleMenu = () => ({
   type: TOGGLE_MENU,
 });
@@ -71,8 +69,4 @@ export const stockQuizzes = (quizzes) => ({
 export const stockQuiz = (quiz) => ({
   type: STOCK_QUIZ,
   quiz,
-});
-
-export const formSubmit = () => ({
-  type: FORM_SUBMIT,
 });

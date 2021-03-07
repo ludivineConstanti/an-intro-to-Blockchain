@@ -21,6 +21,9 @@ const user = (store) => (next) => (action) => {
             store.dispatch(stockQuizzes(response.data));
           }
         })
+        .catch((error) => {
+          console.log(error);
+        })
         .finally(() => {
           store.dispatch(changeLoadingState(false));
         });
@@ -34,6 +37,9 @@ const user = (store) => (next) => (action) => {
             const quizData = quizFormatter(response.data);
             store.dispatch(stockQuiz(quizData));
           }
+        })
+        .catch((error) => {
+          console.log(error);
         })
         .finally(() => {
           store.dispatch(changeLoadingState(false));

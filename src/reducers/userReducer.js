@@ -6,9 +6,9 @@ import {
 } from 'src/actions/userActions';
 
 const initialState = {
-  email: 'laforce@gmail.com',
-  password: 'Obiwan12',
-  controlPassword: 'Obiwan12',
+  email: '',
+  password: '',
+  controlPassword: '',
   name: '',
   infos: {
     isLoggedIn: false,
@@ -56,8 +56,7 @@ export default (state = initialState, action = {}) => {
         infos: {
           ...state.infos,
           ...state.user,
-          firstname: '',
-          lastname: '',
+          isLoggedIn: true,
         },
       };
     }

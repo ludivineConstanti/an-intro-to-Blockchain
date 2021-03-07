@@ -23,6 +23,9 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUser(response.data.firstname, response.data.lastname));
           }
         })
+        .catch((error) => {
+          console.log(error);
+        })
         .finally(() => {
           store.dispatch(changeLoadingState(false));
         });
@@ -31,6 +34,7 @@ const user = (store) => (next) => (action) => {
     case REGISTER_REQUEST: {
       store.dispatch(changeLoadingState(true));
       const state = store.getState();
+      console.log(state);
       axios({
         method: 'post',
         url: `${baseUrl}/register`,
@@ -46,6 +50,9 @@ const user = (store) => (next) => (action) => {
           if (response.statusText === 'OK') {
             store.dispatch(saveRegister());
           }
+        })
+        .catch((error) => {
+          console.log(error);
         })
         .finally(() => {
           store.dispatch(changeLoadingState(false));
