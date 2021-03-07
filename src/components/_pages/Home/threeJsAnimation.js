@@ -13,7 +13,7 @@ let cameraPerspective;
 let cameraPerspectiveHelper;
 let cube; let
   sphere;
-let texture; let textureOpacity;
+let texture;
 
 function createScene() {
   container = document.querySelector('.home__threeJs');
@@ -26,14 +26,19 @@ function createScene() {
   container.appendChild(renderer.domElement);
   renderer.autoClear = false;
 
-  camera = new THREE.PerspectiveCamera(50, aspect, 1, 10000);
-  camera.position.z = 2500;
+  camera = new THREE.PerspectiveCamera(
+    50, // field of view
+    aspect, // aspect ration (width / height)
+    1, // nearPlane
+    10000, // farPlane
+  );
+  camera.position.z = 1000;
 
   cameraPerspective = new THREE.PerspectiveCamera(
-    50,
-    aspect,
-    200,
-    1500,
+    50, // field of view
+    aspect, // aspect ration (width / height)
+    200, // nearPlane
+    1500, // farPlane
   );
 
   cameraPerspectiveHelper = new THREE.CameraHelper(cameraPerspective);
@@ -62,12 +67,6 @@ function init() {
     'https://i.imgur.com/6368FV9.png', // py 3 => 6
   ]);
 
-  const loaderOpacity = new THREE.CubeTextureLoader();
-
-  textureOpacity = loaderOpacity.load([
-    'https://i.imgur.com/zNuech5.png',
-  ]);
-
   createCube();
   createSphere();
 
@@ -80,9 +79,6 @@ function onWindowResize() {
   aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
 
   renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-
-  // camera.aspect = aspect;
-  // camera.updateProjectionMatrix();
 
   cameraPerspective.aspect = aspect;
   cameraPerspective.updateProjectionMatrix();
@@ -110,13 +106,6 @@ function render() {
   sphere.meshS.position.z = 700 * Math.sin(r);
   sphere.meshS.position.y = 700 * Math.sin(r);
 
-  /* if (activeCamera === cameraPerspective) {
-    cameraPerspective.far = cube.mesh.position.length() + 250;
-    cameraPerspective.updateProjectionMatrix();
-    cameraPerspectiveHelper.update();
-    cameraPerspectiveHelper.visible = true;
-  } */
-
   cameraPerspective.lookAt(cube.mesh.position);
 
   renderer.clear();
@@ -127,18 +116,10 @@ function render() {
   renderer.render(scene, activeCamera);
 
   activeHelper.visible = true;
-
-  /* renderer.setViewport(
-    SCREEN_WIDTH / 2,
-    0,
-    SCREEN_WIDTH / 2,
-    SCREEN_HEIGHT,
-  );
-  renderer.render(scene, camera); */
 }
 
 function Cube() {
-  const geom = new THREE.BoxGeometry(120, 120, 120);
+  const geom = new THREE.BoxGeometry(150, 150, 150);
   const geomL = new THREE.BoxGeometry(350, 350, 350);
 
   // create the material
@@ -164,24 +145,25 @@ function Cube() {
   this.meshL = new THREE.Mesh(geomL, mat);
 
   // Allow the mesh to receive shadows
-  this.mesh.receiveShadow = true;
+  // this.mesh.receiveShadow = true;
 }
 
 // Instantiate the sea and add it to the scene:
 
 function createCube() {
   cube = new Cube();
-
   // add the mesh to the scene
   scene.add(cube.mesh);
   // scene.add(cube.meshL);
+  // cube.position.x = 100px;
 }
 
 function Sphere() {
   // create the geometry (shape) of the cylinder;
   // the parameters are:
-  // radius top, radius bottom, height, number of segments on the radius, number of segments vertically
-  const geom = new THREE.IcosahedronBufferGeometry(200, 6);
+  // radius top, radius bottom, height
+  // number of segments on the radius, number of segments vertically
+  const geom = new THREE.IcosahedronBufferGeometry(280, 7);
   // var geomS = new THREE.IcosahedronBufferGeometry(40, 3);
 
   // create the material
