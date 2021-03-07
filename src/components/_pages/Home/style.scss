@@ -24,6 +24,13 @@
   &__getStarted {
     margin-top: 40px;
   }
+
+  &__threeJs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -50;
+  }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
