@@ -1,6 +1,7 @@
 // Import : package npm
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
+
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
@@ -16,4 +17,7 @@ const rootReactElement = (
   </Provider>
 );
 
-render(rootReactElement, document.getElementById('root'));
+// render(rootReactElement, document.getElementById('root'));
+
+const root = ReactDOM.unstable_createRoot(document.getElementById('root'));
+root.render(rootReactElement);

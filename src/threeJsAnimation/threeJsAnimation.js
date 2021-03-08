@@ -1,4 +1,15 @@
 import * as THREE from 'three';
+import nx from 'src/threeJsAnimation/environmentMap/nx.png';
+import ny from 'src/threeJsAnimation/environmentMap/ny.png';
+import nz from 'src/threeJsAnimation/environmentMap/nz.png';
+import px from 'src/threeJsAnimation/environmentMap/px.png';
+import py from 'src/threeJsAnimation/environmentMap/py.png';
+import pz from 'src/threeJsAnimation/environmentMap/pz.png';
+
+import {
+  unstable_LowPriority,
+  unstable_scheduleCallback,
+} from 'scheduler';
 
 let SCREEN_WIDTH = window.innerWidth;
 let SCREEN_HEIGHT = window.innerHeight;
@@ -16,7 +27,7 @@ let cube; let
 let texture;
 
 function createScene() {
-  container = document.querySelector('.home__threeJs');
+  container = document.querySelector('.app__threeJs');
 
   scene = new THREE.Scene();
 
@@ -52,41 +63,34 @@ function createScene() {
 }
 
 function init() {
-  createScene();
-
-  //
-
-  const loader = new THREE.CubeTextureLoader();
-
-  texture = loader.load([
-    'https://i.imgur.com/IXMxN7H.png', // px 1 => 1
-    'https://i.imgur.com/1mWI1fY.png', // ny 4 => 2
-    'https://i.imgur.com/C8PrCUi.png', // nx 2 => 3
-    'https://i.imgur.com/K6UhDSg.png', // nz 6 => 4
-    'https://i.imgur.com/5WQYlHJ.png', // pz 5 => 5
-    'https://i.imgur.com/6368FV9.png', // py 3 => 6
-  ]);
-
-  createCube();
-  createSphere();
-
-  window.addEventListener('resize', onWindowResize, false);
+  unstable_scheduleCallback(unstable_LowPriority, () => {
+    createScene();
+    const loader = new THREE.CubeTextureLoader();
+    texture = loader.load([px, ny, nx, nz, pz, py]);
+    createCube();
+    createSphere();
+    window.addEventListener('resize', onWindowResize, false);
+  });
 }
 
 function onWindowResize() {
-  SCREEN_WIDTH = window.innerWidth;
-  SCREEN_HEIGHT = window.innerHeight;
-  aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+  unstable_scheduleCallback(unstable_LowPriority, () => {
+    SCREEN_WIDTH = window.innerWidth;
+    SCREEN_HEIGHT = window.innerHeight;
+    aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
 
-  renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+    renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-  cameraPerspective.aspect = aspect;
-  cameraPerspective.updateProjectionMatrix();
+    cameraPerspective.aspect = aspect;
+    cameraPerspective.updateProjectionMatrix();
+  });
 }
 
 function animate() {
-  requestAnimationFrame(animate);
-  render();
+  unstable_scheduleCallback(unstable_LowPriority, () => {
+    requestAnimationFrame(animate);
+    render();
+  });
 }
 
 function render() {
@@ -107,6 +111,8 @@ function render() {
   sphere.meshS.position.y = 700 * Math.sin(r);
 
   cameraPerspective.lookAt(cube.mesh.position);
+
+  console.log('running');
 
   renderer.clear();
 

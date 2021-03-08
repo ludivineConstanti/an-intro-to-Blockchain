@@ -1,6 +1,18 @@
 @use 'reset';
+@use 'src/styles/margins';
+@use 'src/styles/breakpoints';
 
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&display=swap');
+
+.border-padding {
+  padding: margins.$borderMobile;
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.border-padding {
+  padding: margins.$borderDesktop;
+}
+}
 
 body {
   font-family: 'Chakra Petch', sans-serif;
