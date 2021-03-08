@@ -1,4 +1,4 @@
-import { TOGGLE_MENU, CHANGE_LOADING_STATE } from '../actions/userActions';
+import { TOGGLE_MENU, CHANGE_LOADING_STATE } from 'src/actions/appActions';
 
 const initialState = {
   language: 'english',

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
-import { toggleMenu } from 'src/actions/userActions';
+import { toggleMenu } from 'src/actions/appActions';
 
 const mapStateToProps = (state) => ({
   menuOpen: state.global.menuOpen,

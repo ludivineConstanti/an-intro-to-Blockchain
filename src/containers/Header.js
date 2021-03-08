@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Header from 'src/components/Header';
-import { toggleMenu } from 'src/actions/userActions';
+import { toggleMenu } from 'src/actions/appActions';
 
 const mapState = (state) => {
   const letterFirstName = state.user.infos.firstname.charAt(0).toUpperCase();

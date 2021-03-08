@@ -1,10 +1,10 @@
 import axios from 'axios';
+import { changeLoadingState } from 'src/actions/appActions';
 import {
   LOGIN_REQUEST,
-  saveUser,
-  changeLoadingState,
+  saveUserLogin,
   REGISTER_REQUEST,
-  saveRegister,
+  saveUserRegister,
 } from 'src/actions/userActions';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
@@ -20,7 +20,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUser(response.data.firstname,
+            store.dispatch(saveUserLogin(response.data.firstname,
               response.data.lastname));
           }
         })
@@ -48,7 +48,7 @@ const user = (store) => (next) => (action) => {
         .then((response) => {
           console.log('response then register', response);
           if (response.statusText === 'OK') {
-            store.dispatch(saveRegister(response.data.firstname,
+            store.dispatch(saveUserRegister(response.data.firstname,
               response.data.lastname));
           }
         })

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Quiz from 'src/components/_pages/Quiz';
-import { toggleMenu, getOneQuiz } from 'src/actions/userActions';
+import { getOneQuiz } from 'src/actions/quizzesActions';
+import { toggleMenu } from 'src/actions/appActions';
 
 const mapStateToProps = (state) => ({
   quizData: state.quiz.currentQuizData,

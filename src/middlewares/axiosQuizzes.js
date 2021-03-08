@@ -1,11 +1,11 @@
 import axios from 'axios';
+import { changeLoadingState } from 'src/actions/appActions';
 import {
   GET_ALL_QUIZZES,
   GET_ONE_QUIZ,
-  changeLoadingState,
   stockQuizzes,
   stockQuiz,
-} from 'src/actions/userActions';
+} from 'src/actions/quizzesActions';
 
 import quizFormatter from 'src/middlewares/QuizFormatter';
 
