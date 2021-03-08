@@ -1,9 +1,9 @@
 import {
   CHANGE_VALUE_LOGIN,
   CHANGE_VALUE_REGISTER,
-  SAVE_USER,
+  SAVE_USER_LOGIN,
   LOGOUT,
-  SAVE_REGISTER,
+  SAVE_USER_REGISTER,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -45,7 +45,7 @@ export default (state = initialState, action = {}) => {
         },
       };
     }
-    case SAVE_USER: {
+    case SAVE_USER_LOGIN: {
       return {
         ...state,
         loginForm: {
@@ -65,7 +65,7 @@ export default (state = initialState, action = {}) => {
         ...initialState,
       };
     }
-    case SAVE_REGISTER: {
+    case SAVE_USER_REGISTER: {
       return {
         ...state,
         registerForm: {

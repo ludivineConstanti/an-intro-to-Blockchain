@@ -1,4 +1,4 @@
-import { STOCK_QUIZZES } from 'src/actions/userActions';
+import { STOCK_QUIZZES } from 'src/actions/quizzesActions';
 
 const initialState = {
   quizzesList: [],
