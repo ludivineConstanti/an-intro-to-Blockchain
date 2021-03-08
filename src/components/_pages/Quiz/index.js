@@ -33,7 +33,7 @@ const Quiz = ({
                 <FormQuestion question={currentQuestionData} answerShowed />
                 <AnswerQuestion
                   totalNum={quizData.infos.totalQuestions}
-                  progressionNum={questionNumber}
+                  questionNumber={questionNumber}
                   justification={currentQuestionData.justification}
                   articleLink={currentQuestionData.articleLink}
                 />

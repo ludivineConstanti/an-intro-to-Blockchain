@@ -21,7 +21,6 @@ const FormQuestion = ({
     for (let i = 0; i < event.target.length - 1; i += 1) {
       userAnswers[`question${question.id}`][`answer${event.target[i].id}`] = event.target[i].checked;
     }
-    console.log(userAnswers);
     stockAnswer(userAnswers, question.id);
     confirmQuestion();
   };
