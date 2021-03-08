@@ -1,7 +1,9 @@
 export const TOGGLE_MENU = 'TOGGLE_MENU';
 export const CHANGE_LOADING_STATE = 'CHANGE_LOADING_STATE';
 
-export const CHANGE_VALUE = 'CHANGE_VALUE';
+export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
+export const CHANGE_VALUE_REGISTER = 'CHANGE_VALUE_REGISTER';
+
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const SAVE_USER = 'SAVE_USER';
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
@@ -23,8 +25,14 @@ export const changeLoadingState = (value) => ({
   value,
 });
 
-export const changeValue = (value, name) => ({
-  type: CHANGE_VALUE,
+export const changeValueLogin = (value, name) => ({
+  type: CHANGE_VALUE_LOGIN,
+  value,
+  name,
+});
+
+export const changeValueRegister = (value, name) => ({
+  type: CHANGE_VALUE_REGISTER,
   value,
   name,
 });
@@ -43,9 +51,10 @@ export const registerRequest = () => ({
   type: REGISTER_REQUEST,
 });
 
-export const saveRegister = (user) => ({
+export const saveRegister = (firstname, lastname) => ({
   type: SAVE_REGISTER,
-  user,
+  firstname,
+  lastname,
 });
 
 export const logout = () => ({

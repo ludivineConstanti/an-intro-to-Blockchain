@@ -63,7 +63,7 @@ const App = ({
             </Route>
             {/* Register Page */}
             <Route path="/register" exact>
-              {isLoggedIn ? <Redirect to="/" /> : <Register />}
+              {isLoggedIn ? <Redirect to="/quizzes" /> : <Register />}
             </Route>
             {/* Page de settings du profile */}
             <Route path="/settings" exact>
