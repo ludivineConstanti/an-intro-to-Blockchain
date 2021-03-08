@@ -24,6 +24,13 @@
   &__getStarted {
     margin-top: 40px;
   }
+
+  &__threeJs {
+    position: fixed;
+    top: -10vh;
+    left: 0;
+    z-index: -50;
+  }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
@@ -32,32 +39,32 @@
   padding-top: 10vh;
 
   &__subtitle {
-    // 16 columns => put 4 columns of margin
-    // (100vw / 16) * 4
-    margin-left: 25%;
+    // columns margin
+    margin-left: calc(((100vw - #{margins.$borderDesktop}) / 16) * 1);
     grid-column-start: span 9;
     font-size: fontSizes.$labelS1Desktop;
     letter-spacing: fontSizes.$labelS1KerningDesktop;
   }
 
   &__title {
-    // 16 columns => put 5 columns of margin
-    // (100vw / 16) * 5
-    margin-left: 31.25%;
+    // columns margin
+    margin-left: calc(((100vw - #{margins.$borderDesktop}) / 16) * 2);
     grid-column-start: span 7;
     font-size: fontSizes.$titleS1Desktop;
     letter-spacing: fontSizes.$titleS1KerningDesktop;
   }
 
   &__getStarted {
-    // 16 columns => put 10 columns of margin
-    // (100vw / 16) * 10
-    margin-left: 62.5%;
+    // columns margin
+    margin-left: calc(((100vw - #{margins.$borderDesktop}) / 16) * 6);
     margin-top: 60px;
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+  &__threeJs {
+    left: 20vw;
   }
 
 }
