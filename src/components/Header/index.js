@@ -23,7 +23,7 @@ const Header = ({
 
     <span className="header">
       <div className="header__blackbox header__blackbox--top" />
-      <div className="header__language"><button className={classEnglish} onClick={onClickLanguage} value="en">English</button> | <button className={classFrench} onClick={onClickLanguage} value="fr">French</button></div>
+      {!menuOpen && <div className="header__language"><button className={classEnglish} onClick={onClickLanguage} value="en">English</button> | <button className={classFrench} onClick={onClickLanguage} value="fr">French</button></div>}
       <button type="button" className="header__buttonTL" onClick={handleOnClickMenu}>
         { menuOpen === true
           ? (

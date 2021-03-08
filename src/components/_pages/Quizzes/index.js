@@ -8,10 +8,12 @@ import TitlePage from 'src/components/_statics/TitlePage';
 import CategoryQuiz from 'src/components/_partials/CategoryQuiz';
 
 // == Composant
-const Quizzes = ({ getAllQuizzes, quizzesList, loading }) => {
+const Quizzes = ({
+  getAllQuizzes, quizzesList, loading, language,
+}) => {
   useEffect(() => {
     getAllQuizzes();
-  }, []);
+  }, [language]);
   let categoryMax = 1;
   quizzesList.forEach((element) => {
     if (element.categoryId >= categoryMax) {
@@ -37,6 +39,7 @@ Quizzes.propTypes = {
   getAllQuizzes: PropTypes.func,
   quizzesList: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 Quizzes.defaultProps = {
