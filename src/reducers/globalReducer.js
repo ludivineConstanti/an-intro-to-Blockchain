@@ -1,7 +1,7 @@
 import { TOGGLE_MENU, CHANGE_LOADING_STATE } from '../actions/userActions';
 
 const initialState = {
-  language: 'english',
+  language: 'fr',
   menuOpen: false,
   loading: false,
 };

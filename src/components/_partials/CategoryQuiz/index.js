@@ -9,12 +9,12 @@ import LinkCTA from 'src/components/_interactives/LinkCTA';
 // == Composant
 const CategoryQuiz = (oneCategory) => (
   <div className="categoryQuiz">
-    <TitleCategory label={oneCategory[0][0].en_category_name} />
+    <TitleCategory label={oneCategory[0][0].category_name} />
     <div className="categoryQuiz__groupLinks">
       <div className="categoryQuiz__linkCTA">
         {
           oneCategory[0].map((oneQuiz) => (
-            <LinkCTA key={oneQuiz.id} {...{ oneQuiz }} />
+            <LinkCTA key={oneQuiz.quiz_id} {...{ oneQuiz }} />
           ))
         }
       </div>
