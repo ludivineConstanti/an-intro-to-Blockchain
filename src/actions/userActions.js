@@ -43,4 +43,3 @@ export const saveUserRegister = (firstname, lastname) => ({
 export const logout = () => ({
   type: LOGOUT,
 });
-
