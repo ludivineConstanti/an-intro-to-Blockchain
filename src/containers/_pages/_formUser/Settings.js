@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import Settings from 'src/components/_pages/_formUser/Settings';
-import { logout } from 'src/actions/userActions';
+import { logout, changeValueSettings } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
-  email: state.user.email,
-  password: state.user.password,
-  isLogged: state.user.infos.logged,
+  settingsForms: state.user.settingsForms,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  changeField: (value, name) => {
+    dispatch(changeValueSettings(value, name));
+  },
   handleLogout: () => {
     dispatch(logout());
   },

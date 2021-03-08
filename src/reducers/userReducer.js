@@ -1,6 +1,7 @@
 import {
   CHANGE_VALUE_LOGIN,
   CHANGE_VALUE_REGISTER,
+  CHANGE_VALUE_SETTINGS,
   SAVE_USER_LOGIN,
   LOGOUT,
   SAVE_USER_REGISTER,
@@ -8,20 +9,25 @@ import {
 
 const initialState = {
   loginForm: {
-    email: 'abc@gmail.com',
-    password: 'Kikiki10',
+    email: 'bernard@gmail.com',
+    password: 'Password1',
   },
   registerForm: {
-    firstname: 'Zinedine',
-    lastname: 'Tzigane',
-    password: 'Password1',
-    controlPassword: 'Password1',
-    email: 'bernard@gmail.com',
+    firstname: '',
+    lastname: '',
+    password: '',
+    controlPassword: '',
+    email: '',
   },
   infos: {
     isLoggedIn: false,
     firstname: '',
     lastname: '',
+  },
+  settingsForms: {
+    oldPassword: '',
+    newPassword: '',
+    controlNewPassword: '',
   },
 };
 
@@ -41,6 +47,15 @@ export default (state = initialState, action = {}) => {
         ...state,
         registerForm: {
           ...state.registerForm,
+          [action.name]: action.value,
+        },
+      };
+    }
+    case CHANGE_VALUE_SETTINGS: {
+      return {
+        ...state,
+        settingsForms: {
+          ...state.settingsForms,
           [action.name]: action.value,
         },
       };

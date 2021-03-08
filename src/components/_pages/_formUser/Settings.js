@@ -11,7 +11,7 @@ import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
-const Settings = ({ handleLogout }) => {
+const Settings = ({ handleLogout, changeField, settingsForms }) => {
   const handleOnClick = () => {
     handleLogout();
   };
@@ -27,11 +27,11 @@ const Settings = ({ handleLogout }) => {
         <FormUser className="marginB">
           <form className="settings__columns">
             <div className="settings__column">
-              <InputText type="email" placeholder="Old password" />
-              <InputText type="email" placeholder="New password" />
+              <InputText name="oldPassword" type="email" placeholder="Old password" value={settingsForms.oldPassword} onChange={changeField} />
+              <InputText name="newPassword" type="email" placeholder="New password" value={settingsForms.newPassword} onChange={changeField} />
             </div>
             <div className="settings__column">
-              <InputText type="email" placeholder="Confirm new password" />
+              <InputText name="controlNewPassword" type="email" placeholder="Confirm new password" value={settingsForms.controlNewPassword} onChange={changeField} />
               <SubmitButton label="Change my password" />
             </div>
           </form>
@@ -56,6 +56,13 @@ const Settings = ({ handleLogout }) => {
 
 Settings.propTypes = {
   handleLogout: PropTypes.func.isRequired,
+  changeField: PropTypes.func,
+  settingsForms: PropTypes.object.isRequired,
+
+};
+
+Settings.defaultProps = {
+  changeField: () => {},
 };
 
 // == Export
