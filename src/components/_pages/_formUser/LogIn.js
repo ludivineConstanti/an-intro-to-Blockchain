@@ -11,8 +11,7 @@ import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
 const LogIn = ({
-  email,
-  password,
+  loginForm,
   changeField,
   handleLogin,
 }) => {
@@ -28,10 +27,10 @@ const LogIn = ({
       <FormUser>
         <form onSubmit={handleSubmit} className="login__columns">
           <div className="login__column">
-            <InputText name="email" type="email" placeholder="Email" value={email} onChange={changeField} />
+            <InputText name="email" type="email" placeholder="Email" value={loginForm.email} onChange={changeField} />
           </div>
           <div className="login__column">
-            <InputText name="password" type="password" placeholder="Password" value={password} onChange={changeField} />
+            <InputText name="password" type="password" placeholder="Password" value={loginForm.password} onChange={changeField} />
             <div className="login__submitButton">
               <SubmitButton label="Log in" />
             </div>
@@ -43,15 +42,12 @@ const LogIn = ({
 };
 
 LogIn.propTypes = {
-  email: PropTypes.string,
-  password: PropTypes.string,
+  loginForm: PropTypes.object.isRequired,
   changeField: PropTypes.func,
   handleLogin: PropTypes.func,
 };
 
 LogIn.defaultProps = {
-  email: '',
-  password: '',
   changeField: () => {},
   handleLogin: () => {},
 };

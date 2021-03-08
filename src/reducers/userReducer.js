@@ -1,15 +1,23 @@
 import {
-  CHANGE_VALUE,
-  SAVE_USER,
+  CHANGE_VALUE_LOGIN,
+  CHANGE_VALUE_REGISTER,
+  SAVE_USER_LOGIN,
   LOGOUT,
-  SAVE_REGISTER,
+  SAVE_USER_REGISTER,
 } from 'src/actions/userActions';
 
 const initialState = {
-  email: '',
-  password: '',
-  controlPassword: '',
-  name: '',
+  loginForm: {
+    email: 'abc@gmail.com',
+    password: 'Kikiki10',
+  },
+  registerForm: {
+    firstname: 'Zinedine',
+    lastname: 'Tzigane',
+    password: 'Password1',
+    controlPassword: 'Password1',
+    email: 'bernard@gmail.com',
+  },
   infos: {
     isLoggedIn: false,
     firstname: '',
@@ -19,26 +27,36 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_VALUE: {
+    case CHANGE_VALUE_LOGIN: {
       return {
         ...state,
-        [action.name]: action.value,
-        infos: {
-          ...state.infos,
+        loginForm: {
+          ...state.loginForm,
           [action.name]: action.value,
         },
       };
     }
-    case SAVE_USER: {
+    case CHANGE_VALUE_REGISTER: {
       return {
         ...state,
-        email: '',
-        password: '',
+        registerForm: {
+          ...state.registerForm,
+          [action.name]: action.value,
+        },
+      };
+    }
+    case SAVE_USER_LOGIN: {
+      return {
+        ...state,
+        loginForm: {
+          email: '',
+          password: '',
+        },
         infos: {
           ...state.infos,
-          isLoggedIn: true,
           firstname: action.firstname,
           lastname: action.lastname,
+          isLoggedIn: true,
         },
       };
     }
@@ -47,15 +65,21 @@ export default (state = initialState, action = {}) => {
         ...initialState,
       };
     }
-    case SAVE_REGISTER: {
+    case SAVE_USER_REGISTER: {
       return {
         ...state,
-        email: '',
-        password: '',
-        controlPassword: '',
+        registerForm: {
+          firstname: '',
+          lastname: '',
+          password: '',
+          controlPassword: '',
+          email: '',
+        },
         infos: {
           ...state.infos,
-          ...state.user,
+          ...action.user,
+          firstname: action.firstname,
+          lastname: action.lastname,
           isLoggedIn: true,
         },
       };

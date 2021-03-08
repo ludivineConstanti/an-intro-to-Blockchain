@@ -3,9 +3,8 @@ import Settings from 'src/components/_pages/_formUser/Settings';
 import { logout } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
-  email: state.user.email,
-  password: state.user.password,
-  isLogged: state.user.infos.logged,
+  firstname: state.user.infos.firstname,
+  lastname: state.user.infos.lastname,
 });
 
 const mapDispatchToProps = (dispatch) => ({

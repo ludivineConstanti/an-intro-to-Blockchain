@@ -1,10 +1,10 @@
 import axios from 'axios';
+import { changeLoadingState } from 'src/actions/appActions';
 import {
   LOGIN_REQUEST,
-  saveUser,
-  changeLoadingState,
+  saveUserLogin,
   REGISTER_REQUEST,
-  saveRegister,
+  saveUserRegister,
 } from 'src/actions/userActions';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
@@ -15,12 +15,13 @@ const user = (store) => (next) => (action) => {
       store.dispatch(changeLoadingState(true));
       const state = store.getState();
       axios.post(`${baseUrl}/login`, {
-        email: state.user.email,
-        password: state.user.password,
+        email: state.user.loginForm.email,
+        password: state.user.loginForm.password,
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUser(response.data.firstname, response.data.lastname));
+            store.dispatch(saveUserLogin(response.data.firstname,
+              response.data.lastname));
           }
         })
         .catch((error) => {
@@ -34,21 +35,21 @@ const user = (store) => (next) => (action) => {
     case REGISTER_REQUEST: {
       store.dispatch(changeLoadingState(true));
       const state = store.getState();
-      console.log(state);
       axios({
         method: 'post',
         url: `${baseUrl}/register`,
         data: {
-          firstname: state.user.infos.firstname,
-          lastname: state.user.infos.lastname,
-          email: state.user.email,
-          password: state.user.password,
+          firstname: state.user.registerForm.firstname,
+          lastname: state.user.registerForm.lastname,
+          email: state.user.registerForm.email,
+          password: state.user.registerForm.password,
         },
       })
         .then((response) => {
           console.log('response then register', response);
           if (response.statusText === 'OK') {
-            store.dispatch(saveRegister());
+            store.dispatch(saveUserRegister(response.data.firstname,
+              response.data.lastname));
           }
         })
         .catch((error) => {
