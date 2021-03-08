@@ -10,16 +10,20 @@ import { NavLink } from 'react-router-dom';
 
 // == Composant
 const Header = ({
-  initials, onClickButtonMenu, isLoggedIn, menuOpen,
+  initials, onClickButtonMenu, onClickLanguage, isLoggedIn, menuOpen, language,
 }) => {
   const handleOnClickMenu = () => {
     onClickButtonMenu();
   };
 
+  const classEnglish = language === 'en' ? 'header__language__english header__language--active' : 'header__language__english';
+  const classFrench = language === 'fr' ? 'header__language__french header__language--active' : 'header__language__french';
+
   return (
 
     <span className="header">
       <div className="header__blackbox header__blackbox--top" />
+      <div className="header__language"><button className={classEnglish} onClick={onClickLanguage} value="en">English</button> | <button className={classFrench} onClick={onClickLanguage} value="fr">French</button></div>
       <button type="button" className="header__buttonTL" onClick={handleOnClickMenu}>
         { menuOpen === true
           ? (
@@ -77,13 +81,16 @@ const Header = ({
 
 Header.defaultProps = {
   initials: '??',
+  language: 'en',
 };
 
 Header.propTypes = {
   initials: PropTypes.string,
   onClickButtonMenu: PropTypes.func.isRequired,
+  onClickLanguage: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   menuOpen: PropTypes.bool.isRequired,
+  language: PropTypes.string,
 };
 
 // == Export
