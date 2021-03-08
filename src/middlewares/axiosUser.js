@@ -62,7 +62,7 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case CHANGE_SETTINGS_REQUEST: {
-      store.dispatch(changeLoadingState(true));
+      store.dispatch(changeValueGlobal(false, 'loading'));
       const state = store.getState();
       console.log('state', state);
       axios({
@@ -84,7 +84,7 @@ const user = (store) => (next) => (action) => {
           console.log(error);
         })
         .finally(() => {
-          store.dispatch(changeLoadingState(false));
+          store.dispatch(changeValueGlobal(false, 'loading'));
         });
       break;
     }
