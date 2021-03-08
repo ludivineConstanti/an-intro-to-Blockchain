@@ -4,6 +4,8 @@ import { logout, changeValueSettings } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   settingsForms: state.user.settingsForms,
+  firstname: state.user.infos.firstname,
+  lastname: state.user.infos.lastname,
 });
 
 const mapDispatchToProps = (dispatch) => ({

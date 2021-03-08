@@ -11,13 +11,15 @@ import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
-const Settings = ({ handleLogout, changeField, settingsForms }) => {
+
+const Settings = ({ handleLogout, firstname, lastname, changeField, settingsForms }) => {
+
   const handleOnClick = () => {
     handleLogout();
   };
   return (
     <div className="settings">
-      <TitlePage label="Settings" subtitle="Firstname name" />
+      <TitlePage label="Settings" subtitle={`${firstname} ${lastname}`} />
       <div className="settings__forms">
         <FormUser className="marginB">
           <div className="settings__column">
@@ -58,7 +60,8 @@ Settings.propTypes = {
   handleLogout: PropTypes.func.isRequired,
   changeField: PropTypes.func,
   settingsForms: PropTypes.object.isRequired,
-
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
 };
 
 Settings.defaultProps = {
