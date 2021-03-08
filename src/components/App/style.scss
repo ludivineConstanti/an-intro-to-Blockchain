@@ -1,12 +1,8 @@
-@use 'src/styles/margins';
-@use 'src/styles/breakpoints';
-
-.border-padding {
-  padding: margins.$borderMobile;
-}
-
-@media only screen and (min-width: breakpoints.$desktop) {
-.border-padding {
-  padding: margins.$borderDesktop;
-}
+.app {
+  &__threeJs {
+    position: fixed;
+    z-index: -50;
+    top: 0;
+    left: 0;
+  }
 }

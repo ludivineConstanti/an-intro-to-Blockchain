@@ -24,13 +24,6 @@
   &__getStarted {
     margin-top: 40px;
   }
-
-  &__threeJs {
-    position: fixed;
-    top: -10vh;
-    left: 0;
-    z-index: -50;
-  }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
@@ -62,9 +55,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-  }
-  &__threeJs {
-    left: 20vw;
   }
 
 }
