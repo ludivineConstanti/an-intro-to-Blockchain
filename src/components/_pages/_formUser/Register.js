@@ -11,11 +11,7 @@ import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
 const Register = ({
-  firstname,
-  lastname,
-  password,
-  controlPassword,
-  email,
+  registerForm,
   changeField,
   handleRegister,
 }) => {
@@ -29,16 +25,16 @@ const Register = ({
   // and lengths of firstname and lastname
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (password !== controlPassword
-      || (firstname.length < 1 || firstname.length > 25)
-      || (lastname.length < 1 || lastname.length > 25)) {
-      if (password !== controlPassword) {
+    if (registerForm.password !== registerForm.controlPassword
+      || (registerForm.firstname.length < 1 || registerForm.firstname.length > 25)
+      || (registerForm.lastname.length < 1 || registerForm.lastname.length > 25)) {
+      if (registerForm.password !== registerForm.controlPassword) {
         setPasswordConfirmError('Passwords do not match');
       }
-      if (firstname.length < 1 || firstname.length > 25) {
+      if (registerForm.firstname.length < 1 || registerForm.firstname.length > 25) {
         setFirstnameError('Your first name must have between 1 and 25 characters');
       }
-      if (lastname.length < 1 || lastname.length > 25) {
+      if (registerForm.lastname.length < 1 || registerForm.lastname.length > 25) {
         setLastnameError('Your last name must have between 1 and 25 characters');
       }
     }
@@ -57,15 +53,15 @@ const Register = ({
           <form onSubmit={handleSubmit} className="register__columns">
             <div className="register__column">
               <p className="register__error">{firstnameError}</p>
-              <InputText name="firstname" type="text" placeholder="First Name" value={firstname} onChange={changeField} />
+              <InputText name="firstname" type="text" placeholder="First Name" value={registerForm.firstname} onChange={changeField} />
               <p className="register__error">{lastnameError}</p>
-              <InputText name="lastname" type="text" placeholder="Family Name" value={lastname} onChange={changeField} />
+              <InputText name="lastname" type="text" placeholder="Family Name" value={registerForm.lastname} onChange={changeField} />
             </div>
             <div className="register__column">
               <p className="register__error">{passwordConfirmError}</p>
-              <InputText name="password" type="password" placeholder="Password" value={password} onChange={changeField} />
-              <InputText name="controlPassword" type="password" placeholder="Password confirmation" value={controlPassword} onChange={changeField} />
-              <InputText name="email" type="email" placeholder="Your email address" value={email} onChange={changeField} />
+              <InputText name="password" type="password" placeholder="Password" value={registerForm.password} onChange={changeField} />
+              <InputText name="controlPassword" type="password" placeholder="Password confirmation" value={registerForm.controlPassword} onChange={changeField} />
+              <InputText name="email" type="email" placeholder="Your email address" value={registerForm.email} onChange={changeField} />
               <div className="register__submitButton">
                 <SubmitButton label="Create account" />
               </div>
@@ -78,21 +74,12 @@ const Register = ({
 };
 
 Register.propTypes = {
-  firstname: PropTypes.string,
-  lastname: PropTypes.string,
-  password: PropTypes.string,
-  controlPassword: PropTypes.string,
-  email: PropTypes.string,
+  registerForm: PropTypes.object.isRequired,
   changeField: PropTypes.func,
   handleRegister: PropTypes.func,
 };
 
 Register.defaultProps = {
-  firstname: '',
-  lastname: '',
-  password: '',
-  controlPassword: '',
-  email: '',
   changeField: () => {},
   handleRegister: () => {},
 };
