@@ -11,13 +11,13 @@ import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
-const Settings = ({ handleLogout }) => {
+const Settings = ({ handleLogout, firstname, lastname }) => {
   const handleOnClick = () => {
     handleLogout();
   };
   return (
     <div className="settings">
-      <TitlePage label="Settings" subtitle="Firstname name" />
+      <TitlePage label="Settings" subtitle={`${firstname} ${lastname}`} />
       <div className="settings__forms">
         <FormUser className="marginB">
           <div className="settings__column">
@@ -56,6 +56,8 @@ const Settings = ({ handleLogout }) => {
 
 Settings.propTypes = {
   handleLogout: PropTypes.func.isRequired,
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
 };
 
 // == Export
