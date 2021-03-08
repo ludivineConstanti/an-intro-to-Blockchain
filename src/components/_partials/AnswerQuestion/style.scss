@@ -30,6 +30,8 @@
 @media only screen and (min-width: breakpoints.$desktopBigger) {
   .answerQuestion {
     width: calc(50vw - #{margins.$borderDesktop} -20px);
+    margin: 0;
+    margin-left: 40px;
     margin-right: margins.$borderDesktop;
     &__justification {
       margin: 0 0 40px 0;
