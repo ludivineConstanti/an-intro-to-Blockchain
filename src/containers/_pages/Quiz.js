@@ -5,8 +5,8 @@ import { toggleMenu } from 'src/actions/appActions';
 
 const mapStateToProps = (state) => ({
   quizData: state.quiz.currentQuizData,
-  currentQuestion: state.quiz.userQUizInfos.currentQuestion,
-  showAnswer: state.quiz.userQUizInfos.showAnswer,
+  questionNumber: state.quiz.userQuizInfos.questionNumber,
+  showAnswer: state.quiz.userQuizInfos.showAnswer,
 });
 
 const mapDispatchToProps = (dispatch) => ({

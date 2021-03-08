@@ -54,7 +54,7 @@ const Header = ({
       <div className="header__buttonTR">
         {
         !menuOpen && (
-        <NavLink to={isLoggedIn ? '/settings' : '/register'} label="Settings">
+        <NavLink to={isLoggedIn ? '/settings' : '/login'} label="Settings">
           <span className="header__username">{initials}</span>
           <svg className="header__svgTR" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60.75 4.84619L56.1538 0.25H5.34619L0.75 4.84619V55.6538L5.34619 60.25H56.1538L60.75 55.6538V4.84619Z" fill="black" fillOpacity="0.85" />
