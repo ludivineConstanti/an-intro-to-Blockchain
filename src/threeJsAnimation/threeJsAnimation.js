@@ -112,7 +112,7 @@ function Bubble() {
   });
 
   this.sphereInside = new THREE.Mesh(sphereGeom, matS);
-  this.group.add(this.sphereInside);
+  // this.group.add(this.sphereInside);
 
   this.sphereOutside = new THREE.Mesh(sphereGeom, matInside);
   this.group.add(this.sphereOutside);

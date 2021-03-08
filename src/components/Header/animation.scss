@@ -4,6 +4,17 @@
   transition-duration: animations.$tDurationG;
   transition-timing-function: animations.$tTimingFG;
 
+  &__language {
+    &__english, &__french {
+      &:hover {
+        transition-duration: animations.$tDurationG;
+        transition-timing-function: animations.$tTimingFG;
+        color: white;
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+
 &__buttonTL:hover .header,  &__buttonTR:hover .header {
 
   &__corners, &__mainStrokes {

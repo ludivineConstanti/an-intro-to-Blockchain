@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { changeLoadingState } from 'src/actions/appActions';
+import { changeValueGlobal } from 'src/actions/appActions';
 import {
   LOGIN_REQUEST,
   saveUserLogin,
@@ -12,7 +12,7 @@ import { baseUrl } from 'src/middlewares/baseUrl';
 const user = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN_REQUEST: {
-      store.dispatch(changeLoadingState(true));
+      store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
       axios.post(`${baseUrl}/login`, {
         email: state.user.loginForm.email,
@@ -28,12 +28,12 @@ const user = (store) => (next) => (action) => {
           console.log(error);
         })
         .finally(() => {
-          store.dispatch(changeLoadingState(false));
+          store.dispatch(changeValueGlobal(false, 'loading'));
         });
       break;
     }
     case REGISTER_REQUEST: {
-      store.dispatch(changeLoadingState(true));
+      store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
       axios({
         method: 'post',
@@ -55,7 +55,7 @@ const user = (store) => (next) => (action) => {
           console.log(error);
         })
         .finally(() => {
-          store.dispatch(changeLoadingState(false));
+          store.dispatch(changeValueGlobal(false, 'loading'));
         });
       break;
     }

@@ -23,6 +23,13 @@
 
 @media only screen and (min-width: breakpoints.$desktop) {
   .formQuestion {
+    width: calc(100vw - #{margins.$borderDesktop} * 2);
+    margin: margins.$borderDesktop margins.$borderDesktop 0 margins.$borderDesktop;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktopBigger) {
+  .formQuestion {
     margin: 0 40px 0 0;
     width: calc(50vw - #{margins.$borderDesktop} -20px);
     padding: 80px;
