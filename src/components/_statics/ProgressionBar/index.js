@@ -9,7 +9,7 @@ import ProgressionSquare from 'src/components/_statics/ProgressionBar/Progressio
 // == Composant
 const ProgressionBar = ({ totalNum, progressionNum }) => {
   const arrProgression = [];
-  for (let i = 0; i < totalNum; i += 1) {
+  for (let i = 1; i < totalNum + 1; i += 1) {
     if (i < progressionNum) arrProgression.push(<ProgressionSquare status="done" key={i} />);
     else if (i === progressionNum) arrProgression.push(<ProgressionSquare status="selected" key={i} />);
     else arrProgression.push(<ProgressionSquare status="toDo" key={i} />);
