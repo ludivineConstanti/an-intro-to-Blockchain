@@ -66,7 +66,7 @@ export const stockQuizzes = (quizzes) => ({
   quizzes,
 });
 
-export const stockQuiz = (quiz) => ({
+export const stockQuiz = (currentQuizData) => ({
   type: STOCK_QUIZ,
-  quiz,
+  currentQuizData,
 });

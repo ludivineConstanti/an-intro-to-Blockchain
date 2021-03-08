@@ -34,7 +34,6 @@ const user = (store) => (next) => (action) => {
     case REGISTER_REQUEST: {
       store.dispatch(changeLoadingState(true));
       const state = store.getState();
-      console.log(state);
       axios({
         method: 'post',
         url: `${baseUrl}/register`,
