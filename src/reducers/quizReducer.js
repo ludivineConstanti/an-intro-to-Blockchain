@@ -32,7 +32,6 @@ export default (state = initialState, action = {}) => {
       };
     }
     case INCREASE_QUESTION: {
-      console.log('NextQuestion');
       return {
         ...state,
         userQuizInfos: {

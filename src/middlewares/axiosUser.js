@@ -46,7 +46,6 @@ const user = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log('response then register', response);
           if (response.statusText === 'OK') {
             store.dispatch(saveUserRegister(response.data.firstname,
               response.data.lastname));
