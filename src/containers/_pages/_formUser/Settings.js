@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Settings from 'src/components/_pages/_formUser/Settings';
-import { logout, changeValueSettings } from 'src/actions/userActions';
+import { logout, changeValueSettings, changeSettingsRequest } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   settingsForms: state.user.settingsForms,
@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleLogout: () => {
     dispatch(logout());
+  },
+  handleChangeSettings: () => {
+    dispatch(changeSettingsRequest());
   },
 });
 

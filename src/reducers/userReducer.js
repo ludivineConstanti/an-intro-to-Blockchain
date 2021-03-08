@@ -5,6 +5,7 @@ import {
   SAVE_USER_LOGIN,
   LOGOUT,
   SAVE_USER_REGISTER,
+  SAVE_USER_SETTINGS,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -28,6 +29,7 @@ const initialState = {
     oldPassword: '',
     newPassword: '',
     controlNewPassword: '',
+    newEmail: '',
   },
 };
 
@@ -92,10 +94,18 @@ export default (state = initialState, action = {}) => {
         },
         infos: {
           ...state.infos,
-          ...action.user,
           firstname: action.firstname,
           lastname: action.lastname,
           isLoggedIn: true,
+        },
+      };
+    }
+    case SAVE_USER_SETTINGS: {
+      return {
+        ...state,
+        settingsForms: {
+          newPassword: action.newPassword,
+          newEmail: action.newEmail,
         },
       };
     }

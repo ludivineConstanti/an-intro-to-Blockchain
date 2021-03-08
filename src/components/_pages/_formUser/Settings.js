@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -12,11 +12,32 @@ import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
 
-const Settings = ({ handleLogout, firstname, lastname, changeField, settingsForms }) => {
-
+const Settings = ({
+  handleLogout,
+  firstname,
+  lastname,
+  changeField,
+  settingsForms,
+  handleChangeSettings,
+}) => {
   const handleOnClick = () => {
     handleLogout();
   };
+
+  const [passwordConfirmError, setPasswordConfirmError] = useState('');
+
+  // Fonction to control the correspondence of passwords,
+  // and lengths of firstname and lastname
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (settingsForms.newPassword !== settingsForms.controlNewPassword) {
+      setPasswordConfirmError('Passwords do not match');
+    }
+    else {
+      handleChangeSettings();
+    }
+  };
+
   return (
     <div className="settings">
       <TitlePage label="Settings" subtitle={`${firstname} ${lastname}`} />
@@ -27,21 +48,22 @@ const Settings = ({ handleLogout, firstname, lastname, changeField, settingsForm
           </div>
         </FormUser>
         <FormUser className="marginB">
-          <form className="settings__columns">
+          <form onSubmit={handleSubmit} className="settings__columns">
             <div className="settings__column">
-              <InputText name="oldPassword" type="email" placeholder="Old password" value={settingsForms.oldPassword} onChange={changeField} />
-              <InputText name="newPassword" type="email" placeholder="New password" value={settingsForms.newPassword} onChange={changeField} />
+              <InputText name="oldPassword" type="password" placeholder="Old password" value={settingsForms.oldPassword} onChange={changeField} />
+              <InputText name="newPassword" type="password" placeholder="New password" value={settingsForms.newPassword} onChange={changeField} />
             </div>
             <div className="settings__column">
-              <InputText name="controlNewPassword" type="email" placeholder="Confirm new password" value={settingsForms.controlNewPassword} onChange={changeField} />
+              <p className="register__error">{passwordConfirmError}</p>
+              <InputText name="controlNewPassword" type="password" placeholder="Confirm new password" value={settingsForms.controlNewPassword} onChange={changeField} />
               <SubmitButton label="Change my password" />
             </div>
           </form>
         </FormUser>
         <FormUser className="marginB">
-          <form className="settings__columns">
+          <form onSubmit={handleSubmit} className="settings__columns">
             <div className="settings__column">
-              <InputText type="password" placeholder="New email address" />
+              <InputText name="newEmail" type="email" placeholder="New email address" value={settingsForms.newEmail} onChange={changeField} />
             </div>
             <div className="settings__column">
               <SubmitButton label="Change my email" />
@@ -62,10 +84,12 @@ Settings.propTypes = {
   settingsForms: PropTypes.object.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
+  handleChangeSettings: PropTypes.func,
 };
 
 Settings.defaultProps = {
   changeField: () => {},
+  handleChangeSettings: () => {},
 };
 
 // == Export
