@@ -1,5 +1,6 @@
 export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
 export const CHANGE_VALUE_REGISTER = 'CHANGE_VALUE_REGISTER';
+export const CHANGE_VALUE_SETTINGS = 'CHANGE_VALUE_SETTINGS';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const SAVE_USER_LOGIN = 'SAVE_USER';
@@ -16,6 +17,12 @@ export const changeValueLogin = (value, name) => ({
 
 export const changeValueRegister = (value, name) => ({
   type: CHANGE_VALUE_REGISTER,
+  value,
+  name,
+});
+
+export const changeValueSettings = (value, name) => ({
+  type: CHANGE_VALUE_SETTINGS,
   value,
   name,
 });
