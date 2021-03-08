@@ -15,7 +15,7 @@ const quizFormateur = (quizData) => {
   counter = 1;
   questions.forEach((element) => {
     quizFormatted[`question${counter}`] = {
-      id: element.question_id,
+      id: element[0].question_id,
       statement: element[0].question_statement,
       justification: element[0].question_justification,
       articleLink: element[0].article_link,

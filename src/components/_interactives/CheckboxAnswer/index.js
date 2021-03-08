@@ -10,7 +10,7 @@ import './animation.scss';
 const CheckboxAnswer = ({ oneAnswer }) => (
   // eslint-disable-next-line jsx-a11y/label-has-associated-control
   <label className="checkboxAnswer">{oneAnswer.title}
-    <input type="checkbox" id={oneAnswer.id} name={oneAnswer.id} value="value" />
+    <input type="checkbox" id={oneAnswer.id} name={oneAnswer.id} />
     <span className="checkboxAnswer__checkmark" />
   </label>
 );

@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 // == Import
 import './style.scss';
 import ProgressionBar from 'src/components/_statics/ProgressionBar';
-import FormQuestion from 'src/components/_partials/FormQuestion';
-import AnswerQuestion from 'src/components/_partials/AnswerQuestion';
+import FormQuestion from 'src/containers/_partials/FormQuestion';
+import AnswerQuestion from 'src/containers/_partials/AnswerQuestion';
 
 // == Composant
 const Quiz = ({
   getOneQuiz,
   quizData,
-  currentQuestion,
+  questionNumber,
   showAnswer,
 }) => {
   const { id } = useParams();
@@ -21,20 +21,23 @@ const Quiz = ({
     getOneQuiz(id);
   }, []);
   if (quizData.question1) {
-    const currentQuestionData = quizData[`question${currentQuestion}`];
+    const currentQuestionData = quizData[`question${questionNumber}`];
     return (
       <>
-        <ProgressionBar totalNum={quizData.infos.totalQuestions} progressionNum={currentQuestion} />
+        <ProgressionBar totalNum={quizData.infos.totalQuestions} progressionNum={questionNumber} />
         <div className="quiz">
           {!showAnswer
-            ? <FormQuestion question={currentQuestionData} />
+            ? <FormQuestion question={currentQuestionData} answerShowed={false} />
             : (
-              <AnswerQuestion
-                totalNum={quizData.infos.totalQuestions}
-                progressionNum={currentQuestion}
-                justification={currentQuestionData.justification}
-                articleLink={currentQuestionData.articleLink}
-              />
+              <>
+                <FormQuestion question={currentQuestionData} answerShowed />
+                <AnswerQuestion
+                  totalNum={quizData.infos.totalQuestions}
+                  progressionNum={questionNumber}
+                  justification={currentQuestionData.justification}
+                  articleLink={currentQuestionData.articleLink}
+                />
+              </>
             )}
 
         </div>
@@ -51,7 +54,7 @@ const Quiz = ({
 Quiz.propTypes = {
   getOneQuiz: PropTypes.func,
   quizData: PropTypes.array.isRequired,
-  currentQuestion: PropTypes.number.isRequired,
+  questionNumber: PropTypes.number.isRequired,
   showAnswer: PropTypes.bool.isRequired,
 };
 

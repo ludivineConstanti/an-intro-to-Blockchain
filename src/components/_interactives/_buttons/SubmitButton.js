@@ -8,11 +8,15 @@ import './animation.scss';
 import 'src/styles/activeState.scss';
 
 // == Composant
-const SubmitButton = ({ label, className }) => {
+const SubmitButton = ({
+  label,
+  className,
+  onClick,
+}) => {
   const classDiv = `submitButton submitButton--${className}`;
   const classTriangle = `submitButton__triangle submitButton__triangle--${className}`;
   return (
-    <button type="submit" className={classDiv}>
+    <button type="submit" className={classDiv} onClick={onClick}>
       {label}
       <div className={classTriangle}>
         <svg viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
@@ -23,13 +27,15 @@ const SubmitButton = ({ label, className }) => {
   );
 };
 
-SubmitButton.defaultProps = {
-  className: 'size1',
-};
-
 SubmitButton.propTypes = {
   label: PropTypes.string.isRequired,
   className: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+SubmitButton.defaultProps = {
+  className: 'size1',
+  onClick: () => {},
 };
 
 // == Export
