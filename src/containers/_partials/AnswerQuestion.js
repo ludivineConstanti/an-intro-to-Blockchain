@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  increaseQuestion: () => dispatch(increaseQuestion()),
+  increaseQuestion: (questionNumber) => dispatch(increaseQuestion(questionNumber)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AnswerQuestion);
