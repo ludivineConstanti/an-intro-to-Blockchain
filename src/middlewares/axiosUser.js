@@ -5,8 +5,10 @@ import {
   saveUserLogin,
   REGISTER_REQUEST,
   saveUserRegister,
-  CHANGE_SETTINGS_REQUEST,
+  CHANGE_USER_SETTINGS,
   saveUserSettings,
+  CHANGE_USER_EMAIL,
+  saveUserEmail,
 } from 'src/actions/userActions';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
@@ -61,23 +63,52 @@ const user = (store) => (next) => (action) => {
         });
       break;
     }
-    case CHANGE_SETTINGS_REQUEST: {
+    case CHANGE_USER_SETTINGS: {
       store.dispatch(changeValueGlobal(false, 'loading'));
       const state = store.getState();
       console.log('state', state);
       axios({
         method: 'patch',
-        url: `${baseUrl}/settings/user/9`,
+        url: `${baseUrl}/settings/user/18`,
         data: {
-          email: state.user.settingsForms.newEmail,
+          firstname: state.user.infos.firstname,
+          lastname: state.user.infos.lastname,
           password: state.user.settingsForms.newPassword,
         },
       })
         .then((response) => {
           if (response.statusText === 'OK') {
             console.log('response', response);
-            store.dispatch(saveUserSettings(response.data.email,
-              response.data.password));
+            store.dispatch(saveUserSettings(
+              response.data.password,
+            ));
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(changeValueGlobal(false, 'loading'));
+        });
+      break;
+    }
+    case CHANGE_USER_EMAIL: {
+      store.dispatch(changeValueGlobal(false, 'loading'));
+      const state = store.getState();
+      console.log('state', state);
+      axios({
+        method: 'patch',
+        url: `${baseUrl}/settings/email/18`,
+        data: {
+          email: state.user.settingsForms.newEmail,
+        },
+      })
+        .then((response) => {
+          if (response.statusText === 'OK') {
+            console.log('response', response);
+            store.dispatch(saveUserEmail(
+              response.data.email,
+            ));
           }
         })
         .catch((error) => {

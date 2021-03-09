@@ -19,6 +19,7 @@ const Settings = ({
   changeField,
   settingsForms,
   handleChangeSettings,
+  handleChangeEmail,
 }) => {
   const handleOnClick = () => {
     handleLogout();
@@ -28,7 +29,7 @@ const Settings = ({
 
   // Fonction to control the correspondence of passwords,
   // and lengths of firstname and lastname
-  const handleSubmit = (event) => {
+  const handleSubmitSettings = (event) => {
     event.preventDefault();
     if (settingsForms.newPassword !== settingsForms.controlNewPassword) {
       setPasswordConfirmError('Passwords do not match');
@@ -36,6 +37,11 @@ const Settings = ({
     else {
       handleChangeSettings();
     }
+  };
+
+  const handleSubmitEmail = (event) => {
+    event.preventDefault();
+    handleChangeEmail();
   };
 
   return (
@@ -48,7 +54,7 @@ const Settings = ({
           </div>
         </FormUser>
         <FormUser className="marginB">
-          <form onSubmit={handleSubmit} className="settings__columns">
+          <form onSubmit={handleSubmitSettings} className="settings__columns">
             <div className="settings__column">
               <InputText name="oldPassword" type="password" placeholder="Old password" value={settingsForms.oldPassword} onChange={changeField} />
               <InputText name="newPassword" type="password" placeholder="New password" value={settingsForms.newPassword} onChange={changeField} />
@@ -61,7 +67,7 @@ const Settings = ({
           </form>
         </FormUser>
         <FormUser className="marginB">
-          <form onSubmit={handleSubmit} className="settings__columns">
+          <form onSubmit={handleSubmitEmail} className="settings__columns">
             <div className="settings__column">
               <InputText name="newEmail" type="email" placeholder="New email address" value={settingsForms.newEmail} onChange={changeField} />
             </div>
@@ -85,11 +91,13 @@ Settings.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   handleChangeSettings: PropTypes.func,
+  handleChangeEmail: PropTypes.func,
 };
 
 Settings.defaultProps = {
   changeField: () => {},
   handleChangeSettings: () => {},
+  handleChangeEmail: () => {},
 };
 
 // == Export
