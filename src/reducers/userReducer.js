@@ -72,6 +72,7 @@ export default (state = initialState, action = {}) => {
         },
         infos: {
           ...state.infos,
+          id: action.id,
           firstname: action.firstname,
           lastname: action.lastname,
           isLoggedIn: true,

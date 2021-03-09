@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Settings from 'src/components/_pages/_formUser/Settings';
-import { logout, changeValueSettings, changeUserSettings, changeUserEmail } from 'src/actions/userActions';
+import {
+  logout, changeValueSettings, changeUserSettings, changeUserEmail,
+} from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   settingsForms: state.user.settingsForms,

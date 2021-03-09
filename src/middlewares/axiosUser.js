@@ -23,8 +23,9 @@ const user = (store) => (next) => (action) => {
         password: state.user.loginForm.password,
       })
         .then((response) => {
+          console.log(response);
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserLogin(response.data.firstname,
+            store.dispatch(saveUserLogin(response.data.id, response.data.firstname,
               response.data.lastname));
           }
         })
@@ -66,10 +67,10 @@ const user = (store) => (next) => (action) => {
     case CHANGE_USER_SETTINGS: {
       store.dispatch(changeValueGlobal(false, 'loading'));
       const state = store.getState();
-      console.log('state', state);
+      console.log(state.user.infos.id);
       axios({
         method: 'patch',
-        url: `${baseUrl}/settings/user/18`,
+        url: `${baseUrl}/settings/user/${state.user.infos.id}`,
         data: {
           firstname: state.user.infos.firstname,
           lastname: state.user.infos.lastname,
@@ -95,10 +96,9 @@ const user = (store) => (next) => (action) => {
     case CHANGE_USER_EMAIL: {
       store.dispatch(changeValueGlobal(false, 'loading'));
       const state = store.getState();
-      console.log('state', state);
       axios({
         method: 'patch',
-        url: `${baseUrl}/settings/email/18`,
+        url: `${baseUrl}/settings/email/${state.user.infos.id}`,
         data: {
           email: state.user.settingsForms.newEmail,
         },

@@ -3,7 +3,7 @@ export const CHANGE_VALUE_REGISTER = 'CHANGE_VALUE_REGISTER';
 export const CHANGE_VALUE_SETTINGS = 'CHANGE_VALUE_SETTINGS';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const SAVE_USER_LOGIN = 'SAVE_USER';
+export const SAVE_USER_LOGIN = 'SAVE_USER_LOGIN';
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const SAVE_USER_REGISTER = 'SAVE_REGISTER';
 export const CHANGE_USER_SETTINGS = 'CHANGE_USER_SETTINGS';
@@ -37,8 +37,9 @@ export const loginRequest = () => ({
   type: LOGIN_REQUEST,
 });
 
-export const saveUserLogin = (firstname, lastname) => ({
+export const saveUserLogin = (id, firstname, lastname) => ({
   type: SAVE_USER_LOGIN,
+  id,
   firstname,
   lastname,
 });
