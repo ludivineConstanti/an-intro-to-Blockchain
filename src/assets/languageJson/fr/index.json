@@ -1,4 +1,28 @@
 {
-  "subtitle": "Une introduction à la",
-  "title": "Blockchain"
+  "home": {
+    "subtitle": "Une introduction à la",
+    "title": "Blockchain",
+    "link1": "Commencer",
+    "link2": "J'ai un compte"
+  },
+  "menu": {
+    "home": "accueil",
+    "quizzes": "quizs",
+    "articles": "articles",
+    "login": "se connecter",
+    "register": "s'inscrire",
+    "achievements": "scores",
+    "settings": "paramètres",
+    "signOut": "se déconnecter"
+  },
+  "header": {
+    "english": "anglais",
+    "french": "français"
+  },
+  "formUser": {
+    "password": "Mot de passe",
+    "email": "Email",
+    "linkCreateAccount": "Créer un nouveau compte",
+    "logIn": "Se connecter"
+  }
 }
