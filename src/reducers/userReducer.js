@@ -6,6 +6,7 @@ import {
   LOGOUT,
   SAVE_USER_REGISTER,
   SAVE_USER_SETTINGS,
+  SAVE_USER_EMAIL,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -105,6 +106,13 @@ export default (state = initialState, action = {}) => {
         ...state,
         settingsForms: {
           newPassword: action.newPassword,
+        },
+      };
+    }
+    case SAVE_USER_EMAIL: {
+      return {
+        ...state,
+        settingsForms: {
           newEmail: action.newEmail,
         },
       };
