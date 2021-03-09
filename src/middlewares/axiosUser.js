@@ -9,6 +9,8 @@ import {
   saveUserSettings,
   CHANGE_USER_EMAIL,
   saveUserEmail,
+  DELETE_ACCOUNT_REQUEST,
+  deleteUser,
 } from 'src/actions/userActions';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
@@ -75,6 +77,7 @@ const user = (store) => (next) => (action) => {
           firstname: state.user.infos.firstname,
           lastname: state.user.infos.lastname,
           password: state.user.settingsForms.newPassword,
+          oldPassword: state.user.settingsForms.oldPassword,
         },
       })
         .then((response) => {
@@ -101,14 +104,36 @@ const user = (store) => (next) => (action) => {
         url: `${baseUrl}/settings/email/${state.user.infos.id}`,
         data: {
           email: state.user.settingsForms.newEmail,
+          password: state.user.settingsForms.controlPassword,
         },
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            console.log('response', response);
+            console.log('response email', response);
             store.dispatch(saveUserEmail(
               response.data.email,
             ));
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(changeValueGlobal(false, 'loading'));
+        });
+      break;
+    }
+    case DELETE_ACCOUNT_REQUEST: {
+      store.dispatch(changeValueGlobal(false, 'loading'));
+      const state = store.getState();
+      axios({
+        method: 'delete',
+        url: `${baseUrl}/settings/delete/${state.user.infos.id}`,
+      })
+        .then((response) => {
+          if (response.statusText === 'OK') {
+            console.log('response delete', response);
+            store.dispatch(deleteUser());
           }
         })
         .catch((error) => {
