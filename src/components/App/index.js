@@ -22,7 +22,7 @@ import Error from 'src/components/_pages/Error';
 import Menu from 'src/containers/_pages/Menu';
 import Loading from 'src/components/Loading';
 import { init, animate } from 'src/threeJsAnimation/threeJsAnimation';
-import i18n from 'src/i18n';
+import i18next from 'src/i18next';
 // == Composant
 
 const App = ({
@@ -35,8 +35,9 @@ const App = ({
     init();
     animate();
   }, []);
+
   useEffect(() => {
-    i18n.changeLanguage(language, (error) => console.log(error));
+    i18next.changeLanguage(language, () => {});
   }, [language]);
 
   return (
