@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom';
 const Header = ({
   initials, onClickButtonMenu, onClickLanguage, isLoggedIn, menuOpen, language,
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleOnClickMenu = () => {
     onClickButtonMenu();
@@ -28,8 +28,13 @@ const Header = ({
       <div className="header__blackbox header__blackbox--top" />
       {!menuOpen && (
       <div className="header__language">
-        <button className={classEnglish} onClick={onClickLanguage} value="en"><Trans i18nKey="header.english" /></button> |
-        <button className={classFrench} onClick={onClickLanguage} value="fr"><Trans i18nKey="header.french" /></button>
+        <button className={classEnglish} onClick={onClickLanguage} value="en" type="button">
+          {t('header.english')}
+        </button>
+        |
+        <button className={classFrench} onClick={onClickLanguage} value="fr" type="button">
+          {t('header.french')}
+        </button>
       </div>
       )}
       <button type="button" className="header__buttonTL" onClick={handleOnClickMenu}>
