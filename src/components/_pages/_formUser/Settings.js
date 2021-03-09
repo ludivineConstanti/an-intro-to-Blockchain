@@ -22,10 +22,6 @@ const Settings = ({
   handleChangeEmail,
   handleDeleteUser,
 }) => {
-  const handleOnClick = () => {
-    handleLogout();
-  };
-
   const [passwordConfirmError, setPasswordConfirmError] = useState('');
 
   // Fonction to control the correspondence of passwords,
@@ -51,7 +47,7 @@ const Settings = ({
       <div className="settings__forms">
         <FormUser className="marginB">
           <div className="settings__column">
-            <LinkButton path="/logout" label="Sign out" onClickLink={handleOnClick} />
+            <LinkButton path="/logout" label="Sign out" onClickLink={handleLogout} />
           </div>
         </FormUser>
         <FormUser className="marginB">
