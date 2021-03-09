@@ -10,8 +10,8 @@ import {
 
 const initialState = {
   loginForm: {
-    email: 'bernard@gmail.com',
-    password: 'Password1',
+    email: '',
+    password: '',
   },
   registerForm: {
     firstname: '',
