@@ -38,6 +38,7 @@ i18next.use(LanguageDetector).use(initReactI18next).init({
   // React already have escape value on true per default
   interpolation: {
     // escape the values means you will not be able to use code, just strings
+    // there's various settings options in the doc
     escapeValue: true,
   },
 });

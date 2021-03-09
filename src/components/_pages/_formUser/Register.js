@@ -8,6 +8,7 @@ import FormUser from 'src/components/_partials/FormUser';
 import InputText from 'src/components/_interactives/InputText';
 import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
+import { useTranslation } from 'react-i18next';
 
 // == Composant
 const Register = ({
@@ -15,6 +16,9 @@ const Register = ({
   changeField,
   handleRegister,
 }) => {
+  // without the language does not get updated
+  const { t } = useTranslation();
+
   // XML won't be able to access the values if it's not outside of the function
   // because of the fonction's scope
   const [firstnameError, setFirstnameError] = useState('');
@@ -47,23 +51,23 @@ const Register = ({
     <>
       <div className="register">
         <div className="register__login">
-          <LinkButton label="Log in" path="/login" className="size2" />
+          <LinkButton label={t('formUser.linkLogIn')} path="/login" className="size2" />
         </div>
         <FormUser>
           <form onSubmit={handleSubmit} className="register__columns">
             <div className="register__column">
               <p className="register__error">{firstnameError}</p>
-              <InputText name="firstname" type="text" placeholder="First Name" value={registerForm.firstname} onChange={changeField} />
+              <InputText name="firstname" type="text" placeholder={t('formUser.firstname')} value={registerForm.firstname} onChange={changeField} />
               <p className="register__error">{lastnameError}</p>
-              <InputText name="lastname" type="text" placeholder="Family Name" value={registerForm.lastname} onChange={changeField} />
+              <InputText name="lastname" type="text" placeholder={t('formUser.lastname')} value={registerForm.lastname} onChange={changeField} />
             </div>
             <div className="register__column">
               <p className="register__error">{passwordConfirmError}</p>
-              <InputText name="password" type="password" placeholder="Password" value={registerForm.password} onChange={changeField} />
-              <InputText name="controlPassword" type="password" placeholder="Password confirmation" value={registerForm.controlPassword} onChange={changeField} />
-              <InputText name="email" type="email" placeholder="Your email address" value={registerForm.email} onChange={changeField} />
+              <InputText name="password" type="password" placeholder={t('formUser.password')} value={registerForm.password} onChange={changeField} />
+              <InputText name="controlPassword" type="password" placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={changeField} />
+              <InputText name="email" type="email" placeholder={t('formUser.email')} value={registerForm.email} onChange={changeField} />
               <div className="register__submitButton">
-                <SubmitButton label="Create account" />
+                <SubmitButton label={t('formUser.buttonCreateAccount')} />
               </div>
             </div>
           </form>

@@ -20,6 +20,7 @@ const Settings = ({
   settingsForms,
   handleChangeSettings,
   handleChangeEmail,
+  handleDeleteUser,
 }) => {
   const [passwordConfirmError, setPasswordConfirmError] = useState('');
 
@@ -65,6 +66,7 @@ const Settings = ({
         <FormUser className="marginB">
           <form onSubmit={handleSubmitEmail} className="settings__columns">
             <div className="settings__column">
+              <InputText name="controlPassword" type="password" placeholder="Password" value={settingsForms.controlPassword} onChange={changeField} />
               <InputText name="newEmail" type="email" placeholder="New email address" value={settingsForms.newEmail} onChange={changeField} />
             </div>
             <div className="settings__column">
@@ -73,7 +75,11 @@ const Settings = ({
           </form>
         </FormUser>
         <FormUser className="marginB">
-          <div className="settings__buttonS1"><LinkButton label="Delete my account" /></div>
+          <form onSubmit={handleDeleteUser}>
+            <div className="settings__buttonS1">
+              <SubmitButton label="Delete my account" />
+            </div>
+          </form>
         </FormUser>
       </div>
     </div>
@@ -88,12 +94,14 @@ Settings.propTypes = {
   lastname: PropTypes.string.isRequired,
   handleChangeSettings: PropTypes.func,
   handleChangeEmail: PropTypes.func,
+  handleDeleteUser: PropTypes.func,
 };
 
 Settings.defaultProps = {
   changeField: () => {},
   handleChangeSettings: () => {},
   handleChangeEmail: () => {},
+  handleDeleteUser: () => {},
 };
 
 // == Export

@@ -21,8 +21,13 @@
   },
   "formUser": {
     "password": "Password",
+    "passwordConfirmation": "Password confirmation",
     "email": "Email",
+    "linkLogIn": "Log in",
     "linkCreateAccount": "Create new account",
-    "logIn": "Log in"
+    "buttonCreateAccount": "Create account",
+    "logIn": "Log in",
+    "firstname": "First name",
+    "lastname": "Last name"   
   }
 }
