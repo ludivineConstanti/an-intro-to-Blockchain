@@ -31,6 +31,7 @@ const initialState = {
     newPassword: '',
     controlNewPassword: '',
     newEmail: '',
+    controlPassword: '',
   },
 };
 

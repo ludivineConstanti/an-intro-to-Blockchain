@@ -69,6 +69,7 @@ const Settings = ({
         <FormUser className="marginB">
           <form onSubmit={handleSubmitEmail} className="settings__columns">
             <div className="settings__column">
+              <InputText name="controlPassword" type="password" placeholder="Password" value={settingsForms.controlPassword} onChange={changeField} />
               <InputText name="newEmail" type="email" placeholder="New email address" value={settingsForms.newEmail} onChange={changeField} />
             </div>
             <div className="settings__column">

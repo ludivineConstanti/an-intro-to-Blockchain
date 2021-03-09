@@ -101,6 +101,7 @@ const user = (store) => (next) => (action) => {
         url: `${baseUrl}/settings/email/${state.user.infos.id}`,
         data: {
           email: state.user.settingsForms.newEmail,
+          password: state.user.settingsForms.controlPassword,
         },
       })
         .then((response) => {
