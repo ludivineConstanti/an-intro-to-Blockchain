@@ -23,7 +23,6 @@ const user = (store) => (next) => (action) => {
         password: state.user.loginForm.password,
       })
         .then((response) => {
-          console.log(response);
           if (response.statusText === 'OK') {
             store.dispatch(saveUserLogin(response.data.id, response.data.firstname,
               response.data.lastname));
@@ -67,7 +66,6 @@ const user = (store) => (next) => (action) => {
     case CHANGE_USER_SETTINGS: {
       store.dispatch(changeValueGlobal(false, 'loading'));
       const state = store.getState();
-      console.log(state.user.infos.id);
       axios({
         method: 'patch',
         url: `${baseUrl}/settings/user/${state.user.infos.id}`,
@@ -79,7 +77,6 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            console.log('response', response);
             store.dispatch(saveUserSettings(
               response.data.password,
             ));
@@ -105,7 +102,6 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            console.log('response', response);
             store.dispatch(saveUserEmail(
               response.data.email,
             ));
