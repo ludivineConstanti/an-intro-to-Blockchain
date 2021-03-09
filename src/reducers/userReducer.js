@@ -5,12 +5,15 @@ import {
   SAVE_USER_LOGIN,
   LOGOUT,
   SAVE_USER_REGISTER,
+  SAVE_USER_SETTINGS,
+  SAVE_USER_EMAIL,
+  DELETE_USER,
 } from 'src/actions/userActions';
 
 const initialState = {
   loginForm: {
-    email: 'bernard@gmail.com',
-    password: 'Password1',
+    email: '',
+    password: '',
   },
   registerForm: {
     firstname: '',
@@ -28,6 +31,8 @@ const initialState = {
     oldPassword: '',
     newPassword: '',
     controlNewPassword: '',
+    newEmail: '',
+    controlPassword: '',
   },
 };
 
@@ -69,6 +74,7 @@ export default (state = initialState, action = {}) => {
         },
         infos: {
           ...state.infos,
+          id: action.id,
           firstname: action.firstname,
           lastname: action.lastname,
           isLoggedIn: true,
@@ -92,11 +98,31 @@ export default (state = initialState, action = {}) => {
         },
         infos: {
           ...state.infos,
-          ...action.user,
           firstname: action.firstname,
           lastname: action.lastname,
           isLoggedIn: true,
         },
+      };
+    }
+    case SAVE_USER_SETTINGS: {
+      return {
+        ...state,
+        settingsForms: {
+          newPassword: action.newPassword,
+        },
+      };
+    }
+    case SAVE_USER_EMAIL: {
+      return {
+        ...state,
+        settingsForms: {
+          newEmail: action.newEmail,
+        },
+      };
+    }
+    case DELETE_USER: {
+      return {
+        ...initialState,
       };
     }
     default:
