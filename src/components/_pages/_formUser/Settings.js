@@ -25,7 +25,6 @@ const Settings = ({
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
-
   const [passwordConfirmError, setPasswordConfirmError] = useState('');
 
   // Fonction to control the correspondence of passwords,
