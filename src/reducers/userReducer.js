@@ -8,15 +8,15 @@ import {
 
 const initialState = {
   loginForm: {
-    email: 'abc@gmail.com',
-    password: 'Kikiki10',
+    email: '',
+    password: '',
   },
   registerForm: {
-    firstname: 'Zinedine',
-    lastname: 'Tzigane',
-    password: 'Password1',
-    controlPassword: 'Password1',
-    email: 'bernard@gmail.com',
+    firstname: '',
+    lastname: '',
+    password: '',
+    controlPassword: '',
+    email: '',
   },
   infos: {
     isLoggedIn: false,
