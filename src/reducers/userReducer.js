@@ -7,6 +7,7 @@ import {
   SAVE_USER_REGISTER,
   SAVE_USER_SETTINGS,
   SAVE_USER_EMAIL,
+  DELETE_USER,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -117,6 +118,11 @@ export default (state = initialState, action = {}) => {
         settingsForms: {
           newEmail: action.newEmail,
         },
+      };
+    }
+    case DELETE_USER: {
+      return {
+        ...initialState,
       };
     }
     default:
