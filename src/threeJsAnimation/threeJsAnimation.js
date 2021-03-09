@@ -94,26 +94,6 @@ function Bubble() {
     // shading:THREE.FlatShading,
   });
 
-  const matS = new THREE.MeshStandardMaterial({
-    // color: Colors.blue,
-    transparent: true,
-    envMap: texture,
-    // metalnessMap: textureOpacity,
-    opacity: 0.1,
-    roughness: 0,
-    metalness: 0.2,
-    // mat.alphaMap : textureOpacity,
-    // set the color of the shine (dark grey, by default)
-    specular: 0xffffff,
-    // allow inside and outside plane of the geometry to be visible
-    // side: THREE.DoubleSide
-    side: THREE.BackSide,
-    // shading:THREE.FlatShading,
-  });
-
-  this.sphereInside = new THREE.Mesh(sphereGeom, matS);
-  // this.group.add(this.sphereInside);
-
   this.sphereOutside = new THREE.Mesh(sphereGeom, matInside);
   this.group.add(this.sphereOutside);
 

@@ -1,4 +1,28 @@
 {
-  "subtitle": "An intro to",
-  "title": "Blockchain"
+  "home": {
+    "subtitle": "An intro to",
+    "title": "Blockchain",
+    "link1": "Get Started",
+    "link2": "I have an account"
+  },
+  "menu": {
+    "home": "home",
+    "quizzes": "quizzes",
+    "articles": "articles",
+    "login": "login",
+    "register": "register",
+    "achievements": "achievements",
+    "settings": "settings",
+    "signOut": "sign out"
+  },
+  "header": {
+    "english": "english",
+    "french": "french"
+  },
+  "formUser": {
+    "password": "Password",
+    "email": "Email",
+    "linkCreateAccount": "Create new account",
+    "logIn": "Log in"
+  }
 }

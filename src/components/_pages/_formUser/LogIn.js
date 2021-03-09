@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Trans, useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -15,6 +16,8 @@ const LogIn = ({
   changeField,
   handleLogin,
 }) => {
+  const { t, i18n } = useTranslation();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin();
@@ -22,17 +25,17 @@ const LogIn = ({
   return (
     <div className="login">
       <div className="login__login">
-        <LinkButton label="Create a new account" path="/register" className="size2" />
+        <LinkButton label={<Trans i18nKey="formUser.linkCreateAccount" />} path="/register" className="size2" />
       </div>
       <FormUser>
         <form onSubmit={handleSubmit} className="login__columns">
           <div className="login__column">
-            <InputText name="email" type="email" placeholder="Email" value={loginForm.email} onChange={changeField} />
+            <InputText name="email" type="email" placeholder={<Trans i18nKey="formUser.email" />} value={loginForm.email} onChange={changeField} />
           </div>
           <div className="login__column">
-            <InputText name="password" type="password" placeholder="Password" value={loginForm.password} onChange={changeField} />
+            <InputText name="password" type="password" placeholder={<Trans i18nKey="formUser.password" />} value={loginForm.password} onChange={changeField} />
             <div className="login__submitButton">
-              <SubmitButton label="Log in" />
+              <SubmitButton label={<Trans i18nKey="formUser.logIn" />} />
             </div>
           </div>
         </form>

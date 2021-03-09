@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Trans, useTranslation } from 'react-i18next';
 
 import './style.scss';
 import LinkMenu from 'src/components/_interactives/LinkMenu';
 
 const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
+  const { t, i18n } = useTranslation();
   const handleOnClick = () => {
     onClickButtonMenu();
   };
@@ -19,21 +21,21 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
       isLoggedIn === false
         ? (
           <ul className="menu">
-            <LinkMenu path="/" label="Home" funcOnClick={handleOnClick} className="margin2" />
-            <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
-            <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} className="margin2" />
-            <LinkMenu path="/login" label="Login" funcOnClick={handleOnClick} />
-            <LinkMenu path="/register" label="Register" funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/" label={<Trans i18nKey="menu.home" />} funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/quizzes" label={<Trans i18nKey="menu.quizzes" />} funcOnClick={handleOnClick} />
+            <LinkMenu path="/articles" label={<Trans i18nKey="menu.articles" />} funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/login" label={<Trans i18nKey="menu.login" />} funcOnClick={handleOnClick} />
+            <LinkMenu path="/register" label={<Trans i18nKey="menu.register" />} funcOnClick={handleOnClick} className="margin2" />
           </ul>
         )
         : (
           <ul className="menu">
-            <LinkMenu path="/" label="Home" funcOnClick={handleOnClick} className="margin2" />
-            <LinkMenu path="/quizzes" label="Quizzes" funcOnClick={handleOnClick} />
-            <LinkMenu path="/articles" label="Articles" funcOnClick={handleOnClick} />
-            <LinkMenu path="/profile/scores" label="Achievements" funcOnClick={handleOnClick} className="margin2" />
-            <LinkMenu path="/settings" label="Settings" funcOnClick={handleOnClick} />
-            <LinkMenu path="/logout" label="Sign Out" funcOnClick={handleOnLogout} className="margin2" />
+            <LinkMenu path="/" label={<Trans i18nKey="menu.home" />} funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/quizzes" label={<Trans i18nKey="menu.quizzes" />} funcOnClick={handleOnClick} />
+            <LinkMenu path="/articles" label={<Trans i18nKey="menu.articles" />} funcOnClick={handleOnClick} />
+            <LinkMenu path="/profile/scores" label={<Trans i18nKey="menu.achievements" />} funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/settings" label={<Trans i18nKey="menu.settings" />} funcOnClick={handleOnClick} />
+            <LinkMenu path="/logout" label={<Trans i18nKey="menu.signOut" />} funcOnClick={handleOnLogout} className="margin2" />
           </ul>
         )
     }
