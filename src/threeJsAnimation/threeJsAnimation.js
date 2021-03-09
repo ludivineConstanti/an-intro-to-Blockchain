@@ -183,8 +183,6 @@ function render() {
 
   cameraPerspective.lookAt(bubble.target.position);
 
-  console.log('running');
-
   renderer.clear();
 
   activeHelper.visible = false;
