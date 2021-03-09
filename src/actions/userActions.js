@@ -6,8 +6,12 @@ export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const SAVE_USER_LOGIN = 'SAVE_USER';
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const SAVE_USER_REGISTER = 'SAVE_REGISTER';
-export const CHANGE_SETTINGS_REQUEST = 'CHANGE_SETTINGS_REQUEST';
+export const CHANGE_USER_SETTINGS = 'CHANGE_USER_SETTINGS';
 export const SAVE_USER_SETTINGS = 'SAVE_USER_SETTINGS';
+export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
+export const SAVE_USER_EMAIL = 'SAVE_USER_EMAIL';
+export const DELETE_ACCOUNT_REQUEST = 'DELETE_ACCOUNT_REQUEST';
+export const DELETE_USER = 'DELETE_USER';
 
 export const LOGOUT = 'LOGOUT';
 
@@ -49,14 +53,30 @@ export const saveUserRegister = (firstname, lastname) => ({
   lastname,
 });
 
-export const changeSettingsRequest = () => ({
-  type: CHANGE_SETTINGS_REQUEST,
+export const changeUserSettings = () => ({
+  type: CHANGE_USER_SETTINGS,
 });
 
-export const saveUserSettings = (newPassword, newEmail) => ({
+export const saveUserSettings = (newPassword) => ({
   type: SAVE_USER_SETTINGS,
   newPassword,
+});
+
+export const changeUserEmail = () => ({
+  type: CHANGE_USER_EMAIL,
+});
+
+export const saveUserEmail = (newEmail) => ({
+  type: SAVE_USER_EMAIL,
   newEmail,
+});
+
+export const deleteAccountRequest = () => ({
+  type: DELETE_ACCOUNT_REQUEST,
+});
+
+export const deleteUser = () => ({
+  type: DELETE_USER,
 });
 
 export const logout = () => ({
