@@ -20,7 +20,7 @@ import LogIn from 'src/containers/_pages/_formUser/LogIn';
 import Settings from 'src/containers/_pages/_formUser/Settings';
 import Error from 'src/components/_pages/Error';
 import Menu from 'src/containers/_pages/Menu';
-import Loading from 'src/components/Loading';
+import Loading from 'src/containers/Loading';
 import { init, animate } from 'src/threeJsAnimation/threeJsAnimation';
 import i18next from 'src/i18next';
 // == Composant

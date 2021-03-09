@@ -20,12 +20,23 @@
     "french": "french"
   },
   "formUser": {
+    "errorMessage": {
+      "passwordDontMatch": "Passwords do not match",
+      "lengthFirstname": "Your first name must have between 1 and 25 characters",
+      "lengthLastname": "Your last name must have between 1 and 25 characters"
+    },
     "password": "Password",
+    "passwordOld": "Your current password",
+    "passwordNew": "Your new password",
     "passwordConfirmation": "Password confirmation",
+    "buttonChangePassword": "Change my password",
     "email": "Email",
+    "emailNew": "Your new email",
+    "buttonChangeEmail": "Change my email",
     "linkLogIn": "Log in",
     "linkCreateAccount": "Create new account",
-    "buttonCreateAccount": "Create account",
+    "buttonCreateAccount": "Create my account",
+    "buttonDeleteAccount": "Delete my account",
     "logIn": "Log in",
     "firstname": "First name",
     "lastname": "Last name"   

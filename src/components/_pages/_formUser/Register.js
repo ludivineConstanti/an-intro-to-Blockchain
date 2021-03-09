@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -8,7 +9,6 @@ import FormUser from 'src/components/_partials/FormUser';
 import InputText from 'src/components/_interactives/InputText';
 import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
-import { useTranslation } from 'react-i18next';
 
 // == Composant
 const Register = ({
@@ -33,14 +33,17 @@ const Register = ({
       || (registerForm.firstname.length < 1 || registerForm.firstname.length > 25)
       || (registerForm.lastname.length < 1 || registerForm.lastname.length > 25)) {
       if (registerForm.password !== registerForm.controlPassword) {
-        setPasswordConfirmError('Passwords do not match');
+        setPasswordConfirmError(t('formUser.errorMessage.passwordDontMatch'));
       }
+      else setPasswordConfirmError('');
       if (registerForm.firstname.length < 1 || registerForm.firstname.length > 25) {
-        setFirstnameError('Your first name must have between 1 and 25 characters');
+        setFirstnameError(t('formUser.errorMessage.lengthFirstname'));
       }
+      else setFirstnameError('');
       if (registerForm.lastname.length < 1 || registerForm.lastname.length > 25) {
-        setLastnameError('Your last name must have between 1 and 25 characters');
+        setLastnameError(t('formUser.errorMessage.lengthLastname'));
       }
+      else setLastnameError('');
     }
     else {
       handleRegister();

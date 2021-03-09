@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -22,6 +23,8 @@ const Settings = ({
   handleChangeEmail,
   handleDeleteUser,
 }) => {
+  // without the language does not get updated
+  const { t } = useTranslation();
   const [passwordConfirmError, setPasswordConfirmError] = useState('');
 
   // Fonction to control the correspondence of passwords,
@@ -43,41 +46,41 @@ const Settings = ({
 
   return (
     <div className="settings">
-      <TitlePage label="Settings" subtitle={`${firstname} ${lastname}`} />
+      <TitlePage label={t('menu.settings')} subtitle={`${firstname} ${lastname}`} />
       <div className="settings__forms">
         <FormUser className="marginB">
           <div className="settings__column">
-            <LinkButton path="/logout" label="Sign out" onClickLink={handleLogout} />
+            <LinkButton path="/logout" label={t('menu.signOut')} onClickLink={handleLogout} />
           </div>
         </FormUser>
         <FormUser className="marginB">
           <form onSubmit={handleSubmitSettings} className="settings__columns">
             <div className="settings__column">
-              <InputText name="oldPassword" type="password" placeholder="Old password" value={settingsForms.oldPassword} onChange={changeField} />
-              <InputText name="newPassword" type="password" placeholder="New password" value={settingsForms.newPassword} onChange={changeField} />
+              <InputText name="oldPassword" type="password" placeholder={t('formUser.passwordOld')} value={settingsForms.oldPassword} onChange={changeField} />
+              <InputText name="newPassword" type="password" placeholder={t('formUser.passwordNew')} value={settingsForms.newPassword} onChange={changeField} />
             </div>
             <div className="settings__column">
               <p className="register__error">{passwordConfirmError}</p>
-              <InputText name="controlNewPassword" type="password" placeholder="Confirm new password" value={settingsForms.controlNewPassword} onChange={changeField} />
-              <SubmitButton label="Change my password" />
+              <InputText name="controlNewPassword" type="password" placeholder={t('formUser.passwordConfirmation')} value={settingsForms.controlNewPassword} onChange={changeField} />
+              <SubmitButton label={t('formUser.buttonChangePassword')} />
             </div>
           </form>
         </FormUser>
         <FormUser className="marginB">
           <form onSubmit={handleSubmitEmail} className="settings__columns">
             <div className="settings__column">
-              <InputText name="controlPassword" type="password" placeholder="Password" value={settingsForms.controlPassword} onChange={changeField} />
-              <InputText name="newEmail" type="email" placeholder="New email address" value={settingsForms.newEmail} onChange={changeField} />
+              <InputText name="controlPassword" type="password" placeholder={t('formUser.password')} value={settingsForms.controlPassword} onChange={changeField} />
+              <InputText name="newEmail" type="email" placeholder={t('formUser.emailNew')} value={settingsForms.newEmail} onChange={changeField} />
             </div>
             <div className="settings__column">
-              <SubmitButton label="Change my email" />
+              <SubmitButton label={t('formUser.buttonChangeEmail')} />
             </div>
           </form>
         </FormUser>
         <FormUser className="marginB">
           <form onSubmit={handleDeleteUser}>
             <div className="settings__buttonS1">
-              <SubmitButton label="Delete my account" />
+              <SubmitButton label={t('formUser.buttonDeleteEmail')} />
             </div>
           </form>
         </FormUser>

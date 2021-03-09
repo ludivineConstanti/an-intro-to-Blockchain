@@ -20,13 +20,25 @@
     "french": "français"
   },
   "formUser": {
+    "errorMessage": {
+      "passwordDontMatch": "Les mots de passe ne sont pas identiques",
+      "lengthFirstname": "Votre prénom doit comporter entre 1 et 25 caractères",
+      "lengthLastname": "Votre nom de famille doit comporter entre 1 et 25 caractères"
+    },
     "password": "Mot de passe",
-    "passwordConfirmation": "Password confirmation",
-    "email": "Email",
+    "passwordOld": "Votre mot de passe actuel",
+    "passwordNew": "Votre nouveau mot de passe",
+    "passwordConfirmation": "Confirmez votre mot de passe",
+    "buttonChangePassword": "Modifier mon mot de passe",
+    "email": "E-mail",
+    "emailNew": "Votre nouvel e-mail",
+    "buttonChangeEmail": "Changer mon e-mail",
     "linkLogIn": "Se connecter",
     "linkCreateAccount": "Créer un nouveau compte",
+    "buttonDeleteAccount": "Supprimer mon compte",
+    "logIn": "Me connecter",
     "buttonCreateAccount": "Créer mon compte",
     "firstname": "Prénom",
-    "lastname": "Nom de famille" 
+    "lastname": "Nom de famille"
   }
 }
