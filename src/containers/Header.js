@@ -16,7 +16,6 @@ const mapState = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   onClickButtonMenu: () => dispatch(toggleMenu()),
   onClickLanguage: (event) => {
-    console.log(event.target.value);
     dispatch(changeValueGlobal(event.target.value, 'language'));
   },
 });
