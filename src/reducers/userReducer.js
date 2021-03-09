@@ -1,9 +1,11 @@
 import {
   CHANGE_VALUE_LOGIN,
   CHANGE_VALUE_REGISTER,
+  CHANGE_VALUE_SETTINGS,
   SAVE_USER_LOGIN,
   LOGOUT,
   SAVE_USER_REGISTER,
+  SAVE_USER_SETTINGS,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -23,6 +25,12 @@ const initialState = {
     firstname: '',
     lastname: '',
   },
+  settingsForms: {
+    oldPassword: '',
+    newPassword: '',
+    controlNewPassword: '',
+    newEmail: '',
+  },
 };
 
 export default (state = initialState, action = {}) => {
@@ -41,6 +49,15 @@ export default (state = initialState, action = {}) => {
         ...state,
         registerForm: {
           ...state.registerForm,
+          [action.name]: action.value,
+        },
+      };
+    }
+    case CHANGE_VALUE_SETTINGS: {
+      return {
+        ...state,
+        settingsForms: {
+          ...state.settingsForms,
           [action.name]: action.value,
         },
       };
@@ -77,10 +94,18 @@ export default (state = initialState, action = {}) => {
         },
         infos: {
           ...state.infos,
-          ...action.user,
           firstname: action.firstname,
           lastname: action.lastname,
           isLoggedIn: true,
+        },
+      };
+    }
+    case SAVE_USER_SETTINGS: {
+      return {
+        ...state,
+        settingsForms: {
+          newPassword: action.newPassword,
+          newEmail: action.newEmail,
         },
       };
     }

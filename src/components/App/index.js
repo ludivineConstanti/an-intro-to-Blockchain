@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Redirect,
@@ -21,23 +21,34 @@ import Settings from 'src/containers/_pages/_formUser/Settings';
 import Error from 'src/components/_pages/Error';
 import Menu from 'src/containers/_pages/Menu';
 import Loading from 'src/components/Loading';
-
+import { init, animate } from 'src/threeJsAnimation/threeJsAnimation';
+import i18n from 'src/i18n';
 // == Composant
 
 const App = ({
   menuOpen,
   loading,
   isLoggedIn,
-}) => (
-  <div className="app">
-    <Frame />
-    {loading && <Loading />}
-    <Header />
-    {menuOpen && (
-    <Menu />
+  language,
+}) => {
+  useEffect(() => {
+    init();
+    animate();
+  }, []);
+  useEffect(() => {
+    i18n.changeLanguage(language, (error) => console.log(error));
+  }, [language]);
 
-    )}
-    {(!menuOpen)
+  return (
+    <div className="app">
+      <Frame />
+      {loading && <Loading />}
+      <Header />
+      {menuOpen && (
+      <Menu />
+
+      )}
+      {(!menuOpen)
         && (
         <>
           <Switch>
@@ -79,13 +90,16 @@ const App = ({
           </Switch>
         </>
         )}
-  </div>
-);
+      <div className="app__threeJs" />
+    </div>
+  );
+};
 
 App.propTypes = {
   menuOpen: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  language: PropTypes.string.isRequired,
 };
 // == Export
 export default App;

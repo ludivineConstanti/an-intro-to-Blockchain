@@ -1,4 +1,4 @@
-import { TOGGLE_MENU, CHANGE_LOADING_STATE } from 'src/actions/appActions';
+import { TOGGLE_MENU, CHANGE_VALUE_GLOBAL } from 'src/actions/appActions';
 
 const initialState = {
   language: 'en',
@@ -14,10 +14,10 @@ export default (state = initialState, action = {}) => {
         menuOpen: !state.menuOpen,
       };
     }
-    case CHANGE_LOADING_STATE: {
+    case CHANGE_VALUE_GLOBAL: {
       return {
         ...state,
-        loading: action.value,
+        [action.name]: action.value,
       };
     }
     default:

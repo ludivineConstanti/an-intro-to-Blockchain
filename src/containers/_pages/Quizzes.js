@@ -6,6 +6,7 @@ import { toggleMenu } from 'src/actions/appActions';
 const mapStateToProps = (state) => ({
   quizzesList: state.quizzes.quizzesList,
   loading: state.global.loading,
+  language: state.global.language,
 });
 
 const mapDispatchToProps = (dispatch) => ({
