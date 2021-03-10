@@ -80,7 +80,7 @@ const Settings = ({
         <FormUser className="marginB">
           <form onSubmit={handleDeleteUser}>
             <div className="settings__buttonS1">
-              <SubmitButton label={t('formUser.buttonDeleteEmail')} />
+              <SubmitButton label={t('formUser.buttonDeleteAccount')} />
             </div>
           </form>
         </FormUser>

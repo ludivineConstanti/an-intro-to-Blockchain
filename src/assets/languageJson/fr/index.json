@@ -6,18 +6,18 @@
     "link2": "J'ai déjà un compte"
   },
   "menu": {
-    "home": "accueil",
-    "quizzes": "quizs",
-    "articles": "articles",
-    "login": "se connecter",
-    "register": "s'inscrire",
-    "achievements": "scores",
-    "settings": "paramètres",
-    "signOut": "se déconnecter"
+    "home": "Accueil",
+    "quizzes": "Quizs",
+    "articles": "Articles",
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "achievements": "Scores",
+    "settings": "Paramètres",
+    "signOut": "Se déconnecter"
   },
   "header": {
-    "english": "anglais",
-    "french": "français"
+    "english": "Anglais",
+    "french": "Français"
   },
   "formUser": {
     "errorMessage": {
