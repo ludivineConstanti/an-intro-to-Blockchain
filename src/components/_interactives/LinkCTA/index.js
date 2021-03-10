@@ -10,11 +10,13 @@ import 'src/styles/activeState.scss';
 import Icon from 'src/components/_statics/Icon';
 
 // == Composant
-const LinkCTA = ({ oneQuiz }) => (
-  <Link to={`/quiz/${oneQuiz.quiz_id}`}>
+const LinkCTA = ({
+  label, content, categoryId, quizId,
+}) => (
+  <Link to={`/quiz/${quizId}`}>
     <div className="linkCTA">
       <div className="linkCTA__iconDiv">
-        <Icon category={oneQuiz.categoryId} quiz={oneQuiz.quiz_id} />
+        <Icon category={categoryId} quiz={quizId} />
         <svg className="linkCTA__iconDiv__frame" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 10.5V5.09619L4.59619 0.5H10V4.5H4V10.5H0Z" fill="white" />
           <path d="M80 70.5L80 75.9038L75.4038 80.5L70 80.5L70 76.5L76 76.5L76 70.5L80 70.5Z" fill="white" />
@@ -24,7 +26,7 @@ const LinkCTA = ({ oneQuiz }) => (
         </svg>
       </div>
       <div className="linkCTA__label">
-        <p className="linkCTA__label__text">{oneQuiz.quiz_title}</p>
+        <p className="linkCTA__label__text">{label}</p>
         <svg className="linkCTA__triangle" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
           <path d="M0.800002 1.95744L10.4 7.5L0.800002 13.0426L0.800002 1.95744Z" stroke="white" />
         </svg>
@@ -33,14 +35,14 @@ const LinkCTA = ({ oneQuiz }) => (
   </Link>
 );
 
-LinkCTA.propTypes = {
+/* LinkCTA.propTypes = {
   oneQuiz: PropTypes.shape({
     quiz_id: PropTypes.number.isRequired,
     categoryId: PropTypes.number.isRequired,
     quiz_title: PropTypes.string.isRequired,
     category_name: PropTypes.string.isRequired,
   }).isRequired,
-};
+}; */
 
 // == Export
 export default LinkCTA;

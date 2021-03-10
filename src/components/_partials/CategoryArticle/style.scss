@@ -1,0 +1,25 @@
+@use 'src/styles/breakpoints';
+
+.categoryQuiz {
+  //background-color: yellow;
+  &__groupLinks {
+    display: flex;
+    
+  }
+  &__linkCTA {
+    display: flex;
+    flex-wrap: wrap;
+    //background-color: red;
+    padding-bottom: 60px;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.categoryQuiz {
+  &__linkCTA {
+    padding-bottom: 120px;
+    padding-left: 12.5%;
+    justify-content: flex-start;
+  }
+}
+}

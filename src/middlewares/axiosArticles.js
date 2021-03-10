@@ -1,26 +1,27 @@
 import axios from 'axios';
 import { changeValueGlobal } from 'src/actions/appActions';
 import {
-  GET_ALL_QUIZZES,
-  GET_ONE_QUIZ,
-  stockQuizzes,
-  stockQuiz,
-} from 'src/actions/quizzesActions';
+  GET_ALL_ARTICLES,
+  stockArticles,
+  /* GET_ONE_QUIZ,
 
-import quizFormatter from 'src/middlewares/QuizFormatter';
+  stockQuiz, */
+} from 'src/actions/articlesActions';
+
+import articlesFormatter from 'src/middlewares/articlesFormatter';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
 
 const user = (store) => (next) => (action) => {
   const state = store.getState();
   switch (action.type) {
-    case GET_ALL_QUIZZES: {
+    case GET_ALL_ARTICLES: {
       store.dispatch(changeValueGlobal(true, 'loading'));
-      axios.get(`${baseUrl}/${state.global.language}/quizzes`)
+      axios.get(`${baseUrl}/${state.global.language}/articles`)
         .then((response) => {
           if (response.statusText === 'OK') {
-            console.log(response);
-            store.dispatch(stockQuizzes(response.data));
+            const data = articlesFormatter(response.data);
+            store.dispatch(stockArticles(data));
           }
         })
         .catch((error) => {
@@ -31,7 +32,7 @@ const user = (store) => (next) => (action) => {
         });
       break;
     }
-    case GET_ONE_QUIZ: {
+    /* case GET_ONE_QUIZ: {
       store.dispatch(changeValueGlobal(true, 'loading'));
       axios.get(`${baseUrl}/${state.global.language}/quiz/${action.id}`)
         .then((response) => {
@@ -47,7 +48,7 @@ const user = (store) => (next) => (action) => {
           store.dispatch(changeValueGlobal(false, 'loading'));
         });
       break;
-    }
+    } */
     default:
       next(action);
   }
