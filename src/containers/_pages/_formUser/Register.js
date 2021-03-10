@@ -7,12 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => {
-    dispatch(changeValueRegister(value, name));
-  },
-  handleRegister: () => {
-    dispatch(registerRequest());
-  },
+  changeField: (value, name) => dispatch(changeValueRegister(value, name)),
+  handleRegister: () => dispatch(registerRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

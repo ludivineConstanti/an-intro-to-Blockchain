@@ -1,8 +1,8 @@
 import {
-  STOCK_QUIZ,
+  STOCK_ONE_QUIZ,
   INCREASE_QUESTION,
   STOCK_ANSWER,
-  CONFIRM_QUESTION,
+  VALIDATE_QUESTION,
 } from 'src/actions/quizzesActions';
 
 const initialState = {
@@ -16,13 +16,16 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case STOCK_QUIZ: {
+    case STOCK_ONE_QUIZ: {
       return {
         ...state,
         currentQuizData: action.currentQuizData,
+        userQuizInfos: {
+          ...initialState.userQuizInfos,
+        },
       };
     }
-    case CONFIRM_QUESTION: {
+    case VALIDATE_QUESTION: {
       return {
         ...state,
         userQuizInfos: {

@@ -7,12 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => {
-    dispatch(changeValueLogin(value, name));
-  },
-  handleLogin: () => {
-    dispatch(loginRequest());
-  },
+  changeField: (value, name) => dispatch(changeValueLogin(value, name)),
+  handleLogin: () => dispatch(loginRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

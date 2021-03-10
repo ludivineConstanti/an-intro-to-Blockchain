@@ -1,4 +1,4 @@
-import { STOCK_QUIZZES } from 'src/actions/quizzesActions';
+import { STOCK_ALL_QUIZZES } from 'src/actions/quizzesActions';
 
 const initialState = {
   quizzesList: [],
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case STOCK_QUIZZES: {
+    case STOCK_ALL_QUIZZES: {
       return {
         ...state,
         quizzesList: action.quizzes,

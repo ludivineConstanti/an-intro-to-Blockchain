@@ -3,8 +3,8 @@ import { changeValueGlobal } from 'src/actions/appActions';
 import {
   GET_ALL_QUIZZES,
   GET_ONE_QUIZ,
-  stockQuizzes,
-  stockQuiz,
+  stockAllQuizzes,
+  stockOneQuiz,
 } from 'src/actions/quizzesActions';
 
 import quizFormatter from 'src/middlewares/QuizFormatter';
@@ -19,7 +19,7 @@ const user = (store) => (next) => (action) => {
       axios.get(`${baseUrl}/${state.global.language}/quizzes`)
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(stockQuizzes(response.data));
+            store.dispatch(stockAllQuizzes(response.data));
           }
         })
         .catch((error) => {
@@ -30,13 +30,14 @@ const user = (store) => (next) => (action) => {
         });
       break;
     }
+
     case GET_ONE_QUIZ: {
       store.dispatch(changeValueGlobal(true, 'loading'));
       axios.get(`${baseUrl}/${state.global.language}/quiz/${action.id}`)
         .then((response) => {
           if (response.statusText === 'OK') {
             const quizData = quizFormatter(response.data);
-            store.dispatch(stockQuiz(quizData));
+            store.dispatch(stockOneQuiz(quizData));
           }
         })
         .catch((error) => {

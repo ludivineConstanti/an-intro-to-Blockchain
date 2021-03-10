@@ -53,7 +53,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserRegister(response.data.firstname,
+            store.dispatch(saveUserRegister(response.data.id, response.data.firstname,
               response.data.lastname));
           }
         })
@@ -66,7 +66,7 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case CHANGE_USER_SETTINGS: {
-      store.dispatch(changeValueGlobal(false, 'loading'));
+      store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
       axios({
         method: 'patch',
@@ -94,7 +94,7 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case CHANGE_USER_EMAIL: {
-      store.dispatch(changeValueGlobal(false, 'loading'));
+      store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
       axios({
         method: 'patch',
@@ -106,9 +106,6 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-
-            console.log('response email', response);
-
             store.dispatch(saveUserEmail(
               response.data.email,
             ));
@@ -123,7 +120,7 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case DELETE_ACCOUNT_REQUEST: {
-      store.dispatch(changeValueGlobal(false, 'loading'));
+      store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
       axios({
         method: 'delete',
@@ -131,7 +128,6 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            console.log('response delete', response);
             store.dispatch(deleteUser());
           }
         })
