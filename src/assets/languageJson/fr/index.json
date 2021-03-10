@@ -6,6 +6,7 @@
     "link2": "J'ai déjà un compte"
   },
   "menu": {
+
     "home": "Accueil",
     "quizzes": "Quizs",
     "articles": "Articles",
@@ -14,6 +15,7 @@
     "achievements": "Scores",
     "settings": "Paramètres",
     "signOut": "Se déconnecter"
+
   },
   "header": {
     "english": "Anglais",
