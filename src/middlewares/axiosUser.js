@@ -74,13 +74,14 @@ const user = (store) => (next) => (action) => {
         data: {
           firstname: state.user.infos.firstname,
           lastname: state.user.infos.lastname,
-          password: state.user.settingsForms.newPassword,
-          oldPassword: state.user.settingsForms.oldPassword,
+          password: state.user.settingsForms.oldPassword,
+          newPassword: state.user.settingsForms.newPassword,
         },
       })
         .then((response) => {
           if (response.statusText === 'OK') {
             store.dispatch(saveUserSettings());
+            console.log('response', response);
           }
         })
         .catch((error) => {
