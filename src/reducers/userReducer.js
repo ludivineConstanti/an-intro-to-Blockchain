@@ -32,6 +32,7 @@ const initialState = {
     controlNewPassword: '',
     newEmail: '',
     controlPassword: '',
+    controlPasswordDelete: '',
   },
 };
 
