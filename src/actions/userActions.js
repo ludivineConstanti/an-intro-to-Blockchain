@@ -15,7 +15,6 @@ export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
 export const SAVE_USER_EMAIL = 'SAVE_USER_EMAIL';
 
 export const DELETE_ACCOUNT_REQUEST = 'DELETE_ACCOUNT_REQUEST';
-export const DELETE_USER = 'DELETE_USER';
 
 export const LOGOUT = 'LOGOUT';
 
@@ -79,10 +78,6 @@ export const saveUserEmail = (newEmail) => ({
 
 export const deleteAccountRequest = () => ({
   type: DELETE_ACCOUNT_REQUEST,
-});
-
-export const deleteUser = () => ({
-  type: DELETE_USER,
 });
 
 export const logout = () => ({

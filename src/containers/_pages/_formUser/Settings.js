@@ -5,7 +5,7 @@ import {
   changeValueSettings,
   changeUserSettings,
   changeUserEmail,
-  deleteUser,
+  deleteAccountRequest,
 } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleLogout: () => dispatch(logout()),
   handleChangeSettings: () => dispatch(changeUserSettings()),
   handleChangeEmail: () => dispatch(changeUserEmail()),
-  handleDeleteUser: () => dispatch(deleteUser()),
+  handleDeleteUser: () => dispatch(deleteAccountRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);
