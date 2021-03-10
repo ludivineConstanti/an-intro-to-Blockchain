@@ -63,7 +63,7 @@ const App = ({
             </Route>
             {/* Quiz (answer questions) */}
             <Route path="/quiz/:id" exact>
-              <Quiz />
+              {isLoggedIn ? <Quiz /> : <Redirect to="/login" />}
             </Route>
             {/* Quiz result */}
             <Route path="/quiz/:id/result" exact>
