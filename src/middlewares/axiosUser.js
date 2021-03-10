@@ -10,7 +10,7 @@ import {
   CHANGE_USER_EMAIL,
   saveUserEmail,
   DELETE_ACCOUNT_REQUEST,
-  deleteUser,
+  logout,
 } from 'src/actions/userActions';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
@@ -53,7 +53,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserRegister(response.data.firstname,
+            store.dispatch(saveUserRegister(response.data.id, response.data.firstname,
               response.data.lastname));
           }
         })
@@ -66,7 +66,7 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case CHANGE_USER_SETTINGS: {
-      store.dispatch(changeValueGlobal(false, 'loading'));
+      store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
       axios({
         method: 'patch',
@@ -80,9 +80,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserSettings(
-              response.data.password,
-            ));
+            store.dispatch(saveUserSettings());
           }
         })
         .catch((error) => {
@@ -94,7 +92,7 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case CHANGE_USER_EMAIL: {
-      store.dispatch(changeValueGlobal(false, 'loading'));
+      store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
       axios({
         method: 'patch',
@@ -106,12 +104,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-
-            console.log('response email', response);
-
-            store.dispatch(saveUserEmail(
-              response.data.email,
-            ));
+            store.dispatch(saveUserEmail());
           }
         })
         .catch((error) => {
@@ -123,17 +116,21 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case DELETE_ACCOUNT_REQUEST: {
-      store.dispatch(changeValueGlobal(false, 'loading'));
+      store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
+      console.log('state delete account', state);
       axios({
         method: 'delete',
         url: `${baseUrl}/settings/delete/${state.user.infos.id}`,
+        data: {
+          password: state.user.settingsForms.controlPasswordDelete,
+        },
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            console.log('response delete', response);
-            store.dispatch(deleteUser());
+            store.dispatch(logout());
           }
+          console.log('response', response);
         })
         .catch((error) => {
           console.log(error);

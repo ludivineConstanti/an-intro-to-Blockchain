@@ -8,13 +8,18 @@ import './animation.scss';
 
 // == Composant
 const Loading = ({ language }) => {
-  const arrayEn = ['Connecting to the blockchain...', 'Calculating the angles of a square...', 'Counting the blocks...', 'Woops, a squirrel', 'Downloading the internet...', 'Putting clouds in the sky...', 'Thank you for your patience', 'Checking the price of Bitcoin...', "Hope you're having a good day", "Don't give up!"];
-  const arrayFr = ['Connexion à la blockchain ...', 'Calcul des angles d\'un carré...', 'En train de compter les blocs ...', 'Oups, un écureuil', 'En train de télécharger l\'internet...', 'En train de mettre des nuages dans le ciel...', 'Merci pour votre patience', 'Vérification du prix de Bitcoin...', "J'espère que vous passez une bonne journée", "N\'abandonnez pas!"];
-  const arrayTroll = language === 'fr' ? arrayFr : arrayEn;
-  const [message, setMessage] = useState(arrayTroll[Math.floor(Math.random() * arrayTroll.length)]);
+  const arrayTroll = {
+    fr: ['Connexion à la blockchain ...', "Calcul des angles d'un carré...", 'En train de compter les blocs ...', 'Oups, un écureuil', "En train de télécharger l'internet...", 'En train de mettre des nuages dans le ciel...', 'Merci pour votre patience', 'Vérification du prix de Bitcoin...', "J'espère que vous passez une bonne journée", "N'abandonnez pas!"],
+    en: ['Connecting to the blockchain...', 'Calculating the angles of a square...', 'Counting the blocks...', 'Woops, a squirrel', 'Downloading the internet...', 'Putting clouds in the sky...', 'Thank you for your patience', 'Checking the price of Bitcoin...', "Hope you're having a good day", "Don't give up!"],
+  };
+
+  const [message, setMessage] = useState(
+    arrayTroll[language][Math.floor(Math.random() * arrayTroll[language].length)],
+  );
   useEffect(() => {
     const interval = setInterval(() => {
-      setMessage(() => arrayTroll[Math.floor(Math.random() * arrayTroll.length)]);
+      setMessage(() => (
+        arrayTroll[language][Math.floor(Math.random() * arrayTroll[language].length)]));
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -33,12 +38,12 @@ const Loading = ({ language }) => {
   );
 };
 
-Loading.defaultProps = {
-  language: 'en',
-};
-
 Loading.propTypes = {
   language: PropTypes.string,
+};
+
+Loading.defaultProps = {
+  language: 'en',
 };
 
 // == Export

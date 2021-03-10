@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
 import AnswerQuestion from 'src/components/_partials/AnswerQuestion';
-import { increaseQuestion } from 'src/actions/quizzesActions';
-
-const mapStateToProps = (state) => ({
-});
+import { increaseQuestion, validateQuiz } from 'src/actions/quizzesActions';
 
 const mapDispatchToProps = (dispatch) => ({
   increaseQuestion: (questionNumber) => dispatch(increaseQuestion(questionNumber)),
+  validateQuiz: () => dispatch(validateQuiz()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AnswerQuestion);
+export default connect(null, mapDispatchToProps)(AnswerQuestion);

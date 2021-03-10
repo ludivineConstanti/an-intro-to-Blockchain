@@ -4,14 +4,17 @@ export const CHANGE_VALUE_SETTINGS = 'CHANGE_VALUE_SETTINGS';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const SAVE_USER_LOGIN = 'SAVE_USER_LOGIN';
+
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const SAVE_USER_REGISTER = 'SAVE_REGISTER';
+
 export const CHANGE_USER_SETTINGS = 'CHANGE_USER_SETTINGS';
 export const SAVE_USER_SETTINGS = 'SAVE_USER_SETTINGS';
+
 export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
 export const SAVE_USER_EMAIL = 'SAVE_USER_EMAIL';
+
 export const DELETE_ACCOUNT_REQUEST = 'DELETE_ACCOUNT_REQUEST';
-export const DELETE_USER = 'DELETE_USER';
 
 export const LOGOUT = 'LOGOUT';
 
@@ -48,8 +51,9 @@ export const registerRequest = () => ({
   type: REGISTER_REQUEST,
 });
 
-export const saveUserRegister = (firstname, lastname) => ({
+export const saveUserRegister = (id, firstname, lastname) => ({
   type: SAVE_USER_REGISTER,
+  id,
   firstname,
   lastname,
 });
@@ -74,10 +78,6 @@ export const saveUserEmail = (newEmail) => ({
 
 export const deleteAccountRequest = () => ({
   type: DELETE_ACCOUNT_REQUEST,
-});
-
-export const deleteUser = () => ({
-  type: DELETE_USER,
 });
 
 export const logout = () => ({
