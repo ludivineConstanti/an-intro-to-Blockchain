@@ -1,10 +1,10 @@
 import {
   CHANGE_VALUE_LOGIN,
-  CHANGE_VALUE_REGISTER,
-  CHANGE_VALUE_SETTINGS,
   SAVE_USER_LOGIN,
-  LOGOUT,
+  CHANGE_VALUE_REGISTER,
   SAVE_USER_REGISTER,
+  LOGOUT,
+  CHANGE_VALUE_SETTINGS,
   SAVE_USER_SETTINGS,
   SAVE_USER_EMAIL,
   DELETE_USER,
@@ -47,24 +47,6 @@ export default (state = initialState, action = {}) => {
         },
       };
     }
-    case CHANGE_VALUE_REGISTER: {
-      return {
-        ...state,
-        registerForm: {
-          ...state.registerForm,
-          [action.name]: action.value,
-        },
-      };
-    }
-    case CHANGE_VALUE_SETTINGS: {
-      return {
-        ...state,
-        settingsForms: {
-          ...state.settingsForms,
-          [action.name]: action.value,
-        },
-      };
-    }
     case SAVE_USER_LOGIN: {
       return {
         ...state,
@@ -81,9 +63,13 @@ export default (state = initialState, action = {}) => {
         },
       };
     }
-    case LOGOUT: {
+    case CHANGE_VALUE_REGISTER: {
       return {
-        ...initialState,
+        ...state,
+        registerForm: {
+          ...state.registerForm,
+          [action.name]: action.value,
+        },
       };
     }
     case SAVE_USER_REGISTER: {
@@ -101,6 +87,20 @@ export default (state = initialState, action = {}) => {
           firstname: action.firstname,
           lastname: action.lastname,
           isLoggedIn: true,
+        },
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...initialState,
+      };
+    }
+    case CHANGE_VALUE_SETTINGS: {
+      return {
+        ...state,
+        settingsForms: {
+          ...state.settingsForms,
+          [action.name]: action.value,
         },
       };
     }

@@ -1,7 +1,9 @@
 import { TOGGLE_MENU, CHANGE_VALUE_GLOBAL } from 'src/actions/appActions';
 
 const supportedLanguage = ['en', 'fr'];
-const language = navigator.userLanguage ? navigator.userLanguage.slice(0, 2) : navigator.language.slice(0, 2);
+const language = navigator.userLanguage
+  ? navigator.userLanguage.slice(0, 2)
+  : navigator.language.slice(0, 2);
 
 const initialState = {
   language: supportedLanguage.indexOf(language) === -1 ? 'en' : language,
