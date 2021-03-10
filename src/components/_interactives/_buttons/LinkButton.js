@@ -18,36 +18,30 @@ const LinkButton = ({
 }) => {
   const classDiv = `linkButton linkButton--${className}`;
   const classTriangle = `linkButton__triangle linkButton__triangle--${className}`;
+
+  const content = (
+    <div className={classDiv}>
+      {label}
+      <div className={classTriangle}>
+        <svg viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.800002 1.95744L10.4 7.5L0.800002 13.0426L0.800002 1.95744Z" stroke="white" />
+        </svg>
+      </div>
+    </div>
+  );
   // eslint-disable-next-line no-unused-expressions
   return (
     <>
       {
         !externalLink
           ? (
-            <Link
-              to={path}
-              onClick={onClickLink}
-            >
-              <div className={classDiv}>
-                {label}
-                <div className={classTriangle}>
-                  <svg viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.800002 1.95744L10.4 7.5L0.800002 13.0426L0.800002 1.95744Z" stroke="white" />
-                  </svg>
-                </div>
-              </div>
+            <Link to={path} onClick={onClickLink}>
+              {content}
             </Link>
           )
           : (
             <a href={path} rel="noreferrer nofollow noopener" target="_blank">
-              <div className={classDiv}>
-                {label}
-                <div className={classTriangle}>
-                  <svg viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.800002 1.95744L10.4 7.5L0.800002 13.0426L0.800002 1.95744Z" stroke="white" />
-                  </svg>
-                </div>
-              </div>
+              {content}
             </a>
           )
       }

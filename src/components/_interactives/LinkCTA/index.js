@@ -11,9 +11,9 @@ import Icon from 'src/components/_statics/Icon';
 
 // == Composant
 const LinkCTA = ({
-  quizId, categoryId, externalLink, label,
-}) => (
-  <Link to={`/quiz/${quizId}`}>
+  quizId, categoryId, externalLink, label, path,
+}) => {
+  const content = (
     <div className="linkCTA">
       <div className="linkCTA__iconDiv">
         <Icon category={categoryId} quiz={quizId} />
@@ -32,16 +32,34 @@ const LinkCTA = ({
         </svg>
       </div>
     </div>
-  </Link>
-);
+  );
+
+  return (
+    <>
+      {
+      !externalLink
+        ? <Link to={`/quiz/${quizId}`}>{content}</Link>
+        : (
+          <a href={path} rel="noreferrer nofollow noopener" target="_blank">
+            {content}
+          </a>
+        )
+      }
+    </>
+  );
+};
 
 LinkCTA.propTypes = {
-  element: PropTypes.shape({
-    quiz_id: PropTypes.number.isRequired,
-    categoryId: PropTypes.number.isRequired,
-    quiz_title: PropTypes.string.isRequired,
-    category_name: PropTypes.string.isRequired,
-  }).isRequired,
+  quizId: PropTypes.number.isRequired,
+  categoryId: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  externalLink: PropTypes.bool,
+  path: PropTypes.string,
+};
+
+LinkCTA.defaultProps = {
+  externalLink: false,
+  path: '',
 };
 
 // == Export

@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -27,6 +28,11 @@ const CategoryQuiz = ({ title, content }) => {
       </div>
     </div>
   );
+};
+
+CategoryQuiz.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.array.isRequired,
 };
 
 // == Export
