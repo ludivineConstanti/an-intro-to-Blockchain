@@ -84,8 +84,11 @@ const Settings = ({
         </FormUser>
         <FormUser className="marginB">
           <form onSubmit={handleDelete}>
-            <div className="settings__buttonS1">
-              <SubmitButton label={t('formUser.buttonDeleteEmail')} />
+            <div className="settings__column">
+              <InputText name="controlPasswordDelete" type="password" placeholder={t('formUser.password')} value={settingsForms.controlPasswordDelete} onChange={changeField} />
+            </div>
+            <div className="settings__column">
+              <SubmitButton label={t('formUser.buttonDeleteAccount')} />
             </div>
           </form>
         </FormUser>

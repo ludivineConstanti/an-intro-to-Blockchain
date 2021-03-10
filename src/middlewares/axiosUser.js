@@ -122,6 +122,9 @@ const user = (store) => (next) => (action) => {
       axios({
         method: 'delete',
         url: `${baseUrl}/settings/delete/${state.user.infos.id}`,
+        data: {
+          password: state.user.settingsForms.controlPasswordDelete,
+        },
       })
         .then((response) => {
           if (response.statusText === 'OK') {
