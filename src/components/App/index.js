@@ -79,7 +79,7 @@ const App = ({
             </Route>
             {/* Page de settings du profile */}
             <Route path="/settings" exact>
-              <Settings />
+              {isLoggedIn ? <Settings /> : <Redirect to="/" />}
             </Route>
             <Route path="/logout" exact>
               <Redirect to="/" />
