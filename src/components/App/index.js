@@ -14,7 +14,8 @@ import Frame from 'src/components/Frame';
 import Home from 'src/containers/_pages/Home';
 import Quizzes from 'src/containers/_pages/Quizzes';
 import Quiz from 'src/containers/_pages/Quiz';
-import QuizResult from 'src/components/_pages/QuizResult';
+import Articles from 'src/containers/_pages/Articles';
+import QuizResult from 'src/containers/_pages/QuizResult';
 import Register from 'src/containers/_pages/_formUser/Register';
 import LogIn from 'src/containers/_pages/_formUser/LogIn';
 import Settings from 'src/containers/_pages/_formUser/Settings';
@@ -30,6 +31,7 @@ const App = ({
   loading,
   isLoggedIn,
   language,
+  hasFinishedQuiz,
 }) => {
   useEffect(() => {
     init();
@@ -66,8 +68,12 @@ const App = ({
               {isLoggedIn ? <Quiz /> : <Redirect to="/login" />}
             </Route>
             {/* Quiz result */}
-            <Route path="/quiz/:id/result" exact>
-              <QuizResult />
+            <Route path="/quizResult" exact>
+              {!hasFinishedQuiz ? <Redirect to="/" /> : <QuizResult />}
+            </Route>
+            {/* Page - All article */}
+            <Route path="/articles" exact>
+              <Articles />
             </Route>
             {/* Login Page */}
             <Route path="/login" exact>
@@ -101,6 +107,7 @@ App.propTypes = {
   loading: PropTypes.bool.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
+  hasFinishedQuiz: PropTypes.bool.isRequired,
 };
 // == Export
 export default App;

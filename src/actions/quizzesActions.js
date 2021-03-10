@@ -5,6 +5,8 @@ export const STOCK_ONE_QUIZ = 'STOCK_ONE_QUIZ';
 export const STOCK_ANSWER = 'STOCK_ANSWER';
 export const VALIDATE_QUESTION = 'VALIDATE_QUESTION';
 export const INCREASE_QUESTION = 'INCREASE_QUESTION';
+export const VALIDATE_QUIZ = 'VALIDATE_QUIZ';
+export const USER_FINISHED_QUIZ = 'USER_FINISHED_QUIZ';
 
 export const getAllQuizzes = () => ({
   type: GET_ALL_QUIZZES,
@@ -38,4 +40,15 @@ export const validateQuestion = () => ({
 export const increaseQuestion = (questionNumber) => ({
   type: INCREASE_QUESTION,
   questionNumber,
+});
+
+export const validateQuiz = () => ({
+  type: VALIDATE_QUIZ,
+});
+
+export const userFinishedQuiz = (score, totalAnswers, goodAnswers) => ({
+  type: USER_FINISHED_QUIZ,
+  score,
+  totalAnswers,
+  goodAnswers,
 });

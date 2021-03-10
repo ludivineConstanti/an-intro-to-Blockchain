@@ -3,6 +3,7 @@ import {
   INCREASE_QUESTION,
   STOCK_ANSWER,
   VALIDATE_QUESTION,
+  USER_FINISHED_QUIZ,
 } from 'src/actions/quizzesActions';
 
 const initialState = {
@@ -10,7 +11,11 @@ const initialState = {
   userQuizInfos: {
     questionNumber: 1,
     showAnswer: false,
-    userResponses: {},
+    userAnswers: {},
+    hasFinishedQuiz: false,
+    score: 0,
+    totalAnswers: 0,
+    goodAnswers: 0,
   },
 };
 
@@ -49,10 +54,22 @@ export default (state = initialState, action = {}) => {
         ...state,
         userQuizInfos: {
           ...state.userQuizInfos,
-          userResponses: {
-            ...state.userQuizInfos.userResponses,
-            [`question${action.questionNumber}`]: action.userAnswers,
+          userAnswers: {
+            ...state.userQuizInfos.userAnswers,
+            ...action.userAnswers,
           },
+        },
+      };
+    }
+    case USER_FINISHED_QUIZ: {
+      return {
+        ...state,
+        userQuizInfos: {
+          ...state.userQuizInfos,
+          hasFinishedQuiz: true,
+          score: action.score,
+          totalAnswers: action.totalAnswers,
+          goodAnswers: action.goodAnswers,
         },
       };
     }
