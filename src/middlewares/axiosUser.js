@@ -10,7 +10,7 @@ import {
   CHANGE_USER_EMAIL,
   saveUserEmail,
   DELETE_ACCOUNT_REQUEST,
-  deleteUser,
+  logout,
 } from 'src/actions/userActions';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
@@ -80,9 +80,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserSettings(
-              response.data.password,
-            ));
+            store.dispatch(saveUserSettings());
           }
         })
         .catch((error) => {
@@ -106,9 +104,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserEmail(
-              response.data.email,
-            ));
+            store.dispatch(saveUserEmail());
           }
         })
         .catch((error) => {
@@ -122,14 +118,16 @@ const user = (store) => (next) => (action) => {
     case DELETE_ACCOUNT_REQUEST: {
       store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
+      console.log('state delete account', state);
       axios({
         method: 'delete',
         url: `${baseUrl}/settings/delete/${state.user.infos.id}`,
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(deleteUser());
+            store.dispatch(logout());
           }
+          console.log('response', response);
         })
         .catch((error) => {
           console.log(error);

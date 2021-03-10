@@ -44,6 +44,11 @@ const Settings = ({
     handleChangeEmail();
   };
 
+  const handleDelete = (event) => {
+    event.preventDefault();
+    handleDeleteUser();
+  };
+
   return (
     <div className="settings">
       <TitlePage label={t('menu.settings')} subtitle={`${firstname} ${lastname}`} />
@@ -78,7 +83,7 @@ const Settings = ({
           </form>
         </FormUser>
         <FormUser className="marginB">
-          <form onSubmit={handleDeleteUser}>
+          <form onSubmit={handleDelete}>
             <div className="settings__buttonS1">
               <SubmitButton label={t('formUser.buttonDeleteEmail')} />
             </div>
