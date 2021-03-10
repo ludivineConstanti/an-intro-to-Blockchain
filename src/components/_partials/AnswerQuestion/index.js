@@ -15,7 +15,6 @@ const AnswerQuestion = ({
   justification,
   articleLink,
   increaseQuestion,
-  //! Message de succès ou non pas encore fait mais à réflechir
 }) => {
   const nextQuestion = () => {
     increaseQuestion(questionNumber + 1);

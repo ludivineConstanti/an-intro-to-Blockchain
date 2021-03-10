@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import App from 'src/containers/App';
 import store from 'src/store';
 import Loading from 'src/components/Loading';
-import i18next from 'src/i18next';
 
 const rootReactElement = (
   <Provider store={store}>

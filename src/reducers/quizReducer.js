@@ -20,6 +20,9 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         currentQuizData: action.currentQuizData,
+        userQuizInfos: {
+          ...initialState.userQuizInfos,
+        },
       };
     }
     case VALIDATE_QUESTION: {

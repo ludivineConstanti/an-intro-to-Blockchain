@@ -30,6 +30,7 @@ const user = (store) => (next) => (action) => {
         });
       break;
     }
+
     case GET_ONE_QUIZ: {
       store.dispatch(changeValueGlobal(true, 'loading'));
       axios.get(`${baseUrl}/${state.global.language}/quiz/${action.id}`)

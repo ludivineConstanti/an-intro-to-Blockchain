@@ -15,21 +15,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => {
-    dispatch(changeValueSettings(value, name));
-  },
-  handleLogout: () => {
-    dispatch(logout());
-  },
-  handleChangeSettings: () => {
-    dispatch(changeUserSettings());
-  },
-  handleChangeEmail: () => {
-    dispatch(changeUserEmail());
-  },
-  handleDeleteUser: () => {
-    dispatch(deleteUser());
-  },
+  changeField: (value, name) => dispatch(changeValueSettings(value, name)),
+  handleLogout: () => dispatch(logout()),
+  handleChangeSettings: () => dispatch(changeUserSettings()),
+  handleChangeEmail: () => dispatch(changeUserEmail()),
+  handleDeleteUser: () => dispatch(deleteUser()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);
