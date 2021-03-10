@@ -5,11 +5,9 @@ import React from 'react';
 import './style.scss';
 import TitleCategory from 'src/components/_statics/TitleCategory';
 import SubCategoryArticle from 'src/components/_partials/CategoryArticle/SubCategoryArticle';
-import LinkCTA from 'src/components/_interactives/LinkCTA';
 
 // == Composant
 const CategoryArticle = ({ title, content }) => {
-  // console.log('category Article', content);
   const subCategoryKeys = Object.keys(content);
 
   const subCategoryArr = [];

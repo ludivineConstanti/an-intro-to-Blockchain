@@ -11,7 +11,7 @@ import Icon from 'src/components/_statics/Icon';
 
 // == Composant
 const LinkCTA = ({
-  label, content, categoryId, quizId,
+  quizId, categoryId, externalLink, label,
 }) => (
   <Link to={`/quiz/${quizId}`}>
     <div className="linkCTA">
@@ -35,14 +35,14 @@ const LinkCTA = ({
   </Link>
 );
 
-/* LinkCTA.propTypes = {
-  oneQuiz: PropTypes.shape({
+LinkCTA.propTypes = {
+  element: PropTypes.shape({
     quiz_id: PropTypes.number.isRequired,
     categoryId: PropTypes.number.isRequired,
     quiz_title: PropTypes.string.isRequired,
     category_name: PropTypes.string.isRequired,
   }).isRequired,
-}; */
+};
 
 // == Export
 export default LinkCTA;
