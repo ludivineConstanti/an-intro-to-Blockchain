@@ -17,7 +17,7 @@ const LogIn = ({
   handleLogin,
 }) => {
   // without the language does not get updated
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleSubmit = (event) => {
     event.preventDefault();

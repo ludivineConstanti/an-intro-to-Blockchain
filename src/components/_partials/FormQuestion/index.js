@@ -11,10 +11,10 @@ import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 const FormQuestion = ({
   question,
   stockAnswer,
-  confirmQuestion,
+  validateQuestion,
   answerShowed,
 }) => {
-  const validateQuestion = (event) => {
+  const confirmQuestion = (event) => {
     const userAnswers = {};
     event.preventDefault();
     userAnswers[`question${question.id}`] = {};
@@ -22,7 +22,7 @@ const FormQuestion = ({
       userAnswers[`question${question.id}`][`answer${event.target[i].id}`] = event.target[i].checked;
     }
     stockAnswer(userAnswers, question.id);
-    confirmQuestion();
+    validateQuestion();
   };
 
   const answerArray = [];
@@ -34,7 +34,7 @@ const FormQuestion = ({
     });
   }
   return (
-    <form className="formQuestion" onSubmit={validateQuestion}>
+    <form className="formQuestion" onSubmit={confirmQuestion}>
       <h3 className="formQuestion__text">{question.statement}</h3>
       {answerShowed === false
       && (<p className="formQuestion__instruction">{question.totalGoodAnswer === 1 ? 'Only one correct answer' : 'More than one answer can be right'}</p>)}
@@ -51,13 +51,13 @@ const FormQuestion = ({
 
 FormQuestion.propTypes = {
   question: PropTypes.object.isRequired,
-  confirmQuestion: PropTypes.func,
+  validateQuestion: PropTypes.func,
   stockAnswer: PropTypes.func,
   answerShowed: PropTypes.bool.isRequired,
 };
 
 FormQuestion.defaultProps = {
-  confirmQuestion: () => {},
+  validateQuestion: () => {},
   stockAnswer: () => {},
 };
 

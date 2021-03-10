@@ -1,4 +1,4 @@
-const quizFormateur = (quizData) => {
+const quizFormater = (quizData) => {
   const quizFormatted = [];
   const questions = [];
   let questionTitle = '';
@@ -47,4 +47,4 @@ const quizFormateur = (quizData) => {
   return quizFormatted;
 };
 
-export default quizFormateur;
+export default quizFormater;

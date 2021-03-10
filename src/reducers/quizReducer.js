@@ -1,8 +1,9 @@
 import {
-  STOCK_QUIZ,
+  STOCK_ONE_QUIZ,
   INCREASE_QUESTION,
   STOCK_ANSWER,
-  CONFIRM_QUESTION,
+  VALIDATE_QUESTION,
+  USER_FINISHED_QUIZ,
 } from 'src/actions/quizzesActions';
 
 const initialState = {
@@ -10,19 +11,26 @@ const initialState = {
   userQuizInfos: {
     questionNumber: 1,
     showAnswer: false,
-    userResponses: {},
+    userAnswers: {},
+    hasFinishedQuiz: false,
+    score: 0,
+    totalAnswers: 0,
+    goodAnswers: 0,
   },
 };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case STOCK_QUIZ: {
+    case STOCK_ONE_QUIZ: {
       return {
         ...state,
         currentQuizData: action.currentQuizData,
+        userQuizInfos: {
+          ...initialState.userQuizInfos,
+        },
       };
     }
-    case CONFIRM_QUESTION: {
+    case VALIDATE_QUESTION: {
       return {
         ...state,
         userQuizInfos: {
@@ -46,10 +54,22 @@ export default (state = initialState, action = {}) => {
         ...state,
         userQuizInfos: {
           ...state.userQuizInfos,
-          userResponses: {
-            ...state.userQuizInfos.userResponses,
-            [`question${action.questionNumber}`]: action.userAnswers,
+          userAnswers: {
+            ...state.userQuizInfos.userAnswers,
+            ...action.userAnswers,
           },
+        },
+      };
+    }
+    case USER_FINISHED_QUIZ: {
+      return {
+        ...state,
+        userQuizInfos: {
+          ...state.userQuizInfos,
+          hasFinishedQuiz: true,
+          score: action.score,
+          totalAnswers: action.totalAnswers,
+          goodAnswers: action.goodAnswers,
         },
       };
     }

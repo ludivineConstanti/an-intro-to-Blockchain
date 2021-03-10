@@ -1,13 +1,12 @@
 import {
   CHANGE_VALUE_LOGIN,
-  CHANGE_VALUE_REGISTER,
-  CHANGE_VALUE_SETTINGS,
   SAVE_USER_LOGIN,
-  LOGOUT,
+  CHANGE_VALUE_REGISTER,
   SAVE_USER_REGISTER,
+  LOGOUT,
+  CHANGE_VALUE_SETTINGS,
   SAVE_USER_SETTINGS,
   SAVE_USER_EMAIL,
-  DELETE_USER,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -33,6 +32,7 @@ const initialState = {
     controlNewPassword: '',
     newEmail: '',
     controlPassword: '',
+    controlPasswordDelete: '',
   },
 };
 
@@ -43,24 +43,6 @@ export default (state = initialState, action = {}) => {
         ...state,
         loginForm: {
           ...state.loginForm,
-          [action.name]: action.value,
-        },
-      };
-    }
-    case CHANGE_VALUE_REGISTER: {
-      return {
-        ...state,
-        registerForm: {
-          ...state.registerForm,
-          [action.name]: action.value,
-        },
-      };
-    }
-    case CHANGE_VALUE_SETTINGS: {
-      return {
-        ...state,
-        settingsForms: {
-          ...state.settingsForms,
           [action.name]: action.value,
         },
       };
@@ -81,15 +63,20 @@ export default (state = initialState, action = {}) => {
         },
       };
     }
-    case LOGOUT: {
+    case CHANGE_VALUE_REGISTER: {
       return {
-        ...initialState,
+        ...state,
+        registerForm: {
+          ...state.registerForm,
+          [action.name]: action.value,
+        },
       };
     }
     case SAVE_USER_REGISTER: {
       return {
         ...state,
         registerForm: {
+          ...state.registerForm,
           firstname: '',
           lastname: '',
           password: '',
@@ -98,9 +85,24 @@ export default (state = initialState, action = {}) => {
         },
         infos: {
           ...state.infos,
+          id: action.id,
           firstname: action.firstname,
           lastname: action.lastname,
           isLoggedIn: true,
+        },
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...initialState,
+      };
+    }
+    case CHANGE_VALUE_SETTINGS: {
+      return {
+        ...state,
+        settingsForms: {
+          ...state.settingsForms,
+          [action.name]: action.value,
         },
       };
     }
@@ -108,7 +110,12 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         settingsForms: {
-          newPassword: action.newPassword,
+          ...state.settingsForms,
+          oldPassword: '',
+          newPassword: '',
+          controlNewPassword: '',
+          newEmail: '',
+          controlPassword: '',
         },
       };
     }
@@ -116,13 +123,13 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         settingsForms: {
-          newEmail: action.newEmail,
+          ...state.settingsForms,
+          oldPassword: '',
+          newPassword: '',
+          controlNewPassword: '',
+          newEmail: '',
+          controlPassword: '',
         },
-      };
-    }
-    case DELETE_USER: {
-      return {
-        ...initialState,
       };
     }
     default:

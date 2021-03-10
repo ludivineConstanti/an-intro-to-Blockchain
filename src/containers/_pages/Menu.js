@@ -4,7 +4,6 @@ import { toggleMenu } from 'src/actions/appActions';
 import { logout } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
-  menuOpen: state.global.menuOpen,
   isLoggedIn: state.user.infos.isLoggedIn,
 });
 
