@@ -18,23 +18,23 @@ const Quizzes = ({
   useEffect(() => {
     getAllQuizzes();
   }, [language]);
-  let categoryMax = 1;
-  quizzesList.forEach((element) => {
-    if (element.categoryId >= categoryMax) {
-      categoryMax = element.categoryId;
-    }
+
+  const categoryKeys = Object.keys(quizzesList);
+  const categoryArr = [];
+
+  categoryKeys.forEach((category) => {
+    categoryArr.push(
+      <CategoryQuiz
+        key={category}
+        title={category}
+        content={quizzesList[category]}
+      />,
+    );
   });
-  const quizObject = [];
-  for (let i = 1; i < categoryMax + 1; i += 1) {
-    quizObject.push(quizzesList.filter((element) => (element.categoryId === i)));
-  }
   return (
     <div className="border-padding">
       <TitlePage label={t('menu.quizzes')} />
-      {(!loading && quizObject.length >= 3)
-      && quizObject.map((oneCategory) => (
-        <CategoryQuiz key={oneCategory[0].categoryId} {...[oneCategory]} />
-      ))}
+      {categoryArr}
     </div>
   );
 };

@@ -7,7 +7,8 @@ import {
   stockQuiz,
 } from 'src/actions/quizzesActions';
 
-import quizFormatter from 'src/middlewares/QuizFormatter';
+import quizzesFormatter from 'src/middlewares/quizzesFormatter';
+import quizFormatter from 'src/middlewares/quizFormatter';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
 
@@ -19,8 +20,7 @@ const user = (store) => (next) => (action) => {
       axios.get(`${baseUrl}/${state.global.language}/quizzes`)
         .then((response) => {
           if (response.statusText === 'OK') {
-            console.log(response);
-            store.dispatch(stockQuizzes(response.data));
+            store.dispatch(stockQuizzes(quizzesFormatter(response.data)));
           }
         })
         .catch((error) => {

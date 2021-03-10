@@ -26,7 +26,6 @@ const Articles = ({
       <TitlePage label={t('menu.articles')} />
       {
         categoryKeys.forEach((category) => {
-          console.log('article', articlesList[category]);
           categoryArr.push(
             <CategoryArticle key={category} title={category} content={articlesList[category]} />,
           );

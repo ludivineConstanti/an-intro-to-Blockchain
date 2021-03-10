@@ -8,17 +8,15 @@ import LinkCTA from 'src/components/_interactives/LinkCTA';
 
 // == Composant
 const SubCategoryArticle = ({ title, content }) => {
-  console.log('sub category article', content);
   const articleLinks = content.map((article) => (
     <LinkCTA
       key={article.question_id}
-      label={article.article_title}
-      content={article}
-      categoryId={article.category_id}
       quizId={article.quizId}
+      categoryId={article.category_id}
+      label={article.article_title}
+      externalLink
     />
   ));
-  console.log(articleLinks);
   return (
     <div className="categoryQuiz">
       <TitleSubCategory label={title} />
