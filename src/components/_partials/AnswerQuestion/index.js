@@ -15,19 +15,23 @@ const AnswerQuestion = ({
   justification,
   articleLink,
   increaseQuestion,
+  validateQuiz,
 }) => {
   const nextQuestion = () => {
     increaseQuestion(questionNumber + 1);
+  };
+  const handleValidateQuiz = () => {
+    validateQuiz();
   };
   return (
     <section className="answerQuestion">
       <TitlePage label="So close!" />
       <p className="answerQuestion__justification ">{justification}</p>
       <div className="answerQuestion__links">
-        <LinkButton label="Learn more" path={articleLink} />
+        <LinkButton label="Learn more" path={articleLink} externalLink />
         {totalNum !== questionNumber
           ? <SubmitButton label="Next question" onClick={nextQuestion} />
-          : <LinkButton label="Results" path="/quiz/:id/result" />}
+          : <LinkButton label="Results" path="/quizResult" onClickLink={handleValidateQuiz} />}
       </div>
     </section>
   );
@@ -39,6 +43,7 @@ AnswerQuestion.propTypes = {
   justification: PropTypes.string.isRequired,
   articleLink: PropTypes.string.isRequired,
   increaseQuestion: PropTypes.func.isRequired,
+  validateQuiz: PropTypes.func.isRequired,
 };
 
 // == Export

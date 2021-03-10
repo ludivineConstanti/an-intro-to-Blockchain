@@ -6,18 +6,18 @@
     "link2": "I have an account"
   },
   "menu": {
-    "home": "home",
-    "quizzes": "quizzes",
-    "articles": "articles",
-    "login": "login",
-    "register": "register",
-    "achievements": "achievements",
-    "settings": "settings",
-    "signOut": "sign out"
+    "home": "Home",
+    "quizzes": "Quizzes",
+    "articles": "Articles",
+    "login": "Login",
+    "register": "Register",
+    "achievements": "Achievements",
+    "settings": "Settings",
+    "signOut": "Sign out"
   },
   "header": {
-    "english": "english",
-    "french": "french"
+    "english": "English",
+    "french": "French"
   },
   "formUser": {
     "errorMessage": {

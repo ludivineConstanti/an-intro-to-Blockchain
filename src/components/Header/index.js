@@ -11,7 +11,12 @@ import { NavLink } from 'react-router-dom';
 
 // == Composant
 const Header = ({
-  initials, onClickButtonMenu, onClickLanguage, isLoggedIn, menuOpen, language,
+  initials,
+  isLoggedIn,
+  menuOpen,
+  language,
+  onClickButtonMenu,
+  onClickLanguage,
 }) => {
   const { t } = useTranslation();
 
