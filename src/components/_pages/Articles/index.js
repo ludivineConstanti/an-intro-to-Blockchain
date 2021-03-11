@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
+import './animation.scss';
 import TitlePage from 'src/components/_statics/TitlePage';
 import CategoryArticle from 'src/components/_partials/CategoryArticle';
 
@@ -19,19 +20,25 @@ const Articles = ({
     getAllArticles();
   }, [language]);
   const categoryKeys = Object.keys(articlesList);
-  const categoryArr = [];
+  const categoryArticleArr = [];
+  const categoryNavArr = [];
+
+  categoryKeys.forEach((category) => {
+    categoryArticleArr.push(
+      <div id={category}>
+        <CategoryArticle key={category} title={category} content={articlesList[category]} />
+      </div>,
+    );
+    categoryNavArr.push(<a className="article__nav__link" href={`#${category}`}>{category}</a>);
+  });
 
   return (
     <div className="border-padding">
-      <TitlePage label={t('menu.articles')} />
-      {
-        categoryKeys.forEach((category) => {
-          categoryArr.push(
-            <CategoryArticle key={category} title={category} content={articlesList[category]} />,
-          );
-        })
-      }
-      {categoryArr}
+      <div className="article">
+        <TitlePage label={t('menu.articles')} />
+        {categoryArticleArr}
+        <div className="article__nav">{categoryNavArr}</div>
+      </div>
     </div>
   );
 };

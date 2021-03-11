@@ -1,8 +1,11 @@
+@use 'src/styles/breakpoints';
+
 .categoryAchievement {
 margin-bottom: 120px;
   &__category{
     display: flex;
     align-items: flex-end;
+    flex-direction: column;
     margin-bottom: 60px;
   }
 
@@ -11,4 +14,13 @@ margin-bottom: 120px;
     flex-wrap: wrap;
     justify-content: space-between;
   }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .categoryAchievement {
+      &__category{
+        flex-direction: row;
+
+      }
+    }
 }

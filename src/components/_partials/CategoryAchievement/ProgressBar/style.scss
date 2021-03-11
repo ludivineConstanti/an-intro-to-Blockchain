@@ -1,13 +1,9 @@
 @use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
 
 .progressBar {
-  display: inline-block;
   position: relative;
   width: 100%;
-
-  &--title {
-    top: -15px;
-  }
 
   &--quiz {
     margin-bottom: 20px;
@@ -41,4 +37,18 @@
       width: 5px;
     }
   }    
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .progressBar {
+  
+    &--title {
+      top: -15px;
+    }
+  
+    &__text {
+      font-size: fontSizes.$labelS1Desktop;
+      letter-spacing: fontSizes.$labelS1KerningDesktop;
+    }
+  }
 }
