@@ -22,6 +22,7 @@ const LogIn = ({
 
   const [Error, setError] = useState('');
 
+  // Control fields with side effects
   useEffect(() => {
     if (errorMessage === true) {
       setError(t('formUser.errorMessage.login'));

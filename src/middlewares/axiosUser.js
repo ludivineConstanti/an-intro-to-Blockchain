@@ -32,7 +32,7 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch(() => {
-          store.dispatch(errorMessage());
+          store.dispatch(errorMessage(true, 'errorMessage'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -82,11 +82,10 @@ const user = (store) => (next) => (action) => {
         .then((response) => {
           if (response.statusText === 'OK') {
             store.dispatch(saveUserSettings());
-            console.log('response', response);
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          store.dispatch(errorMessage(true, 'errorChangeSettings'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -109,8 +108,8 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUserEmail());
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          store.dispatch(errorMessage(true, 'errorChangeEmail'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -120,7 +119,6 @@ const user = (store) => (next) => (action) => {
     case DELETE_ACCOUNT_REQUEST: {
       store.dispatch(changeValueGlobal(true, 'loading'));
       const state = store.getState();
-      console.log('state delete account', state);
       axios({
         method: 'delete',
         url: `${baseUrl}/settings/delete/${state.user.infos.id}`,
@@ -132,10 +130,9 @@ const user = (store) => (next) => (action) => {
           if (response.statusText === 'OK') {
             store.dispatch(logout());
           }
-          console.log('response', response);
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          store.dispatch(errorMessage(true, 'errorDeleteAccount'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));

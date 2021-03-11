@@ -86,6 +86,8 @@ export const logout = () => ({
   type: LOGOUT,
 });
 
-export const errorMessage = () => ({
+export const errorMessage = (value, name) => ({
   type: ERROR_MESSAGE,
+  value,
+  name,
 });

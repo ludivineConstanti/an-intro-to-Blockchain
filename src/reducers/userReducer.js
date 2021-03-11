@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   loginForm: {
-    email: '',
+    email: 'meme@gmail.com',
     password: '',
   },
   registerForm: {
@@ -36,6 +36,9 @@ const initialState = {
     controlPasswordDelete: '',
   },
   errorMessage: false,
+  errorChangeSettings: false,
+  errorChangeEmail: false,
+  errorDeleteAccount: false,
 };
 
 export default (state = initialState, action = {}) => {
@@ -120,6 +123,7 @@ export default (state = initialState, action = {}) => {
           newEmail: '',
           controlPassword: '',
         },
+        errorChangeSettings: false,
       };
     }
     case SAVE_USER_EMAIL: {
@@ -133,12 +137,13 @@ export default (state = initialState, action = {}) => {
           newEmail: '',
           controlPassword: '',
         },
+        errorChangeEmail: false,
       };
     }
     case ERROR_MESSAGE: {
       return {
         ...state,
-        errorMessage: true,
+        [action.name]: action.value,
       };
     }
     default:
