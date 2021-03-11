@@ -133,9 +133,9 @@ Settings.propTypes = {
   handleChangeSettings: PropTypes.func,
   handleChangeEmail: PropTypes.func,
   handleDeleteUser: PropTypes.func,
-  errorChangeSettings: PropTypes.bool.isRequired,
-  errorChangeEmail: PropTypes.bool.isRequired,
-  errorDeleteAccount: PropTypes.bool.isRequired,
+  errorChangeSettings: PropTypes.bool,
+  errorChangeEmail: PropTypes.bool,
+  errorDeleteAccount: PropTypes.bool,
 };
 
 Settings.defaultProps = {
@@ -143,6 +143,9 @@ Settings.defaultProps = {
   handleChangeSettings: () => {},
   handleChangeEmail: () => {},
   handleDeleteUser: () => {},
+  errorChangeSettings: false,
+  errorChangeEmail: false,
+  errorDeleteAccount: false,
 };
 
 // == Export

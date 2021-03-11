@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -25,29 +25,26 @@ const Register = ({
   const [lastnameError, setLastnameError] = useState('');
   const [passwordConfirmError, setPasswordConfirmError] = useState('');
 
+  useEffect(() => {
+    if (registerForm.password !== registerForm.controlPassword) {
+      setPasswordConfirmError(t('formUser.errorMessage.passwordDontMatch'));
+    }
+    else setPasswordConfirmError('');
+    if (registerForm.firstname.length < 1 || registerForm.firstname.length > 25) {
+      setFirstnameError(t('formUser.errorMessage.lengthFirstname'));
+    }
+    else setFirstnameError('');
+    if (registerForm.lastname.length < 1 || registerForm.lastname.length > 25) {
+      setLastnameError(t('formUser.errorMessage.lengthLastname'));
+    }
+    else setLastnameError('');
+  });
+
   // Fonction to control the correspondence of passwords,
   // and lengths of firstname and lastname
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (registerForm.password !== registerForm.controlPassword
-      || (registerForm.firstname.length < 1 || registerForm.firstname.length > 25)
-      || (registerForm.lastname.length < 1 || registerForm.lastname.length > 25)) {
-      if (registerForm.password !== registerForm.controlPassword) {
-        setPasswordConfirmError(t('formUser.errorMessage.passwordDontMatch'));
-      }
-      else setPasswordConfirmError('');
-      if (registerForm.firstname.length < 1 || registerForm.firstname.length > 25) {
-        setFirstnameError(t('formUser.errorMessage.lengthFirstname'));
-      }
-      else setFirstnameError('');
-      if (registerForm.lastname.length < 1 || registerForm.lastname.length > 25) {
-        setLastnameError(t('formUser.errorMessage.lengthLastname'));
-      }
-      else setLastnameError('');
-    }
-    else {
-      handleRegister();
-    }
+    handleRegister();
   };
 
   return (

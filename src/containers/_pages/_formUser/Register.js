@@ -4,6 +4,8 @@ import { changeValueRegister, registerRequest } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   registerForm: state.user.registerForm,
+  errorPassword: state.user.errorPassword,
+  errorEmail: state.user.errorEmail,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -35,10 +35,14 @@ const initialState = {
     controlPassword: '',
     controlPasswordDelete: '',
   },
-  errorMessage: false,
-  errorChangeSettings: false,
-  errorChangeEmail: false,
-  errorDeleteAccount: false,
+  errors: {
+    errorLogin: false,
+    errorPassword: false,
+    errorEmail: false,
+    errorChangeSettings: false,
+    errorChangeEmail: false,
+    errorDeleteAccount: false,
+  },
 };
 
 export default (state = initialState, action = {}) => {
