@@ -15,6 +15,7 @@ import Home from 'src/containers/_pages/Home';
 import Quizzes from 'src/containers/_pages/Quizzes';
 import Quiz from 'src/containers/_pages/Quiz';
 import Articles from 'src/containers/_pages/Articles';
+import Achievements from 'src/components/_pages/Achievements';
 import QuizResult from 'src/containers/_pages/QuizResult';
 import Register from 'src/containers/_pages/_formUser/Register';
 import LogIn from 'src/containers/_pages/_formUser/LogIn';
@@ -74,6 +75,10 @@ const App = ({
             {/* Page - All article */}
             <Route path="/articles" exact>
               <Articles />
+            </Route>
+            {/* Page - All article */}
+            <Route path="/achievements" exact>
+              <Achievements />
             </Route>
             {/* Login Page */}
             <Route path="/login" exact>

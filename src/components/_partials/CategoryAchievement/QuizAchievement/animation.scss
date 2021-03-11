@@ -1,0 +1,66 @@
+.quizAchievement {
+  
+  &__iconDiv {
+    
+    &__withBorders { 
+      animation: frameRotateWithBorders 9s infinite;
+    }
+    &__withoutBorders { 
+      animation: frameRotateWithoutBorders 9s infinite;
+    }
+    &__transparentBorders { 
+      animation: opacityBorders 9s infinite;
+    }
+    &__transparentCorners { 
+      animation: opacityCorners 9s infinite;
+    }
+  }
+}
+
+@keyframes frameRotateWithBorders {
+  0% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(225deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+@keyframes frameRotateWithoutBorders {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-225deg);
+  }
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+
+@keyframes opacityBorders {
+  0% {
+    fill-opacity: 0.5;
+  }
+  50% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 0.5;
+  }
+}
+
+@keyframes opacityCorners {
+  0% {
+    fill-opacity: 1;
+  }
+  50% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
