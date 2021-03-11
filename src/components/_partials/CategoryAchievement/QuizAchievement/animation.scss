@@ -1,19 +1,27 @@
 .quizAchievement {
 
   &__iconDiv {
-    
-    &__withBorders { 
+
+    &__withBorders, &__withoutBorders, &__transparentBorders, &__transparentCorners { 
+      animation-timing-function: linear;
       // better to choose a multiple of 3 (linked to icon animations)
-      animation: frameRotateWithBorders 12s infinite;
+      animation-duration: 18s;
+      animation-iteration-count: infinite;
+    }
+    
+    &__withBorders {
+      animation-name: frameRotateWithBorders;
     }
     &__withoutBorders { 
-      animation: frameRotateWithoutBorders 12s infinite;
+      animation-name: frameRotateWithoutBorders;
     }
     &__transparentBorders { 
-      animation: opacityBorders 12s infinite;
+      animation-duration: 9s;
+      animation-name: opacityBorders;
     }
     &__transparentCorners { 
-      animation: opacityCorners 12s infinite;
+      animation-duration: 9s;
+      animation-name: opacityCorners;
     }
   }
 }

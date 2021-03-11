@@ -7,6 +7,7 @@ import './style.scss';
 import './animation.scss';
 import Icon from 'src/components/_statics/Icon';
 import ProgressBar from 'src/components/_partials/CategoryAchievement/ProgressBar';
+import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
 const QuizAchievements = () => {
@@ -34,7 +35,10 @@ const QuizAchievements = () => {
             </g>
           </svg>
         </div>
-        <ProgressBar percentage={80} />
+        <div className="quizAchievement__score">
+          <ProgressBar percentage={80} useCase="quiz" />
+          <LinkButton label={t('achievements.linkReplayQuiz')} path="/pathToDynamise" className="size2" />
+        </div>
       </div>
     </div>
   );

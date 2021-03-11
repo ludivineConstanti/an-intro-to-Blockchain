@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Composant
-const ProgressBar = ({ percentage }) => {
+const ProgressBar = ({ percentage, useCase }) => {
   const percentageValue = `${percentage}%`;
+  const classDiv = `progressBar progressBar--${useCase}`;
   return (
-    <div className="progressBar">
+    <div className={classDiv}>
       <p className="progressBar__text">{percentage}%</p>
       <div className="progressBar__bar">
         <div className="progressBar__bar__border" />
@@ -23,6 +24,7 @@ const ProgressBar = ({ percentage }) => {
 
 ProgressBar.propTypes = {
   percentage: PropTypes.number.isRequired,
+  useCase: PropTypes.string.isRequired,
 };
 
 // == Export

@@ -3,8 +3,6 @@
 .quizAchievement {
   margin-bottom: 60px;
   width: calc((((100vw - #{margins.$borderDesktop} * 2) / 2) -60px));
-  //width: calc((((100vw - #{margins.$borderDesktop} * 2) -120px) / 2));
-  //margin-right: 60px;
 
   &__quizTitle {
     margin-bottom: 20px;
@@ -30,5 +28,11 @@
       right: 0;
       transform-origin: center;
     }
+  }
+  
+  &__score {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }
