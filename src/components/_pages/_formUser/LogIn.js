@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -15,9 +15,21 @@ const LogIn = ({
   loginForm,
   changeField,
   handleLogin,
+  errorMessage,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
+
+  const [Error, setError] = useState('');
+
+  useEffect(() => {
+    if (errorMessage === true) {
+      setError(t('formUser.errorMessage.login'));
+    }
+    else {
+      setError('');
+    }
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,6 +48,7 @@ const LogIn = ({
           <div className="login__column">
             <InputText name="password" type="password" placeholder={t('formUser.password')} value={loginForm.password} onChange={changeField} />
             <div className="login__submitButton">
+              <p className="login__error">{Error}</p>
               <SubmitButton label={t('formUser.logIn')} />
             </div>
           </div>
@@ -49,6 +62,7 @@ LogIn.propTypes = {
   loginForm: PropTypes.object.isRequired,
   changeField: PropTypes.func,
   handleLogin: PropTypes.func,
+  errorMessage: PropTypes.bool.isRequired,
 };
 
 LogIn.defaultProps = {

@@ -11,6 +11,7 @@ import {
   saveUserEmail,
   DELETE_ACCOUNT_REQUEST,
   logout,
+  errorMessage,
 } from 'src/actions/userActions';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
@@ -30,8 +31,8 @@ const user = (store) => (next) => (action) => {
               response.data.lastname));
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          store.dispatch(errorMessage());
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
