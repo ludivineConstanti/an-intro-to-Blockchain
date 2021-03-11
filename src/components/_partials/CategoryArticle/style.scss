@@ -1,5 +1,6 @@
 
 @use 'src/styles/breakpoints';
+@use 'src/styles/margins';
 
 @media only screen and (min-width: breakpoints.$desktop) {
 .categoryArticle {

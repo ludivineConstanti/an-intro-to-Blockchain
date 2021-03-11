@@ -1,18 +1,24 @@
 @use 'src/styles/margins';
+@use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
 
 .quizAchievement {
   margin-bottom: 60px;
-  width: calc((((100vw - #{margins.$borderDesktop} * 2) / 2) -60px));
+  width: calc(100vw - #{margins.$borderMobile} * 2);
 
   &__quizTitle {
     margin-bottom: 20px;
+    font-size: fontSizes.$textMobile;
+    letter-spacing: fontSizes.$textKerningMobile;
+    line-height: fontSizes.$textSpacingMobile;
   }
 
   &__frame {
     background-color: rgba($color: #000000, $alpha: 0.5);
     border: 2px solid rgba($color: #ffffff, $alpha: 0.5);
-    padding: 60px;
+    padding: 40px;
     display: flex;
+    align-items: center;
   }
 
   &__iconDiv {
@@ -35,4 +41,23 @@
     flex-direction: column;
     width: 100%;
   }
+}
+
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.quizAchievement {
+  margin-bottom: 60px;
+  width: calc((((100vw - #{margins.$borderDesktop} * 2) / 2) -60px));
+
+  &__quizTitle {
+    margin-bottom: 20px;
+    font-size: fontSizes.$textDesktop;
+    letter-spacing: fontSizes.$textKerningDesktop;
+    line-height: fontSizes.$textSpacingDesktop;
+  }
+
+  &__frame {
+    padding: 60px;
+  }
+}
 }

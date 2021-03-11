@@ -14,10 +14,18 @@
 }
 }
 
+/* scroll behavior doesn't work if put
+it in other selectors 
+(at least not for the individual divs on the page)*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Chakra Petch', sans-serif;
   background-color: #000;
   color: #fff;
+  scroll-behavior: smooth;
 }
 
 input {
