@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -14,15 +15,23 @@ const SubCategoryArticle = ({ title, content }) => {
       quizId={article.quizId}
       categoryId={article.category_id}
       label={article.article_title}
+      path={article.article_link}
       externalLink
     />
   ));
   return (
-    <div className="categoryQuiz">
+    <div className="subCategoryArticle">
       <TitleSubCategory label={title} />
-      {articleLinks}
+      <div className="subCategoryArticle__linkCTA">
+        {articleLinks}
+      </div>
     </div>
   );
+};
+
+SubCategoryArticle.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.array.isRequired,
 };
 
 // == Export

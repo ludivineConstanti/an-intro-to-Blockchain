@@ -1,0 +1,22 @@
+@use 'src/styles/breakpoints';
+
+.subCategoryArticle {
+
+  &__linkCTA {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 60px;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.subCategoryArticle {
+  padding-left: 12.5%;
+  padding-top: 30px;
+  &__linkCTA {
+    padding-top: 10px;
+    padding-bottom: 40px;
+    justify-content: flex-start;
+  }
+}
+}

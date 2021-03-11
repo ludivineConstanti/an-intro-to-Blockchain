@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -21,15 +22,16 @@ const CategoryArticle = ({ title, content }) => {
     );
   });
   return (
-    <div className="categoryQuiz">
+    <div className="categoryArticle">
       <TitleCategory label={title} />
-      <div className="categoryQuiz__groupLinks">
-        <div className="categoryQuiz__linkCTA">
-          {subCategoryArr}
-        </div>
-      </div>
+      {subCategoryArr}
     </div>
   );
+};
+
+CategoryArticle.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.object.isRequired,
 };
 
 // == Export

@@ -41,7 +41,7 @@ const Quizzes = ({
 
 Quizzes.propTypes = {
   getAllQuizzes: PropTypes.func,
-  quizzesList: PropTypes.array.isRequired,
+  quizzesList: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
 };
