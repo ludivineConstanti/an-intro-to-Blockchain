@@ -12,6 +12,9 @@ const mapStateToProps = (state) => ({
   settingsForms: state.user.settingsForms,
   firstname: state.user.infos.firstname,
   lastname: state.user.infos.lastname,
+  errorChangeSettings: state.user.errorChangeSettings,
+  errorChangeEmail: state.user.errorChangeEmail,
+  errorDeleteAccount: state.user.errorDeleteAccount,
 });
 
 const mapDispatchToProps = (dispatch) => ({
