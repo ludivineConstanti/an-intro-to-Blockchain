@@ -1,0 +1,14 @@
+.categoryAchievement {
+
+  &__category{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  &__quizContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}

@@ -1,18 +1,19 @@
 .quizAchievement {
-  
+
   &__iconDiv {
     
     &__withBorders { 
-      animation: frameRotateWithBorders 9s infinite;
+      // better to choose a multiple of 3 (linked to icon animations)
+      animation: frameRotateWithBorders 12s infinite;
     }
     &__withoutBorders { 
-      animation: frameRotateWithoutBorders 9s infinite;
+      animation: frameRotateWithoutBorders 12s infinite;
     }
     &__transparentBorders { 
-      animation: opacityBorders 9s infinite;
+      animation: opacityBorders 12s infinite;
     }
     &__transparentCorners { 
-      animation: opacityCorners 9s infinite;
+      animation: opacityCorners 12s infinite;
     }
   }
 }

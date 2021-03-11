@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import './style.scss';
 import './animation.scss';
 import Icon from 'src/components/_statics/Icon';
+import ProgressBar from 'src/components/_partials/CategoryAchievement/ProgressBar';
 
 // == Composant
 const QuizAchievements = () => {
@@ -13,7 +14,7 @@ const QuizAchievements = () => {
   const { t } = useTranslation();
   return (
     <div className="quizAchievement">
-      QuizAchievements
+      <h3 className="quizAchievement__quizTitle">Quiz name</h3>
       <div className="quizAchievement__frame">
         <div className="quizAchievement__iconDiv">
           <Icon category={1} quiz={1} />
@@ -33,6 +34,7 @@ const QuizAchievements = () => {
             </g>
           </svg>
         </div>
+        <ProgressBar />
       </div>
     </div>
   );

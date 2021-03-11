@@ -1,0 +1,36 @@
+@use 'src/styles/fontSizes';
+
+.progressBar {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  &__text {
+    margin-bottom: 8px;
+    font-size: fontSizes.$labelS1Mobile;
+    letter-spacing: fontSizes.$labelS1KerningMobile;
+    font-weight: bold;
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    &__border {
+      height: 16px;
+      width: 2px;
+      background-color: white;
+    }
+    &__center {
+      height: 2px;
+      width: 100%;
+      background-color: rgba($color: #ffffff, $alpha: 0.5)
+    }
+    &__progression {
+      height: 16px;
+      background-color: red;
+      position: absolute;
+      left: 0;
+      width: 5px;
+    }
+  }    
+}
