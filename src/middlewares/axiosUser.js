@@ -32,7 +32,7 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch(() => {
-          store.dispatch(errorMessage(true, 'errorMessage'));
+          store.dispatch(errorMessage(true, 'errorLogin'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -59,7 +59,7 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.error('error', error);
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));

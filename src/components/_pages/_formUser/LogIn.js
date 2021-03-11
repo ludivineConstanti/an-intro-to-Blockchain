@@ -15,7 +15,7 @@ const LogIn = ({
   loginForm,
   changeField,
   handleLogin,
-  errorMessage,
+  errorLogin,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -24,7 +24,7 @@ const LogIn = ({
 
   // Control fields with side effects
   useEffect(() => {
-    if (errorMessage === true) {
+    if (errorLogin === true) {
       setError(t('formUser.errorMessage.login'));
     }
     else {
@@ -63,10 +63,11 @@ LogIn.propTypes = {
   loginForm: PropTypes.object.isRequired,
   changeField: PropTypes.func,
   handleLogin: PropTypes.func,
-  errorMessage: PropTypes.bool.isRequired,
+  errorLogin: PropTypes.bool,
 };
 
 LogIn.defaultProps = {
+  errorLogin: false,
   changeField: () => {},
   handleLogin: () => {},
 };
