@@ -42,5 +42,8 @@
     "buttonCreateAccount": "Créer mon compte",
     "firstname": "Prénom",
     "lastname": "Nom de famille"
+  },
+  "achievements": {
+    "linkReplayQuiz": "Jouer à ce quiz"
   }
 }

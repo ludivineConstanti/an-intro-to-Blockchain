@@ -1,0 +1,75 @@
+.quizAchievement {
+
+  &__iconDiv {
+
+    &__withBorders, &__withoutBorders, &__transparentBorders, &__transparentCorners { 
+      animation-timing-function: linear;
+      // better to choose a multiple of 3 (linked to icon animations)
+      animation-duration: 18s;
+      animation-iteration-count: infinite;
+    }
+    
+    &__withBorders {
+      animation-name: frameRotateWithBorders;
+    }
+    &__withoutBorders { 
+      animation-name: frameRotateWithoutBorders;
+    }
+    &__transparentBorders { 
+      animation-duration: 9s;
+      animation-name: opacityBorders;
+    }
+    &__transparentCorners { 
+      animation-duration: 9s;
+      animation-name: opacityCorners;
+    }
+  }
+}
+
+@keyframes frameRotateWithBorders {
+  0% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(225deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+@keyframes frameRotateWithoutBorders {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-225deg);
+  }
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+
+@keyframes opacityBorders {
+  0% {
+    fill-opacity: 0.5;
+  }
+  50% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 0.5;
+  }
+}
+
+@keyframes opacityCorners {
+  0% {
+    fill-opacity: 1;
+  }
+  50% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}

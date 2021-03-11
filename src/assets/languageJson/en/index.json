@@ -40,5 +40,8 @@
     "logIn": "Log in",
     "firstname": "First name",
     "lastname": "Last name"   
+  },
+  "achievements": {
+    "linkReplayQuiz": "Play this quiz"
   }
 }

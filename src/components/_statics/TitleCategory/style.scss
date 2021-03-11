@@ -14,5 +14,9 @@
   font-size: fontSizes.$titleS2Desktop;
   letter-spacing: fontSizes.$titleS2KerningDesktop;
   margin-bottom: 40px;
+  &--noMarginBottom {
+    margin-bottom: 0px;
+    margin-right: 40px;
+  }
 }
 }
