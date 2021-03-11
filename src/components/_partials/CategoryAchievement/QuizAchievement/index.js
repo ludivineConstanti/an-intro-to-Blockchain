@@ -34,7 +34,7 @@ const QuizAchievements = () => {
             </g>
           </svg>
         </div>
-        <ProgressBar />
+        <ProgressBar percentage={80} />
       </div>
     </div>
   );

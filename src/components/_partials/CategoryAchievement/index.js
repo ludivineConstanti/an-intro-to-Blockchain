@@ -16,7 +16,7 @@ const CategoryAchievement = () => {
     <div className="categoryAchievement">
       <div className="categoryAchievement__category">
         <TitleCategory label="Category" noMarginBottom />
-        <ProgressBar />
+        <ProgressBar percentage={54} />
       </div>
       <div className="categoryAchievement__quizContainer">
         <QuizAchievement />
