@@ -16,15 +16,26 @@ const AnswerQuestion = ({
   articleLink,
   increaseQuestion,
   validateQuiz,
-  questionResult,
+  questionData,
+  userAnswer,
 }) => {
   const nextQuestion = () => {
     increaseQuestion(questionNumber + 1);
   };
-  console.log(questionResult);
+  const { totalAnswer } = questionData[`question${questionNumber}`];
+  const { id } = questionData[`question${questionNumber}`];
+  let goodAnswer = 0;
+  for (let i = 1; i < totalAnswer + 1; i += 1) {
+    const currentQuizResponse = questionData[`question${questionNumber}`][`answer${i}`].goodAnswer;
+    const currentUserResponse = userAnswer[`question${id}`][`answer${questionData[`question${questionNumber}`][`answer${i}`].id}`];
+    if (currentQuizResponse === currentUserResponse) {
+      goodAnswer += 1;
+    }
+  }
+  const answerMessage = ['Tas de fumier', 'Un peu nullos sur les bords toi', 'Verre à moitié vide ou personne à moitié finie...', 'Si proche, et pourtant si loin', "OK, mais c'était simple"];
   return (
     <section className="answerQuestion">
-      <TitlePage label="So close!" />
+      <TitlePage label={answerMessage[goodAnswer]} />
       <p className="answerQuestion__justification ">{justification}</p>
       <div className="answerQuestion__links">
         <LinkButton label="Learn more" path={articleLink} externalLink />
@@ -43,6 +54,8 @@ AnswerQuestion.propTypes = {
   articleLink: PropTypes.string.isRequired,
   increaseQuestion: PropTypes.func.isRequired,
   validateQuiz: PropTypes.func.isRequired,
+  questionData: PropTypes.array.isRequired,
+  userAnswer: PropTypes.object.isRequired,
 };
 
 // == Export
