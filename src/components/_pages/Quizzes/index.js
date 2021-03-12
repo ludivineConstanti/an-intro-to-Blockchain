@@ -31,6 +31,7 @@ const Quizzes = ({
       />,
     );
   });
+
   return (
     <div className="border-padding">
       <TitlePage label={t('menu.quizzes')} />

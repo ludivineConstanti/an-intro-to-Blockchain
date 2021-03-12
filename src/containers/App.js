@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
   isLoggedIn: state.user.infos.isLoggedIn,
   language: state.global.language,
   hasFinishedQuiz: state.quiz.userQuizInfos.hasFinishedQuiz,
+  backgroundClassName: state.global.backgroundClassName,
 });
 
 export default connect(mapStateToProps, {})(App);

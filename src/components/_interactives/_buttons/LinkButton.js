@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 import './animation.scss';
 import 'src/styles/activeState.scss';
+import triggerAnimationBackground from 'src/middlewares/triggerAnimationBackground';
 
 // == Composant
 const LinkButton = ({
@@ -52,7 +53,9 @@ const LinkButton = ({
 LinkButton.defaultProps = {
   className: 'size1',
   path: '',
-  onClickLink: () => {},
+  onClickLink: () => {
+    triggerAnimationBackground();
+  },
   externalLink: false,
 };
 

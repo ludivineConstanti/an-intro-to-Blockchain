@@ -9,6 +9,7 @@ import {
 
 // == Import
 import './style.scss';
+import './animation.scss';
 import Header from 'src/containers/Header';
 import Frame from 'src/components/Frame';
 import Home from 'src/containers/_pages/Home';
@@ -25,6 +26,7 @@ import Menu from 'src/containers/_pages/Menu';
 import Loading from 'src/containers/Loading';
 import { init, animate } from 'src/threeJsAnimation/threeJsAnimation';
 import i18next from 'src/i18next';
+import triggerAnimationBackground from 'src/middlewares/triggerAnimationBackground';
 // == Composant
 
 const App = ({
@@ -33,10 +35,16 @@ const App = ({
   isLoggedIn,
   language,
   hasFinishedQuiz,
+  backgroundClassName,
 }) => {
   useEffect(() => {
+    // start the three.js scene
+    // once the other elements are ready
     init();
     animate();
+    // remove the class that gives the intro blur transition
+    // so we can add it later when click on more links
+    triggerAnimationBackground();
   }, []);
 
   useEffect(() => {
@@ -105,7 +113,7 @@ const App = ({
           </Switch>
         </>
         )}
-      <div className="app__threeJs" />
+      <div className={backgroundClassName} />
     </div>
   );
 };
@@ -116,6 +124,7 @@ App.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
   hasFinishedQuiz: PropTypes.bool.isRequired,
+  backgroundClassName: PropTypes.string.isRequired,
 };
 // == Export
 export default App;
