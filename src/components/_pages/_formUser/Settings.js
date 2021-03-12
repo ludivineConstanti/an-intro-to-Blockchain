@@ -34,7 +34,6 @@ const Settings = ({
   const [NewPasswordError, setNewPasswordError] = useState('');
   const [EmailError, setEmailError] = useState('');
 
-
   // Control fields with side effects
   useEffect(() => {
     if (settingsForms.newPassword !== settingsForms.controlNewPassword) {
@@ -136,6 +135,8 @@ Settings.propTypes = {
   handleChangeEmail: PropTypes.func,
   handleDeleteUser: PropTypes.func,
   incorrectPasswordError: PropTypes.bool,
+  newPasswordError: PropTypes.bool,
+  emailError: PropTypes.bool,
 };
 
 Settings.defaultProps = {
@@ -144,6 +145,8 @@ Settings.defaultProps = {
   handleChangeEmail: () => {},
   handleDeleteUser: () => {},
   incorrectPasswordError: false,
+  newPasswordError: false,
+  emailError: false,
 };
 
 // == Export
