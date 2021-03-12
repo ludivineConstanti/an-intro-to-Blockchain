@@ -1,13 +1,13 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
 
 // == Composant
-const TitleCategory = ({ label, noMarginBottom }) => {
-  const classDiv = noMarginBottom ? 'titleCategory titleCategory--noMarginBottom' : 'titleCategory';
+const TitleCategory = ({ label, specialCase }) => {
+  const classDiv = specialCase ? `titleCategory titleCategory--${specialCase}` : 'titleCategory';
   return (
     <h2 className={classDiv}>{label}</h2>
   );
@@ -15,11 +15,11 @@ const TitleCategory = ({ label, noMarginBottom }) => {
 
 TitleCategory.propTypes = {
   label: PropTypes.string.isRequired,
-  noMarginBottom: PropTypes.bool,
+  specialCase: PropTypes.string,
 };
 
 TitleCategory.defaultProps = {
-  noMarginBottom: false,
+  specialCase: '',
 };
 
 // == Export
