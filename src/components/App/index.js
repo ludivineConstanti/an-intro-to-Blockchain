@@ -78,7 +78,7 @@ const App = ({
             </Route>
             {/* Page - All article */}
             <Route path="/achievements" exact>
-              <Achievements />
+              {isLoggedIn ? <Achievements /> : <Redirect to="/login" />}
             </Route>
             {/* Login Page */}
             <Route path="/login" exact>

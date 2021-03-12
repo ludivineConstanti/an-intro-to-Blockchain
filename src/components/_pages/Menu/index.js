@@ -34,7 +34,7 @@ const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
             <LinkMenu path="/" label={t('menu.home')} funcOnClick={handleOnClick} className="margin2" />
             <LinkMenu path="/quizzes" label={t('menu.quizzes')} funcOnClick={handleOnClick} />
             <LinkMenu path="/articles" label={t('menu.articles')} funcOnClick={handleOnClick} />
-            <LinkMenu path="/profile/scores" label={t('menu.achievements')} funcOnClick={handleOnClick} className="margin2" />
+            <LinkMenu path="/achievements" label={t('menu.achievements')} funcOnClick={handleOnClick} className="margin2" />
             <LinkMenu path="/settings" label={t('menu.settings')} funcOnClick={handleOnClick} />
             <LinkMenu path="/logout" label={t('menu.signOut')} funcOnClick={handleOnLogout} className="margin2" />
           </ul>

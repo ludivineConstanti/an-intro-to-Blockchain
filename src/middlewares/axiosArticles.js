@@ -32,23 +32,6 @@ const user = (store) => (next) => (action) => {
         });
       break;
     }
-    /* case GET_ONE_QUIZ: {
-      store.dispatch(changeValueGlobal(true, 'loading'));
-      axios.get(`${baseUrl}/${state.global.language}/quiz/${action.id}`)
-        .then((response) => {
-          if (response.statusText === 'OK') {
-            const quizData = quizFormatter(response.data);
-            store.dispatch(stockQuiz(quizData));
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-        .finally(() => {
-          store.dispatch(changeValueGlobal(false, 'loading'));
-        });
-      break;
-    } */
     default:
       next(action);
   }
