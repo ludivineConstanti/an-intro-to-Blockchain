@@ -37,9 +37,9 @@ const user = (store) => (next) => (action) => {
         })
       //! ERROR
         .catch((error) => {
+          store.dispatch(errorMessage(true, 'errorLogin'));
           if (error.response) {
             console.log(error.response.data.error);
-            store.dispatch(errorMessage(true, 'errorLogin'));
           }
           else {
             console.log('Error', error.message);
@@ -103,8 +103,8 @@ const user = (store) => (next) => (action) => {
         })
       //! ERROR
         .catch((error) => {
+          store.dispatch(errorMessage(true, 'errorChangeSettings'));
           if (error.response) {
-            store.dispatch(errorMessage(true, 'errorChangeSettings'));
             console.log(error.response.data.error);
           }
           else {
@@ -134,8 +134,8 @@ const user = (store) => (next) => (action) => {
         })
       //! ERROR
         .catch((error) => {
+          store.dispatch(errorMessage(true, 'errorChangeEmail'));
           if (error.response) {
-            store.dispatch(errorMessage(true, 'errorChangeEmail'));
             console.log(error.response.data.error);
           }
           else {
