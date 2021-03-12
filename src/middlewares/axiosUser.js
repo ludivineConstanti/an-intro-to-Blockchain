@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { changeValueGlobal } from 'src/actions/appActions';
+import {
+  changeValueGlobal,
+} from 'src/actions/appActions';
 import {
   LOGIN_REQUEST,
   saveUserLogin,
@@ -14,7 +16,9 @@ import {
   errorMessage,
 } from 'src/actions/userActions';
 
-import { baseUrl } from 'src/middlewares/baseUrl';
+import {
+  baseUrl,
+} from 'src/middlewares/baseUrl';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {
@@ -31,8 +35,15 @@ const user = (store) => (next) => (action) => {
               response.data.lastname));
           }
         })
-        .catch(() => {
-          store.dispatch(errorMessage(true, 'errorLogin'));
+      //! ERROR
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data.error);
+            store.dispatch(errorMessage(true, 'errorLogin'));
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -58,8 +69,14 @@ const user = (store) => (next) => (action) => {
               response.data.lastname));
           }
         })
+      //! ERROR
         .catch((error) => {
-          console.error('error', error);
+          if (error.response) {
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -84,8 +101,15 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUserSettings());
           }
         })
-        .catch(() => {
-          store.dispatch(errorMessage(true, 'errorChangeSettings'));
+      //! ERROR
+        .catch((error) => {
+          if (error.response) {
+            store.dispatch(errorMessage(true, 'errorChangeSettings'));
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -108,8 +132,15 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUserEmail());
           }
         })
-        .catch(() => {
-          store.dispatch(errorMessage(true, 'errorChangeEmail'));
+      //! ERROR
+        .catch((error) => {
+          if (error.response) {
+            store.dispatch(errorMessage(true, 'errorChangeEmail'));
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -131,8 +162,14 @@ const user = (store) => (next) => (action) => {
             store.dispatch(logout());
           }
         })
-        .catch(() => {
-          store.dispatch(errorMessage(true, 'errorDeleteAccount'));
+      //! ERROR
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));

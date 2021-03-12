@@ -43,6 +43,9 @@ const App = ({
     i18next.changeLanguage(language, () => {});
   }, [language]);
 
+  document.title = window.location.href.slice(22);
+  //! Améliorer ça
+
   return (
     <div className="app">
       <Frame />
