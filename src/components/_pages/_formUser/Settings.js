@@ -22,50 +22,43 @@ const Settings = ({
   handleChangeSettings,
   handleChangeEmail,
   handleDeleteUser,
-  errorChangeSettings,
-  errorChangeEmail,
-  errorDeleteAccount,
-  errorPassword,
+  incorrectPasswordError,
+  newPasswordError,
+  emailError,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
 
-  const [passwordConfirmError, setPasswordConfirmError] = useState('');
+  const [PasswordConfirmError, setPasswordConfirmError] = useState('');
+  const [IncorrectPasswordError, setIncorrectPasswordError] = useState('');
+  const [NewPasswordError, setNewPasswordError] = useState('');
+  const [EmailError, setEmailError] = useState('');
 
-  const [ErrorChangeSettings, setErrorChangeSettings] = useState('');
-  const [ErrorChangeEmail, setErrorChangeEmail] = useState('');
-  const [ErrorDeleteAccount, setErrorDeleteAccount] = useState('');
-  const [ErrorPassword, setErrorPassword] = useState('');
 
   // Control fields with side effects
   useEffect(() => {
-    if (errorChangeSettings === true) {
-      setErrorChangeSettings(t('formUser.errorMessage.incorrectPassword'));
+    if (settingsForms.newPassword !== settingsForms.controlNewPassword) {
+      setPasswordConfirmError(t('formUser.errorMessage.passwordsDontMatch'));
     }
-    else setErrorChangeSettings('');
-    if (errorDeleteAccount === true) {
-      setErrorDeleteAccount(t('formUser.errorMessage.incorrectPassword'));
+    else setPasswordConfirmError('');
+    if (incorrectPasswordError === true) {
+      setIncorrectPasswordError(t('formUser.errorMessage.incorrectPassword'));
     }
-    else setErrorDeleteAccount('');
-    if (errorPassword === true) {
-      setErrorPassword(t('formUser.errorMessage.incorrectPassword'));
+    else setIncorrectPasswordError('');
+    if (newPasswordError === true) {
+      setNewPasswordError(t('formUser.errorMessage.incorrectNewPassword'));
     }
-    else setErrorPassword('');
-    if (errorChangeEmail === true) {
-      setErrorChangeEmail(t('formUser.errorMessage.incorrectEmail'));
-      setErrorPassword('');
+    else setNewPasswordError('');
+    if (emailError === true) {
+      setEmailError(t('formUser.errorMessage.incorrectEmail'));
     }
-    else setErrorChangeEmail('');
+    else setEmailError('');
   });
 
   // Fonction to control the correspondence of passwords,
   // and lengths of firstname and lastname
   const handleSubmitSettings = (event) => {
     event.preventDefault();
-    if (settingsForms.newPassword !== settingsForms.controlNewPassword) {
-      setPasswordConfirmError('Passwords do not match');
-    }
-    else setPasswordConfirmError('');
     handleChangeSettings();
   };
 
@@ -95,9 +88,10 @@ const Settings = ({
               <InputText name="newPassword" type="password" placeholder={t('formUser.passwordNew')} value={settingsForms.newPassword} onChange={changeField} />
             </div>
             <div className="settings__column">
-              <p className="register__error">{passwordConfirmError}</p>
+              <p className="register__error">{PasswordConfirmError}</p>
               <InputText name="controlNewPassword" type="password" placeholder={t('formUser.passwordConfirmation')} value={settingsForms.controlNewPassword} onChange={changeField} />
-              <p className="settings__error">{ErrorChangeSettings}</p>
+              <p className="settings__error">{NewPasswordError}</p>
+              <p className="settings__error">{IncorrectPasswordError}</p>
               <SubmitButton label={t('formUser.buttonChangePassword')} />
             </div>
           </form>
@@ -109,8 +103,8 @@ const Settings = ({
               <InputText name="newEmail" type="email" placeholder={t('formUser.emailNew')} value={settingsForms.newEmail} onChange={changeField} />
             </div>
             <div className="settings__column">
-              <p className="settings__error">{ErrorChangeEmail}</p>
-              <p className="settings__error">{ErrorPassword}</p>
+              <p className="settings__error">{IncorrectPasswordError}</p>
+              <p className="settings__error">{EmailError}</p>
               <SubmitButton label={t('formUser.buttonChangeEmail')} />
             </div>
           </form>
@@ -122,7 +116,7 @@ const Settings = ({
               <InputText name="controlPasswordDelete" type="password" placeholder={t('formUser.password')} value={settingsForms.controlPasswordDelete} onChange={changeField} />
             </div>
             <div className="settings__column">
-              <p className="settings__error">{ErrorDeleteAccount}</p>
+              <p className="settings__error">{IncorrectPasswordError}</p>
               <SubmitButton label={t('formUser.buttonDeleteAccount')} />
             </div>
           </form>
@@ -141,9 +135,7 @@ Settings.propTypes = {
   handleChangeSettings: PropTypes.func,
   handleChangeEmail: PropTypes.func,
   handleDeleteUser: PropTypes.func,
-  errorChangeSettings: PropTypes.bool,
-  errorChangeEmail: PropTypes.bool,
-  errorDeleteAccount: PropTypes.bool,
+  incorrectPasswordError: PropTypes.bool,
 };
 
 Settings.defaultProps = {
@@ -151,9 +143,7 @@ Settings.defaultProps = {
   handleChangeSettings: () => {},
   handleChangeEmail: () => {},
   handleDeleteUser: () => {},
-  errorChangeSettings: false,
-  errorChangeEmail: false,
-  errorDeleteAccount: false,
+  incorrectPasswordError: false,
 };
 
 // == Export

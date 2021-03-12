@@ -32,7 +32,7 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch(() => {
-          store.dispatch(errorMessage(true, 'errorLogin'));
+          store.dispatch(errorMessage(true, 'loginError'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -59,7 +59,7 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch(() => {
-          store.dispatch(errorMessage(true, 'errorEmail'));
+          store.dispatch(errorMessage(true, 'emailError'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -85,8 +85,12 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch((error) => {
-          console.log('error', error.message);
-          store.dispatch(errorMessage(true, 'errorChangeSettings'));
+          if (error.message === 'Request failed with status code 403') {
+            store.dispatch(errorMessage(true, 'incorrectPasswordError'));
+          }
+          else if (error.message === 'Request failed with status code 400') {
+            store.dispatch(errorMessage(true, 'newPasswordError'));
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -110,11 +114,12 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch((error) => {
+          console.log('error', error.message);
           if (error.message === 'Request failed with status code 403') {
-            store.dispatch(errorMessage(true, 'errorChangeEmail'));
+            store.dispatch(errorMessage(true, 'emailError'));
           }
           else if (error.message === 'Request failed with status code 400') {
-            store.dispatch(errorMessage(true, 'errorPassword'));
+            store.dispatch(errorMessage(true, 'incorrectPasswordError'));
           }
         })
         .finally(() => {
@@ -138,7 +143,7 @@ const user = (store) => (next) => (action) => {
           }
         })
         .catch(() => {
-          store.dispatch(errorMessage(true, 'errorDeleteAccount'));
+          store.dispatch(errorMessage(true, 'incorrectPasswordError'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
