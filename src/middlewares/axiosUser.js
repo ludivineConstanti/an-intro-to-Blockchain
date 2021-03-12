@@ -37,7 +37,7 @@ const user = (store) => (next) => (action) => {
         })
       //! ERROR
         .catch((error) => {
-          store.dispatch(errorMessage(true, 'errorLogin'));
+          store.dispatch(errorMessage(true, 'loginError'));
           if (error.response) {
             console.log(error.response.data.error);
           }
@@ -71,6 +71,7 @@ const user = (store) => (next) => (action) => {
         })
       //! ERROR
         .catch((error) => {
+          store.dispatch(errorMessage(true, 'emailError'));
           if (error.response) {
             console.log(error.response.data.error);
           }
@@ -103,7 +104,12 @@ const user = (store) => (next) => (action) => {
         })
       //! ERROR
         .catch((error) => {
-          store.dispatch(errorMessage(true, 'errorChangeSettings'));
+          if (error.message === 'Request failed with status code 403') {
+            store.dispatch(errorMessage(true, 'incorrectPasswordError'));
+          }
+          else if (error.message === 'Request failed with status code 400') {
+            store.dispatch(errorMessage(true, 'newPasswordError'));
+          }
           if (error.response) {
             console.log(error.response.data.error);
           }
@@ -134,7 +140,12 @@ const user = (store) => (next) => (action) => {
         })
       //! ERROR
         .catch((error) => {
-          store.dispatch(errorMessage(true, 'errorChangeEmail'));
+          if (error.message === 'Request failed with status code 403') {
+            store.dispatch(errorMessage(true, 'emailError'));
+          }
+          else if (error.message === 'Request failed with status code 400') {
+            store.dispatch(errorMessage(true, 'incorrectPasswordError'));
+          }
           if (error.response) {
             console.log(error.response.data.error);
           }
@@ -164,6 +175,7 @@ const user = (store) => (next) => (action) => {
         })
       //! ERROR
         .catch((error) => {
+          store.dispatch(errorMessage(true, 'incorrectPasswordError'));
           if (error.response) {
             console.log(error.response.data.error);
           }

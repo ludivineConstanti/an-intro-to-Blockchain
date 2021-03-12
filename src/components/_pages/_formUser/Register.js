@@ -15,21 +15,19 @@ const Register = ({
   registerForm,
   changeField,
   handleRegister,
+  emailError,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
 
   // XML won't be able to access the values if it's not outside of the function
   // because of the fonction's scope
-  const [firstnameError, setFirstnameError] = useState('');
-  const [lastnameError, setLastnameError] = useState('');
-  const [passwordConfirmError, setPasswordConfirmError] = useState('');
+  const [FirstnameError, setFirstnameError] = useState('');
+  const [LastnameError, setLastnameError] = useState('');
+  const [PasswordConfirmError, setPasswordConfirmError] = useState('');
+  const [EmailError, setEmailError] = useState('');
 
   useEffect(() => {
-    if (registerForm.password !== registerForm.controlPassword) {
-      setPasswordConfirmError(t('formUser.errorMessage.passwordDontMatch'));
-    }
-    else setPasswordConfirmError('');
     if (registerForm.firstname.length < 1 || registerForm.firstname.length > 25) {
       setFirstnameError(t('formUser.errorMessage.lengthFirstname'));
     }
@@ -38,6 +36,14 @@ const Register = ({
       setLastnameError(t('formUser.errorMessage.lengthLastname'));
     }
     else setLastnameError('');
+    if (registerForm.password !== registerForm.controlPassword) {
+      setPasswordConfirmError(t('formUser.errorMessage.passwordsDontMatch'));
+    }
+    else setPasswordConfirmError('');
+    if (emailError === true) {
+      setEmailError(t('formUser.errorMessage.incorrectEmail'));
+    }
+    else setEmailError('');
   });
 
   // Fonction to control the correspondence of passwords,
@@ -56,15 +62,16 @@ const Register = ({
         <FormUser>
           <form onSubmit={handleSubmit} className="register__columns">
             <div className="register__column">
-              <p className="register__error">{firstnameError}</p>
+              <p className="register__error">{FirstnameError}</p>
               <InputText name="firstname" type="text" placeholder={t('formUser.firstname')} value={registerForm.firstname} onChange={changeField} />
-              <p className="register__error">{lastnameError}</p>
+              <p className="register__error">{LastnameError}</p>
               <InputText name="lastname" type="text" placeholder={t('formUser.lastname')} value={registerForm.lastname} onChange={changeField} />
             </div>
             <div className="register__column">
-              <p className="register__error">{passwordConfirmError}</p>
+              <p className="register__error">{PasswordConfirmError}</p>
               <InputText name="password" type="password" placeholder={t('formUser.password')} value={registerForm.password} onChange={changeField} />
               <InputText name="controlPassword" type="password" placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={changeField} />
+              <p className="register__error">{EmailError}</p>
               <InputText name="email" type="email" placeholder={t('formUser.email')} value={registerForm.email} onChange={changeField} />
               <div className="register__submitButton">
                 <SubmitButton label={t('formUser.buttonCreateAccount')} />
@@ -81,11 +88,13 @@ Register.propTypes = {
   registerForm: PropTypes.object.isRequired,
   changeField: PropTypes.func,
   handleRegister: PropTypes.func,
+  emailError: PropTypes.bool,
 };
 
 Register.defaultProps = {
   changeField: () => {},
   handleRegister: () => {},
+  emailError: false,
 };
 
 export default Register;
