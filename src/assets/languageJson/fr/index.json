@@ -23,11 +23,13 @@
   },
   "formUser": {
     "errorMessage": {
-      "passwordDontMatch": "Les mots de passe ne sont pas identiques",
+      "login": "Email ou mot de passe incorrect",
+      "passwordsDontMatch": "Les mots de passe ne sont pas identiques",
       "lengthFirstname": "Votre prénom doit comporter entre 1 et 25 caractères",
       "lengthLastname": "Votre nom de famille doit comporter entre 1 et 25 caractères",
-      "login": "Email ou mot de passe incorrect",
-      "incorrectPassword": "Mot de passe incorrect"
+      "incorrectEmail": "Email déjà existant",
+      "incorrectPassword": "Mot de passe incorrect",
+      "incorrectNewPassword": "Votre mot de passe doit contenir au moins 8 caractères dont une majuscule et un chiffre"
     },
     "password": "Mot de passe",
     "passwordOld": "Votre mot de passe actuel",

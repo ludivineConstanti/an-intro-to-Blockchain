@@ -51,6 +51,9 @@ const App = ({
     i18next.changeLanguage(language, () => {});
   }, [language]);
 
+  document.title = window.location.href.slice(22);
+  //! Améliorer ça
+
   return (
     <div className="app">
       <Frame />
@@ -86,7 +89,7 @@ const App = ({
             </Route>
             {/* Page - All article */}
             <Route path="/achievements" exact>
-              <Achievements />
+              {isLoggedIn ? <Achievements /> : <Redirect to="/login" />}
             </Route>
             {/* Login Page */}
             <Route path="/login" exact>

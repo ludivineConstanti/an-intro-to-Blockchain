@@ -25,8 +25,14 @@ const user = (store) => (next) => (action) => {
             store.dispatch(stockAllQuizzes(quizzesFormatter(response.data)));
           }
         })
+        //! ERROR
         .catch((error) => {
-          console.log(error);
+          if (error.response) {
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -39,12 +45,17 @@ const user = (store) => (next) => (action) => {
       axios.get(`${baseUrl}/${state.global.language}/quiz/${action.id}`)
         .then((response) => {
           if (response.statusText === 'OK') {
-            const quizData = quizFormatter(response.data);
-            store.dispatch(stockOneQuiz(quizData));
+            store.dispatch(stockOneQuiz(quizFormatter(response.data)));
           }
         })
+        //! ERROR
         .catch((error) => {
-          console.log(error);
+          if (error.response) {
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
@@ -52,6 +63,7 @@ const user = (store) => (next) => (action) => {
       break;
     }
     case VALIDATE_QUIZ: {
+      store.dispatch(changeValueGlobal(true, 'loading'));
       if (state.quiz.currentQuizData.infos) {
         if (state.quiz.userQuizInfos.questionNumber
           === state.quiz.currentQuizData.infos.totalQuestions) {
@@ -66,8 +78,30 @@ const user = (store) => (next) => (action) => {
             }
           }
           const score = Math.round(goodAnswer / quizData.infos.totalAnswer * 100);
-          console.log(`${goodAnswer} bonnes réponses sur ${quizData.infos.totalAnswer}, soit ${score}% de bonnes réponses.`);
           store.dispatch(userFinishedQuiz(score, quizData.infos.totalAnswer, goodAnswer));
+          axios({
+            method: 'put',
+            url: `${baseUrl}/score`,
+            data: {
+              quizId: state.user.infos.id,
+              userId: quizData.infos.id,
+              score,
+            },
+          }).then((response) => {
+            console.log(response);
+          })
+          //! ERROR
+            .catch((error) => {
+              if (error.response) {
+                console.log(error.response.data.error);
+              }
+              else {
+                console.log('Error', error.message);
+              }
+            })
+            .finally(() => {
+              store.dispatch(changeValueGlobal(false, 'loading'));
+            });
         }
       }
       break;

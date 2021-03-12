@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   loginForm: {
-    email: 'meme@gmail.com',
+    email: 'teddy@gmail.com',
     password: '',
   },
   registerForm: {
@@ -36,12 +36,7 @@ const initialState = {
     controlPasswordDelete: '',
   },
   errors: {
-    errorLogin: false,
-    errorPassword: false,
-    errorEmail: false,
-    errorChangeSettings: false,
-    errorChangeEmail: false,
-    errorDeleteAccount: false,
+    loginError: false,
   },
 };
 
@@ -70,7 +65,9 @@ export default (state = initialState, action = {}) => {
           lastname: action.lastname,
           isLoggedIn: true,
         },
-        errorMessage: false,
+        errors: {
+          errorLogin: false,
+        },
       };
     }
     case CHANGE_VALUE_REGISTER: {
@@ -100,6 +97,9 @@ export default (state = initialState, action = {}) => {
           lastname: action.lastname,
           isLoggedIn: true,
         },
+        errors: {
+          emailError: false,
+        },
       };
     }
     case LOGOUT: {
@@ -127,7 +127,10 @@ export default (state = initialState, action = {}) => {
           newEmail: '',
           controlPassword: '',
         },
-        errorChangeSettings: false,
+        errors: {
+          incorrectPasswordError: false,
+          newPasswordError: false,
+        },
       };
     }
     case SAVE_USER_EMAIL: {
@@ -141,13 +144,18 @@ export default (state = initialState, action = {}) => {
           newEmail: '',
           controlPassword: '',
         },
-        errorChangeEmail: false,
+        errors: {
+          incorrectPasswordError: false,
+          emailError: false,
+        },
       };
     }
     case ERROR_MESSAGE: {
       return {
         ...state,
-        [action.name]: action.value,
+        errors: {
+          [action.name]: action.value,
+        },
       };
     }
     default:

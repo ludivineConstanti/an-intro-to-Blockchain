@@ -40,6 +40,7 @@ const quizFormater = (quizData) => {
   });
   quizFormatted.infos = {};
   const trueAnswer = quizData.filter((element) => (element.good_answer === true));
+  quizFormatted.infos.quizId = quizData[0].quiz_id;
   quizFormatted.infos.quizName = quizData[0].quiz_title;
   quizFormatted.infos.totalQuestions = questions.length;
   quizFormatted.infos.totalAnswer = quizData.length;

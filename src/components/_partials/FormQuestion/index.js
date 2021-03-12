@@ -13,6 +13,7 @@ const FormQuestion = ({
   stockAnswer,
   validateQuestion,
   answerShowed,
+  userAnswer,
 }) => {
   const confirmQuestion = (event) => {
     const userAnswers = {};
@@ -31,6 +32,7 @@ const FormQuestion = ({
       id: question[`answer${i}`].id,
       title: question[`answer${i}`].title,
       goodAnswer: question[`answer${i}`].goodAnswer,
+      userAnswer: userAnswer[`answer${question[`answer${i}`].id}`],
     });
   }
   return (
@@ -40,7 +42,12 @@ const FormQuestion = ({
       && (<p className="formQuestion__instruction">{question.totalGoodAnswer === 1 ? 'Only one correct answer' : 'More than one answer can be right'}</p>)}
       {
         answerArray.map((oneAnswer) => (
-          <CheckboxAnswer key={oneAnswer.id} {...{ oneAnswer }} />
+          <CheckboxAnswer
+            key={oneAnswer.id}
+            {...{ oneAnswer }}
+            disabled={!!answerShowed}
+            answer={userAnswer}
+          />
         ))
       }
       {answerShowed === false
@@ -54,11 +61,13 @@ FormQuestion.propTypes = {
   validateQuestion: PropTypes.func,
   stockAnswer: PropTypes.func,
   answerShowed: PropTypes.bool.isRequired,
+  userAnswer: PropTypes.object,
 };
 
 FormQuestion.defaultProps = {
   validateQuestion: () => {},
   stockAnswer: () => {},
+  userAnswer: {},
 };
 
 // == Export

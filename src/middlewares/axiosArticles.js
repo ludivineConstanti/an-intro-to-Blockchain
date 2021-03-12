@@ -3,9 +3,6 @@ import { changeValueGlobal } from 'src/actions/appActions';
 import {
   GET_ALL_ARTICLES,
   stockArticles,
-  /* GET_ONE_QUIZ,
-
-  stockQuiz, */
 } from 'src/actions/articlesActions';
 
 import articlesFormatter from 'src/middlewares/articlesFormatter';
@@ -24,31 +21,20 @@ const user = (store) => (next) => (action) => {
             store.dispatch(stockArticles(data));
           }
         })
+        //! ERROR
         .catch((error) => {
-          console.log(error);
+          if (error.response) {
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
         });
       break;
     }
-    /* case GET_ONE_QUIZ: {
-      store.dispatch(changeValueGlobal(true, 'loading'));
-      axios.get(`${baseUrl}/${state.global.language}/quiz/${action.id}`)
-        .then((response) => {
-          if (response.statusText === 'OK') {
-            const quizData = quizFormatter(response.data);
-            store.dispatch(stockQuiz(quizData));
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-        .finally(() => {
-          store.dispatch(changeValueGlobal(false, 'loading'));
-        });
-      break;
-    } */
     default:
       next(action);
   }
