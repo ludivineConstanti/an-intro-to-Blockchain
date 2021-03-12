@@ -10,7 +10,7 @@ import CategoryQuiz from 'src/components/_partials/CategoryQuiz';
 
 // == Composant
 const Quizzes = ({
-  getAllQuizzes, quizzesList, loading, language,
+  getAllQuizzes, quizzesList, language,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -42,7 +42,6 @@ const Quizzes = ({
 Quizzes.propTypes = {
   getAllQuizzes: PropTypes.func,
   quizzesList: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
 };
 

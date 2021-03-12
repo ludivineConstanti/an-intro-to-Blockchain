@@ -10,7 +10,7 @@ import CategoryArticle from 'src/components/_partials/CategoryArticle';
 
 // == Composant
 const Articles = ({
-  getAllArticles, articlesList, loading, language,
+  getAllArticles, articlesList, language,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -39,7 +39,6 @@ const Articles = ({
 Articles.propTypes = {
   getAllArticles: PropTypes.func,
   articlesList: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
 };
 

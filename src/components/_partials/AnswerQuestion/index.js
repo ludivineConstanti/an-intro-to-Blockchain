@@ -16,13 +16,12 @@ const AnswerQuestion = ({
   articleLink,
   increaseQuestion,
   validateQuiz,
+  questionResult,
 }) => {
   const nextQuestion = () => {
     increaseQuestion(questionNumber + 1);
   };
-  const handleValidateQuiz = () => {
-    validateQuiz();
-  };
+  console.log(questionResult);
   return (
     <section className="answerQuestion">
       <TitlePage label="So close!" />
@@ -31,7 +30,7 @@ const AnswerQuestion = ({
         <LinkButton label="Learn more" path={articleLink} externalLink />
         {totalNum !== questionNumber
           ? <SubmitButton label="Next question" onClick={nextQuestion} />
-          : <LinkButton label="Results" path="/quizResult" onClickLink={handleValidateQuiz} />}
+          : <LinkButton label="Results" path="/quizResult" onClickLink={validateQuiz} />}
       </div>
     </section>
   );

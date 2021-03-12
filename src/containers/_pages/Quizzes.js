@@ -4,7 +4,6 @@ import { getAllQuizzes } from 'src/actions/quizzesActions';
 
 const mapStateToProps = (state) => ({
   quizzesList: state.quizzes.quizzesList,
-  loading: state.global.loading,
   language: state.global.language,
 });
 
