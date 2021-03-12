@@ -18,6 +18,8 @@ export const DELETE_ACCOUNT_REQUEST = 'DELETE_ACCOUNT_REQUEST';
 
 export const LOGOUT = 'LOGOUT';
 
+export const ERROR_MESSAGE = 'ERROR_MESSAGE';
+
 export const changeValueLogin = (value, name) => ({
   type: CHANGE_VALUE_LOGIN,
   value,
@@ -82,4 +84,10 @@ export const deleteAccountRequest = () => ({
 
 export const logout = () => ({
   type: LOGOUT,
+});
+
+export const errorMessage = (value, name) => ({
+  type: ERROR_MESSAGE,
+  value,
+  name,
 });

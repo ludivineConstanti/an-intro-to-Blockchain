@@ -7,11 +7,12 @@ import {
   CHANGE_VALUE_SETTINGS,
   SAVE_USER_SETTINGS,
   SAVE_USER_EMAIL,
+  ERROR_MESSAGE,
 } from 'src/actions/userActions';
 
 const initialState = {
   loginForm: {
-    email: '',
+    email: 'meme@gmail.com',
     password: '',
   },
   registerForm: {
@@ -33,6 +34,14 @@ const initialState = {
     newEmail: '',
     controlPassword: '',
     controlPasswordDelete: '',
+  },
+  errors: {
+    errorLogin: false,
+    errorPassword: false,
+    errorEmail: false,
+    errorChangeSettings: false,
+    errorChangeEmail: false,
+    errorDeleteAccount: false,
   },
 };
 
@@ -61,6 +70,7 @@ export default (state = initialState, action = {}) => {
           lastname: action.lastname,
           isLoggedIn: true,
         },
+        errorMessage: false,
       };
     }
     case CHANGE_VALUE_REGISTER: {
@@ -117,6 +127,7 @@ export default (state = initialState, action = {}) => {
           newEmail: '',
           controlPassword: '',
         },
+        errorChangeSettings: false,
       };
     }
     case SAVE_USER_EMAIL: {
@@ -130,6 +141,13 @@ export default (state = initialState, action = {}) => {
           newEmail: '',
           controlPassword: '',
         },
+        errorChangeEmail: false,
+      };
+    }
+    case ERROR_MESSAGE: {
+      return {
+        ...state,
+        [action.name]: action.value,
       };
     }
     default:

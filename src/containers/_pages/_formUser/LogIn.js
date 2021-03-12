@@ -4,6 +4,7 @@ import { changeValueLogin, loginRequest } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   loginForm: state.user.loginForm,
+  errorLogin: state.user.errorLogin,
 });
 
 const mapDispatchToProps = (dispatch) => ({

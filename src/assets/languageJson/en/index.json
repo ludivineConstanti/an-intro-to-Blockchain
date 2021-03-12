@@ -23,7 +23,9 @@
     "errorMessage": {
       "passwordDontMatch": "Passwords do not match",
       "lengthFirstname": "Your first name must have between 1 and 25 characters",
-      "lengthLastname": "Your last name must have between 1 and 25 characters"
+      "lengthLastname": "Your last name must have between 1 and 25 characters",
+      "login": "Incorrect Email or Password",
+      "incorrectPassword": "Incorrect password"
     },
     "password": "Password",
     "passwordOld": "Your current password",
