@@ -15,6 +15,7 @@ const Register = ({
   registerForm,
   changeField,
   handleRegister,
+  errorEmail,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -24,6 +25,7 @@ const Register = ({
   const [firstnameError, setFirstnameError] = useState('');
   const [lastnameError, setLastnameError] = useState('');
   const [passwordConfirmError, setPasswordConfirmError] = useState('');
+  const [EmailError, setEmailError] = useState('');
 
   useEffect(() => {
     if (registerForm.password !== registerForm.controlPassword) {
@@ -38,6 +40,10 @@ const Register = ({
       setLastnameError(t('formUser.errorMessage.lengthLastname'));
     }
     else setLastnameError('');
+    if (errorEmail === true) {
+      setEmailError(t('formUser.errorMessage.incorrectEmail'));
+    }
+    else setEmailError('');
   });
 
   // Fonction to control the correspondence of passwords,
@@ -65,6 +71,7 @@ const Register = ({
               <p className="register__error">{passwordConfirmError}</p>
               <InputText name="password" type="password" placeholder={t('formUser.password')} value={registerForm.password} onChange={changeField} />
               <InputText name="controlPassword" type="password" placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={changeField} />
+              <p className="register__error">{EmailError}</p>
               <InputText name="email" type="email" placeholder={t('formUser.email')} value={registerForm.email} onChange={changeField} />
               <div className="register__submitButton">
                 <SubmitButton label={t('formUser.buttonCreateAccount')} />

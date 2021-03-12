@@ -58,8 +58,8 @@ const user = (store) => (next) => (action) => {
               response.data.lastname));
           }
         })
-        .catch((error) => {
-          console.error('error', error);
+        .catch(() => {
+          store.dispatch(errorMessage(true, 'errorEmail'));
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
