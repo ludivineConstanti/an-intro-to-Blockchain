@@ -3,7 +3,8 @@ import AnswerQuestion from 'src/components/_partials/AnswerQuestion';
 import { increaseQuestion, validateQuiz } from 'src/actions/quizzesActions';
 
 const mapStateToProps = (state) => ({
-  questionResult: state.quiz.userQuizInfos[6],
+  questionData: state.quiz.currentQuizData,
+  userAnswer: state.quiz.userQuizInfos.userAnswers,
 });
 
 const mapDispatchToProps = (dispatch) => ({

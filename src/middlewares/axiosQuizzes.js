@@ -66,7 +66,6 @@ const user = (store) => (next) => (action) => {
             }
           }
           const score = Math.round(goodAnswer / quizData.infos.totalAnswer * 100);
-          console.log(`${goodAnswer} bonnes réponses sur ${quizData.infos.totalAnswer}, soit ${score}% de bonnes réponses.`);
           store.dispatch(userFinishedQuiz(score, quizData.infos.totalAnswer, goodAnswer));
         }
       }
