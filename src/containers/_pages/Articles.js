@@ -4,7 +4,6 @@ import { getAllArticles } from 'src/actions/articlesActions';
 
 const mapStateToProps = (state) => ({
   articlesList: state.articles.currentArticlesData,
-  loading: state.global.loading,
   language: state.global.language,
 });
 

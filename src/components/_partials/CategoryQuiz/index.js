@@ -15,7 +15,6 @@ const CategoryQuiz = ({ title, content }) => {
       quizId={quiz.quiz_id}
       categoryId={quiz.categoryId}
       label={quiz.quiz_title}
-      externalLink
     />
   ));
   return (
