@@ -12,8 +12,8 @@ import {
 
 const initialState = {
   loginForm: {
-    email: 'teddy@gmail.com',
-    password: '',
+    email: 'BambiMangeSaMaman@gmail.com',
+    password: 'UneBalleUnMort1957',
   },
   registerForm: {
     firstname: '',

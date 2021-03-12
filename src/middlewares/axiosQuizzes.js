@@ -79,14 +79,11 @@ const user = (store) => (next) => (action) => {
           }
           const score = Math.round(goodAnswer / quizData.infos.totalAnswer * 100);
           store.dispatch(userFinishedQuiz(score, quizData.infos.totalAnswer, goodAnswer));
-          axios({
-            method: 'put',
-            url: `${baseUrl}/score`,
-            data: {
-              quizId: state.user.infos.id,
-              userId: quizData.infos.id,
-              score,
-            },
+          console.log(`UserId : ${state.user.infos.id} ; QuizId : ${quizData.infos.quizId} ; Score : ${score}`);
+          axios.put(`${baseUrl}/score`, {
+            quizId: state.user.infos.quizId,
+            userId: quizData.infos.id,
+            scoreQuiz: score,
           }).then((response) => {
             console.log(response);
           })
