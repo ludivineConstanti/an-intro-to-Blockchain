@@ -84,7 +84,8 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUserSettings());
           }
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log('error', error.message);
           store.dispatch(errorMessage(true, 'errorChangeSettings'));
         })
         .finally(() => {
@@ -108,8 +109,13 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUserEmail());
           }
         })
-        .catch(() => {
-          store.dispatch(errorMessage(true, 'errorChangeEmail'));
+        .catch((error) => {
+          if (error.message === 'Request failed with status code 403') {
+            store.dispatch(errorMessage(true, 'errorChangeEmail'));
+          }
+          else if (error.message === 'Request failed with status code 400') {
+            store.dispatch(errorMessage(true, 'errorPassword'));
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));

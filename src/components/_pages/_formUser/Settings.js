@@ -25,6 +25,7 @@ const Settings = ({
   errorChangeSettings,
   errorChangeEmail,
   errorDeleteAccount,
+  errorPassword,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -34,6 +35,7 @@ const Settings = ({
   const [ErrorChangeSettings, setErrorChangeSettings] = useState('');
   const [ErrorChangeEmail, setErrorChangeEmail] = useState('');
   const [ErrorDeleteAccount, setErrorDeleteAccount] = useState('');
+  const [ErrorPassword, setErrorPassword] = useState('');
 
   // Control fields with side effects
   useEffect(() => {
@@ -41,14 +43,19 @@ const Settings = ({
       setErrorChangeSettings(t('formUser.errorMessage.incorrectPassword'));
     }
     else setErrorChangeSettings('');
-    if (errorChangeEmail === true) {
-      setErrorChangeEmail(t('formUser.errorMessage.incorrectPassword'));
-    }
-    else setErrorChangeEmail('');
     if (errorDeleteAccount === true) {
       setErrorDeleteAccount(t('formUser.errorMessage.incorrectPassword'));
     }
     else setErrorDeleteAccount('');
+    if (errorPassword === true) {
+      setErrorPassword(t('formUser.errorMessage.incorrectPassword'));
+    }
+    else setErrorPassword('');
+    if (errorChangeEmail === true) {
+      setErrorChangeEmail(t('formUser.errorMessage.incorrectEmail'));
+      setErrorPassword('');
+    }
+    else setErrorChangeEmail('');
   });
 
   // Fonction to control the correspondence of passwords,
@@ -103,6 +110,7 @@ const Settings = ({
             </div>
             <div className="settings__column">
               <p className="settings__error">{ErrorChangeEmail}</p>
+              <p className="settings__error">{ErrorPassword}</p>
               <SubmitButton label={t('formUser.buttonChangeEmail')} />
             </div>
           </form>

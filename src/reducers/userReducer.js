@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   loginForm: {
-    email: 'meme@gmail.com',
+    email: '',
     password: '',
   },
   registerForm: {
@@ -38,7 +38,6 @@ const initialState = {
   errors: {
     errorLogin: false,
     errorPassword: false,
-    errorEmail: false,
     errorChangeSettings: false,
     errorChangeEmail: false,
     errorDeleteAccount: false,
@@ -142,6 +141,7 @@ export default (state = initialState, action = {}) => {
           controlPassword: '',
         },
         errorChangeEmail: false,
+        errorPassword: false,
       };
     }
     case ERROR_MESSAGE: {

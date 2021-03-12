@@ -15,6 +15,7 @@ const mapStateToProps = (state) => ({
   errorChangeSettings: state.user.errorChangeSettings,
   errorChangeEmail: state.user.errorChangeEmail,
   errorDeleteAccount: state.user.errorDeleteAccount,
+  errorPassword: state.user.errorPassword,
 });
 
 const mapDispatchToProps = (dispatch) => ({
