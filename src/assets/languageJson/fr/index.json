@@ -29,7 +29,9 @@
       "lengthLastname": "Votre nom de famille doit comporter entre 1 et 25 caractères",
       "incorrectEmail": "Email déjà existant",
       "incorrectPassword": "Mot de passe incorrect",
-      "incorrectNewPassword": "Votre mot de passe doit contenir au moins 8 caractères dont une majuscule et un chiffre"
+      "incorrectNewPassword": "Votre mot de passe doit contenir au moins 8 caractères dont une majuscule et un chiffre",
+      "emptyInput": "Veuillez remplir tout les champs"
+
     },
     "password": "Mot de passe",
     "passwordOld": "Votre mot de passe actuel",

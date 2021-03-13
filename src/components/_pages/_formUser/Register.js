@@ -22,20 +22,27 @@ const Register = ({
 
   // XML won't be able to access the values if it's not outside of the function
   // because of the fonction's scope
-  const [FirstnameError, setFirstnameError] = useState('');
-  const [LastnameError, setLastnameError] = useState('');
+  const [FirstnameInfos, setFirstnameInfos] = useState('');
+  const [LastnameInfos, setLastnameInfos] = useState('');
+  const [PasswordInfos, setPasswordInfos] = useState('');
   const [PasswordConfirmError, setPasswordConfirmError] = useState('');
   const [EmailError, setEmailError] = useState('');
+  const [EmptyFieldError, setEmptyFieldError] = useState('');
+  const [SubmitButtonClass, setSubmitButton] = useState('hidden');
 
   useEffect(() => {
     if (registerForm.firstname.length < 1 || registerForm.firstname.length > 25) {
-      setFirstnameError(t('formUser.errorMessage.lengthFirstname'));
+      setFirstnameInfos(t('formUser.errorMessage.lengthFirstname'));
     }
-    else setFirstnameError('');
+    else setFirstnameInfos('');
     if (registerForm.lastname.length < 1 || registerForm.lastname.length > 25) {
-      setLastnameError(t('formUser.errorMessage.lengthLastname'));
+      setLastnameInfos(t('formUser.errorMessage.lengthLastname'));
     }
-    else setLastnameError('');
+    else setLastnameInfos('');
+    if (registerForm.password.length < 8 || registerForm.password.length > 100) {
+      setPasswordInfos(t('formUser.errorMessage.incorrectNewPassword'));
+    }
+    else setPasswordInfos('');
     if (registerForm.password !== registerForm.controlPassword) {
       setPasswordConfirmError(t('formUser.errorMessage.passwordsDontMatch'));
     }
@@ -44,6 +51,15 @@ const Register = ({
       setEmailError(t('formUser.errorMessage.incorrectEmail'));
     }
     else setEmailError('');
+    if (registerForm.firstname !== ''
+    && registerForm.lastname !== ''
+    && registerForm.password === registerForm.controlPassword
+    && registerForm.email !== ''
+    ) {
+      setSubmitButton('visible');
+      setEmptyFieldError('');
+    }
+    else setEmptyFieldError(t('formUser.errorMessage.emptyInput'));
   });
 
   // Fonction to control the correspondence of passwords,
@@ -62,19 +78,21 @@ const Register = ({
         <FormUser>
           <form onSubmit={handleSubmit} className="register__columns">
             <div className="register__column">
-              <p className="register__error">{FirstnameError}</p>
+              <p className="register__error">{FirstnameInfos}</p>
               <InputText name="firstname" type="text" placeholder={t('formUser.firstname')} value={registerForm.firstname} onChange={changeField} />
-              <p className="register__error">{LastnameError}</p>
+              <p className="register__error">{LastnameInfos}</p>
               <InputText name="lastname" type="text" placeholder={t('formUser.lastname')} value={registerForm.lastname} onChange={changeField} />
             </div>
             <div className="register__column">
-              <p className="register__error">{PasswordConfirmError}</p>
+              <p className="register__error">{PasswordInfos}</p>
               <InputText name="password" type="password" placeholder={t('formUser.password')} value={registerForm.password} onChange={changeField} />
+              <p className="register__error">{PasswordConfirmError}</p>
               <InputText name="controlPassword" type="password" placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={changeField} />
               <p className="register__error">{EmailError}</p>
               <InputText name="email" type="email" placeholder={t('formUser.email')} value={registerForm.email} onChange={changeField} />
+              <p className="register__error">{EmptyFieldError}</p>
               <div className="register__submitButton">
-                <SubmitButton label={t('formUser.buttonCreateAccount')} />
+                <SubmitButton className={SubmitButtonClass} label={t('formUser.buttonCreateAccount')} />
               </div>
             </div>
           </form>

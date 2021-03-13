@@ -56,6 +56,15 @@
   }
 }
 
+.submitButton {
+  &--hidden {
+    visibility: hidden;
+  }
+  &--visible {
+    visibility: visible;
+  }
+}
+
 @media only screen and (min-width: breakpoints.$desktop) {
   .register, .login, .settings {
     width: 50vw;
