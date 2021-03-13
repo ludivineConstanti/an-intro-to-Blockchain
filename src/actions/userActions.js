@@ -1,6 +1,4 @@
-export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
-export const CHANGE_VALUE_REGISTER = 'CHANGE_VALUE_REGISTER';
-export const CHANGE_VALUE_SETTINGS = 'CHANGE_VALUE_SETTINGS';
+export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const SAVE_USER_LOGIN = 'SAVE_USER_LOGIN';
@@ -20,20 +18,8 @@ export const LOGOUT = 'LOGOUT';
 
 export const ERROR_MESSAGE = 'ERROR_MESSAGE';
 
-export const changeValueLogin = (value, name) => ({
-  type: CHANGE_VALUE_LOGIN,
-  value,
-  name,
-});
-
-export const changeValueRegister = (value, name) => ({
-  type: CHANGE_VALUE_REGISTER,
-  value,
-  name,
-});
-
-export const changeValueSettings = (value, name) => ({
-  type: CHANGE_VALUE_SETTINGS,
+export const changeInputValue = (value, name) => ({
+  type: CHANGE_INPUT_VALUE,
   value,
   name,
 });

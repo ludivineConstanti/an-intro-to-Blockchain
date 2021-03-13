@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Register from 'src/components/_pages/_formUser/Register';
-import { changeValueRegister, registerRequest } from 'src/actions/userActions';
+import { changeInputValue, registerRequest } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   registerForm: state.user.registerForm,
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => dispatch(changeValueRegister(value, name)),
+  changeField: (value, name) => dispatch(changeInputValue(value, name)),
   handleRegister: () => dispatch(registerRequest()),
 });
 
