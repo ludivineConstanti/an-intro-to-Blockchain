@@ -25,6 +25,13 @@
     z-index: 5;
     margin-bottom: 0px;
   }*/
+  &__subtile{
+    font-size: fontSizes.$labelS2Mobile;
+    letter-spacing: fontSizes.$labelS2KerningMobile;
+    font-weight: normal;
+    text-transform: none;
+    display: block;
+  }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
@@ -35,6 +42,10 @@
   &--noMarginBottom {
     margin-right: 40px;
     margin-bottom: 0px;
+  }
+  &__subtile{
+    font-size: fontSizes.$labelS2Desktop;
+    letter-spacing: fontSizes.$labelS2KerningDesktop;
   }
 }
 }

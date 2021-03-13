@@ -37,9 +37,10 @@ const FormQuestion = ({
   }
   return (
     <form className="formQuestion" onSubmit={confirmQuestion}>
-      <h3 className="formQuestion__text">{question.statement}</h3>
-      {answerShowed === false
-      && (<p className="formQuestion__instruction">{question.totalGoodAnswer === 1 ? 'Only one correct answer' : 'More than one answer can be right'}</p>)}
+      <h3 className="formQuestion__text">{question.statement}
+        {answerShowed === false
+      && (<span className="formQuestion__instruction">{question.totalGoodAnswer === 1 ? 'Only one correct answer' : 'More than one answer can be right'}</span>)}
+      </h3>
       {
         answerArray.map((oneAnswer) => (
           <CheckboxAnswer
