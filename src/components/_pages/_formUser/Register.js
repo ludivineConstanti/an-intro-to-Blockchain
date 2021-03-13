@@ -10,6 +10,7 @@ import InputText from 'src/components/_interactives/InputText';
 import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
+const zxcvbn = require('zxcvbn');
 // == Composant
 const Register = ({
   registerForm,
@@ -29,6 +30,31 @@ const Register = ({
   const [EmailError, setEmailError] = useState('');
   const [EmptyFieldError, setEmptyFieldError] = useState('');
   const [SubmitButtonClass, setSubmitButton] = useState('hidden');
+  const [type, setType] = useState('password');
+  const [score, setScore] = useState('null');
+
+  const showHide = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const currentType = type === 'text' ? 'password' : 'text';
+    setType(currentType);
+  };
+
+  const testStrengthPassword = (event) => {
+    // we will get score property from zxcvbn
+    if (event !== '') {
+      const pass = zxcvbn(event);
+      setScore(pass.score);
+    }
+    else {
+      setScore('null');
+    }
+  };
+
+  const onChangePasswordInput = (value, name) => {
+    changeField(value, name);
+    testStrengthPassword(value);
+  };
 
   useEffect(() => {
     if (registerForm.firstname.length < 1 || registerForm.firstname.length > 25) {
@@ -85,7 +111,11 @@ const Register = ({
             </div>
             <div className="register__column">
               <p className="register__error">{PasswordInfos}</p>
-              <InputText name="password" type="password" placeholder={t('formUser.password')} value={registerForm.password} onChange={changeField} />
+              <div className="inputText--label-password">
+                <InputText name="password" type={type} className="input-password" placeholder={t('formUser.password')} value={registerForm.password} onChange={onChangePasswordInput} />
+                <span className="inputText--show-password" onClick={showHide}>{type === 'text' ? 'Hide' : 'Show'}</span>
+                <span className="inputText--strength-password" data-score={score} />
+              </div>
               <p className="register__error">{PasswordConfirmError}</p>
               <InputText name="controlPassword" type="password" placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={changeField} />
               <p className="register__error">{EmailError}</p>

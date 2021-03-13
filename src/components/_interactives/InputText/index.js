@@ -13,13 +13,15 @@ const InputText = ({
   value,
   onChange,
   name,
+  className,
 }) => {
+  const classDiv = `inputText inputText--${className}`;
   const handleChange = (event) => {
     onChange(event.target.value, name);
   };
   return (
     <input
-      className="inputText"
+      className={classDiv}
       type={type}
       placeholder={placeholder}
       value={value}
@@ -33,6 +35,7 @@ InputText.defaultProps = {
   value: '',
   onChange: () => {},
   name: '',
+  className: '',
 };
 
 InputText.propTypes = {
@@ -41,6 +44,7 @@ InputText.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   name: PropTypes.string,
+  className: PropTypes.string,
 };
 
 // == Export
