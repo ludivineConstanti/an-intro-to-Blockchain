@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Settings from 'src/components/_pages/_formUser/Settings';
 import {
   logout,
-  changeValueSettings,
+  changeInputValue,
   changeUserSettings,
   changeUserEmail,
   deleteAccountRequest,
@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => dispatch(changeValueSettings(value, name)),
+  changeField: (value, name) => dispatch(changeInputValue(value, name)),
   handleLogout: () => dispatch(logout()),
   handleChangeSettings: () => dispatch(changeUserSettings()),
   handleChangeEmail: () => dispatch(changeUserEmail()),

@@ -1,10 +1,8 @@
 import {
-  CHANGE_VALUE_LOGIN,
+  CHANGE_INPUT_VALUE,
   SAVE_USER_LOGIN,
-  CHANGE_VALUE_REGISTER,
   SAVE_USER_REGISTER,
   LOGOUT,
-  CHANGE_VALUE_SETTINGS,
   SAVE_USER_SETTINGS,
   SAVE_USER_EMAIL,
   ERROR_MESSAGE,
@@ -12,8 +10,8 @@ import {
 
 const initialState = {
   loginForm: {
-    email: 'BambiMangeSaMaman@gmail.com',
-    password: 'UneBalleUnMort1957',
+    email: '',
+    password: '',
   },
   registerForm: {
     firstname: '',
@@ -42,11 +40,19 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_VALUE_LOGIN: {
+    case CHANGE_INPUT_VALUE: {
       return {
         ...state,
         loginForm: {
           ...state.loginForm,
+          [action.name]: action.value,
+        },
+        registerForm: {
+          ...state.registerForm,
+          [action.name]: action.value,
+        },
+        settingsForms: {
+          ...state.settingsForms,
           [action.name]: action.value,
         },
       };
@@ -67,15 +73,6 @@ export default (state = initialState, action = {}) => {
         },
         errors: {
           errorLogin: false,
-        },
-      };
-    }
-    case CHANGE_VALUE_REGISTER: {
-      return {
-        ...state,
-        registerForm: {
-          ...state.registerForm,
-          [action.name]: action.value,
         },
       };
     }
@@ -105,15 +102,6 @@ export default (state = initialState, action = {}) => {
     case LOGOUT: {
       return {
         ...initialState,
-      };
-    }
-    case CHANGE_VALUE_SETTINGS: {
-      return {
-        ...state,
-        settingsForms: {
-          ...state.settingsForms,
-          [action.name]: action.value,
-        },
       };
     }
     case SAVE_USER_SETTINGS: {
