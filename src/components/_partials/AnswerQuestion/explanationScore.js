@@ -1,12 +1,8 @@
 export default (questionNumber, questionData, userAnswer, language) => {
-  const { totalAnswer } = questionData[`question${questionNumber}`];
-  const { id } = questionData[`question${questionNumber}`];
-
-  let totalGoodAnswers = 0;
+  const totalGoodAnswers = questionData.answersInfo.good;
   let userTotalGoodAnswers = 0;
-  let totalBadAnswers = 0;
+  const totalBadAnswers = questionData.answersInfo.bad;
   let userTotalBadAnswers = 0;
-  let score = 4;
 
   let label = '';
   let subtitle = '';
@@ -14,22 +10,15 @@ export default (questionNumber, questionData, userAnswer, language) => {
   // switch is a keyword, can't use it switchL = switch language
   const switchL = language === 'fr';
 
-  for (let i = 1; i < totalAnswer + 1; i += 1) {
-    const currentQuizResponse = questionData[`question${questionNumber}`][`answer${i}`].goodAnswer;
-    const currentUserResponse = userAnswer[`question${id}`][`answer${questionData[`question${questionNumber}`][`answer${i}`].id}`];
-    if (currentQuizResponse) {
-      totalGoodAnswers += 1;
-      if (currentQuizResponse === currentUserResponse) {
-        userTotalGoodAnswers += 1;
-      }
-      else score -= 1;
+  for (let i = 0; i < questionData.answersInfo.total; i += 1) {
+    const answer = questionData.answers[i];
+    const currentQuizResponse = answer.goodAnswer;
+    const currentUserResponse = userAnswer[`question${questionData.id}`][`answer${answer.id}`];
+    if (currentQuizResponse && currentUserResponse) {
+      userTotalGoodAnswers += 1;
     }
-    else if (!currentQuizResponse) {
-      totalBadAnswers += 1;
-      if (currentQuizResponse !== currentUserResponse) {
-        userTotalBadAnswers += 1;
-        score -= 1;
-      }
+    else if (!currentQuizResponse && currentUserResponse) {
+      userTotalBadAnswers += 1;
     }
   }
 

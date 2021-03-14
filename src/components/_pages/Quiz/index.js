@@ -25,7 +25,7 @@ const Quiz = ({
     const currentQuestionData = quizData[`question${questionNumber}`];
     return (
       <>
-        <ProgressionBar totalNum={quizData.infos.totalQuestions} progressionNum={questionNumber} />
+        <ProgressionBar totalNum={quizData.totalQuestions} progressionNum={questionNumber} />
         <div className="quiz">
           {!showAnswer
             ? <FormQuestion question={currentQuestionData} answerShowed={false} />
@@ -33,10 +33,9 @@ const Quiz = ({
               <>
                 <FormQuestion question={currentQuestionData} answerShowed />
                 <AnswerQuestion
-                  totalNum={quizData.infos.totalQuestions}
+                  totalNum={quizData.totalQuestions}
                   questionNumber={questionNumber}
-                  justification={currentQuestionData.justification}
-                  articleLink={currentQuestionData.articleLink}
+                  questionData={currentQuestionData}
                   language={language}
                 />
               </>
@@ -55,7 +54,7 @@ const Quiz = ({
 
 Quiz.propTypes = {
   getOneQuiz: PropTypes.func,
-  quizData: PropTypes.array.isRequired,
+  quizData: PropTypes.object.isRequired,
   questionNumber: PropTypes.number.isRequired,
   showAnswer: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,

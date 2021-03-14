@@ -1,51 +1,41 @@
-const quizFormater = (quizData) => {
-  const quizFormatted = [];
-  const questions = [];
-  let questionTitle = '';
-  let counter = 1;
-  quizData.forEach((element) => {
-    if (element.question_statement !== questionTitle) {
-      questionTitle = element.question_statement;
-      const truc = quizData.filter((subElement) => subElement.question_statement === questionTitle);
-      truc.id = counter;
-      questions.push(truc);
-      counter += 1;
-    }
-  });
-  counter = 1;
-  questions.forEach((element) => {
-    quizFormatted[`question${counter}`] = {
-      id: element[0].question_id,
-      statement: element[0].question_statement,
-      justification: element[0].question_justification,
-      articleLink: element[0].article_link,
-    };
-    let answerCounter = 1;
-    let totalGoodAnswer = 0;
-    element.forEach((subElement) => {
-      quizFormatted[`question${counter}`][`answer${answerCounter}`] = {
-        id: subElement.answer_id,
-        title: subElement.answer_name,
-        goodAnswer: subElement.good_answer,
+export default (quizData) => {
+  const quizFormatted = {
+    title: quizData[0].quiz_title,
+    id: quizData[0].quiz_id,
+    totalQuestions: 0,
+  };
+
+  for (let i = 0; i < quizData.length; i += 1) {
+    if (!quizFormatted[`question${quizData[i].question_id}`]) {
+      quizFormatted.totalQuestions += 1;
+
+      quizFormatted[`question${quizData[i].question_id}`] = {
+        id: quizData[i].question_id,
+        statement: quizData[i].question_statement,
+        justification: quizData[i].question_justification,
+        articleLink: quizData[i].article_link,
+        answersInfo: {
+          total: 0,
+          good: 0,
+          wrong: 0,
+        },
+        answers: [],
       };
-      // eslint-disable-next-line no-unused-expressions
-      subElement.good_answer === true
-        ? totalGoodAnswer += 1
-        : totalGoodAnswer += 0;
-      answerCounter += 1;
+    }
+
+    quizFormatted[`question${quizData[i].question_id}`].answers.push({
+      id: quizData[i].answer_id,
+      name: quizData[i].answer_name,
+      goodAnswer: quizData[i].good_answer,
     });
-    quizFormatted[`question${counter}`].totalAnswer = answerCounter - 1;
-    quizFormatted[`question${counter}`].totalGoodAnswer = totalGoodAnswer;
-    counter += 1;
-  });
-  quizFormatted.infos = {};
-  const trueAnswer = quizData.filter((element) => (element.good_answer === true));
-  quizFormatted.infos.quizId = quizData[0].quiz_id;
-  quizFormatted.infos.quizName = quizData[0].quiz_title;
-  quizFormatted.infos.totalQuestions = questions.length;
-  quizFormatted.infos.totalAnswer = quizData.length;
-  quizFormatted.infos.goodAnswerNumber = trueAnswer.length;
+
+    if (quizData[i].good_answer) {
+      quizFormatted[`question${quizData[i].question_id}`].answersInfo.good += 1;
+    }
+
+    else quizFormatted[`question${quizData[i].question_id}`].answersInfo.bad += 1;
+
+    quizFormatted[`question${quizData[i].question_id}`].answersInfo.total += 1;
+  }
   return quizFormatted;
 };
-
-export default quizFormater;

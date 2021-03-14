@@ -7,7 +7,7 @@ import {
 } from 'src/actions/quizzesActions';
 
 const initialState = {
-  currentQuizData: [],
+  currentQuizData: {},
   userQuizInfos: {
     questionNumber: 1,
     showAnswer: false,
