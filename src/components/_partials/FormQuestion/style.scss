@@ -7,7 +7,7 @@
   background-color: rgba(0,0,0,.25);
   padding: 40px;
   width: calc(100vw - #{margins.$borderMobile} * 2);
-  margin: 160px margins.$borderMobile 0 margins.$borderMobile;
+  margin: 120px margins.$borderMobile 0 margins.$borderMobile;
 
   &__text {
     font-size: fontSizes.$labelS1Mobile;

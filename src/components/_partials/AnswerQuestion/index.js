@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -21,6 +22,9 @@ const AnswerQuestion = ({
   userAnswer,
   language,
 }) => {
+  // checks if the language was updated
+  const { t } = useTranslation();
+
   const nextQuestion = () => {
     increaseQuestion(questionNumber + 1);
   };
@@ -33,12 +37,17 @@ const AnswerQuestion = ({
         label={explanationMessage.label}
         subtitle={explanationMessage.subtitle}
       />
-      <p className="answerQuestion__justification ">{justification}</p>
+      <p className={justification.length > 200
+        ? 'answerQuestion__justification answerQuestion__justification--twoColumns'
+        : 'answerQuestion__justification'}
+      >
+        {justification}
+      </p>
       <div className="answerQuestion__links">
-        <LinkButton label="Learn more" path={articleLink} externalLink />
+        <div className="answerQuestion__externalLink"><LinkButton label={t('quiz.linkExternalArticle')} path={articleLink} externalLink /></div>
         {totalNum !== questionNumber
-          ? <SubmitButton label="Next question" onClick={nextQuestion} />
-          : <LinkButton label="Results" path="/quizResult" onClickLink={validateQuiz} />}
+          ? <SubmitButton label={t('quiz.buttonNextQuestion')} onClick={nextQuestion} />
+          : <div className="answerQuestion__results"><LinkButton label={t('quiz.linResults')} path="/quizResult" onClickLink={validateQuiz} /></div>}
       </div>
     </section>
   );
