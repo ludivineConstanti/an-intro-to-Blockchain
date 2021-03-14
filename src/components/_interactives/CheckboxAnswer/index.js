@@ -7,28 +7,20 @@ import './style.scss';
 import './animation.scss';
 
 // == Composant
-const CheckboxAnswer = ({ oneAnswer, disabled }) => {
-  const exist = (
-    (oneAnswer.goodAnswer === false
-    || oneAnswer.goodAnswer === true)
-    && (oneAnswer.userAnswer === false
-    || oneAnswer.userAnswer === true));
-
-  const content = (
-    <>
-      <input type="checkbox" id={oneAnswer.id} name={oneAnswer.id} disabled={disabled} />
-      <span className="checkboxAnswer__checkmark" />
-    </>
-  );
-
-  return (
-    exist
-      // eslint-disable-next-line jsx-a11y/label-has-associated-control
-      ? <label className={oneAnswer.goodAnswer === oneAnswer.userAnswer ? 'checkboxAnswer ok' : 'checkboxAnswer nop'}>{oneAnswer.title}{content}</label>
-      // eslint-disable-next-line jsx-a11y/label-has-associated-control
-      : <label className="checkboxAnswer shit">{oneAnswer.title}{content}</label>
-  );
-};
+const CheckboxAnswer = ({ oneAnswer, disabled }) => (
+  // eslint-disable-next-line jsx-a11y/label-has-associated-control
+  <label className={disabled
+    ? `checkboxAnswer checkboxAnswer--${oneAnswer.goodAnswer}`
+    : 'checkboxAnswer checkboxAnswer--hoverPossible'}
+  >
+    {oneAnswer.title}
+    <input type="checkbox" id={oneAnswer.id} name={oneAnswer.id} disabled={disabled} />
+    <span className={disabled
+      ? `checkboxAnswer__checkmark checkboxAnswer__checkmark--${oneAnswer.goodAnswer}`
+      : 'checkboxAnswer__checkmark checkboxAnswer__checkmark--hoverPossible'}
+    />
+  </label>
+);
 
 CheckboxAnswer.propTypes = {
   oneAnswer: PropTypes.object.isRequired,

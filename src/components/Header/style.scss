@@ -29,7 +29,7 @@
     }
   }
 
-  &__languages {
+  &__language {
     display: none;
   }
 
@@ -62,7 +62,6 @@
     }
 
     &__language {
-      //transform: rotate(-90deg) translate(-50%, -50%);
       &, & button {
         color: rgba($color: #ffffff, $alpha: 0.25);
         text-transform: uppercase;

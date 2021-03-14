@@ -12,12 +12,14 @@
   &__text {
     font-size: fontSizes.$labelS1Mobile;
     letter-spacing: fontSizes.$labelS1KerningMobile;
+    margin-bottom: 40px;
   }
 
   &__instruction {
-    font-size: fontSizes.$textMobile;
-    letter-spacing: fontSizes.$textKerningMobile;
-    margin-bottom: 40px;
+    margin-top: 5px;
+    font-size: fontSizes.$labelS3Mobile;
+    letter-spacing: fontSizes.$labelS3KerningMobile;
+    display: block;
   }
 }
 
@@ -40,8 +42,8 @@
     }
   
     &__instruction {
-      font-size: fontSizes.$textDesktop;
-      letter-spacing: fontSizes.$textKerningDesktop;
+      font-size: fontSizes.$labelS3Desktop;;
+      letter-spacing: fontSizes.$labelS3KerningDesktop;
     }
   }
 }
