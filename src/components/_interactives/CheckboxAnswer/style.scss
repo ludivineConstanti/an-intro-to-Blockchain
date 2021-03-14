@@ -22,6 +22,14 @@
     width: 0;
   }
 
+  /*&--true {
+    color: white;
+  }*/
+  
+  &--false {
+    color: rgba($color: #ffffff, $alpha: 0.25)
+  }
+
   // Create a custom checkbox
   &__checkmark {
     position: absolute;
@@ -30,6 +38,9 @@
     height: 40px;
     width: 40px;
     border: 2px solid white;
+    &--false {
+      border: 2px solid rgba($color: #ffffff, $alpha: 0.25);
+    }
   }
 
   // Create the checkmark/indicator (hidden when not checked)

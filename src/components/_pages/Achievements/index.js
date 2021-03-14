@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -22,6 +23,11 @@ const Achievements = ({ firstname, lastname }) => {
       </div>
     </div>
   );
+};
+
+Achievements.propTypes = {
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
 };
 
 // == Export

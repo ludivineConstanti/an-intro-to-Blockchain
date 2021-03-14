@@ -37,6 +37,7 @@ const Quiz = ({
                   questionNumber={questionNumber}
                   justification={currentQuestionData.justification}
                   articleLink={currentQuestionData.articleLink}
+                  language={language}
                 />
               </>
             )}

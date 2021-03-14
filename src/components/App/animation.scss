@@ -1,0 +1,30 @@
+.app__threeJs {
+    animation: threeJsFilter 9s linear infinite;
+}
+
+// duration linked to the function that toggles the class
+// in middlewares triggerAnimationBackground.js
+.app__threeJS--animationIntro {
+      animation: introThreeJsFilter 2s ease-in 1;
+}
+
+@keyframes introThreeJsFilter {
+  0% {
+    filter: blur(50px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+
+@keyframes threeJsFilter {
+  0% {
+    filter: brightness(1.5);
+  }
+  50% {
+    filter: brightness(2.5);
+  }
+  100% {
+    filter: brightness(1.5);
+  }
+}

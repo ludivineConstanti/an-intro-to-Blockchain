@@ -9,6 +9,7 @@ const initialState = {
   language: supportedLanguage.indexOf(language) === -1 ? 'en' : language,
   menuOpen: false,
   loading: false,
+  backgroundClassName: 'app__threeJs app__threeJS--animationIntro',
 };
 
 export default (state = initialState, action = {}) => {

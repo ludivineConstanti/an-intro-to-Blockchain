@@ -4,12 +4,14 @@ import { useTranslation } from 'react-i18next';
 
 import './style.scss';
 import LinkMenu from 'src/components/_interactives/LinkMenu';
+import triggerAnimationBackground from 'src/middlewares/triggerAnimationBackground';
 
 const Menu = ({ onClickButtonMenu, isLoggedIn, handleLogout }) => {
   // checks if the language was updated
   const { t } = useTranslation();
   const handleOnClick = () => {
     onClickButtonMenu();
+    triggerAnimationBackground();
   };
   const handleOnLogout = (event) => {
     event.preventDefault();

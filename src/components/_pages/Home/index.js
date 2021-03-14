@@ -16,7 +16,7 @@ const Home = ({ isLoggedIn }) => {
       <div className="home">
         <h1><span className="home__subtitle">{t('home.subtitle')}</span><span className="home__title">{t('home.title')}</span></h1>
         <div className="home__getStarted">
-          <div><LinkButton path={isLoggedIn === true ? ('/quizzes') : ('/register')} label={t('home.link1')} /></div>
+          <div><LinkButton path="/quizzes" label={t('home.link1')} /></div>
           <div><LinkButton path={isLoggedIn === true ? ('/settings') : ('/login')} label={t('home.link2')} /></div>
         </div>
       </div>

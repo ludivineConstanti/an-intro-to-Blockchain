@@ -3,9 +3,6 @@ import { changeValueGlobal } from 'src/actions/appActions';
 import {
   GET_ALL_ARTICLES,
   stockArticles,
-  /* GET_ONE_QUIZ,
-
-  stockQuiz, */
 } from 'src/actions/articlesActions';
 
 import articlesFormatter from 'src/middlewares/articlesFormatter';
@@ -24,8 +21,14 @@ const user = (store) => (next) => (action) => {
             store.dispatch(stockArticles(data));
           }
         })
+        //! ERROR
         .catch((error) => {
-          console.log(error);
+          if (error.response) {
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
         })
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));

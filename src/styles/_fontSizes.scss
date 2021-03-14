@@ -26,9 +26,9 @@ $menuDesktop: 7vh;
 $menuKerningDesktop: -4px;
 $menuTriangleDesktop: 5vh;
 // mobile
-$menuMobile: 12vw;
-$menuKerningMobile: -0.8vw;
-$menuTriangleMobile: 10vw;
+$menuMobile: 8vh;
+$menuKerningMobile: -0.8vh;
+$menuTriangleMobile: 6vh;
 
 //desktop
 $menuSmallDesktop: 12px;
@@ -47,6 +47,13 @@ $labelS2KerningDesktop: -0.5px;
 // mobile
 $labelS2Mobile: 16px;
 $labelS2KerningMobile: 0px;
+
+// desktop
+$labelS3Desktop: 12px;
+$labelS3KerningDesktop: 0px;
+// mobile
+$labelS3Mobile: 13px;
+$labelS3KerningMobile: 0px;
 
 // desktop
 $textDesktop: 14px;
