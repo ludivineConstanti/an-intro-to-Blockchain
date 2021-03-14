@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -15,6 +16,9 @@ const FormQuestion = ({
   answerShowed,
   userAnswer,
 }) => {
+  // checks if the language was updated
+  const { t } = useTranslation();
+
   const confirmQuestion = (event) => {
     const userAnswers = {};
     event.preventDefault();
@@ -39,7 +43,7 @@ const FormQuestion = ({
     <form className="formQuestion" onSubmit={confirmQuestion}>
       <h3 className="formQuestion__text">{question.statement}
         {answerShowed === false
-      && (<span className="formQuestion__instruction">{question.totalGoodAnswer === 1 ? 'Only one correct answer' : 'More than one answer can be right'}</span>)}
+      && (<span className="formQuestion__instruction">{question.totalGoodAnswer === 1 ? t('quiz.numberAnswersSingular') : t('quiz.numberAnswersPlural')}</span>)}
       </h3>
       {
         answerArray.map((oneAnswer) => (

@@ -49,5 +49,12 @@
   },
   "achievements": {
     "linkReplayQuiz": "Jouer à ce quiz"
+  },
+  "quiz": {
+    "numberAnswersSingular": "Une seule bonne réponse",
+    "numberAnswersPlural": "Plus d'une réponse peut être correcte",
+    "linkExternalArticle": "En savoir plus",
+    "buttonNextQuestion": "Question suivante",
+    "linResults": "Resultats"
   }
 }

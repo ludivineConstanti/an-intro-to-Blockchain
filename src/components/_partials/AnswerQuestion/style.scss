@@ -10,8 +10,6 @@
     font-size: fontSizes.$textMobile;
     letter-spacing: fontSizes.$textKerningMobile;
     line-height: fontSizes.$textSpacingMobile;
-    column-count: 2;
-    column-gap: 40px;
   }
   &__links {
     display: flex;
@@ -39,6 +37,21 @@
       letter-spacing: fontSizes.$textKerningDesktop;
       line-height: fontSizes.$textSpacingDesktop;
       min-width: 500px;
+      &--twoColumns {
+        column-count: 2;
+        column-gap: 40px;
+      }
+    }
+    &__links {
+      flex-direction: row;
+    }
+    &__externalLink {
+      margin-top: 20px;
+      width: 50%;
+      margin-right: 30px;
+    }
+    &__results {
+      margin-top: 20px;
     }
   }
 }
