@@ -22,7 +22,6 @@ const mapDispatchToProps = (dispatch) => ({
         const questionId = `question${i + currentQuizData.idFirstQuestion}`;
 
         for (let y = 0; y < currentQuizData[questionId].answersInfo.total; y += 1) {
-          console.log('total answers', currentQuizData[questionId].answersInfo.total);
           const currentAnswer = currentQuizData[questionId].answers[y];
           const AnswerQuiz = currentAnswer.goodAnswer;
           const answerUser = userAnswers[questionId][`answer${currentAnswer.id}`];

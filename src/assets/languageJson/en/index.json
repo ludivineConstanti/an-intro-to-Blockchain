@@ -53,7 +53,19 @@
     "numberAnswersSingular": "Only one answer is correct",
     "numberAnswersPlural": "More than one answer can be right",
     "linkExternalArticle": "Learn more",
+    "buttonSubmitQuestion": "Validate",
     "buttonNextQuestion": "Next question",
     "linkResults": "Results"
+  },
+  "quizResult": {
+    "messageScore": {
+      "1": "",
+      "2": "Not bad!",
+      "3": "Well done!",
+      "4": "Perfect!"
+    },
+    "textScore": " correct answers",
+    "linkArticles": "More articles",
+    "linkQuizzes": "Continue"
   }
 }

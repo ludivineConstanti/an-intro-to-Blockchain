@@ -1,22 +1,31 @@
 @use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
 
 .article {
-  scroll-behavior: smooth;
   &__nav {
-    position: fixed;
-    top: 50vh;
-    right: -150px;
-    color: rgba($color: #ffffff, $alpha: 0.25);
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: fontSizes.$menuSmallDesktop;
-    font-kerning: fontSizes.$menuSmallKerningDesktop;
-    
-    border-bottom: 1px solid rgba($color: #000000, $alpha: 0);
-    transform: rotate(90deg);
-    &__link {
-      margin: 0 20px 0  20px;
-      padding-bottom: 10px;
+    display: none;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .article {
+    scroll-behavior: smooth;
+    &__nav {
+      display: block;
+      position: fixed;
+      top: 50vh;
+      right: -150px;
+      color: rgba($color: #ffffff, $alpha: 0.25);
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: fontSizes.$menuSmallDesktop;
+      font-kerning: fontSizes.$menuSmallKerningDesktop; 
+      border-bottom: 1px solid rgba($color: #000000, $alpha: 0);
+      transform: rotate(90deg);
+      &__link {
+        margin: 0 20px 0  20px;
+        padding-bottom: 10px;
+      }
     }
   }
 }

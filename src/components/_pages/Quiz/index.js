@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -47,7 +47,6 @@ const Quiz = ({
                   questionNumber={questionNumber}
                   questionData={currentQuestionData}
                   language={language}
-                  questionId={questionId}
                 />
               </>
             )}
@@ -61,6 +60,7 @@ Quiz.propTypes = {
   getOneQuiz: PropTypes.func,
   quizData: PropTypes.object.isRequired,
   questionNumber: PropTypes.number.isRequired,
+  questionId: PropTypes.number.isRequired,
   showAnswer: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
 };

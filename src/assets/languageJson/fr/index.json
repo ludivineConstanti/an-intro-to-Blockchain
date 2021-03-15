@@ -55,8 +55,20 @@
   "quiz": {
     "numberAnswersSingular": "Une seule bonne réponse",
     "numberAnswersPlural": "Plus d'une réponse peut être correcte",
+    "buttonSubmitQuestion": "Valider",
     "linkExternalArticle": "En savoir plus",
     "buttonNextQuestion": "Question suivante",
     "linkResults": "Resultats"
+  },
+  "quizResult": {
+    "messageScore": {
+      "1": "",
+      "2": "Pas mal",
+      "3": "Bien joué",
+      "4": "Parfait"
+    },
+    "textScore": " de réponses correctes",
+    "linkArticles": "Lire plus d'articles",
+    "linkQuizzes": "Continuer"
   }
 }
