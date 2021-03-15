@@ -16,13 +16,16 @@ const mapDispatchToProps = (dispatch) => ({
   calculateQuiz: (currentQuizData, userQuizInfos, userAnswers) => {
     let score = 0;
     if (userQuizInfos.questionNumber === currentQuizData.totalQuestions) {
-      for (let i = 1; i < currentQuizData.totalQuestions + 1; i += 1) {
+      for (let i = 0; i < currentQuizData.totalQuestions; i += 1) {
         let goodAnswers = 0;
         let wrongAnswers = 0;
-        for (let y = 0; y < currentQuizData[`question${i}`].answersInfo.total; y += 1) {
-          const currentAnswer = currentQuizData[`question${i}`].answers[y];
+        const questionId = `question${i + currentQuizData.idFirstQuestion}`;
+
+        for (let y = 0; y < currentQuizData[questionId].answersInfo.total; y += 1) {
+          console.log('total answers', currentQuizData[questionId].answersInfo.total);
+          const currentAnswer = currentQuizData[questionId].answers[y];
           const AnswerQuiz = currentAnswer.goodAnswer;
-          const answerUser = userAnswers[`question${i}`][`answer${currentAnswer.id}`];
+          const answerUser = userAnswers[questionId][`answer${currentAnswer.id}`];
           if (AnswerQuiz) {
             if (answerUser) goodAnswers += 1;
           }
@@ -30,11 +33,11 @@ const mapDispatchToProps = (dispatch) => ({
             if (answerUser) wrongAnswers += 1;
           }
         }
-        if (currentQuizData[`question${i}`].answersInfo.good === goodAnswers && wrongAnswers === 0) {
-          score += goodAnswers / currentQuizData[`question${i}`].answersInfo.good;
+        if (currentQuizData[questionId].answersInfo.good === goodAnswers && wrongAnswers === 0) {
+          score += goodAnswers / currentQuizData[questionId].answersInfo.good;
         }
-        else if (currentQuizData[`question${i}`].answersInfo.good > 1) {
-          let numAdded = goodAnswers / currentQuizData[`question${i}`].answersInfo.good;
+        else if (currentQuizData[questionId].answersInfo.good > 1) {
+          let numAdded = goodAnswers / currentQuizData[questionId].answersInfo.good;
           numAdded -= wrongAnswers * 0.5;
           if (numAdded > 0) score += numAdded;
         }

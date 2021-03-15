@@ -15,6 +15,7 @@ const Quiz = ({
   getOneQuiz,
   quizData,
   questionNumber,
+  questionId,
   showAnswer,
   language,
 }) => {
@@ -23,7 +24,7 @@ const Quiz = ({
     getOneQuiz(id);
   }, [language]);
   const [isReady, setIsReady] = useState(false);
-  const currentQuestionData = quizData[`question${questionNumber}`];
+  const currentQuestionData = quizData[`question${questionId}`];
 
   useEffect(() => {
     if (quizData.totalQuestions) {
@@ -46,6 +47,7 @@ const Quiz = ({
                   questionNumber={questionNumber}
                   questionData={currentQuestionData}
                   language={language}
+                  questionId={questionId}
                 />
               </>
             )}
