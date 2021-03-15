@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -8,6 +8,7 @@ import './style.scss';
 import ProgressionBar from 'src/components/_statics/ProgressionBar';
 import FormQuestion from 'src/containers/_partials/FormQuestion';
 import AnswerQuestion from 'src/containers/_partials/AnswerQuestion';
+import Loading from 'src/containers/Loading';
 
 // == Composant
 const Quiz = ({
@@ -21,9 +22,17 @@ const Quiz = ({
   useEffect(() => {
     getOneQuiz(id);
   }, [language]);
-  if (quizData.question1) {
-    const currentQuestionData = quizData[`question${questionNumber}`];
-    return (
+  const [isReady, setIsReady] = useState(false);
+  const currentQuestionData = quizData[`question${questionNumber}`];
+
+  useEffect(() => {
+    if (quizData.totalQuestions) {
+      setIsReady(true);
+    }
+  }, [quizData]);
+
+  return isReady
+    ? (
       <>
         <ProgressionBar totalNum={quizData.totalQuestions} progressionNum={questionNumber} />
         <div className="quiz">
@@ -43,13 +52,7 @@ const Quiz = ({
 
         </div>
       </>
-    );
-  }
-
-  return (
-    <>
-    </>
-  );
+    ) : <Loading />;
 };
 
 Quiz.propTypes = {
