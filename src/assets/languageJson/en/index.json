@@ -27,8 +27,8 @@
       "lengthLastname": "Your last name must have between 1 and 25 characters",
       "incorrectEmail": "Already existing email",
       "incorrectPassword": "Incorrect password",
-      "incorrectNewPassword": "Your password must contain at least 8 characters including a capital letter and a number"
-
+      "incorrectNewPassword": "Your password must contain at least 8 characters including a capital letter and a number",
+      "emptyInput": "Please fill in all fields"
     },
     "password": "Password",
     "passwordOld": "Your current password",

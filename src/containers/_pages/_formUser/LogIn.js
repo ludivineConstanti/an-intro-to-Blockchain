@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LogIn from 'src/components/_pages/_formUser/LogIn';
-import { changeValueLogin, loginRequest } from 'src/actions/userActions';
+import { changeInputValue, loginRequest } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => ({
   loginForm: state.user.loginForm,
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => dispatch(changeValueLogin(value, name)),
+  changeField: (value, name) => dispatch(changeInputValue(value, name)),
   handleLogin: () => dispatch(loginRequest()),
 });
 
