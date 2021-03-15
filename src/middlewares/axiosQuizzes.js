@@ -67,8 +67,8 @@ const user = (store) => (next) => (action) => {
       store.dispatch(changeValueGlobal(true, 'loading'));
 
       axios.put(`${baseUrl}/score`, {
-        quizId: state.user.infos.quizId,
-        userId: state.quiz.currentQuizData.infos.id,
+        userId: state.user.infos.id,
+        quizId: state.quiz.currentQuizData.id,
         scoreQuiz: state.quiz.userQuizInfos.score,
       }).then((response) => {
         console.log(response);
