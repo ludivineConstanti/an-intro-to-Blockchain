@@ -57,14 +57,15 @@
     "numberAnswersPlural": "Plus d'une réponse peut être correcte",
     "buttonSubmitQuestion": "Valider",
     "linkExternalArticle": "En savoir plus",
-    "buttonNextQuestion": "Question suivante",
+    "buttonNextQuestion": "Suivante",
     "linkResults": "Resultats"
   },
   "quizResult": {
     "messageScore": {
-      "1": "",
-      "2": "Pas mal",
-      "3": "Bien joué",
+      "0": "",
+      "1": "Pas mal",
+      "2": "Bien joué",
+      "3": "Bravo !",
       "4": "Parfait"
     },
     "textScore": " de réponses correctes",
