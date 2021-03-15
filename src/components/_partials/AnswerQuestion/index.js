@@ -14,12 +14,14 @@ import explanationScore from './explanationScore';
 const AnswerQuestion = ({
   totalNum,
   questionNumber,
-  justification,
-  articleLink,
   increaseQuestion,
   validateQuiz,
+  calculateQuiz,
+  isLoggedIn,
   questionData,
-  userAnswer,
+  currentQuizData,
+  userQuizInfos,
+  userAnswers,
   language,
 }) => {
   // checks if the language was updated
@@ -29,25 +31,29 @@ const AnswerQuestion = ({
     increaseQuestion(questionNumber + 1);
   };
 
-  const explanationMessage = explanationScore(questionNumber, questionData, userAnswer, language);
+  const explanationMessage = explanationScore(questionNumber, questionData, userAnswers, language);
 
+  const goSeeResults = () => {
+    calculateQuiz(currentQuizData, userQuizInfos, userAnswers);
+    if (isLoggedIn) validateQuiz();
+  };
   return (
     <section className="answerQuestion">
       <TitleCategory
         label={explanationMessage.label}
         subtitle={explanationMessage.subtitle}
       />
-      <p className={justification.length > 200
+      <p className={questionData.justification.length > 200
         ? 'answerQuestion__justification answerQuestion__justification--twoColumns'
         : 'answerQuestion__justification'}
       >
-        {justification}
+        {questionData.justification}
       </p>
       <div className="answerQuestion__links">
-        <div className="answerQuestion__externalLink"><LinkButton label={t('quiz.linkExternalArticle')} path={articleLink} externalLink /></div>
+        <div className="answerQuestion__externalLink"><LinkButton label={t('quiz.linkExternalArticle')} path={questionData.articleLink} externalLink /></div>
         {totalNum !== questionNumber
           ? <SubmitButton label={t('quiz.buttonNextQuestion')} onClick={nextQuestion} />
-          : <div className="answerQuestion__results"><LinkButton label={t('quiz.linResults')} path="/quizResult" onClickLink={validateQuiz} /></div>}
+          : <div className="answerQuestion__results"><LinkButton label={t('quiz.linkResults')} path="/quizResult" onClickLink={goSeeResults} /></div>}
       </div>
     </section>
   );
@@ -56,13 +62,15 @@ const AnswerQuestion = ({
 AnswerQuestion.propTypes = {
   totalNum: PropTypes.number.isRequired,
   questionNumber: PropTypes.number.isRequired,
-  justification: PropTypes.string.isRequired,
-  articleLink: PropTypes.string.isRequired,
   increaseQuestion: PropTypes.func.isRequired,
   validateQuiz: PropTypes.func.isRequired,
-  questionData: PropTypes.array.isRequired,
-  userAnswer: PropTypes.object.isRequired,
+  calculateQuiz: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  questionData: PropTypes.object.isRequired,
+  userAnswers: PropTypes.object.isRequired,
   language: PropTypes.string.isRequired,
+  currentQuizData: PropTypes.object.isRequired,
+  userQuizInfos: PropTypes.object.isRequired,
 };
 
 // == Export

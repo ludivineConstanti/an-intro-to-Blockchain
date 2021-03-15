@@ -6,7 +6,6 @@ import {
   VALIDATE_QUIZ,
   stockAllQuizzes,
   stockOneQuiz,
-  userFinishedQuiz,
 } from 'src/actions/quizzesActions';
 
 import quizzesFormatter from 'src/middlewares/quizzesFormatter';
@@ -16,6 +15,7 @@ import { baseUrl } from 'src/middlewares/baseUrl';
 
 const user = (store) => (next) => (action) => {
   const state = store.getState();
+
   switch (action.type) {
     case GET_ALL_QUIZZES: {
       store.dispatch(changeValueGlobal(true, 'loading'));
@@ -62,47 +62,32 @@ const user = (store) => (next) => (action) => {
         });
       break;
     }
+
     case VALIDATE_QUIZ: {
       store.dispatch(changeValueGlobal(true, 'loading'));
-      if (state.quiz.currentQuizData.infos) {
-        if (state.quiz.userQuizInfos.questionNumber
-          === state.quiz.currentQuizData.infos.totalQuestions) {
-          const quizData = state.quiz.currentQuizData;
-          const { userAnswers } = state.quiz.userQuizInfos;
-          let goodAnswer = 0;
-          for (let i = 1; i < quizData.infos.totalQuestions + 1; i += 1) {
-            for (let y = 1; y < quizData[`question${i}`].totalAnswer + 1; y += 1) {
-              if (quizData[`question${i}`][`answer${y}`].goodAnswer === userAnswers[`question${quizData[`question${i}`].id}`][`answer${quizData[`question${i}`][`answer${y}`].id}`]) {
-                goodAnswer += 1;
-              }
-            }
+
+      axios.put(`${baseUrl}/score`, {
+        quizId: state.user.infos.quizId,
+        userId: state.quiz.currentQuizData.infos.id,
+        scoreQuiz: state.quiz.userQuizInfos.score,
+      }).then((response) => {
+        console.log(response);
+      })
+      //! ERROR
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data.error);
           }
-          const score = Math.round(goodAnswer / quizData.infos.totalAnswer * 100);
-          store.dispatch(userFinishedQuiz(score, quizData.infos.totalAnswer, goodAnswer));
-          console.log(`UserId : ${state.user.infos.id} ; QuizId : ${quizData.infos.quizId} ; Score : ${score}`);
-          axios.put(`${baseUrl}/score`, {
-            quizId: state.user.infos.quizId,
-            userId: quizData.infos.id,
-            scoreQuiz: score,
-          }).then((response) => {
-            console.log(response);
-          })
-          //! ERROR
-            .catch((error) => {
-              if (error.response) {
-                console.log(error.response.data.error);
-              }
-              else {
-                console.log('Error', error.message);
-              }
-            })
-            .finally(() => {
-              store.dispatch(changeValueGlobal(false, 'loading'));
-            });
-        }
-      }
+          else {
+            console.log('Error', error.message);
+          }
+        })
+        .finally(() => {
+          store.dispatch(changeValueGlobal(false, 'loading'));
+        });
       break;
     }
+
     default:
       next(action);
   }

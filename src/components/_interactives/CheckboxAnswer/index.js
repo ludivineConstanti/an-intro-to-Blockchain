@@ -13,7 +13,7 @@ const CheckboxAnswer = ({ oneAnswer, disabled }) => (
     ? `checkboxAnswer checkboxAnswer--${oneAnswer.goodAnswer}`
     : 'checkboxAnswer checkboxAnswer--hoverPossible'}
   >
-    {oneAnswer.title}
+    {oneAnswer.name}
     <input type="checkbox" id={oneAnswer.id} name={oneAnswer.id} disabled={disabled} />
     <span className={disabled
       ? `checkboxAnswer__checkmark checkboxAnswer__checkmark--${oneAnswer.goodAnswer}`

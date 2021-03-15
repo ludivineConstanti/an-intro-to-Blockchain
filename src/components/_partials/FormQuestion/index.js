@@ -30,33 +30,28 @@ const FormQuestion = ({
     validateQuestion();
   };
 
-  const answerArray = [];
-  for (let i = 1; i < question.totalAnswer + 1; i += 1) {
-    answerArray.push({
-      id: question[`answer${i}`].id,
-      title: question[`answer${i}`].title,
-      goodAnswer: question[`answer${i}`].goodAnswer,
-      userAnswer: userAnswer[`answer${question[`answer${i}`].id}`],
-    });
-  }
   return (
     <form className="formQuestion" onSubmit={confirmQuestion}>
       <h3 className="formQuestion__text">{question.statement}
-        {answerShowed === false
-      && (<span className="formQuestion__instruction">{question.totalGoodAnswer === 1 ? t('quiz.numberAnswersSingular') : t('quiz.numberAnswersPlural')}</span>)}
+        {!answerShowed
+        && (
+        <span className="formQuestion__instruction">
+          {question.totalGoodAnswer === 1 ? t('quiz.numberAnswersSingular')
+            : t('quiz.numberAnswersPlural')}
+        </span>
+        )}
       </h3>
       {
-        answerArray.map((oneAnswer) => (
+        question.answers.map((answer) => (
           <CheckboxAnswer
-            key={oneAnswer.id}
-            {...{ oneAnswer }}
+            key={answer.id}
+            {...{ oneAnswer: answer }}
             disabled={!!answerShowed}
             answer={userAnswer}
           />
         ))
       }
-      {answerShowed === false
-      && (<SubmitButton label="Validate" />)}
+      {!answerShowed && (<SubmitButton label="Validate" />)}
     </form>
   );
 };
