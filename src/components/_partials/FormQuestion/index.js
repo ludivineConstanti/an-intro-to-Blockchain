@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -15,6 +16,9 @@ const FormQuestion = ({
   answerShowed,
   userAnswer,
 }) => {
+  // checks if the language was updated
+  const { t } = useTranslation();
+
   const confirmQuestion = (event) => {
     const userAnswers = {};
     event.preventDefault();
@@ -26,33 +30,28 @@ const FormQuestion = ({
     validateQuestion();
   };
 
-  const answerArray = [];
-  for (let i = 1; i < question.totalAnswer + 1; i += 1) {
-    answerArray.push({
-      id: question[`answer${i}`].id,
-      title: question[`answer${i}`].title,
-      goodAnswer: question[`answer${i}`].goodAnswer,
-      userAnswer: userAnswer[`answer${question[`answer${i}`].id}`],
-    });
-  }
   return (
     <form className="formQuestion" onSubmit={confirmQuestion}>
       <h3 className="formQuestion__text">{question.statement}
-        {answerShowed === false
-      && (<span className="formQuestion__instruction">{question.totalGoodAnswer === 1 ? 'Only one correct answer' : 'More than one answer can be right'}</span>)}
+        {!answerShowed
+        && (
+        <span className="formQuestion__instruction">
+          {question.totalGoodAnswer === 1 ? t('quiz.numberAnswersSingular')
+            : t('quiz.numberAnswersPlural')}
+        </span>
+        )}
       </h3>
       {
-        answerArray.map((oneAnswer) => (
+        question.answers.map((answer) => (
           <CheckboxAnswer
-            key={oneAnswer.id}
-            {...{ oneAnswer }}
+            key={answer.id}
+            {...{ oneAnswer: answer }}
             disabled={!!answerShowed}
             answer={userAnswer}
           />
         ))
       }
-      {answerShowed === false
-      && (<SubmitButton label="Validate" />)}
+      {!answerShowed && (<SubmitButton label={t('quiz.buttonSubmitQuestion')} />)}
     </form>
   );
 };

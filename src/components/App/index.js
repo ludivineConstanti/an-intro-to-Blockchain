@@ -81,7 +81,15 @@ const App = ({
             </Route>
             {/* Quiz result */}
             <Route path="/quizResult" exact>
-              {!hasFinishedQuiz ? <Redirect to="/" /> : <QuizResult />}
+              { !hasFinishedQuiz ? <Redirect to="/" /> : <QuizResult /> }
+            </Route>
+            {/* Login after finishing quiz */}
+            <Route path="/quizResult/login" exact>
+              { !hasFinishedQuiz ? <Redirect to="/login" /> : <LogIn finishedQuiz /> }
+            </Route>
+            {/* Register after finishing quiz */}
+            <Route path="/quizResult/register" exact>
+              { !hasFinishedQuiz ? <Redirect to="/register" /> : <Register finishedQuiz /> }
             </Route>
             {/* Page - All article */}
             <Route path="/articles" exact>

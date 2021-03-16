@@ -7,7 +7,7 @@ import {
 } from 'src/actions/quizzesActions';
 
 const initialState = {
-  currentQuizData: [],
+  currentQuizData: {},
   userQuizInfos: {
     questionNumber: 1,
     showAnswer: false,
@@ -27,6 +27,7 @@ export default (state = initialState, action = {}) => {
         currentQuizData: action.currentQuizData,
         userQuizInfos: {
           ...initialState.userQuizInfos,
+          currentQuestionId: action.currentQuizData.idFirstQuestion,
         },
       };
     }
@@ -46,6 +47,7 @@ export default (state = initialState, action = {}) => {
           ...state.userQuizInfos,
           showAnswer: false,
           questionNumber: action.questionNumber,
+          currentQuestionId: state.userQuizInfos.currentQuestionId + 1,
         },
       };
     }

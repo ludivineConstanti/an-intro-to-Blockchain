@@ -48,5 +48,25 @@
   },
   "achievements": {
     "linkReplayQuiz": "Play this quiz"
+  },
+  "quiz": {
+    "numberAnswersSingular": "Only one answer is correct",
+    "numberAnswersPlural": "More than one answer can be right",
+    "linkExternalArticle": "Learn more",
+    "buttonSubmitQuestion": "Validate",
+    "buttonNextQuestion": "Next",
+    "linkResults": "Results"
+  },
+  "quizResult": {
+    "messageScore": {
+      "0": "",
+      "1": "Not bad!",
+      "2": "Well done!",
+      "3": "Awesome!",
+      "4": "Perfect!"
+    },
+    "textScore": " correct answers",
+    "linkArticles": "More articles",
+    "linkQuizzes": "Continue"
   }
 }

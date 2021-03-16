@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -8,12 +8,14 @@ import './style.scss';
 import ProgressionBar from 'src/components/_statics/ProgressionBar';
 import FormQuestion from 'src/containers/_partials/FormQuestion';
 import AnswerQuestion from 'src/containers/_partials/AnswerQuestion';
+import Loading from 'src/containers/Loading';
 
 // == Composant
 const Quiz = ({
   getOneQuiz,
   quizData,
   questionNumber,
+  questionId,
   showAnswer,
   language,
 }) => {
@@ -21,11 +23,19 @@ const Quiz = ({
   useEffect(() => {
     getOneQuiz(id);
   }, [language]);
-  if (quizData.question1) {
-    const currentQuestionData = quizData[`question${questionNumber}`];
-    return (
+  const [isReady, setIsReady] = useState(false);
+  const currentQuestionData = quizData[`question${questionId}`];
+
+  useEffect(() => {
+    if (quizData.totalQuestions) {
+      setIsReady(true);
+    }
+  }, [quizData]);
+
+  return isReady
+    ? (
       <>
-        <ProgressionBar totalNum={quizData.infos.totalQuestions} progressionNum={questionNumber} />
+        <ProgressionBar totalNum={quizData.totalQuestions} progressionNum={questionNumber} />
         <div className="quiz">
           {!showAnswer
             ? <FormQuestion question={currentQuestionData} answerShowed={false} />
@@ -33,10 +43,9 @@ const Quiz = ({
               <>
                 <FormQuestion question={currentQuestionData} answerShowed />
                 <AnswerQuestion
-                  totalNum={quizData.infos.totalQuestions}
+                  totalNum={quizData.totalQuestions}
                   questionNumber={questionNumber}
-                  justification={currentQuestionData.justification}
-                  articleLink={currentQuestionData.articleLink}
+                  questionData={currentQuestionData}
                   language={language}
                 />
               </>
@@ -44,19 +53,14 @@ const Quiz = ({
 
         </div>
       </>
-    );
-  }
-
-  return (
-    <>
-    </>
-  );
+    ) : <Loading />;
 };
 
 Quiz.propTypes = {
   getOneQuiz: PropTypes.func,
-  quizData: PropTypes.array.isRequired,
+  quizData: PropTypes.object.isRequired,
   questionNumber: PropTypes.number.isRequired,
+  questionId: PropTypes.number.isRequired,
   showAnswer: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
 };

@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -11,49 +12,63 @@ import explanationScore from './explanationScore';
 
 // == Composant
 const AnswerQuestion = ({
-  totalNum,
   questionNumber,
-  justification,
-  articleLink,
   increaseQuestion,
   validateQuiz,
+  calculateQuiz,
+  isLoggedIn,
   questionData,
-  userAnswer,
+  currentQuizData,
+  userQuizInfos,
+  userAnswers,
   language,
 }) => {
+  // checks if the language was updated
+  const { t } = useTranslation();
+
   const nextQuestion = () => {
     increaseQuestion(questionNumber + 1);
   };
 
-  const explanationMessage = explanationScore(questionNumber, questionData, userAnswer, language);
+  const explanationMessage = explanationScore(questionNumber, questionData, userAnswers, language);
 
+  const goSeeResults = () => {
+    calculateQuiz(currentQuizData, userQuizInfos, userAnswers);
+    if (isLoggedIn) validateQuiz();
+  };
   return (
     <section className="answerQuestion">
       <TitleCategory
         label={explanationMessage.label}
         subtitle={explanationMessage.subtitle}
       />
-      <p className="answerQuestion__justification ">{justification}</p>
+      <p className={questionData.justification.length > 200
+        ? 'answerQuestion__justification answerQuestion__justification--twoColumns'
+        : 'answerQuestion__justification'}
+      >
+        {questionData.justification}
+      </p>
       <div className="answerQuestion__links">
-        <LinkButton label="Learn more" path={articleLink} externalLink />
-        {totalNum !== questionNumber
-          ? <SubmitButton label="Next question" onClick={nextQuestion} />
-          : <LinkButton label="Results" path="/quizResult" onClickLink={validateQuiz} />}
+        <div className="answerQuestion__externalLink"><LinkButton label={t('quiz.linkExternalArticle')} path={questionData.articleLink} externalLink /></div>
+        {currentQuizData.totalQuestions !== questionNumber
+          ? <SubmitButton label={t('quiz.buttonNextQuestion')} onClick={nextQuestion} />
+          : <div className="answerQuestion__results"><LinkButton label={t('quiz.linkResults')} path="/quizResult" onClickLink={goSeeResults} /></div>}
       </div>
     </section>
   );
 };
 
 AnswerQuestion.propTypes = {
-  totalNum: PropTypes.number.isRequired,
   questionNumber: PropTypes.number.isRequired,
-  justification: PropTypes.string.isRequired,
-  articleLink: PropTypes.string.isRequired,
   increaseQuestion: PropTypes.func.isRequired,
   validateQuiz: PropTypes.func.isRequired,
-  questionData: PropTypes.array.isRequired,
-  userAnswer: PropTypes.object.isRequired,
+  calculateQuiz: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  questionData: PropTypes.object.isRequired,
+  userAnswers: PropTypes.object.isRequired,
   language: PropTypes.string.isRequired,
+  currentQuizData: PropTypes.object.isRequired,
+  userQuizInfos: PropTypes.object.isRequired,
 };
 
 // == Export
