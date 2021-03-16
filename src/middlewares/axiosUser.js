@@ -14,6 +14,8 @@ import {
   DELETE_ACCOUNT_REQUEST,
   logout,
   errorMessage,
+  GET_USER_SCORES,
+  saveUserScores,
 } from 'src/actions/userActions';
 
 import {
@@ -171,6 +173,30 @@ const user = (store) => (next) => (action) => {
         .then((response) => {
           if (response.statusText === 'OK') {
             store.dispatch(logout());
+          }
+        })
+      //! ERROR
+        .catch((error) => {
+          store.dispatch(errorMessage(true, 'incorrectPasswordError'));
+          if (error.response) {
+            console.log(error.response.data.error);
+          }
+          else {
+            console.log('Error', error.message);
+          }
+        })
+        .finally(() => {
+          store.dispatch(changeValueGlobal(false, 'loading'));
+        });
+      break;
+    }
+    case GET_USER_SCORES: {
+      store.dispatch(changeValueGlobal(true, 'loading'));
+      const state = store.getState();
+      axios.get(`${baseUrl}/score/${state.user.infos.id}`)
+        .then((response) => {
+          if (response.statusText === 'OK') {
+            store.dispatch(saveUserScores(response.data));
           }
         })
       //! ERROR

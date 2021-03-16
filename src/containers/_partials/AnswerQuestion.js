@@ -41,9 +41,7 @@ const mapDispatchToProps = (dispatch) => ({
           if (numAdded > 0) score += numAdded;
         }
       }
-
       const scorePercentage = Math.round(score / currentQuizData.totalQuestions * 100);
-
       dispatch(userFinishedQuiz(scorePercentage, currentQuizData.totalQuestions, score));
     }
   },

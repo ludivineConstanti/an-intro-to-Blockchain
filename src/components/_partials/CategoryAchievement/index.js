@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -9,24 +9,41 @@ import ProgressBar from 'src/components/_partials/CategoryAchievement/ProgressBa
 import QuizAchievement from 'src/components/_partials/CategoryAchievement/QuizAchievement';
 
 // == Composant
-const CategoryAchievement = () => {
-  // without the language does not get updated
-  const { t } = useTranslation();
+const CategoryAchievement = ({ title, content }) => {
+  let quizCounter = 0;
+  let score = 0;
+  console.log(content);
+  content.forEach((element) => {
+    score += element.score;
+    quizCounter += 1;
+  });
+  const categoryAverageScore = Math.round(score / quizCounter * 10) / 10;
+
+  const quizLinks = content.map((quiz) => (
+    <QuizAchievement
+      key={quiz.quiz_id}
+      quizId={quiz.quiz_id}
+      categoryId={quiz.categoryId}
+      label={quiz.quiz_title}
+      score={quiz.score}
+    />
+  ));
   return (
     <div className="categoryAchievement">
       <div className="categoryAchievement__category">
-        <TitleCategory label="Category" specialCase="noMarginBottom" />
-        <ProgressBar percentage={54} useCase="title" />
+        <TitleCategory label={title} specialCase="noMarginBottom" />
+        <ProgressBar percentage={categoryAverageScore} useCase="title" />
       </div>
       <div className="categoryAchievement__quizContainer">
-        <QuizAchievement />
-        <QuizAchievement />
-        <QuizAchievement />
-        <QuizAchievement />
-        <QuizAchievement />
+        {quizLinks}
       </div>
     </div>
   );
+};
+
+CategoryAchievement.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.array.isRequired,
 };
 
 // == Export

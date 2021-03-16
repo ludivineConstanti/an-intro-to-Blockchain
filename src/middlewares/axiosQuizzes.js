@@ -70,8 +70,6 @@ const user = (store) => (next) => (action) => {
         userId: state.user.infos.id,
         quizId: state.quiz.currentQuizData.id,
         scoreQuiz: state.quiz.userQuizInfos.score,
-      }).then((response) => {
-        console.log(response);
       })
       //! ERROR
         .catch((error) => {

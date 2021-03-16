@@ -23,6 +23,14 @@ const LogIn = ({
   const { t } = useTranslation();
 
   const [Error, setError] = useState('');
+  const [type, setType] = useState('password');
+
+  const showHide = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const currentType = type === 'text' ? 'password' : 'text';
+    setType(currentType);
+  };
 
   // Control fields with side effects
   useEffect(() => {
@@ -59,7 +67,8 @@ const LogIn = ({
             <InputText name="email" type="email" placeholder={t('formUser.email')} value={loginForm.email} onChange={changeField} />
           </div>
           <div className="login__column">
-            <InputText name="password" type="password" placeholder={t('formUser.password')} value={loginForm.password} onChange={changeField} />
+            <InputText name="password" type={type} placeholder={t('formUser.password')} value={loginForm.password} onChange={changeField} />
+            <span className="inputText--show-password-1" onClick={showHide}>{type === 'text' ? 'Hide' : 'Show'}</span>
             <div className="login__submitButton">
               <p className="login__error">{Error}</p>
               <SubmitButton label={t('formUser.logIn')} />
