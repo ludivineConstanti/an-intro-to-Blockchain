@@ -26,6 +26,7 @@ import Menu from 'src/containers/_pages/Menu';
 import Loading from 'src/containers/Loading';
 import { init, animate } from 'src/threeJsAnimation/threeJsAnimation';
 import i18next from 'src/i18next';
+import { baseUrlFront } from 'src/middlewares/baseUrl';
 import triggerAnimationBackground from 'src/middlewares/triggerAnimationBackground';
 // == Composant
 
@@ -36,6 +37,8 @@ const App = ({
   language,
   hasFinishedQuiz,
   backgroundClassName,
+  isPlayingTrue,
+  isPlayingFalse,
 }) => {
   useEffect(() => {
     // start the three.js scene
@@ -53,6 +56,22 @@ const App = ({
 
   document.title = window.location.href.slice(22);
   //! Améliorer ça
+
+  // ! Need to test if it works well with different url
+  // ! + need to remember to update the url path in the middleware folder
+  const regex = new RegExp('(https?:\/\/(www)?\.?)?([a-zA-Z0-9:]?(\d)*:?)+');
+  const regexUrl = new RegExp(baseUrlFront);
+  const pathUrl = window.location.href.replace(regex, '').replace(regexUrl, '');
+
+  useEffect(() => {
+    const testUrlIsPlaying = /(quiz\/\d)|(quizResult)/.test(pathUrl);
+    if (testUrlIsPlaying) {
+      isPlayingTrue();
+    }
+    else {
+      isPlayingFalse();
+    }
+  }, [pathUrl]);
 
   return (
     <div className="app">
@@ -85,11 +104,11 @@ const App = ({
             </Route>
             {/* Login after finishing quiz */}
             <Route path="/quizResult/login" exact>
-              { !hasFinishedQuiz ? <Redirect to="/login" /> : <LogIn finishedQuiz /> }
+              { !hasFinishedQuiz ? <Redirect to="/login" /> : <LogIn hasFinishedQuiz={hasFinishedQuiz} /> }
             </Route>
             {/* Register after finishing quiz */}
             <Route path="/quizResult/register" exact>
-              { !hasFinishedQuiz ? <Redirect to="/register" /> : <Register finishedQuiz /> }
+              { !hasFinishedQuiz ? <Redirect to="/register" /> : <Register hasFinishedQuiz={hasFinishedQuiz} /> }
             </Route>
             {/* Page - All article */}
             <Route path="/articles" exact>
@@ -133,6 +152,8 @@ App.propTypes = {
   language: PropTypes.string.isRequired,
   hasFinishedQuiz: PropTypes.bool.isRequired,
   backgroundClassName: PropTypes.string.isRequired,
+  isPlayingTrue: PropTypes.func.isRequired,
+  isPlayingFalse: PropTypes.func.isRequired,
 };
 // == Export
 export default App;

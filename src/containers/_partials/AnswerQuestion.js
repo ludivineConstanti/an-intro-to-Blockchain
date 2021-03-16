@@ -12,7 +12,7 @@ const mapStateToProps = (state) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-  increaseQuestion: (questionNumber) => dispatch(increaseQuestion(questionNumber)),
+  increaseQuestion: () => dispatch(increaseQuestion()),
   calculateQuiz: (currentQuizData, userQuizInfos, userAnswers) => {
     let score = 0;
     if (userQuizInfos.questionNumber === currentQuizData.totalQuestions) {

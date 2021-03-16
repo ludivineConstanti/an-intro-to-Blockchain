@@ -2,7 +2,7 @@ import {
   STOCK_ONE_QUIZ,
   INCREASE_QUESTION,
   STOCK_ANSWER,
-  VALIDATE_QUESTION,
+  CHANGE_USER_QUIZ_INFOS,
   USER_FINISHED_QUIZ,
 } from 'src/actions/quizzesActions';
 
@@ -12,6 +12,7 @@ const initialState = {
     questionNumber: 1,
     showAnswer: false,
     userAnswers: {},
+    isPlaying: false,
     hasFinishedQuiz: false,
     score: 0,
     totalAnswers: 0,
@@ -31,12 +32,12 @@ export default (state = initialState, action = {}) => {
         },
       };
     }
-    case VALIDATE_QUESTION: {
+    case CHANGE_USER_QUIZ_INFOS: {
       return {
         ...state,
         userQuizInfos: {
           ...state.userQuizInfos,
-          showAnswer: true,
+          [action.name]: action.value,
         },
       };
     }
@@ -46,7 +47,7 @@ export default (state = initialState, action = {}) => {
         userQuizInfos: {
           ...state.userQuizInfos,
           showAnswer: false,
-          questionNumber: action.questionNumber,
+          questionNumber: state.userQuizInfos.questionNumber + 1,
           currentQuestionId: state.userQuizInfos.currentQuestionId + 1,
         },
       };

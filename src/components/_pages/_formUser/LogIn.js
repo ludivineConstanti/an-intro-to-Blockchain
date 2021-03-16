@@ -34,11 +34,18 @@ const LogIn = ({
     }
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    handleLogin();
-    if (hasFinishedQuiz) {
-      validateQuiz();
+    try {
+      handleLogin();
+    }
+    catch (error) {
+      console.error(error);
+    }
+    finally {
+      if (hasFinishedQuiz) {
+        validateQuiz();
+      }
     }
   };
   return (

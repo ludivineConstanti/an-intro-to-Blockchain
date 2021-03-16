@@ -27,7 +27,7 @@ const AnswerQuestion = ({
   const { t } = useTranslation();
 
   const nextQuestion = () => {
-    increaseQuestion(questionNumber + 1);
+    increaseQuestion();
   };
 
   const explanationMessage = explanationScore(questionNumber, questionData, userAnswers, language);

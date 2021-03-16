@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FormQuestion from 'src/components/_partials/FormQuestion';
-import { validateQuestion, stockAnswer } from 'src/actions/quizzesActions';
+import { changeUserQuizInfos, stockAnswer } from 'src/actions/quizzesActions';
 
 const mapStateToProps = (state) => ({
   quizData: state.quiz.currentQuizData,
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  validateQuestion: () => dispatch(validateQuestion()),
+  validateQuestion: () => dispatch(changeUserQuizInfos(true, 'showAnswer')),
   stockAnswer: (userAnswer, questionNumber) => dispatch(stockAnswer(userAnswer, questionNumber)),
 });
 
