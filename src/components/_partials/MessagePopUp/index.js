@@ -7,29 +7,43 @@ import './style.scss';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
-const MessagePopUp = ({ path }) => (
-  <div className="messagePopUp">
-    <div className="messagePopUp__frame">
-      <h3 className="messagePopUp__textBig">Oh, no!
-        <span className="messagePopUp__textSmall">
-          You won't be able to save your score, if you leave this page
-        </span>
-      </h3>
-      <div className="messagePopUp__links">
-        <div className="messagePopUp__links__giveUp">
-          <LinkButton label="I don't care" path={path} />
-        </div>
-        <div className="messagePopUp__links__LogIn">
-          <LinkButton label="Register" path="/quizResult/register" />
-          <LinkButton label="Log in" path="/quizResult/login" />
+const MessagePopUp = ({
+  label, text, path, useCase, onClickToLeavePopUp,
+}) => {
+  const showLinks = useCase === 'quizResult';
+
+  return (
+    <div className="messagePopUp">
+      <div className="messagePopUp__frame">
+        <h3 className="messagePopUp__textBig">{label}
+          <span className="messagePopUp__textSmall">
+            {text}
+          </span>
+        </h3>
+        <div className="messagePopUp__links">
+          <div className="messagePopUp__links__giveUp" onClick={onClickToLeavePopUp}>
+            <LinkButton label="I don't care" path={path} onClick={onClickToLeavePopUp} />
+          </div>
+          <div className="messagePopUp__links__LogIn">
+            <LinkButton label="Register" path="/quizResult/register" />
+            <LinkButton label="Log in" path="/quizResult/login" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 MessagePopUp.propTypes = {
-  path: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  useCase: PropTypes.string.isRequired,
+  onClickToLeavePopUp: PropTypes.func.isRequired,
+  path: PropTypes.string,
+};
+
+MessagePopUp.defaultProps = {
+  path: '/quizzes',
 };
 
 // == Export

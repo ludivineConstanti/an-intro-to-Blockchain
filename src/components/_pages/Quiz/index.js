@@ -2,12 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
 import ProgressionBar from 'src/components/_statics/ProgressionBar';
 import FormQuestion from 'src/containers/_partials/FormQuestion';
 import AnswerQuestion from 'src/containers/_partials/AnswerQuestion';
+import CloseIcon from 'src/containers/_interactives/_buttonsHeader/CloseIcon';
+import MessagePopUp from 'src/containers/_partials/MessagePopUp';
 import Loading from 'src/containers/Loading';
 
 // == Composant
@@ -20,6 +23,9 @@ const Quiz = ({
   language,
   showPopUp,
 }) => {
+  // checks if the language was updated
+  const { t } = useTranslation();
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -38,6 +44,8 @@ const Quiz = ({
   return isReady
     ? (
       <>
+        <CloseIcon useCase="showPopUp" />
+        { showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="quiz" />}
         <ProgressionBar totalNum={quizData.totalQuestions} progressionNum={questionNumber} />
         <div className="quiz">
           {!showAnswer

@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
-import FormQuestion from 'src/components/_partials/FormQuestion';
-import { changeUserQuizInfos } from 'src/actions/quizzesActions';
-
-const mapStateToProps = (state) => ({
-});
+import MessagePopUp from 'src/components/_partials/MessagePopUp';
+import { leaveQuiz } from 'src/actions/quizzesActions';
+import { changeValueGlobal } from 'src/actions/appActions';
 
 const mapDispatchToProps = (dispatch) => ({
-  isPlayingFalse: () => {
-    console.log('triggered is playing false from router');
-    dispatch(changeUserQuizInfos(false, 'isPlaying'));
+  onClickToLeavePopUp: () => {
+    dispatch(changeValueGlobal(false, 'showPopUp'));
+    dispatch(leaveQuiz());
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormQuestion);
+export default connect(null, mapDispatchToProps)(MessagePopUp);

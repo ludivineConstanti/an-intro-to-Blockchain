@@ -5,7 +5,7 @@
 // to remember => DO NOT use div to position elements in the header
 // otherwise blocks the other elements under it
 // (even if a background is transparent, if its z-index is above the other one
-// the elements under will not ba clickable
+// the elements under will not be clickable
 
 .header {
 
@@ -32,24 +32,6 @@
   &__language {
     display: none;
   }
-
-  &__buttonTL, &__buttonTR {
-    position: fixed;
-    top: margins.$outsideBorderMobile;
-    z-index: 20;
-  }
-
-  &__buttonTL {
-    right: margins.$outsideBorderMobile;
-    //right: 0;
-  }
-  
-  &__svgTL, &__svgTR, &__username {
-    pointer-events: none;
-  }
-  &__svgTR, &__username {
-    display: none;
-  }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
@@ -62,6 +44,11 @@
     }
 
     &__language {
+      display: block;
+      position: fixed;
+      transform: rotate(-90deg);
+      top: 50vh;
+
       &, & button {
         color: rgba($color: #ffffff, $alpha: 0.25);
         text-transform: uppercase;
@@ -75,11 +62,6 @@
       &--active {
         color: white !important;
       } 
-      display: block;
-      position: fixed;
-      transform: rotate(-90deg);
-      //background-color: red;
-      top: 50vh;
 
       &__english {
         margin-right: 20px;
@@ -87,33 +69,6 @@
       &__french {
         margin-left: 20px; 
       }
-    }
-
-    &__buttonTL, &__buttonTR {
-      top: margins.$outsideBorderDesktop;
-    }
-  
-    &__buttonTL {
-      left: margins.$outsideBorderDesktop;
-    }
-  
-    &__buttonTR {
-      right: margins.$outsideBorderDesktop;
-    }
-  
-    &__svgTR, &__username {
-      display: block;
-    }
-
-    &__username {
-      font-size: fontSizes.$labelS2Desktop;
-      font-weight: bold;
-      
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      margin: auto;
     }
   }
 }

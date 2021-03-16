@@ -58,7 +58,11 @@
     "buttonSubmitQuestion": "Valider",
     "linkExternalArticle": "En savoir plus",
     "buttonNextQuestion": "Suivante",
-    "linkResults": "Resultats"
+    "linkResults": "Resultats",
+    "popUp": {
+      "label": "Oh, non !",
+      "text": "Vous perdrez votre progression, si vous quittez cette page"
+    }
   },
   "quizResult": {
     "messageScore": {
@@ -70,6 +74,10 @@
     },
     "textScore": " de réponses correctes",
     "linkArticles": "Lire plus d'articles",
-    "linkQuizzes": "Continuer"
+    "linkQuizzes": "Continuer",
+    "popUp": {
+      "label": "Oh, non !",
+      "text": "Vous ne pourrez pas enregistrer votre score, si vous quittez cette page"
+    }
   }
 }

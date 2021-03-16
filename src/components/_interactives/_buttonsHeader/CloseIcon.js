@@ -7,10 +7,13 @@ import './style.scss';
 import './animation.scss';
 
 // == Composant
-const CloseIcon = ({ onClickButtonMenu, useCase }) => {
+const CloseIcon = ({ onClickButtonMenu, onClickToShowPopUp, useCase }) => {
   const onClick = () => {
     if (useCase === 'menu') {
       onClickButtonMenu();
+    }
+    if (useCase === 'showPopUp') {
+      onClickToShowPopUp();
     }
   };
   return (
@@ -33,6 +36,7 @@ const CloseIcon = ({ onClickButtonMenu, useCase }) => {
 
 CloseIcon.propTypes = {
   onClickButtonMenu: PropTypes.func.isRequired,
+  onClickToShowPopUp: PropTypes.func.isRequired,
   useCase: PropTypes.string.isRequired,
 };
 

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 // == Import
 import './style.scss';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
-import MessagePopUp from 'src/components/_partials/MessagePopUp';
+import MessagePopUp from 'src/containers/_partials/MessagePopUp';
 
 // == Composant
 const QuizResult = ({ score, isLoggedIn, showPopUp }) => {
@@ -48,7 +48,7 @@ const QuizResult = ({ score, isLoggedIn, showPopUp }) => {
     );
   return (
     <>
-      {showPopUp && <MessagePopUp path={pathPopUp} />}
+      {showPopUp && <MessagePopUp label={t('quizResult.popUp.label')} text={t('quizResult.popUp.text')} useCase="quizResult" path={pathPopUp} />}
       <div className="quizResult">
         <h1 className="quizResult__title">
           <span className="quizResult__titlePart1">{score} %
