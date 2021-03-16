@@ -12,7 +12,6 @@ import explanationScore from './explanationScore';
 
 // == Composant
 const AnswerQuestion = ({
-  totalNum,
   questionNumber,
   increaseQuestion,
   validateQuiz,
@@ -51,7 +50,7 @@ const AnswerQuestion = ({
       </p>
       <div className="answerQuestion__links">
         <div className="answerQuestion__externalLink"><LinkButton label={t('quiz.linkExternalArticle')} path={questionData.articleLink} externalLink /></div>
-        {totalNum !== questionNumber
+        {currentQuizData.totalQuestions !== questionNumber
           ? <SubmitButton label={t('quiz.buttonNextQuestion')} onClick={nextQuestion} />
           : <div className="answerQuestion__results"><LinkButton label={t('quiz.linkResults')} path="/quizResult" onClickLink={goSeeResults} /></div>}
       </div>
@@ -60,7 +59,6 @@ const AnswerQuestion = ({
 };
 
 AnswerQuestion.propTypes = {
-  totalNum: PropTypes.number.isRequired,
   questionNumber: PropTypes.number.isRequired,
   increaseQuestion: PropTypes.func.isRequired,
   validateQuiz: PropTypes.func.isRequired,

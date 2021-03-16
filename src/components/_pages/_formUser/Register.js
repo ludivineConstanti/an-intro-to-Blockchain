@@ -17,6 +17,8 @@ const Register = ({
   changeField,
   handleRegister,
   emailError,
+  hasFinishedQuiz,
+  validateQuiz,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -93,13 +95,16 @@ const Register = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     handleRegister();
+    if (hasFinishedQuiz) {
+      validateQuiz();
+    }
   };
 
   return (
     <>
       <div className="register">
         <div className="register__login">
-          <LinkButton label={t('formUser.linkLogIn')} path="/login" className="size2" />
+          <LinkButton label={t('formUser.linkLogIn')} path={!hasFinishedQuiz ? '/login' : '/quizResult/login'} className="size2" />
         </div>
         <FormUser>
           <form onSubmit={handleSubmit} className="register__columns">
@@ -137,12 +142,15 @@ Register.propTypes = {
   changeField: PropTypes.func,
   handleRegister: PropTypes.func,
   emailError: PropTypes.bool,
+  hasFinishedQuiz: PropTypes.bool,
+  validateQuiz: PropTypes.func.isRequired,
 };
 
 Register.defaultProps = {
   changeField: () => {},
   handleRegister: () => {},
   emailError: false,
+  hasFinishedQuiz: false,
 };
 
 export default Register;

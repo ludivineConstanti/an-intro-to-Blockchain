@@ -1,5 +1,6 @@
 @use 'src/styles/margins';
 @use 'src/styles/breakpoints';
+@use 'src/styles/fontSizes';
 
 .menu {
   position: fixed;
@@ -17,6 +18,30 @@
     border-radius: 5px;
     background-color: rgba($color: #000000, $alpha: 0.5);
   }
+
+  &__language {
+    position: fixed;
+    width: calc(100vw - #{margins.$outsideBorderMobile} * 2 - 60px);
+    top: 40px;
+    display: flex;
+    justify-content: center;
+    &__english, &__french {
+      color: rgba($color: #ffffff, $alpha: 0.25);
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: fontSizes.$menuSmallMobile;
+      font-kerning: fontSizes.$menuSmallKerningMobile;
+    }
+    &--active {
+      color: white !important;
+    } 
+    &__english {
+      margin-right: 20px;
+    }
+    &__french {
+      margin-left: 20px; 
+    }
+  }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
@@ -28,6 +53,9 @@
     margin: margins.$outsideBorderDesktop;
     width: margins.$widthOutsideBorderDesktop;
     height: margins.$heightOutsideBorderDesktop; 
+  }
+  &__language {
+    display: none;
   }
 }
 }

@@ -7,6 +7,9 @@
   padding-right: 0;
   &--marginB {
     margin-bottom: 20px;
+    &-delete {
+      display: flex;
+    }
   }
 }
 
