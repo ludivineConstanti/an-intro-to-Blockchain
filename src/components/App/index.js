@@ -58,21 +58,10 @@ const App = ({
   // potentially better way to get url but need to check
   // ! Need to test if it works well with different url
   // ! + need to remember to update the url path in the middleware folder
-  // might have to delete later
-  // if put this code back needs to add the functions back in the container
   /* const regex = new RegExp('(https?:\/\/(www)?\.?)?([a-zA-Z0-9:]?(\d)*:?)+');
   const regexUrl = new RegExp(baseUrlFront);
   const pathUrl = window.location.href.replace(regex, '').replace(regexUrl, '');
-
-  useEffect(() => {
-    const testUrlIsPlaying = /(quiz\/\d)|(quizResult)/.test(pathUrl);
-    if (testUrlIsPlaying) {
-      isPlayingTrue();
-    }
-    else {
-      isPlayingFalse();
-    }
-  }, [pathUrl]); */
+*/
 
   return (
     <div className="app">

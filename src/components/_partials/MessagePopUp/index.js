@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // == Import
 import './style.scss';
@@ -10,7 +11,16 @@ import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 const MessagePopUp = ({
   label, text, path, useCase, onClickToLeavePopUp,
 }) => {
-  const showLinks = useCase === 'quizResult';
+  // without the language does not get updated
+  const { t } = useTranslation();
+
+  const rightPart = useCase === 'registerScore'
+    ? (
+      <>
+        <LinkButton label={t('menu.register')} path="/quizResult/register" />
+        <LinkButton label={t('menu.login')} path="/quizResult/login" />
+      </>
+    ) : (<LinkButton label={t('quiz.popUp.linkGoBack')} />);
 
   return (
     <div className="messagePopUp">
@@ -21,12 +31,11 @@ const MessagePopUp = ({
           </span>
         </h3>
         <div className="messagePopUp__links">
-          <div className="messagePopUp__links__giveUp" onClick={onClickToLeavePopUp}>
-            <LinkButton label="I don't care" path={path} onClick={onClickToLeavePopUp} />
+          <div className="messagePopUp__links__left" onClick={onClickToLeavePopUp}>
+            <LinkButton label={t('quiz.popUp.linkGiveUp')} path={path} onClick={onClickToLeavePopUp} />
           </div>
-          <div className="messagePopUp__links__LogIn">
-            <LinkButton label="Register" path="/quizResult/register" />
-            <LinkButton label="Log in" path="/quizResult/login" />
+          <div className="messagePopUp__links__right">
+            {rightPart}
           </div>
         </div>
       </div>

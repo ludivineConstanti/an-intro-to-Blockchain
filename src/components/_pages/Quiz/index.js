@@ -45,7 +45,7 @@ const Quiz = ({
     ? (
       <>
         <CloseIcon useCase="showPopUp" />
-        { showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="quiz" />}
+        { showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="keepPlaying" />}
         <ProgressionBar totalNum={quizData.totalQuestions} progressionNum={questionNumber} />
         <div className="quiz">
           {!showAnswer

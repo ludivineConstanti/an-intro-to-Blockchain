@@ -58,7 +58,9 @@
     "linkResults": "Results",
     "popUp": {
       "label": "Oh, no!",
-      "text": "You will loose your progress, if you leave this page"
+      "text": "You will loose your progress, if you leave this page",
+      "linkGiveUp": "I don't care",
+      "linkGoBack": "Keep playing"
     }
   },
   "quizResult": {

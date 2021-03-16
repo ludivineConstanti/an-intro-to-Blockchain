@@ -6,7 +6,6 @@
     "link2": "J'ai déjà un compte"
   },
   "menu": {
-
     "home": "Accueil",
     "quizzes": "Quizs",
     "articles": "Articles",
@@ -31,7 +30,6 @@
       "incorrectPassword": "Mot de passe incorrect",
       "incorrectNewPassword": "Votre mot de passe doit contenir au moins 8 caractères dont une majuscule et un chiffre",
       "emptyInput": "Veuillez remplir tout les champs"
-
     },
     "password": "Mot de passe",
     "passwordOld": "Votre mot de passe actuel",
@@ -61,7 +59,9 @@
     "linkResults": "Resultats",
     "popUp": {
       "label": "Oh, non !",
-      "text": "Vous perdrez votre progression, si vous quittez cette page"
+      "text": "Vous perdrez votre progression, si vous quittez cette page",
+      "linkGiveUp": "Pas grave",
+      "linkGoBack": "Continuer à jouer"
     }
   },
   "quizResult": {

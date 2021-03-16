@@ -9,6 +9,8 @@ import FormUser from 'src/components/_partials/FormUser';
 import InputText from 'src/components/_interactives/InputText';
 import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
+import CloseIcon from 'src/containers/_interactives/_buttonsHeader/CloseIcon';
+import MessagePopUp from 'src/containers/_partials/MessagePopUp';
 
 // == Composant
 const LogIn = ({
@@ -18,6 +20,7 @@ const LogIn = ({
   loginError,
   hasFinishedQuiz,
   validateQuiz,
+  showPopUp,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -57,26 +60,30 @@ const LogIn = ({
     }
   };
   return (
-    <div className="login">
-      <div className="login__login">
-        <LinkButton label={t('formUser.linkCreateAccount')} path={!hasFinishedQuiz ? '/register' : '/quizResult/register'} className="size2" />
-      </div>
-      <FormUser>
-        <form onSubmit={handleSubmit} className="login__columns">
-          <div className="login__column">
-            <InputText name="email" type="email" placeholder={t('formUser.email')} value={loginForm.email} onChange={changeField} />
-          </div>
-          <div className="login__column">
-            <InputText name="password" type={type} placeholder={t('formUser.password')} value={loginForm.password} onChange={changeField} />
-            <span className="inputText--show-password-1" onClick={showHide}>{type === 'text' ? 'Hide' : 'Show'}</span>
-            <div className="login__submitButton">
-              <p className="login__error">{Error}</p>
-              <SubmitButton label={t('formUser.logIn')} />
+    <>
+      { hasFinishedQuiz && <CloseIcon useCase="showPopUp" />}
+      { hasFinishedQuiz && showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="registerScore" path="/" />}
+      <div className="login">
+        <div className="login__login">
+          <LinkButton label={t('formUser.linkCreateAccount')} path={!hasFinishedQuiz ? '/register' : '/quizResult/register'} className="size2" />
+        </div>
+        <FormUser>
+          <form onSubmit={handleSubmit} className="login__columns">
+            <div className="login__column">
+              <InputText name="email" type="email" placeholder={t('formUser.email')} value={loginForm.email} onChange={changeField} />
             </div>
-          </div>
-        </form>
-      </FormUser>
-    </div>
+            <div className="login__column">
+              <InputText name="password" type={type} placeholder={t('formUser.password')} value={loginForm.password} onChange={changeField} />
+              <span className="inputText--show-password-1" onClick={showHide}>{type === 'text' ? 'Hide' : 'Show'}</span>
+              <div className="login__submitButton">
+                <p className="login__error">{Error}</p>
+                <SubmitButton label={t('formUser.logIn')} />
+              </div>
+            </div>
+          </form>
+        </FormUser>
+      </div>
+    </>
   );
 };
 
@@ -87,6 +94,7 @@ LogIn.propTypes = {
   loginError: PropTypes.bool,
   hasFinishedQuiz: PropTypes.bool,
   validateQuiz: PropTypes.func.isRequired,
+  showPopUp: PropTypes.bool.isRequired,
 };
 
 LogIn.defaultProps = {

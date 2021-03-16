@@ -35,10 +35,10 @@
     margin-top: 40px;;
     width: 100%;
     display: flex;
-    &__giveUp, &__logIn {
+    &__left, &__right {
       width: 50%;
     }
-    &__LogIn {
+    &__right {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;

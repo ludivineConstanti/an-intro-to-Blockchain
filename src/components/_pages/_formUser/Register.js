@@ -9,6 +9,8 @@ import FormUser from 'src/components/_partials/FormUser';
 import InputText from 'src/components/_interactives/InputText';
 import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
+import CloseIcon from 'src/containers/_interactives/_buttonsHeader/CloseIcon';
+import MessagePopUp from 'src/containers/_partials/MessagePopUp';
 
 const zxcvbn = require('zxcvbn');
 // == Composant
@@ -19,6 +21,7 @@ const Register = ({
   emailError,
   hasFinishedQuiz,
   validateQuiz,
+  showPopUp,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -112,6 +115,8 @@ const Register = ({
 
   return (
     <>
+      { hasFinishedQuiz && <CloseIcon useCase="showPopUp" /> }
+      { hasFinishedQuiz && showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="registerScore" path="/" /> }
       <div className="register">
         <div className="register__login">
           <LinkButton label={t('formUser.linkLogIn')} path={!hasFinishedQuiz ? '/login' : '/quizResult/login'} className="size2" />
@@ -154,6 +159,7 @@ Register.propTypes = {
   emailError: PropTypes.bool,
   hasFinishedQuiz: PropTypes.bool,
   validateQuiz: PropTypes.func.isRequired,
+  showPopUp: PropTypes.bool.isRequired,
 };
 
 Register.defaultProps = {
