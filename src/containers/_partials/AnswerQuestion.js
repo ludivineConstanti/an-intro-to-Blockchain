@@ -14,7 +14,6 @@ const mapStateToProps = (state) => (
 const mapDispatchToProps = (dispatch) => ({
   increaseQuestion: (questionNumber) => dispatch(increaseQuestion(questionNumber)),
   calculateQuiz: (currentQuizData, userQuizInfos, userAnswers) => {
-    console.log('calculate quiz');
     let goodAnswers = 0;
     let totalAnswers = 0;
     if (userQuizInfos.questionNumber
@@ -30,11 +29,8 @@ const mapDispatchToProps = (dispatch) => ({
           totalAnswers += 1;
         }
       }
-      console.log('good answer', goodAnswers);
       const score = Math.round(goodAnswers / totalAnswers * 100);
-      console.log('score', score);
       dispatch(userFinishedQuiz(score, totalAnswers, goodAnswers));
-      console.log(`QuizId : ${currentQuizData.id} ; Score : ${score}`);
     }
   },
   validateQuiz: () => dispatch(validateQuiz()),

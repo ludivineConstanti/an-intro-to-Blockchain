@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
@@ -10,12 +11,16 @@ import ProgressBar from 'src/components/_partials/CategoryAchievement/ProgressBa
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 
 // == Composant
-const QuizAchievements = () => {
+const QuizAchievements = ({
+  quizId,
+  label,
+  score,
+}) => {
   // without the language does not get updated
   const { t } = useTranslation();
   return (
     <div className="quizAchievement">
-      <h3 className="quizAchievement__quizTitle">Quiz name</h3>
+      <h3 className="quizAchievement__quizTitle">{label}</h3>
       <div className="quizAchievement__frame">
         <div className="quizAchievement__iconDiv">
           <Icon category={1} quiz={1} />
@@ -36,12 +41,18 @@ const QuizAchievements = () => {
           </svg>
         </div>
         <div className="quizAchievement__score">
-          <ProgressBar percentage={80} useCase="quiz" />
-          <LinkButton label={t('achievements.linkReplayQuiz')} path="/pathToDynamise" className="size2" />
+          <ProgressBar percentage={score} useCase="quiz" />
+          <LinkButton label={t('achievements.linkReplayQuiz')} path={`/quiz/${quizId}`} className="size2" />
         </div>
       </div>
     </div>
   );
+};
+
+QuizAchievements.propTypes = {
+  quizId: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 // == Export
