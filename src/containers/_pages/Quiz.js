@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Quiz from 'src/components/_pages/Quiz';
-import { getOneQuiz } from 'src/actions/quizzesActions';
+import { getOneQuiz, changeUserQuizInfos } from 'src/actions/quizzesActions';
 
 const mapStateToProps = (state) => ({
   quizData: state.quiz.currentQuizData,
@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   questionId: state.quiz.userQuizInfos.currentQuestionId,
   showAnswer: state.quiz.userQuizInfos.showAnswer,
   language: state.global.language,
+  showPopUp: state.global.showPopUp,
 });
 
 const mapDispatchToProps = (dispatch) => ({

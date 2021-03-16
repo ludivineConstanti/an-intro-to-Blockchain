@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -9,12 +9,11 @@ import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 import MessagePopUp from 'src/components/_partials/MessagePopUp';
 
 // == Composant
-const QuizResult = ({ score, isLoggedIn }) => {
+const QuizResult = ({ score, isLoggedIn, showPopUp }) => {
   // checks if the language was updated
   const { t } = useTranslation();
   const chooseMessage = Math.floor(score / 100 * 4);
 
-  const [showPopUp, setShowPopUp] = useState(false);
   let pathPopUp = '';
 
   const linksBottom = isLoggedIn
@@ -33,7 +32,6 @@ const QuizResult = ({ score, isLoggedIn }) => {
           className="quizResult__redirectLink1"
           onClick={() => {
             pathPopUp = '/articles';
-            setShowPopUp(true);
           }}
         >
           <LinkButton label={t('quizResult.linkArticles')} fakeLink />
@@ -42,7 +40,6 @@ const QuizResult = ({ score, isLoggedIn }) => {
           className="quizResult__redirectLink2"
           onClick={() => {
             pathPopUp = '/quizzes';
-            setShowPopUp(true);
           }}
         >
           <LinkButton label={t('quizResult.linkQuizzes')} fakeLink />
@@ -68,6 +65,7 @@ const QuizResult = ({ score, isLoggedIn }) => {
 QuizResult.propTypes = {
   score: PropTypes.number.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  showPopUp: PropTypes.bool.isRequired,
 };
 
 // == Export

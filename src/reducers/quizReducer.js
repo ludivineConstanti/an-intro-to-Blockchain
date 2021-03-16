@@ -17,6 +17,7 @@ const initialState = {
     score: 0,
     totalAnswers: 0,
     goodAnswers: 0,
+    currentQuestionId: 1,
   },
 };
 
@@ -29,6 +30,7 @@ export default (state = initialState, action = {}) => {
         userQuizInfos: {
           ...initialState.userQuizInfos,
           currentQuestionId: action.currentQuizData.idFirstQuestion,
+          isPlaying: true,
         },
       };
     }

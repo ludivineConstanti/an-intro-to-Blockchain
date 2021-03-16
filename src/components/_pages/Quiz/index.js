@@ -18,11 +18,14 @@ const Quiz = ({
   questionId,
   showAnswer,
   language,
+  showPopUp,
 }) => {
   const { id } = useParams();
+
   useEffect(() => {
     getOneQuiz(id);
   }, [language]);
+
   const [isReady, setIsReady] = useState(false);
   const currentQuestionData = quizData[`question${questionId}`];
 
@@ -63,6 +66,7 @@ Quiz.propTypes = {
   questionId: PropTypes.number.isRequired,
   showAnswer: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
+  showPopUp: PropTypes.bool.isRequired,
 };
 
 Quiz.defaultProps = {

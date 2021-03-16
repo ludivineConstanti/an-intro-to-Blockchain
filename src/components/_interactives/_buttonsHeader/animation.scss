@@ -2,22 +2,11 @@
 @use 'src/styles/breakpoints';
 
 @media only screen and (min-width: breakpoints.$desktop) {
-.header {
+  .closeIcon, .menuIcon {
   transition-duration: animations.$tDurationG;
   transition-timing-function: animations.$tTimingFG;
 
-  &__language {
-    &__english, &__french {
-      &:hover {
-        transition-duration: animations.$tDurationG;
-        transition-timing-function: animations.$tTimingFG;
-        color: white;
-        border-bottom: 1px solid white;
-      }
-    }
-  }
-
-&__buttonTL:hover .header,  &__buttonTR:hover .header {
+&:hover .closeIcon,  &:hover .menuIcon{
 
   &__corners, &__mainStrokes {
     transition-duration: animations.$tDurationG;
@@ -30,7 +19,7 @@
     opacity: 0.75;
   }
 }
-&__buttonTL:active .header,  &__buttonTR:active .header {
+&:active .closeIcon,  &:active .menuIcon {
 
   &__corners, &__mainStrokes {
     transition-duration: animations.$tDurationG;

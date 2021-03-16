@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Header from 'src/components/Header';
-import { toggleMenu, changeValueGlobal } from 'src/actions/appActions';
+import { changeValueGlobal } from 'src/actions/appActions';
 
 const mapState = (state) => {
   const letterFirstName = state.user.infos.firstname.charAt(0).toUpperCase();
@@ -15,7 +15,6 @@ const mapState = (state) => {
   });
 };
 const mapDispatchToProps = (dispatch) => ({
-  onClickButtonMenu: () => dispatch(toggleMenu()),
   onClickLanguage: (event) => dispatch(changeValueGlobal(event.target.value, 'language')),
 });
 

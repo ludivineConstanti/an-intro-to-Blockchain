@@ -1,0 +1,24 @@
+@use 'src/styles/margins';
+@use 'src/styles/breakpoints';
+
+.closeIcon, .menuIcon {
+  position: fixed;
+  top: margins.$outsideBorderMobile;
+  z-index: 20;
+  &__svg {
+    pointer-events: none;
+  }
+  &--topLeftDesktop {
+    right: margins.$outsideBorderMobile;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .closeIcon, .menuIcon {
+    top: margins.$outsideBorderDesktop;
+    &--topLeftDesktop {
+      left: margins.$outsideBorderDesktop;
+    }
+  }
+}
+
