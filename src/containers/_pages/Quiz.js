@@ -5,6 +5,7 @@ import { getOneQuiz } from 'src/actions/quizzesActions';
 const mapStateToProps = (state) => ({
   quizData: state.quiz.currentQuizData,
   questionNumber: state.quiz.userQuizInfos.questionNumber,
+  questionId: state.quiz.userQuizInfos.currentQuestionId,
   showAnswer: state.quiz.userQuizInfos.showAnswer,
   language: state.global.language,
 });

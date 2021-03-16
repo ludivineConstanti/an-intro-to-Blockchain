@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -16,6 +17,7 @@ const LinkButton = ({
   className,
   onClickLink,
   externalLink,
+  fakeLink,
 }) => {
   const classDiv = `linkButton linkButton--${className}`;
   const classTriangle = `linkButton__triangle linkButton__triangle--${className}`;
@@ -30,21 +32,23 @@ const LinkButton = ({
       </div>
     </div>
   );
+  let linkType = (
+    <Link to={path} onClick={onClickLink}>{content}
+    </Link>
+  );
+  if (externalLink) {
+    linkType = (
+      <a href={path} rel="noreferrer nofollow noopener" target="_blank">
+        {content}
+      </a>
+    );
+  }
   // eslint-disable-next-line no-unused-expressions
+  // ternary expression with 3 different options instead of 2
   return (
     <>
       {
-        !externalLink
-          ? (
-            <Link to={path} onClick={onClickLink}>
-              {content}
-            </Link>
-          )
-          : (
-            <a href={path} rel="noreferrer nofollow noopener" target="_blank">
-              {content}
-            </a>
-          )
+        !fakeLink ? (<>{ linkType }</>) : (<>{ content }</>)
       }
     </>
   );
@@ -57,6 +61,7 @@ LinkButton.defaultProps = {
     triggerAnimationBackground();
   },
   externalLink: false,
+  fakeLink: false,
 };
 
 LinkButton.propTypes = {
@@ -65,6 +70,7 @@ LinkButton.propTypes = {
   className: PropTypes.string,
   onClickLink: PropTypes.func,
   externalLink: PropTypes.bool,
+  fakeLink: PropTypes.bool,
 };
 
 // == Export

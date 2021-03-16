@@ -16,6 +16,8 @@ const LogIn = ({
   changeField,
   handleLogin,
   loginError,
+  hasFinishedQuiz,
+  validateQuiz,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -35,11 +37,14 @@ const LogIn = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin();
+    if (hasFinishedQuiz) {
+      validateQuiz();
+    }
   };
   return (
     <div className="login">
       <div className="login__login">
-        <LinkButton label={t('formUser.linkCreateAccount')} path="/register" className="size2" />
+        <LinkButton label={t('formUser.linkCreateAccount')} path={!hasFinishedQuiz ? '/register' : '/quizResult/register'} className="size2" />
       </div>
       <FormUser>
         <form onSubmit={handleSubmit} className="login__columns">
@@ -64,12 +69,15 @@ LogIn.propTypes = {
   changeField: PropTypes.func,
   handleLogin: PropTypes.func,
   loginError: PropTypes.bool,
+  hasFinishedQuiz: PropTypes.bool,
+  validateQuiz: PropTypes.func.isRequired,
 };
 
 LogIn.defaultProps = {
   loginError: false,
   changeField: () => {},
   handleLogin: () => {},
+  hasFinishedQuiz: false,
 };
 
 // == Export

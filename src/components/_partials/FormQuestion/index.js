@@ -51,7 +51,7 @@ const FormQuestion = ({
           />
         ))
       }
-      {!answerShowed && (<SubmitButton label="Validate" />)}
+      {!answerShowed && (<SubmitButton label={t('quiz.buttonSubmitQuestion')} />)}
     </form>
   );
 };

@@ -2,6 +2,7 @@ export default (quizData) => {
   const quizFormatted = {
     title: quizData[0].quiz_title,
     id: quizData[0].quiz_id,
+    idFirstQuestion: quizData[0].question_id,
     totalQuestions: 0,
   };
 

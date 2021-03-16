@@ -3,8 +3,7 @@ import QuizResult from 'src/components/_pages/QuizResult';
 
 const mapStateToProps = (state) => ({
   score: state.quiz.userQuizInfos.score,
-  totalAnswers: state.quiz.userQuizInfos.totalAnswers,
-  goodAnswers: state.quiz.userQuizInfos.goodAnswers,
+  isLoggedIn: state.user.infos.isLoggedIn,
 });
 
 export default connect(mapStateToProps, {})(QuizResult);
