@@ -3,7 +3,7 @@ export const STOCK_ALL_QUIZZES = 'STOCK_ALL_QUIZZES';
 export const GET_ONE_QUIZ = 'GET_ONE_QUIZ';
 export const STOCK_ONE_QUIZ = 'STOCK_ONE_QUIZ';
 export const STOCK_ANSWER = 'STOCK_ANSWER';
-export const VALIDATE_QUESTION = 'VALIDATE_QUESTION';
+export const CHANGE_USER_QUIZ_INFOS = 'CHANGE_USER_QUIZ_INFOS';
 export const INCREASE_QUESTION = 'INCREASE_QUESTION';
 export const VALIDATE_QUIZ = 'VALIDATE_QUIZ';
 export const USER_FINISHED_QUIZ = 'USER_FINISHED_QUIZ';
@@ -33,13 +33,14 @@ export const stockAnswer = (userAnswers, questionNumber) => ({
   questionNumber,
 });
 
-export const validateQuestion = () => ({
-  type: VALIDATE_QUESTION,
+export const changeUserQuizInfos = (value, name) => ({
+  type: CHANGE_USER_QUIZ_INFOS,
+  name,
+  value,
 });
 
-export const increaseQuestion = (questionNumber) => ({
+export const increaseQuestion = () => ({
   type: INCREASE_QUESTION,
-  questionNumber,
 });
 
 export const validateQuiz = () => ({

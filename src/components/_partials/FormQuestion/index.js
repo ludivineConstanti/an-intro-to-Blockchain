@@ -36,7 +36,7 @@ const FormQuestion = ({
         {!answerShowed
         && (
         <span className="formQuestion__instruction">
-          {question.totalGoodAnswer === 1 ? t('quiz.numberAnswersSingular')
+          {question.answersInfo.good === 1 ? t('quiz.numberAnswersSingular')
             : t('quiz.numberAnswersPlural')}
         </span>
         )}

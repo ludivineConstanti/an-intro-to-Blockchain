@@ -92,11 +92,21 @@ const Register = ({
 
   // Fonction to control the correspondence of passwords,
   // and lengths of firstname and lastname
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    handleRegister();
-    if (hasFinishedQuiz) {
-      validateQuiz();
+    try {
+      handleRegister();
+    }
+    catch (error) {
+      console.error(error);
+    }
+    finally {
+      console.log('finished quiz');
+      console.log('has finished quiz', hasFinishedQuiz);
+      if (hasFinishedQuiz) {
+        console.log('inside if loop');
+        validateQuiz();
+      }
     }
   };
 

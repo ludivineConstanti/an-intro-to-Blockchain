@@ -11,6 +11,7 @@ const mapState = (state) => {
     initials: letters,
     menuOpen: state.global.menuOpen,
     language: state.global.language,
+    isPlaying: state.quiz.userQuizInfos.isPlaying,
   });
 };
 const mapDispatchToProps = (dispatch) => ({
