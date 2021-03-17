@@ -25,6 +25,7 @@ const Settings = ({
   incorrectPasswordError,
   newPasswordError,
   emailError,
+  emailFormatError,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -36,6 +37,7 @@ const Settings = ({
   const [typeFormNewPassword, setTypeFormNewPassword] = useState('password');
   const [typeFormNewEmail, setTypeFormNewEmail] = useState('password');
   const [typeFormDelete, setTypeFormDelete] = useState('password');
+  const [EmailFormatError, setEmailFormatError] = useState('');
 
   const showHideForm1 = (event) => {
     event.preventDefault();
@@ -76,6 +78,10 @@ const Settings = ({
       setEmailError(t('formUser.errorMessage.incorrectEmail'));
     }
     else setEmailError('');
+    if (emailFormatError === true) {
+      setEmailFormatError(t('formUser.errorMessage.emailFormatError'));
+    }
+    else setEmailFormatError('');
   });
 
   // Fonction to control the correspondence of passwords,
@@ -129,6 +135,7 @@ const Settings = ({
             <div className="settings__column">
               <span className="inputText--show-password-1" onClick={showHideForm2}>{typeFormNewEmail === 'text' ? 'Hide' : 'Show'}</span>
               <p className="settings__error">{IncorrectPasswordError}</p>
+              <p className="settings__error">{EmailFormatError}</p>
               <p className="settings__error">{EmailError}</p>
               <SubmitButton label={t('formUser.buttonChangeEmail')} />
             </div>
@@ -164,6 +171,7 @@ Settings.propTypes = {
   incorrectPasswordError: PropTypes.bool,
   newPasswordError: PropTypes.bool,
   emailError: PropTypes.bool,
+  emailFormatError: PropTypes.bool,
 };
 
 Settings.defaultProps = {
@@ -174,6 +182,7 @@ Settings.defaultProps = {
   incorrectPasswordError: false,
   newPasswordError: false,
   emailError: false,
+  emailFormatError: false,
 };
 
 // == Export

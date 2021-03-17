@@ -22,8 +22,11 @@ const Register = ({
   hasFinishedQuiz,
   resetQuizState,
   validateQuiz,
+  newPasswordError,
+  emailFormatError,
   showPopUp,
   isLoggedIn,
+
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -32,11 +35,12 @@ const Register = ({
   // because of the fonction's scope
   const [FirstnameInfos, setFirstnameInfos] = useState('');
   const [LastnameInfos, setLastnameInfos] = useState('');
-  const [PasswordInfos, setPasswordInfos] = useState('');
   const [PasswordConfirmError, setPasswordConfirmError] = useState('');
   const [EmailError, setEmailError] = useState('');
   const [EmptyFieldError, setEmptyFieldError] = useState('');
   const [SubmitButtonClass, setSubmitButton] = useState('hidden');
+  const [NewPasswordError, setNewPasswordError] = useState('');
+  const [EmailFormatError, setEmailFormatError] = useState('');
   const [type, setType] = useState('password');
   const [score, setScore] = useState('null');
 
@@ -72,10 +76,6 @@ const Register = ({
       setLastnameInfos(t('formUser.errorMessage.lengthLastname'));
     }
     else setLastnameInfos('');
-    if (registerForm.password.length < 8 || registerForm.password.length > 100) {
-      setPasswordInfos(t('formUser.errorMessage.incorrectNewPassword'));
-    }
-    else setPasswordInfos('');
     if (registerForm.password !== registerForm.controlPassword) {
       setPasswordConfirmError(t('formUser.errorMessage.passwordsDontMatch'));
     }
@@ -84,6 +84,14 @@ const Register = ({
       setEmailError(t('formUser.errorMessage.incorrectEmail'));
     }
     else setEmailError('');
+    if (newPasswordError === true) {
+      setNewPasswordError(t('formUser.errorMessage.incorrectNewPassword'));
+    }
+    else setNewPasswordError('');
+    if (emailFormatError === true) {
+      setEmailFormatError(t('formUser.errorMessage.emailFormatError'));
+    }
+    else setEmailFormatError('');
     if (registerForm.firstname !== ''
     && registerForm.lastname !== ''
     && registerForm.password === registerForm.controlPassword
@@ -126,15 +134,16 @@ const Register = ({
               <InputText name="lastname" type="text" placeholder={t('formUser.lastname')} value={registerForm.lastname} onChange={changeField} />
             </div>
             <div className="register__column">
-              <p className="register__error">{PasswordInfos}</p>
+              <p className="register__error">{NewPasswordError}</p>
               <div className="inputText--label-password">
                 <InputText name="password" type={type} className="input-password" placeholder={t('formUser.password')} value={registerForm.password} onChange={onChangePasswordInput} />
                 <span className="inputText--show-password" onClick={showHide}>{type === 'text' ? 'Hide' : 'Show'}</span>
                 <span className="inputText--strength-password" data-score={score} />
               </div>
               <p className="register__error">{PasswordConfirmError}</p>
-              <InputText name="controlPassword" type="password" placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={changeField} />
+              <InputText name="controlPassword" type={type} placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={changeField} />
               <p className="register__error">{EmailError}</p>
+              <p className="register__error">{EmailFormatError}</p>
               <InputText name="email" type="email" placeholder={t('formUser.email')} value={registerForm.email} onChange={changeField} />
               <p className="register__error">{EmptyFieldError}</p>
               <div className="register__submitButton">
@@ -156,6 +165,8 @@ Register.propTypes = {
   hasFinishedQuiz: PropTypes.bool,
   validateQuiz: PropTypes.func.isRequired,
   resetQuizState: PropTypes.func.isRequired,
+  newPasswordError: PropTypes.bool,
+  emailFormatError: PropTypes.bool,
   showPopUp: PropTypes.bool.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
 };
@@ -165,6 +176,8 @@ Register.defaultProps = {
   handleRegister: () => {},
   emailError: false,
   hasFinishedQuiz: false,
+  newPasswordError: false,
+  emailFormatError: false,
 };
 
 export default Register;

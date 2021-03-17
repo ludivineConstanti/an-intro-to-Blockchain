@@ -6,6 +6,8 @@ import { validateQuiz, leaveQuiz } from 'src/actions/quizzesActions';
 const mapStateToProps = (state) => ({
   registerForm: state.user.registerForm,
   emailError: state.user.errors.emailError,
+  emailFormatError: state.user.errors.emailFormatError,
+  newPasswordError: state.user.errors.newPasswordError,
   showPopUp: state.global.showPopUp,
   isLoggedIn: state.user.infos.isLoggedIn,
 });
