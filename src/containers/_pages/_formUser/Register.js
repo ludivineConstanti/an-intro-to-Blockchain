@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   emailError: state.user.errors.emailError,
   emailFormatError: state.user.errors.emailFormatError,
   newPasswordError: state.user.errors.newPasswordError,
+  showPopUp: state.global.showPopUp,
 });
 
 const mapDispatchToProps = (dispatch) => ({

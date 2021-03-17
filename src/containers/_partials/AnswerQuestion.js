@@ -12,7 +12,7 @@ const mapStateToProps = (state) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-  increaseQuestion: (questionNumber) => dispatch(increaseQuestion(questionNumber)),
+  increaseQuestion: () => dispatch(increaseQuestion()),
   calculateQuiz: (currentQuizData, userQuizInfos, userAnswers) => {
     let score = 0;
     if (userQuizInfos.questionNumber === currentQuizData.totalQuestions) {
@@ -41,9 +41,7 @@ const mapDispatchToProps = (dispatch) => ({
           if (numAdded > 0) score += numAdded;
         }
       }
-
       const scorePercentage = Math.round(score / currentQuizData.totalQuestions * 100);
-
       dispatch(userFinishedQuiz(scorePercentage, currentQuizData.totalQuestions, score));
     }
   },

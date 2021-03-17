@@ -6,7 +6,6 @@
     "link2": "J'ai déjà un compte"
   },
   "menu": {
-
     "home": "Accueil",
     "quizzes": "Quizs",
     "articles": "Articles",
@@ -30,8 +29,10 @@
       "incorrectEmail": "Email déjà existant",
       "incorrectPassword": "Mot de passe incorrect",
       "incorrectNewPassword": "Votre mot de passe doit contenir au moins 8 caractères dont une majuscule et un chiffre",
+
       "emptyInput": "Veuillez remplir tout les champs",
       "emailFormatError": "Adresse mail invalide"
+
 
     },
     "password": "Mot de passe",
@@ -59,7 +60,13 @@
     "buttonSubmitQuestion": "Valider",
     "linkExternalArticle": "En savoir plus",
     "buttonNextQuestion": "Suivante",
-    "linkResults": "Resultats"
+    "linkResults": "Resultats",
+    "popUp": {
+      "label": "Oh, non !",
+      "text": "Vous perdrez votre progression, si vous quittez cette page",
+      "linkGiveUp": "Pas grave",
+      "linkGoBack": "Continuer à jouer"
+    }
   },
   "quizResult": {
     "messageScore": {
@@ -71,6 +78,10 @@
     },
     "textScore": " de réponses correctes",
     "linkArticles": "Lire plus d'articles",
-    "linkQuizzes": "Continuer"
+    "linkQuizzes": "Continuer",
+    "popUp": {
+      "label": "Oh, non !",
+      "text": "Vous ne pourrez pas enregistrer votre score, si vous quittez cette page"
+    }
   }
 }

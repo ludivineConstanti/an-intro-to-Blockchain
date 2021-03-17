@@ -1,5 +1,5 @@
 @protocol= https
-@domainname= apov7.herokuapp.com
+@domainname= apov9.herokuapp.com
 @baseUrl = {{protocol}}://{{domainname}}
 
 
@@ -11,18 +11,19 @@ POST {{baseUrl}}/login
 Content-type: application/json
 
 {
-    "email": "azerty@oclock.io",
-    "password": "lesuperpasswordA45"
+    "email": "maisjenelestouchejamais@tropsale.com",
+    "password": "jaiuneVACHEet3MOUTON"
 }
 
 ### Route POST /login
 
-POST {{baseUrl}}/login
+PUT {{baseUrl}}/score
 Content-type: application/json
 
 {
-    "email": "philipope@oclock.io",
-    "password": "$2b$10$7vwYGrz2TGeyG4X8YnD9BOag9I.YKGUTJELs64qGmcK/syHu2BzTG"
+    "quizId": 13,
+    "userId": 42,
+    "scoreQuiz": 11
 }
 
 

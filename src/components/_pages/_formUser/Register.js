@@ -9,6 +9,8 @@ import FormUser from 'src/components/_partials/FormUser';
 import InputText from 'src/components/_interactives/InputText';
 import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
+import CloseIcon from 'src/containers/_interactives/_buttonsHeader/CloseIcon';
+import MessagePopUp from 'src/containers/_partials/MessagePopUp';
 
 const zxcvbn = require('zxcvbn');
 // == Composant
@@ -21,6 +23,8 @@ const Register = ({
   validateQuiz,
   newPasswordError,
   emailFormatError,
+  showPopUp,
+
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -99,16 +103,28 @@ const Register = ({
 
   // Fonction to control the correspondence of passwords,
   // and lengths of firstname and lastname
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    handleRegister();
-    if (hasFinishedQuiz) {
-      validateQuiz();
+    try {
+      handleRegister();
+    }
+    catch (error) {
+      console.error(error);
+    }
+    finally {
+      console.log('finished quiz');
+      console.log('has finished quiz', hasFinishedQuiz);
+      if (hasFinishedQuiz) {
+        console.log('inside if loop');
+        validateQuiz();
+      }
     }
   };
 
   return (
     <>
+      { hasFinishedQuiz && <CloseIcon useCase="showPopUp" /> }
+      { hasFinishedQuiz && showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="registerScore" path="/" /> }
       <div className="register">
         <div className="register__login">
           <LinkButton label={t('formUser.linkLogIn')} path={!hasFinishedQuiz ? '/login' : '/quizResult/login'} className="size2" />
@@ -154,6 +170,7 @@ Register.propTypes = {
   validateQuiz: PropTypes.func.isRequired,
   newPasswordError: PropTypes.bool,
   emailFormatError: PropTypes.bool,
+  showPopUp: PropTypes.bool.isRequired,
 };
 
 Register.defaultProps = {

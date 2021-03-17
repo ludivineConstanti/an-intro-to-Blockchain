@@ -57,7 +57,13 @@
     "linkExternalArticle": "Learn more",
     "buttonSubmitQuestion": "Validate",
     "buttonNextQuestion": "Next",
-    "linkResults": "Results"
+    "linkResults": "Results",
+    "popUp": {
+      "label": "Oh, no!",
+      "text": "You will loose your progress, if you leave this page",
+      "linkGiveUp": "I don't care",
+      "linkGoBack": "Keep playing"
+    }
   },
   "quizResult": {
     "messageScore": {
@@ -69,6 +75,10 @@
     },
     "textScore": " correct answers",
     "linkArticles": "More articles",
-    "linkQuizzes": "Continue"
+    "linkQuizzes": "Continue",
+    "popUp": {
+      "label": "Oh, no!",
+      "text": "You won't be able to save your score, if you leave this page"
+    }
   }
 }

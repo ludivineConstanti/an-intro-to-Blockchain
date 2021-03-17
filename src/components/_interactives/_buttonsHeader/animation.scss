@@ -1,0 +1,32 @@
+@use 'src/styles/animations';
+@use 'src/styles/breakpoints';
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .closeIcon, .menuIcon {
+  transition-duration: animations.$tDurationG;
+  transition-timing-function: animations.$tTimingFG;
+
+&:hover .closeIcon,  &:hover .menuIcon{
+
+  &__corners, &__mainStrokes {
+    transition-duration: animations.$tDurationG;
+    transition-timing-function: animations.$tTimingFG;
+  }  
+  &__corners {
+  opacity: 0.25;
+  }
+  &__mainStrokes {
+    opacity: 0.75;
+  }
+}
+&:active .closeIcon,  &:active .menuIcon {
+
+  &__corners, &__mainStrokes {
+    transition-duration: animations.$tDurationG;
+    transition-timing-function: animations.$tTimingFG;
+    opacity: 0.1;
+  }  
+}
+
+}
+}

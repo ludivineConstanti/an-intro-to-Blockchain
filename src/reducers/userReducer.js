@@ -6,6 +6,7 @@ import {
   SAVE_USER_SETTINGS,
   SAVE_USER_EMAIL,
   ERROR_MESSAGE,
+  SAVE_USER_SCORES,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
     isLoggedIn: false,
     firstname: '',
     lastname: '',
+    scoreAllQuiz: {},
   },
   settingsForms: {
     oldPassword: '',
@@ -135,6 +137,15 @@ export default (state = initialState, action = {}) => {
         errors: {
           incorrectPasswordError: false,
           emailError: false,
+        },
+      };
+    }
+    case SAVE_USER_SCORES: {
+      return {
+        ...state,
+        infos: {
+          ...state.infos,
+          scoreAllQuiz: action.scoreData,
         },
       };
     }
