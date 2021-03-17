@@ -1,11 +1,12 @@
 @use 'src/styles/margins';
 @use 'src/styles/fontSizes';
 @use 'src/styles/breakpoints';
+@use 'src/styles/zindex';
 
 .closeIcon, .menuIcon, .profileIcon {
   position: fixed;
   top: margins.$outsideBorderMobile;
-  z-index: 20;
+  z-index: zindex.$buttonsHeader;
   &__svg {
     pointer-events: none;
   }

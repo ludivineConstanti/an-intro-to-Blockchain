@@ -1,4 +1,5 @@
 @use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
 
 .messagePopUp {
   height: 100vh;
@@ -10,11 +11,40 @@
   &__frame {
   background-color: black;
   border: 4px solid rgba($color: #ffffff, $alpha: 0.75);
-  padding: 80px;
+  padding: 40px;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  }
+
+  &__textBig{
+    font-size: fontSizes.$titleS3Mobile;
+    font-kerning: fontSizes.$titleS3KerningMobile;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+  }
+  &__textSmall{
+    font-size: fontSizes.$labelS2Mobile;
+    font-kerning: fontSizes.$labelS2KerningMobile;
+    text-transform: none;
+    font-weight: normal;
+    display: block;
+  }
+  &__links {
+    margin-top: 40px;;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+.messagePopUp {
+
+  &__frame {
+  padding: 80px;
   }
 
   &__textBig{
@@ -32,16 +62,15 @@
     display: block;
   }
   &__links {
-    margin-top: 40px;;
-    width: 100%;
-    display: flex;
-    &__left, &__right {
+    margin-top: 40px;
+    flex-direction: row;
+    &__left {
       width: 50%;
     }
     &__right {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
     }
   }
+}
 }
