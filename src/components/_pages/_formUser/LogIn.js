@@ -20,7 +20,9 @@ const LogIn = ({
   loginError,
   hasFinishedQuiz,
   validateQuiz,
+  resetQuizState,
   showPopUp,
+  isLoggedIn,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -45,20 +47,18 @@ const LogIn = ({
     }
   });
 
-  const handleSubmit = async (event) => {
+  useEffect(() => {
+    if (hasFinishedQuiz && isLoggedIn) {
+      validateQuiz();
+      resetQuizState();
+    }
+  }, [isLoggedIn]);
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      handleLogin();
-    }
-    catch (error) {
-      console.error(error);
-    }
-    finally {
-      if (hasFinishedQuiz) {
-        validateQuiz();
-      }
-    }
+    handleLogin();
   };
+
   return (
     <>
       { hasFinishedQuiz && <CloseIcon useCase="showPopUp" />}
@@ -94,7 +94,9 @@ LogIn.propTypes = {
   loginError: PropTypes.bool,
   hasFinishedQuiz: PropTypes.bool,
   validateQuiz: PropTypes.func.isRequired,
+  resetQuizState: PropTypes.func.isRequired,
   showPopUp: PropTypes.bool.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
 
 LogIn.defaultProps = {

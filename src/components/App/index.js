@@ -94,7 +94,9 @@ const App = ({
             </Route>
             {/* Login after finishing quiz */}
             <Route path="/quizResult/login" exact>
-              { !hasFinishedQuiz ? <Redirect to="/login" /> : <LogIn hasFinishedQuiz={hasFinishedQuiz} /> }
+              {// eslint-disable-next-line no-nested-ternary
+               !hasFinishedQuiz ? <Redirect to="/login" /> : isLoggedIn && !hasFinishedQuiz ? <Redirect to="/quizzes" /> : <LogIn hasFinishedQuiz={hasFinishedQuiz} />
+}
             </Route>
             {/* Register after finishing quiz */}
             <Route path="/quizResult/register" exact>
