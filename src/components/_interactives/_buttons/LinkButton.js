@@ -23,7 +23,7 @@ const LinkButton = ({
   const classTriangle = `linkButton__triangle linkButton__triangle--${className}`;
 
   const content = (
-    <div className={classDiv}>
+    <div className={classDiv} onClick={onClickLink}>
       {label}
       <div className={classTriangle}>
         <svg viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ const LinkButton = ({
     </div>
   );
   let linkType = (
-    <Link to={path} onClick={onClickLink}>{content}
+    <Link to={path}>{content}
     </Link>
   );
   if (externalLink) {

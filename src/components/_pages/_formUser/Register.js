@@ -20,10 +20,12 @@ const Register = ({
   handleRegister,
   emailError,
   hasFinishedQuiz,
+  resetQuizState,
   validateQuiz,
   newPasswordError,
   emailFormatError,
   showPopUp,
+  isLoggedIn,
 
 }) => {
   // without the language does not get updated
@@ -103,23 +105,17 @@ const Register = ({
 
   // Fonction to control the correspondence of passwords,
   // and lengths of firstname and lastname
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      handleRegister();
-    }
-    catch (error) {
-      console.error(error);
-    }
-    finally {
-      console.log('finished quiz');
-      console.log('has finished quiz', hasFinishedQuiz);
-      if (hasFinishedQuiz) {
-        console.log('inside if loop');
-        validateQuiz();
-      }
-    }
+    handleRegister();
   };
+
+  useEffect(() => {
+    if (hasFinishedQuiz && isLoggedIn) {
+      validateQuiz();
+      resetQuizState();
+    }
+  }, [isLoggedIn]);
 
   return (
     <>
@@ -168,9 +164,11 @@ Register.propTypes = {
   emailError: PropTypes.bool,
   hasFinishedQuiz: PropTypes.bool,
   validateQuiz: PropTypes.func.isRequired,
+  resetQuizState: PropTypes.func.isRequired,
   newPasswordError: PropTypes.bool,
   emailFormatError: PropTypes.bool,
   showPopUp: PropTypes.bool.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
 
 Register.defaultProps = {
