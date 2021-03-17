@@ -7,7 +7,9 @@ import py from 'src/threeJsAnimation/environmentMap/py.png';
 import pz from 'src/threeJsAnimation/environmentMap/pz.png';
 
 import {
+  // eslint-disable-next-line camelcase
   unstable_LowPriority,
+  // eslint-disable-next-line camelcase
   unstable_scheduleCallback,
 } from 'scheduler';
 
@@ -22,7 +24,6 @@ let cameraPerspective;
 let cameraPerspectiveHelper;
 let bubble;
 let texture;
-let mousePos;
 
 function createScene() {
   container = document.querySelector('.app__threeJs');
@@ -78,20 +79,14 @@ function Bubble() {
   const sphereGeom = new THREE.IcosahedronBufferGeometry(280, 7);
 
   const matInside = new THREE.MeshStandardMaterial({
-    // color: Colors.blue,
     transparent: true,
     envMap: texture,
-    // metalnessMap: textureOpacity,
     opacity: 0.2,
     roughness: 0,
     metalness: 0.2,
-    // mat.alphaMap : textureOpacity,
     // set the color of the shine (dark grey, by default)
     specular: 0xffffff,
-    // allow inside and outside plane of the geometry to be visible
-    // side: THREE.DoubleSide
     side: THREE.FrontSide,
-    // shading:THREE.FlatShading,
   });
 
   this.sphereOutside = new THREE.Mesh(sphereGeom, matInside);
@@ -108,31 +103,6 @@ function createBubble() {
   scene.add(bubble.target);
 }
 
-function handleMouseMove(event) {
-  // here we are converting the mouse position value received
-  // to a normalized value varying between -1 and 1;
-  // this is the formula for the horizontal axis:
-
-  const tx = -1 + (event.clientX / SCREEN_WIDTH) * 2;
-
-  // for the vertical axis, we need to inverse the formula
-  // because the 2D y-axis goes the opposite direction of the 3D y-axis
-
-  const ty = 1 - (event.clientY / SCREEN_HEIGHT) * 2;
-  mousePos = { x: tx, y: ty };
-}
-
-function init() {
-  unstable_scheduleCallback(unstable_LowPriority, () => {
-    createScene();
-    const loader = new THREE.CubeTextureLoader();
-    texture = loader.load([px, ny, nx, nz, pz, py]);
-    createBubble();
-    window.addEventListener('resize', onWindowResize, false);
-    document.addEventListener('mousemove', handleMouseMove, false);
-  });
-}
-
 function onWindowResize() {
   unstable_scheduleCallback(unstable_LowPriority, () => {
     SCREEN_WIDTH = window.innerWidth;
@@ -146,20 +116,14 @@ function onWindowResize() {
   });
 }
 
-function animate() {
+function init() {
   unstable_scheduleCallback(unstable_LowPriority, () => {
-    requestAnimationFrame(animate);
-    render();
+    createScene();
+    const loader = new THREE.CubeTextureLoader();
+    texture = loader.load([px, ny, nx, nz, pz, py]);
+    createBubble();
+    window.addEventListener('resize', onWindowResize, false);
   });
-}
-
-function normalize(v, vmin, vmax, tmin, tmax) {
-  const nv = Math.max(Math.min(v, vmax), vmin);
-  const dv = vmax - vmin;
-  const pc = (nv - vmin) / dv;
-  const dt = tmax - tmin;
-  const tv = tmin + (pc * dt);
-  return tv;
 }
 
 function render() {
@@ -171,16 +135,6 @@ function render() {
   bubble.target.rotation.z -= 0.001 * Math.sin(r);
   bubble.target.rotation.y -= 0.001 * Math.sin(r);
 
-  /* const targetX = normalize(mousePos.x, -1, 1, -100, 100);
-  const targetY = normalize(mousePos.y, -1, 1, 25, 175);
-
-  bubble.cube.position.y = targetY;
-  bubble.cube.position.x = targetX;
-  bubble.sphereOutside.position.x = targetX;
-  bubble.sphereInside.position.x = targetX;
-  bubble.sphereOutside.position.y = targetY;
-  bubble.sphereInside.position.y = targetY; */
-
   cameraPerspective.lookAt(bubble.target.position);
 
   renderer.clear();
@@ -191,6 +145,13 @@ function render() {
   renderer.render(scene, cameraPerspective);
 
   activeHelper.visible = true;
+}
+
+function animate() {
+  unstable_scheduleCallback(unstable_LowPriority, () => {
+    requestAnimationFrame(animate);
+    render();
+  });
 }
 
 export { init, animate };

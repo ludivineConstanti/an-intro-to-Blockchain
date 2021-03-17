@@ -1,6 +1,7 @@
 @use 'src/styles/margins';
 @use 'src/styles/fontSizes';
 @use 'src/styles/breakpoints';
+@use 'src/styles/zindex';
 
 // to remember => DO NOT use div to position elements in the header
 // otherwise blocks the other elements under it
@@ -16,7 +17,7 @@
     width: 100vw;
     height: margins.$outsideBorderMobile;
     left: 0;
-    z-index: 20;
+    z-index: zindex.$header;
 
     &--top {
       top: 0;

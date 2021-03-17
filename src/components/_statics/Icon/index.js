@@ -1,13 +1,17 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
 import './animation.scss';
 
 // eslint-disable-next-line consistent-return
-const Icon = ({ category, quiz }) => {
-  const backgroundColor = 'icon__backgroundColor icon__backgroundColor--top';
+const Icon = ({ category, quiz, score }) => {
+  // eslint-disable-next-line no-nested-ternary
+  const color = score === 0 ? '' : (score > 50) ? 'positive' : 'negative';
+  const backgroundColor = `icon__backgroundColor icon__backgroundColor--${color}`;
+
   switch (category) {
     case 1:
       switch (quiz) {
@@ -201,6 +205,16 @@ const Icon = ({ category, quiz }) => {
     default:
       break;
   }
+};
+
+Icon.propTypes = {
+  category: PropTypes.number.isRequired,
+  quiz: PropTypes.number.isRequired,
+  score: PropTypes.number,
+};
+
+Icon.defaultProps = {
+  score: 0,
 };
 
 export default Icon;

@@ -6,7 +6,7 @@
 .closeIcon, .menuIcon, .profileIcon {
   position: fixed;
   top: margins.$outsideBorderMobile;
-  z-index: zindex.$buttonsHeader;
+  z-index: zindex.$header;
   &__svg {
     pointer-events: none;
   }
