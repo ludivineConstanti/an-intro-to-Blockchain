@@ -8,6 +8,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeValueGlobal(false, 'showPopUp'));
     dispatch(leaveQuiz());
   },
+  onClickToClosePopUp: () => {
+    dispatch(changeValueGlobal(false, 'showPopUp'));
+  },
 });
 
 export default connect(null, mapDispatchToProps)(MessagePopUp);

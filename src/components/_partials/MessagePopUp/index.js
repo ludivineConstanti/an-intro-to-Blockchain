@@ -6,10 +6,11 @@ import { useTranslation } from 'react-i18next';
 // == Import
 import './style.scss';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
+import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 
 // == Composant
 const MessagePopUp = ({
-  label, text, path, useCase, onClickToLeavePopUp,
+  label, text, path, useCase, onClickToLeavePopUp, onClickToClosePopUp,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -17,10 +18,10 @@ const MessagePopUp = ({
   const rightPart = useCase === 'registerScore'
     ? (
       <>
-        <LinkButton label={t('menu.register')} path="/quizResult/register" />
-        <LinkButton label={t('menu.login')} path="/quizResult/login" />
+        <LinkButton label={t('menu.register')} path="/quizResult/register" useCase="closePopUp" onClickLink={onClickToClosePopUp} />
+        <LinkButton label={t('menu.login')} path="/quizResult/login" useCase="closePopUp" onClickLink={onClickToClosePopUp} />
       </>
-    ) : (<LinkButton label={t('quiz.popUp.linkGoBack')} />);
+    ) : (<SubmitButton label={t('quiz.popUp.linkGoBack')} onClick={onClickToClosePopUp} />);
 
   return (
     <div className="messagePopUp">
@@ -48,6 +49,7 @@ MessagePopUp.propTypes = {
   text: PropTypes.string.isRequired,
   useCase: PropTypes.string.isRequired,
   onClickToLeavePopUp: PropTypes.func.isRequired,
+  onClickToClosePopUp: PropTypes.func.isRequired,
   path: PropTypes.string,
 };
 

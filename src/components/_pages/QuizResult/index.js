@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -10,12 +10,14 @@ import MessagePopUp from 'src/containers/_partials/MessagePopUp';
 import CloseIcon from 'src/containers/_interactives/_buttonsHeader/CloseIcon';
 
 // == Composant
-const QuizResult = ({ score, isLoggedIn, showPopUp }) => {
+const QuizResult = ({
+  score, isLoggedIn, showPopUp, onClickToShowPopUp,
+}) => {
   // checks if the language was updated
   const { t } = useTranslation();
   const chooseMessage = Math.floor(score / 100 * 4);
 
-  let pathPopUp = '';
+  const [pathPopUp, setPathPopUp] = useState('/quizzes');
 
   const linksBottom = isLoggedIn
     ? (
@@ -31,19 +33,15 @@ const QuizResult = ({ score, isLoggedIn, showPopUp }) => {
       <>
         <div
           className="quizResult__redirectLink1"
-          onClick={() => {
-            pathPopUp = '/articles';
-          }}
+          onClick={() => setPathPopUp('/articles')}
         >
-          <LinkButton label={t('quizResult.linkArticles')} fakeLink />
+          <LinkButton label={t('quizResult.linkArticles')} fakeLink onClickLink={onClickToShowPopUp} />
         </div>
         <div
           className="quizResult__redirectLink2"
-          onClick={() => {
-            pathPopUp = '/quizzes';
-          }}
+          onClick={() => setPathPopUp('/quizzes')}
         >
-          <LinkButton label={t('quizResult.linkQuizzes')} fakeLink />
+          <LinkButton label={t('quizResult.linkQuizzes')} fakeLink onClickLink={onClickToShowPopUp} />
         </div>
       </>
     );
@@ -68,6 +66,7 @@ QuizResult.propTypes = {
   score: PropTypes.number.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   showPopUp: PropTypes.bool.isRequired,
+  onClickToShowPopUp: PropTypes.func.isRequired,
 };
 
 // == Export
