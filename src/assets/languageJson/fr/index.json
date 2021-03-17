@@ -29,7 +29,11 @@
       "incorrectEmail": "Email déjà existant",
       "incorrectPassword": "Mot de passe incorrect",
       "incorrectNewPassword": "Votre mot de passe doit contenir au moins 8 caractères dont une majuscule et un chiffre",
-      "emptyInput": "Veuillez remplir tout les champs"
+
+      "emptyInput": "Veuillez remplir tout les champs",
+      "emailFormatError": "Adresse mail invalide"
+
+
     },
     "password": "Mot de passe",
     "passwordOld": "Votre mot de passe actuel",
