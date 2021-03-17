@@ -47,17 +47,17 @@ const LogIn = ({
     }
   });
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleLogin();
+  };
+
   useEffect(() => {
     if (hasFinishedQuiz && isLoggedIn) {
       validateQuiz();
       resetQuizState();
     }
   }, [isLoggedIn]);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    handleLogin();
-  };
 
   return (
     <>

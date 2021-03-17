@@ -96,11 +96,13 @@ const App = ({
             <Route path="/quizResult/login" exact>
               {// eslint-disable-next-line no-nested-ternary
                !hasFinishedQuiz ? <Redirect to="/login" /> : isLoggedIn && !hasFinishedQuiz ? <Redirect to="/quizzes" /> : <LogIn hasFinishedQuiz={hasFinishedQuiz} />
-}
+              }
             </Route>
             {/* Register after finishing quiz */}
             <Route path="/quizResult/register" exact>
-              { !hasFinishedQuiz ? <Redirect to="/register" /> : <Register hasFinishedQuiz={hasFinishedQuiz} /> }
+              {// eslint-disable-next-line no-nested-ternary
+               !hasFinishedQuiz ? <Redirect to="/register" /> : isLoggedIn && !hasFinishedQuiz ? <Redirect to="/quizzes" /> : <Register hasFinishedQuiz={hasFinishedQuiz} />
+              }
             </Route>
             {/* Page - All article */}
             <Route path="/articles" exact>
