@@ -4,7 +4,6 @@
 @use 'src/styles/animations';
 
 .linkCTA {
-  //background-color: pink;
   font-size: fontSizes.$textMobile;
   letter-spacing: fontSizes.$textKerningMobile;
   line-height: fontSizes.$textSpacingMobile;
@@ -13,7 +12,6 @@
   margin-bottom: 40px;
   max-width: 300px;
   margin-right: 40px;
-  //z-index: 10;
 
     // svg can have width and height specified directly into them or outside
     // we want to have them specified in the CSS to be able to resize it
