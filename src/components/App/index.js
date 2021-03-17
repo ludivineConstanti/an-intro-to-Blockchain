@@ -37,8 +37,6 @@ const App = ({
   language,
   hasFinishedQuiz,
   backgroundClassName,
-  isPlayingTrue,
-  isPlayingFalse,
 }) => {
   useEffect(() => {
     // start the three.js scene
@@ -57,21 +55,13 @@ const App = ({
   document.title = window.location.href.slice(22);
   //! Améliorer ça
 
+  // potentially better way to get url but need to check
   // ! Need to test if it works well with different url
   // ! + need to remember to update the url path in the middleware folder
-  const regex = new RegExp('(https?:\/\/(www)?\.?)?([a-zA-Z0-9:]?(\d)*:?)+');
+  /* const regex = new RegExp('(https?:\/\/(www)?\.?)?([a-zA-Z0-9:]?(\d)*:?)+');
   const regexUrl = new RegExp(baseUrlFront);
   const pathUrl = window.location.href.replace(regex, '').replace(regexUrl, '');
-
-  useEffect(() => {
-    const testUrlIsPlaying = /(quiz\/\d)|(quizResult)/.test(pathUrl);
-    if (testUrlIsPlaying) {
-      isPlayingTrue();
-    }
-    else {
-      isPlayingFalse();
-    }
-  }, [pathUrl]);
+*/
 
   return (
     <div className="app">
@@ -152,8 +142,6 @@ App.propTypes = {
   language: PropTypes.string.isRequired,
   hasFinishedQuiz: PropTypes.bool.isRequired,
   backgroundClassName: PropTypes.string.isRequired,
-  isPlayingTrue: PropTypes.func.isRequired,
-  isPlayingFalse: PropTypes.func.isRequired,
 };
 // == Export
 export default App;

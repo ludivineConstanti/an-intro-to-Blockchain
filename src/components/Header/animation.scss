@@ -1,5 +1,7 @@
 @use 'src/styles/animations';
+@use 'src/styles/breakpoints';
 
+@media only screen and (min-width: breakpoints.$desktop) {
 .header {
   transition-duration: animations.$tDurationG;
   transition-timing-function: animations.$tTimingFG;
@@ -15,26 +17,5 @@
     }
   }
 
-&__buttonTL:hover .header,  &__buttonTR:hover .header {
-
-  &__corners, &__mainStrokes {
-    transition-duration: animations.$tDurationG;
-    transition-timing-function: animations.$tTimingFG;
-  }  
-  &__corners {
-  opacity: 0.25;
-  }
-  &__mainStrokes {
-    opacity: 0.75;
-  }
 }
-&__buttonTL:active .header,  &__buttonTR:active .header {
-
-  &__corners, &__mainStrokes {
-    transition-duration: animations.$tDurationG;
-    transition-timing-function: animations.$tTimingFG;
-    opacity: 0.1;
-  }  
-}
-
 }

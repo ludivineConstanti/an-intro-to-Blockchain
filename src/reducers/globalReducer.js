@@ -10,6 +10,7 @@ const initialState = {
   menuOpen: false,
   loading: false,
   backgroundClassName: 'app__threeJs app__threeJS--animationIntro',
+  showPopUp: false,
 };
 
 export default (state = initialState, action = {}) => {

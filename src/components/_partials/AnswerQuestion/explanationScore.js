@@ -3,12 +3,10 @@ export default (questionNumber, questionData, userAnswer, language) => {
   let userTotalGoodAnswers = 0;
   const totalBadAnswers = questionData.answersInfo.bad;
   let userTotalBadAnswers = 0;
-
-  let label = '';
-  let subtitle = '';
-
   // switch is a keyword, can't use it switchL = switch language
   const switchL = language === 'fr';
+  let label = 'Ok';
+  let subtitle = switchL ? 'Essayez la question suivante' : 'Try to answer the next one correctly';
 
   for (let i = 0; i < questionData.answersInfo.total; i += 1) {
     const answer = questionData.answers[i];

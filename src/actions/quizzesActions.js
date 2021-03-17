@@ -7,6 +7,7 @@ export const CHANGE_USER_QUIZ_INFOS = 'CHANGE_USER_QUIZ_INFOS';
 export const INCREASE_QUESTION = 'INCREASE_QUESTION';
 export const VALIDATE_QUIZ = 'VALIDATE_QUIZ';
 export const USER_FINISHED_QUIZ = 'USER_FINISHED_QUIZ';
+export const LEAVE_QUIZ = 'LEAVE_QUIZ';
 
 export const getAllQuizzes = () => ({
   type: GET_ALL_QUIZZES,
@@ -52,4 +53,8 @@ export const userFinishedQuiz = (score, totalAnswers, goodAnswers) => ({
   score,
   totalAnswers,
   goodAnswers,
+});
+
+export const leaveQuiz = () => ({
+  type: LEAVE_QUIZ,
 });

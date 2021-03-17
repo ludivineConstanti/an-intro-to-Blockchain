@@ -4,6 +4,7 @@ import {
   STOCK_ANSWER,
   CHANGE_USER_QUIZ_INFOS,
   USER_FINISHED_QUIZ,
+  LEAVE_QUIZ,
 } from 'src/actions/quizzesActions';
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
     score: 0,
     totalAnswers: 0,
     goodAnswers: 0,
+    currentQuestionId: 1,
   },
 };
 
@@ -29,6 +31,7 @@ export default (state = initialState, action = {}) => {
         userQuizInfos: {
           ...initialState.userQuizInfos,
           currentQuestionId: action.currentQuizData.idFirstQuestion,
+          isPlaying: true,
         },
       };
     }
@@ -73,6 +76,22 @@ export default (state = initialState, action = {}) => {
           score: action.score,
           totalAnswers: action.totalAnswers,
           goodAnswers: action.goodAnswers,
+        },
+      };
+    }
+    case LEAVE_QUIZ: {
+      return {
+        ...state,
+        currentQuizData: {},
+        userQuizInfos: {
+          ...state.userQuizInfos,
+          showAnswer: false,
+          userAnswers: {},
+          isPlaying: false,
+          hasFinishedQuiz: false,
+          score: 0,
+          totalAnswers: 0,
+          goodAnswers: 0,
         },
       };
     }

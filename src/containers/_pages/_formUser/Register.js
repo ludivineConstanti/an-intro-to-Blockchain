@@ -6,6 +6,7 @@ import { validateQuiz } from 'src/actions/quizzesActions';
 const mapStateToProps = (state) => ({
   registerForm: state.user.registerForm,
   emailError: state.user.errors.emailError,
+  showPopUp: state.global.showPopUp,
 });
 
 const mapDispatchToProps = (dispatch) => ({

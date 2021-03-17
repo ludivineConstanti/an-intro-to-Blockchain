@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   questionId: state.quiz.userQuizInfos.currentQuestionId,
   showAnswer: state.quiz.userQuizInfos.showAnswer,
   language: state.global.language,
+  showPopUp: state.global.showPopUp,
 });
 
 const mapDispatchToProps = (dispatch) => ({

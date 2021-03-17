@@ -1,0 +1,44 @@
+@use 'src/styles/margins';
+@use 'src/styles/fontSizes';
+@use 'src/styles/breakpoints';
+
+.closeIcon, .menuIcon, .profileIcon {
+  position: fixed;
+  top: margins.$outsideBorderMobile;
+  z-index: 20;
+  &__svg {
+    pointer-events: none;
+  }
+  &--topLeftDesktop {
+    right: margins.$outsideBorderMobile;
+  }
+  &--topRightDesktop {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desktop) {
+  .closeIcon, .menuIcon, .profileIcon {
+    top: margins.$outsideBorderDesktop;
+    &--topLeftDesktop {
+      left: margins.$outsideBorderDesktop;
+    }
+    &--topRightDesktop {
+      right: margins.$outsideBorderDesktop;
+    }
+    &__username{
+      font-size: fontSizes.$labelS2Desktop;
+      font-weight: bold;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: auto;
+    }
+  }
+
+  .profileIcon {
+    display: block;
+  }
+}
+
