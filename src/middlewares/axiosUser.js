@@ -35,14 +35,9 @@ const user = (store) => (next) => (action) => {
               response.data.lastname));
           }
         })
-      //! ERROR
         .catch((error) => {
-          store.dispatch(errorMessage(true, 'loginError'));
           if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
+            store.dispatch(errorMessage(true, error.response.data));
           }
         })
         .finally(() => {
@@ -69,14 +64,9 @@ const user = (store) => (next) => (action) => {
               response.data.lastname));
           }
         })
-      //! ERROR
         .catch((error) => {
-          store.dispatch(errorMessage(true, 'emailError'));
           if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
+            store.dispatch(errorMessage(true, error.response.data));
           }
         })
         .finally(() => {
@@ -102,19 +92,9 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUserSettings());
           }
         })
-      //! ERROR
         .catch((error) => {
-          if (error.message === 'Request failed with status code 403') {
-            store.dispatch(errorMessage(true, 'incorrectPasswordError'));
-          }
-          else if (error.message === 'Request failed with status code 400') {
-            store.dispatch(errorMessage(true, 'newPasswordError'));
-          }
           if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
+            store.dispatch(errorMessage(true, error.response.data));
           }
         })
         .finally(() => {
@@ -138,19 +118,9 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUserEmail());
           }
         })
-      //! ERROR
         .catch((error) => {
-          if (error.message === 'Request failed with status code 403') {
-            store.dispatch(errorMessage(true, 'emailError'));
-          }
-          else if (error.message === 'Request failed with status code 400') {
-            store.dispatch(errorMessage(true, 'incorrectPasswordError'));
-          }
           if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
+            store.dispatch(errorMessage(true, error.response.data));
           }
         })
         .finally(() => {
@@ -173,14 +143,9 @@ const user = (store) => (next) => (action) => {
             store.dispatch(logout());
           }
         })
-      //! ERROR
         .catch((error) => {
-          store.dispatch(errorMessage(true, 'incorrectPasswordError'));
           if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
+            store.dispatch(errorMessage(true, error.response.data));
           }
         })
         .finally(() => {

@@ -14,8 +14,8 @@ const initialState = {
     password: 'Cannibale1',
   },
   registerForm: {
-    firstname: '',
-    lastname: '',
+    firstname: 'Jean-Louis',
+    lastname: 'Rien',
     password: '',
     controlPassword: '',
     email: '',
