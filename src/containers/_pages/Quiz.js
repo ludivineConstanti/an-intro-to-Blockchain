@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
   showAnswer: state.quiz.userQuizInfos.showAnswer,
   language: state.global.language,
   showPopUp: state.global.showPopUp,
+  showAbout: state.global.showAbout,
 });
 
 const mapDispatchToProps = (dispatch) => ({
