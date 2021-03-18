@@ -47,6 +47,10 @@ const LogIn = ({
     }
   });
 
+  const handleInputOnChange = (value, name) => {
+    changeField(value, 'loginForm', name);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin();
@@ -70,10 +74,10 @@ const LogIn = ({
         <FormUser>
           <form onSubmit={handleSubmit} className="login__columns">
             <div className="login__column">
-              <InputText name="email" type="email" placeholder={t('formUser.email')} value={loginForm.email} onChange={changeField} />
+              <InputText name="email" type="email" placeholder={t('formUser.email')} value={loginForm.email} onChange={handleInputOnChange} />
             </div>
             <div className="login__column">
-              <InputText name="password" type={type} placeholder={t('formUser.password')} value={loginForm.password} onChange={changeField} />
+              <InputText name="password" type={type} placeholder={t('formUser.password')} value={loginForm.password} onChange={handleInputOnChange} />
               <span className="inputText--show-password-1" onClick={showHide}>{type === 'text' ? 'Hide' : 'Show'}</span>
               <div className="login__submitButton">
                 <p className="login__error">{Error}</p>

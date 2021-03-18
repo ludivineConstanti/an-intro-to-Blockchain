@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => dispatch(changeInputValue(value, name)),
+  changeField: (value, object, name) => dispatch(changeInputValue(value, object, name)),
   handleLogin: () => dispatch(loginRequest()),
   validateQuiz: () => dispatch(validateQuiz()),
   resetQuizState: () => dispatch(leaveQuiz()),

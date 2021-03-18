@@ -62,8 +62,12 @@ const Register = ({
     }
   };
 
+  const handleInputOnChange = (value, name) => {
+    changeField(value, 'registerForm', name);
+  };
+
   const onChangePasswordInput = (value, name) => {
-    changeField(value, name);
+    changeField(value, 'registerForm', name);
     testStrengthPassword(value);
   };
 
@@ -129,9 +133,9 @@ const Register = ({
           <form onSubmit={handleSubmit} className="register__columns">
             <div className="register__column">
               <p className="register__error">{FirstnameInfos}</p>
-              <InputText name="firstname" type="text" placeholder={t('formUser.firstname')} value={registerForm.firstname} onChange={changeField} />
+              <InputText name="firstname" type="text" placeholder={t('formUser.firstname')} value={registerForm.firstname} onChange={handleInputOnChange} />
               <p className="register__error">{LastnameInfos}</p>
-              <InputText name="lastname" type="text" placeholder={t('formUser.lastname')} value={registerForm.lastname} onChange={changeField} />
+              <InputText name="lastname" type="text" placeholder={t('formUser.lastname')} value={registerForm.lastname} onChange={handleInputOnChange} />
             </div>
             <div className="register__column">
               <p className="register__error">{NewPasswordError}</p>
@@ -141,10 +145,10 @@ const Register = ({
                 <span className="inputText--strength-password" data-score={score} />
               </div>
               <p className="register__error">{PasswordConfirmError}</p>
-              <InputText name="controlPassword" type={type} placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={changeField} />
+              <InputText name="controlPassword" type={type} placeholder={t('formUser.passwordConfirmation')} value={registerForm.controlPassword} onChange={handleInputOnChange} />
               <p className="register__error">{EmailError}</p>
               <p className="register__error">{EmailFormatError}</p>
-              <InputText name="email" type="email" placeholder={t('formUser.email')} value={registerForm.email} onChange={changeField} />
+              <InputText name="email" type="email" placeholder={t('formUser.email')} value={registerForm.email} onChange={handleInputOnChange} />
               <p className="register__error">{EmptyFieldError}</p>
               <div className="register__submitButton">
                 <SubmitButton className={SubmitButtonClass} label={t('formUser.buttonCreateAccount')} />
