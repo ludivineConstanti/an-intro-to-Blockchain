@@ -1,16 +1,12 @@
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const SAVE_USER_LOGIN = 'SAVE_USER_LOGIN';
-
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
-export const SAVE_USER_REGISTER = 'SAVE_REGISTER';
+export const SAVE_USER = 'SAVE_USER';
 
 export const CHANGE_USER_SETTINGS = 'CHANGE_USER_SETTINGS';
-export const SAVE_USER_SETTINGS = 'SAVE_USER_SETTINGS';
-
 export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
-export const SAVE_USER_EMAIL = 'SAVE_USER_EMAIL';
+export const SAVE_USER_SETTINGS = 'SAVE_USER_SETTINGS';
 
 export const DELETE_ACCOUNT_REQUEST = 'DELETE_ACCOUNT_REQUEST';
 
@@ -21,9 +17,10 @@ export const LOGOUT = 'LOGOUT';
 
 export const ERROR_MESSAGE = 'ERROR_MESSAGE';
 
-export const changeInputValue = (value, name) => ({
+export const changeInputValue = (value, object, name) => ({
   type: CHANGE_INPUT_VALUE,
   value,
+  object,
   name,
 });
 
@@ -31,19 +28,12 @@ export const loginRequest = () => ({
   type: LOGIN_REQUEST,
 });
 
-export const saveUserLogin = (id, firstname, lastname) => ({
-  type: SAVE_USER_LOGIN,
-  id,
-  firstname,
-  lastname,
-});
-
 export const registerRequest = () => ({
   type: REGISTER_REQUEST,
 });
 
-export const saveUserRegister = (id, firstname, lastname) => ({
-  type: SAVE_USER_REGISTER,
+export const saveUser = (id, firstname, lastname) => ({
+  type: SAVE_USER,
   id,
   firstname,
   lastname,
@@ -53,18 +43,12 @@ export const changeUserSettings = () => ({
   type: CHANGE_USER_SETTINGS,
 });
 
-export const saveUserSettings = (newPassword) => ({
-  type: SAVE_USER_SETTINGS,
-  newPassword,
-});
-
 export const changeUserEmail = () => ({
   type: CHANGE_USER_EMAIL,
 });
 
-export const saveUserEmail = (newEmail) => ({
-  type: SAVE_USER_EMAIL,
-  newEmail,
+export const saveUserSettings = () => ({
+  type: SAVE_USER_SETTINGS,
 });
 
 export const deleteAccountRequest = () => ({
