@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -23,6 +23,7 @@ const Quiz = ({
   showAnswer,
   language,
   showPopUp,
+  showAbout,
 }) => {
   // checks if the language was updated
   const { t } = useTranslation();
@@ -42,14 +43,18 @@ const Quiz = ({
     }
   }, [quizData]);
 
+  const refQuiz = useRef('');
+  const quizHeight = refQuiz.current.clientHeight;
+
   return isReady
     ? (
       <>
         <CloseIcon useCase="showPopUp" />
+        {showAbout && <div className="quiz__backgroundAbout" style={{ height: `${quizHeight}px` }} />}
+        <About />
         { showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="keepPlaying" />}
         <ProgressionBar totalNum={quizData.totalQuestions} progressionNum={questionNumber} />
-        <div className="quiz">
-          <About />
+        <div className="quiz" ref={refQuiz}>
           {!showAnswer
             ? <FormQuestion question={currentQuestionData} answerShowed={false} />
             : (
@@ -77,6 +82,7 @@ Quiz.propTypes = {
   showAnswer: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
   showPopUp: PropTypes.bool.isRequired,
+  showAbout: PropTypes.bool.isRequired,
 };
 
 Quiz.defaultProps = {

@@ -26,7 +26,6 @@ import Menu from 'src/containers/_pages/Menu';
 import Loading from 'src/containers/Loading';
 import { init, animate } from 'src/threeJsAnimation/threeJsAnimation';
 import i18next from 'src/i18next';
-import { baseUrlFront } from 'src/middlewares/baseUrl';
 import triggerAnimationBackground from 'src/middlewares/triggerAnimationBackground';
 // == Composant
 

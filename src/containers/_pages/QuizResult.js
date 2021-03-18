@@ -9,9 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickToShowPopUp: () => {
-    dispatch(changeValueGlobal(true, 'showPopUp'));
-  },
+  onClickToShowPopUp: () => dispatch(changeValueGlobal(true, 'showPopUp')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizResult);

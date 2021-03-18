@@ -25,15 +25,7 @@ const user = (store) => (next) => (action) => {
             store.dispatch(stockAllQuizzes(quizzesFormatter(response.data)));
           }
         })
-        //! ERROR
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
-          }
-        })
+        // ? Message d'erreur à mettre ici
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
         });
@@ -48,15 +40,7 @@ const user = (store) => (next) => (action) => {
             store.dispatch(stockOneQuiz(quizFormatter(response.data)));
           }
         })
-        //! ERROR
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
-          }
-        })
+        // ? Message d'erreur à mettre ici
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
         });
@@ -71,15 +55,7 @@ const user = (store) => (next) => (action) => {
         quizId: state.quiz.currentQuizData.id,
         scoreQuiz: state.quiz.userQuizInfos.score,
       })
-      //! ERROR
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
-          }
-        })
+        // ? Message d'erreur à mettre ici
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
         });
