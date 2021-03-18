@@ -1,7 +1,6 @@
 import i18next from 'i18next';
 // not sure if needed, if not, will have to remove the
 // package later (already installed it with yarn)
-// import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 

@@ -12,8 +12,6 @@ import {
   DELETE_ACCOUNT_REQUEST,
   logout,
   errorMessage,
-  GET_USER_SCORES,
-  saveUserScores,
 } from 'src/actions/userActions';
 
 import {
@@ -148,21 +146,6 @@ const user = (store) => (next) => (action) => {
             store.dispatch(errorMessage(true, error.response.data));
           }
         })
-        .finally(() => {
-          store.dispatch(changeValueGlobal(false, 'loading'));
-        });
-      break;
-    }
-    case GET_USER_SCORES: {
-      store.dispatch(changeValueGlobal(true, 'loading'));
-      const state = store.getState();
-      axios.get(`${baseUrl}/score/${state.user.infos.id}`)
-        .then((response) => {
-          if (response.statusText === 'OK') {
-            store.dispatch(saveUserScores(response.data));
-          }
-        })
-        // ? Message d'erreur à mettre ici
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
         });

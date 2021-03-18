@@ -10,9 +10,6 @@ export const SAVE_USER_SETTINGS = 'SAVE_USER_SETTINGS';
 
 export const DELETE_ACCOUNT_REQUEST = 'DELETE_ACCOUNT_REQUEST';
 
-export const GET_USER_SCORES = 'GET_USER_SCORES';
-export const SAVE_USER_SCORES = 'SAVE_USER_SCORES';
-
 export const LOGOUT = 'LOGOUT';
 
 export const ERROR_MESSAGE = 'ERROR_MESSAGE';
@@ -63,13 +60,4 @@ export const errorMessage = (value, name) => ({
   type: ERROR_MESSAGE,
   value,
   name,
-});
-
-export const getUserScores = () => ({
-  type: GET_USER_SCORES,
-});
-
-export const saveUserScores = (scoreData) => ({
-  type: SAVE_USER_SCORES,
-  scoreData,
 });

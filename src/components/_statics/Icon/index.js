@@ -7,9 +7,15 @@ import './style.scss';
 import './animation.scss';
 
 // eslint-disable-next-line consistent-return
-const Icon = ({ category, quiz, score }) => {
+const Icon = ({
+  category,
+  quiz,
+  score,
+  done,
+// eslint-disable-next-line consistent-return
+}) => {
   // eslint-disable-next-line no-nested-ternary
-  const color = score === 0 ? '' : (score > 50) ? 'positive' : 'negative';
+  const color = !done ? '' : (score > 50) ? 'positive' : 'negative';
   const backgroundColor = `icon__backgroundColor icon__backgroundColor--${color}`;
 
   switch (category) {

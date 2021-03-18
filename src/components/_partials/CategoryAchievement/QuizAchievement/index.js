@@ -16,6 +16,7 @@ const QuizAchievements = ({
   categoryId,
   label,
   score,
+  done,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ const QuizAchievements = ({
       <h3 className="quizAchievement__quizTitle">{label}</h3>
       <div className="quizAchievement__frame">
         <div className="quizAchievement__iconDiv">
-          <Icon category={categoryId} quiz={quizId} score={score} />
+          <Icon category={categoryId} quiz={quizId} score={score} done={done} />
           <svg className="quizAchievement__iconDiv__withBorders" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 10.5V5.09619L4.59619 0.5H10V4.5H4V10.5H0Z" fill="white" />
             <path d="M80 70.5L80 75.9038L75.4038 80.5L70 80.5L70 76.5L76 76.5L76 70.5L80 70.5Z" fill="white" />
@@ -56,6 +57,7 @@ QuizAchievements.propTypes = {
   categoryId: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
+  done: PropTypes.bool.isRequired,
 };
 
 // == Export
