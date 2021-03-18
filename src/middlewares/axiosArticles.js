@@ -17,19 +17,10 @@ const user = (store) => (next) => (action) => {
       axios.get(`${baseUrl}/${state.global.language}/articles`)
         .then((response) => {
           if (response.statusText === 'OK') {
-            const data = articlesFormatter(response.data);
-            store.dispatch(stockArticles(data));
+            store.dispatch(stockArticles(articlesFormatter(response.data)));
           }
         })
-        //! ERROR
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
-          }
-        })
+        // ? Message d'erreur à mettre ici
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
         });

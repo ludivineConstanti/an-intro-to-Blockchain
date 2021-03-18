@@ -1,6 +1,6 @@
-export default (data) => {
+export default (articlesData) => {
   const articlesObj = {};
-  data.forEach((article) => {
+  articlesData.forEach((article) => {
     if (!articlesObj[article.category_name]) {
       articlesObj[article.category_name] = {};
     }
