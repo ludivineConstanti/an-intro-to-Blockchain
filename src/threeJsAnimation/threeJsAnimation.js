@@ -7,7 +7,9 @@ import py from 'src/threeJsAnimation/environmentMap/py.png';
 import pz from 'src/threeJsAnimation/environmentMap/pz.png';
 
 import {
+  // eslint-disable-next-line camelcase
   unstable_LowPriority,
+  // eslint-disable-next-line camelcase
   unstable_scheduleCallback,
 } from 'scheduler';
 
@@ -113,12 +115,15 @@ function handleMouseMove(event) {
   // to a normalized value varying between -1 and 1;
   // this is the formula for the horizontal axis:
 
+  // eslint-disable-next-line no-mixed-operators
   const tx = -1 + (event.clientX / SCREEN_WIDTH) * 2;
 
   // for the vertical axis, we need to inverse the formula
   // because the 2D y-axis goes the opposite direction of the 3D y-axis
 
+  // eslint-disable-next-line no-mixed-operators
   const ty = 1 - (event.clientY / SCREEN_HEIGHT) * 2;
+  // eslint-disable-next-line no-unused-vars
   mousePos = { x: tx, y: ty };
 }
 
@@ -128,6 +133,7 @@ function init() {
     const loader = new THREE.CubeTextureLoader();
     texture = loader.load([px, ny, nx, nz, pz, py]);
     createBubble();
+    // eslint-disable-next-line no-use-before-define
     window.addEventListener('resize', onWindowResize, false);
     document.addEventListener('mousemove', handleMouseMove, false);
   });
@@ -149,10 +155,12 @@ function onWindowResize() {
 function animate() {
   unstable_scheduleCallback(unstable_LowPriority, () => {
     requestAnimationFrame(animate);
+    // eslint-disable-next-line no-use-before-define
     render();
   });
 }
 
+// eslint-disable-next-line no-unused-vars
 function normalize(v, vmin, vmax, tmin, tmax) {
   const nv = Math.max(Math.min(v, vmax), vmin);
   const dv = vmax - vmin;
