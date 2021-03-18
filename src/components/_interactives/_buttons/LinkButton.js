@@ -57,9 +57,7 @@ const LinkButton = ({
 LinkButton.defaultProps = {
   className: 'size1',
   path: '',
-  onClickLink: () => {
-    triggerAnimationBackground();
-  },
+  onClickLink: () => triggerAnimationBackground(),
   externalLink: false,
   fakeLink: false,
 };

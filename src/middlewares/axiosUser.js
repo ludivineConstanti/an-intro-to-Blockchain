@@ -164,16 +164,7 @@ const user = (store) => (next) => (action) => {
             store.dispatch(saveUserScores(response.data));
           }
         })
-      //! ERROR
-        .catch((error) => {
-          store.dispatch(errorMessage(true, 'incorrectPasswordError'));
-          if (error.response) {
-            console.log(error.response.data.error);
-          }
-          else {
-            console.log('Error', error.message);
-          }
-        })
+        // ? Message d'erreur à mettre ici
         .finally(() => {
           store.dispatch(changeValueGlobal(false, 'loading'));
         });
