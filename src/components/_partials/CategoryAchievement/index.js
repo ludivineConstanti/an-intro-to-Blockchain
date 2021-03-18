@@ -26,6 +26,7 @@ const CategoryAchievement = ({ title, content }) => {
       categoryId={quiz.categoryId}
       label={quiz.quiz_title}
       score={quiz.score}
+      done={quiz.done}
     />
   ));
   return (

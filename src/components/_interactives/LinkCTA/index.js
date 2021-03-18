@@ -11,12 +11,17 @@ import Icon from 'src/components/_statics/Icon';
 
 // == Composant
 const LinkCTA = ({
-  quizId, categoryId, externalLink, label, path,
+  quizId,
+  categoryId,
+  externalLink,
+  label, path,
+  score,
+  done,
 }) => {
   const content = (
     <div className="linkCTA">
       <div className="linkCTA__iconDiv">
-        <Icon category={categoryId} quiz={quizId} />
+        <Icon category={categoryId} quiz={quizId} score={score} done={done} />
         <svg className="linkCTA__iconDiv__frame" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 10.5V5.09619L4.59619 0.5H10V4.5H4V10.5H0Z" fill="white" />
           <path d="M80 70.5L80 75.9038L75.4038 80.5L70 80.5L70 76.5L76 76.5L76 70.5L80 70.5Z" fill="white" />
@@ -55,11 +60,15 @@ LinkCTA.propTypes = {
   label: PropTypes.string.isRequired,
   externalLink: PropTypes.bool,
   path: PropTypes.string,
+  score: PropTypes.number,
+  done: PropTypes.bool,
 };
 
 LinkCTA.defaultProps = {
   externalLink: false,
   path: '',
+  score: 0,
+  done: false,
 };
 
 // == Export
