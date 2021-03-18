@@ -1,0 +1,14 @@
+@protocol= https
+@domainname= apov9.herokuapp.com
+@baseUrl = {{protocol}}://{{domainname}}
+
+### Route POST /login
+
+PUT {{baseUrl}}/score
+Content-type: application/json
+
+{
+    "quizId": 14,
+    "userId": 57,
+    "scoreQuiz": 100
+}

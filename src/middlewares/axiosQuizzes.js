@@ -13,22 +13,40 @@ import quizFormatter from 'src/middlewares/quizFormatter';
 
 import { baseUrl } from 'src/middlewares/baseUrl';
 
-const user = (store) => (next) => (action) => {
+const user = (store) => (next) => async (action) => {
   const state = store.getState();
 
   switch (action.type) {
     case GET_ALL_QUIZZES: {
       store.dispatch(changeValueGlobal(true, 'loading'));
-      axios.get(`${baseUrl}/${state.global.language}/quizzes`)
-        .then((response) => {
-          if (response.statusText === 'OK') {
-            store.dispatch(stockAllQuizzes(quizzesFormatter(response.data)));
-          }
-        })
-        // ? Message d'erreur à mettre ici
-        .finally(() => {
-          store.dispatch(changeValueGlobal(false, 'loading'));
-        });
+      try {
+        const quizResponse = await axios.get(`${baseUrl}/${state.global.language}/quizzes`);
+        const quizFormatted = quizzesFormatter(quizResponse.data);
+        if (state.user.infos.isLoggedIn) {
+          const scoreResponse = await axios.get(`${baseUrl}/score/${state.user.infos.id}`);
+          const scoreFormatted = [];
+          Object.keys(scoreResponse.data).map((element) => (
+            scoreFormatted.push(scoreResponse.data[element])
+          ));
+          Object.keys(quizFormatted).forEach((name) => {
+            quizFormatted[name].forEach((element) => {
+              const result = scoreFormatted.find((oneQuiz) => (oneQuiz.quizId === element.quiz_id));
+              if (result) {
+                element.score = result.scoreQuiz;
+                element.done = true;
+              }
+              else {
+                element.score = 0;
+                element.done = false;
+              }
+            });
+          });
+        }
+        store.dispatch(stockAllQuizzes(quizFormatted));
+      }
+      finally {
+        store.dispatch(changeValueGlobal(false, 'loading'));
+      }
       break;
     }
 

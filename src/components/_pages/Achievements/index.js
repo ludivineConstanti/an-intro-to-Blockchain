@@ -13,33 +13,15 @@ const Achievements = ({
   firstname,
   lastname,
   getAllQuizzes,
-  getUserScores,
   quizzesList,
   language,
-  userScore,
 }) => {
-  const score = Object.keys(userScore).map((element) => userScore[element]);
-  Object.keys(quizzesList).forEach((name) => {
-    quizzesList[name].forEach((element) => {
-      const result = score.find((oneQuiz) => (oneQuiz.quizId === element.quiz_id));
-      if (result) {
-        element.score = result.scoreQuiz;
-      }
-      else {
-        element.score = 0;
-      }
-    });
-  });
   // without the language does not get updated
   const { t } = useTranslation();
 
   useEffect(() => {
     getAllQuizzes();
   }, [language]);
-
-  useEffect(() => {
-    getUserScores();
-  }, []);
 
   const categoryKeys = Object.keys(quizzesList);
   const categoryArr = [];
@@ -68,21 +50,15 @@ Achievements.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   getAllQuizzes: PropTypes.func,
-  getUserScores: PropTypes.func,
   quizzesList: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object,
   ]).isRequired,
   language: PropTypes.string.isRequired,
-  userScore: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-  ]).isRequired,
 };
 
 Achievements.defaultProps = {
   getAllQuizzes: () => {},
-  getUserScores: () => {},
 };
 
 // == Export
