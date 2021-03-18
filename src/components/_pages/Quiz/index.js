@@ -38,7 +38,7 @@ const Quiz = ({
   const currentQuestionData = quizData[`question${questionId}`];
 
   useEffect(() => {
-    if (quizData.totalQuestions) {
+    if (quizData[`question${quizData.idFirstQuestion}`]) {
       setIsReady(true);
     }
   }, [quizData]);

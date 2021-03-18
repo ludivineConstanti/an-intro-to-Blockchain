@@ -1,5 +1,6 @@
 @use 'src/styles/margins';
 @use 'src/styles/breakpoints';
+@use 'src/styles/zindex';
 
 .quiz {
   display: flex;
@@ -9,7 +10,7 @@
   &__backgroundAbout {
     background-color: rgba($color: #000000, $alpha: 0.925);
     position: absolute;
-    z-index: 3;
+    z-index: zindex.$quizBackgroundAbout;
     width: 100vw;
   }
 }

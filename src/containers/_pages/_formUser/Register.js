@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   newPasswordError: state.user.errors.newPasswordError,
   showPopUp: state.global.showPopUp,
   isLoggedIn: state.user.infos.isLoggedIn,
+  loading: state.global.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

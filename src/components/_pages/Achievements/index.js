@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 import TitlePage from 'src/components/_statics/TitlePage';
 import CategoryAchievement from 'src/components/_partials/CategoryAchievement';
+import Loading from 'src/containers/Loading';
 
 // == Composant
 const Achievements = ({
@@ -54,14 +55,22 @@ const Achievements = ({
     );
   });
 
-  return (
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (score) {
+      setIsReady(true);
+    }
+  }, [score]);
+
+  return isReady ? (
     <div className="border-padding">
       <div className="achievements">
         <TitlePage label={t('menu.achievements')} subtitle={`${firstname} ${lastname}`} />
         {categoryArr}
       </div>
     </div>
-  );
+  ) : <Loading />;
 };
 
 Achievements.propTypes = {

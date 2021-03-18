@@ -8,6 +8,7 @@ import './style.scss';
 import './animation.scss';
 import TitlePage from 'src/components/_statics/TitlePage';
 import CategoryArticle from 'src/components/_partials/CategoryArticle';
+import Loading from 'src/containers/Loading';
 
 // == Composant
 const Articles = ({
@@ -22,6 +23,13 @@ const Articles = ({
   const categoryKeys = Object.keys(articlesList);
   const categoryArticleArr = [];
   const categoryNavArr = [];
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (articlesList[categoryKeys[0]]) {
+      setIsReady(true);
+    }
+  }, [articlesList]);
 
   categoryKeys.forEach((category) => {
     categoryArticleArr.push(
@@ -32,7 +40,7 @@ const Articles = ({
     categoryNavArr.push(<a className="article__nav__link" href={`#${category}`}>{category}</a>);
   });
 
-  return (
+  return isReady ? (
     <div className="border-padding">
       <div className="article">
         <TitlePage label={t('menu.articles')} />
@@ -40,7 +48,7 @@ const Articles = ({
         <div className="article__nav">{categoryNavArr}</div>
       </div>
     </div>
-  );
+  ) : <Loading />;
 };
 
 Articles.propTypes = {

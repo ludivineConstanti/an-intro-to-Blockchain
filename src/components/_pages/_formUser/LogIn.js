@@ -11,6 +11,7 @@ import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
 import CloseIcon from 'src/containers/_interactives/_buttonsHeader/CloseIcon';
 import MessagePopUp from 'src/containers/_partials/MessagePopUp';
+import Loading from 'src/containers/Loading';
 
 // == Composant
 const LogIn = ({
@@ -23,6 +24,7 @@ const LogIn = ({
   resetQuizState,
   showPopUp,
   isLoggedIn,
+  loading,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -63,7 +65,7 @@ const LogIn = ({
     }
   }, [isLoggedIn]);
 
-  return (
+  return !loading ? (
     <>
       { hasFinishedQuiz && <CloseIcon useCase="showPopUp" />}
       { hasFinishedQuiz && showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="registerScore" path="/" />}
@@ -88,7 +90,7 @@ const LogIn = ({
         </FormUser>
       </div>
     </>
-  );
+  ) : <Loading />;
 };
 
 LogIn.propTypes = {
@@ -101,6 +103,7 @@ LogIn.propTypes = {
   resetQuizState: PropTypes.func.isRequired,
   showPopUp: PropTypes.bool.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 LogIn.defaultProps = {

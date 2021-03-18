@@ -16,6 +16,7 @@ const mapStateToProps = (state) => ({
   newPasswordError: state.user.errors.newPasswordError,
   emailError: state.user.errors.emailError,
   emailFormatError: state.user.errors.emailFormatError,
+  loading: state.global.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
