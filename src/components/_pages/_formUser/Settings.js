@@ -84,6 +84,10 @@ const Settings = ({
     else setEmailFormatError('');
   });
 
+  const handleInputOnChange = (value, name) => {
+    changeField(value, 'settingsForms', name);
+  };
+
   // Fonction to control the correspondence of passwords,
   // and lengths of firstname and lastname
   const handleSubmitSettings = (event) => {
@@ -113,12 +117,12 @@ const Settings = ({
         <FormUser className="marginB">
           <form onSubmit={handleSubmitSettings} className="settings__columns">
             <div className="settings__column">
-              <InputText name="oldPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordOld')} value={settingsForms.oldPassword} onChange={changeField} />
-              <InputText name="newPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordNew')} value={settingsForms.newPassword} onChange={changeField} />
+              <InputText name="oldPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordOld')} value={settingsForms.oldPassword} onChange={handleInputOnChange} />
+              <InputText name="newPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordNew')} value={settingsForms.newPassword} onChange={handleInputOnChange} />
             </div>
             <div className="settings__column">
               <p className="register__error">{PasswordConfirmError}</p>
-              <InputText name="controlNewPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordConfirmation')} value={settingsForms.controlNewPassword} onChange={changeField} />
+              <InputText name="controlNewPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordConfirmation')} value={settingsForms.controlNewPassword} onChange={handleInputOnChange} />
               <span className="inputText--show-password-1" onClick={showHideForm1}>{typeFormNewPassword === 'text' ? 'Hide' : 'Show'}</span>
               <p className="settings__error">{NewPasswordError}</p>
               <p className="settings__error">{IncorrectPasswordError}</p>
@@ -129,8 +133,8 @@ const Settings = ({
         <FormUser className="marginB">
           <form onSubmit={handleSubmitEmail} className="settings__columns">
             <div className="settings__column">
-              <InputText name="controlPassword" type={typeFormNewEmail} placeholder={t('formUser.password')} value={settingsForms.controlPassword} onChange={changeField} />
-              <InputText name="newEmail" type="email" placeholder={t('formUser.emailNew')} value={settingsForms.newEmail} onChange={changeField} />
+              <InputText name="controlPassword" type={typeFormNewEmail} placeholder={t('formUser.password')} value={settingsForms.controlPassword} onChange={handleInputOnChange} />
+              <InputText name="newEmail" type="email" placeholder={t('formUser.emailNew')} value={settingsForms.newEmail} onChange={handleInputOnChange} />
             </div>
             <div className="settings__column">
               <span className="inputText--show-password-1" onClick={showHideForm2}>{typeFormNewEmail === 'text' ? 'Hide' : 'Show'}</span>
@@ -145,7 +149,7 @@ const Settings = ({
 
           <form onSubmit={handleDelete}>
             <div className="settings__column">
-              <InputText name="controlPasswordDelete" type={typeFormDelete} placeholder={t('formUser.password')} value={settingsForms.controlPasswordDelete} onChange={changeField} />
+              <InputText name="controlPasswordDelete" type={typeFormDelete} placeholder={t('formUser.password')} value={settingsForms.controlPasswordDelete} onChange={handleInputOnChange} />
               <span className="inputText--show-password-1" onClick={showHideForm3}>{typeFormDelete === 'text' ? 'Hide' : 'Show'}</span>
             </div>
             <div className="settings__column">

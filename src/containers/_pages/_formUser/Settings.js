@@ -19,7 +19,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => dispatch(changeInputValue(value, name)),
+  changeField: (value, object, name) => dispatch(changeInputValue(value, object, name)),
   handleLogout: () => dispatch(logout()),
   handleChangeSettings: () => dispatch(changeUserSettings()),
   handleChangeEmail: () => dispatch(changeUserEmail()),

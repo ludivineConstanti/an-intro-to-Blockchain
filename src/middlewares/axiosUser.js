@@ -4,13 +4,11 @@ import {
 } from 'src/actions/appActions';
 import {
   LOGIN_REQUEST,
-  saveUserLogin,
   REGISTER_REQUEST,
-  saveUserRegister,
+  saveUser,
   CHANGE_USER_SETTINGS,
-  saveUserSettings,
   CHANGE_USER_EMAIL,
-  saveUserEmail,
+  saveUserSettings,
   DELETE_ACCOUNT_REQUEST,
   logout,
   errorMessage,
@@ -33,7 +31,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserLogin(response.data.id, response.data.firstname,
+            store.dispatch(saveUser(response.data.id, response.data.firstname,
               response.data.lastname));
           }
         })
@@ -62,7 +60,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserRegister(response.data.id, response.data.firstname,
+            store.dispatch(saveUser(response.data.id, response.data.firstname,
               response.data.lastname));
           }
         })
@@ -117,7 +115,7 @@ const user = (store) => (next) => (action) => {
       })
         .then((response) => {
           if (response.statusText === 'OK') {
-            store.dispatch(saveUserEmail());
+            store.dispatch(saveUserSettings());
           }
         })
         .catch((error) => {
