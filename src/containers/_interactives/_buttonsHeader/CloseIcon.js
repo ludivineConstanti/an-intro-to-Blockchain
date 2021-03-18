@@ -4,7 +4,7 @@ import { toggleMenu, changeValueGlobal } from 'src/actions/appActions';
 
 const mapDispatchToProps = (dispatch) => ({
   onClickButtonMenu: () => dispatch(toggleMenu()),
-  onClickToShowPopUp: () => dispatch(changeValueGlobal(true, 'showPopUp')),
+  onClickToChangeGlobal: (value, property) => dispatch(changeValueGlobal(value, property)),
 });
 
 export default connect(null, mapDispatchToProps)(CloseIcon);

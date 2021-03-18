@@ -79,5 +79,21 @@
       "label": "Oh, non !",
       "text": "Vous ne pourrez pas enregistrer votre score, si vous quittez cette page"
     }
+  },
+  "about": {
+    "title": {
+      "0": "Comment est calculé le score ?",
+      "1": "Qui a créé les questions et les réponses ?"
+    },
+    "text": {
+      "0": {
+        "0": "Vous pouvez obtenir un maximum de 1 point par question.",
+        "1": "En dessous de la question est toujours affiché s'il y a une ou plusieurs bonnes réponses possibles.",
+        "2": "Pour calculer votre score, nous prenons votre nombre de bonne bonnes réponses, divisé par le nombre de bonnes réponses possibles pour cette question. 0.5 points vous vous seront retirés pour chaque mauvaises réponses."
+      },
+      "1": {
+        "0": "Les questions et réponses du site ont été créées par les même personnes qui ont codés le site. Veuillez garder en tête que certaines peuvent être inexactes. Toutes les informations ont été tirées d'articles trouvés sur Internet. Chaque question fournit le lien externe vers l'article utilisé comme référence, vous pouvez le lire pour en savoir plus ou le vérifier."
+      }
+    }
   }
 }

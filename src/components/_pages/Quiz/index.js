@@ -12,6 +12,7 @@ import AnswerQuestion from 'src/containers/_partials/AnswerQuestion';
 import CloseIcon from 'src/containers/_interactives/_buttonsHeader/CloseIcon';
 import MessagePopUp from 'src/containers/_partials/MessagePopUp';
 import Loading from 'src/containers/Loading';
+import About from 'src/containers/_partials/About';
 
 // == Composant
 const Quiz = ({
@@ -48,6 +49,7 @@ const Quiz = ({
         { showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="keepPlaying" />}
         <ProgressionBar totalNum={quizData.totalQuestions} progressionNum={questionNumber} />
         <div className="quiz">
+          <About />
           {!showAnswer
             ? <FormQuestion question={currentQuestionData} answerShowed={false} />
             : (

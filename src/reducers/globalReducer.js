@@ -11,6 +11,7 @@ const initialState = {
   loading: false,
   backgroundClassName: 'app__threeJs app__threeJS--animationIntro',
   showPopUp: false,
+  showAbout: false,
 };
 
 export default (state = initialState, action = {}) => {
