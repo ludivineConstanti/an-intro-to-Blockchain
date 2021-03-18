@@ -26,9 +26,13 @@
   }
 
   &__backgroundColor {
-    fill: #00FFFF;
-    fill-opacity: 0;
-    //fill-opacity: 0.25;
+    fill-opacity: 0.25;
+    &--positive {
+      fill: #00FFFF;
+    }
+    &--negative {
+      fill: #EB00FF;
+    }
   }
   &__rotatePart, &__rotatePart--inverse {
     transform-origin: center;
