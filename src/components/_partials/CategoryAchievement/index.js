@@ -12,7 +12,7 @@ import QuizAchievement from 'src/components/_partials/CategoryAchievement/QuizAc
 const CategoryAchievement = ({ title, content }) => {
   let quizCounter = 0;
   let score = 0;
-  console.log(content);
+
   content.forEach((element) => {
     score += element.score;
     quizCounter += 1;

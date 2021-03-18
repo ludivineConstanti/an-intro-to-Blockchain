@@ -1,15 +1,12 @@
 @use 'src/styles/breakpoints';
 
 .categoryQuiz {
-  //background-color: yellow;
   &__groupLinks {
     display: flex;
-    
   }
   &__linkCTA {
     display: flex;
     flex-wrap: wrap;
-    //background-color: red;
     padding-bottom: 60px;
   }
 }

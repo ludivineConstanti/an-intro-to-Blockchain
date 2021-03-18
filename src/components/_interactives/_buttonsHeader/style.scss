@@ -3,39 +3,52 @@
 @use 'src/styles/breakpoints';
 @use 'src/styles/zindex';
 
-.closeIcon, .menuIcon, .profileIcon {
+.closeIcon, .menuIcon, .profileIcon, .aboutIcon {
   position: fixed;
-  top: margins.$outsideBorderMobile;
   z-index: zindex.$header;
+
   &__svg {
     pointer-events: none;
   }
+
   &--topLeftDesktop {
+    top: margins.$outsideBorderMobile;
     right: margins.$outsideBorderMobile;
   }
   &--topRightDesktop {
     display: none;
   }
+  &--bottomLeftDesktop {
+    left: margins.$outsideBorderMobile;
+    top: margins.$outsideBorderMobile;
+  }
+  &__username, &__questionMark {
+    font-size: fontSizes.$labelS2Desktop;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
-  .closeIcon, .menuIcon, .profileIcon {
-    top: margins.$outsideBorderDesktop;
-    &--topLeftDesktop {
+  .closeIcon, .menuIcon, .profileIcon, .aboutIcon {
+    &--topLeftDesktop, &--topRightDesktop {
+      top: margins.$outsideBorderDesktop;
+    } 
+    &--bottomLeftDesktop {
+      bottom: margins.$outsideBorderDesktop;
+      top: auto;
+    }
+    &--topLeftDesktop, &--bottomLeftDesktop {
       left: margins.$outsideBorderDesktop;
     }
     &--topRightDesktop {
       right: margins.$outsideBorderDesktop;
     }
-    &__username{
-      font-size: fontSizes.$labelS2Desktop;
-      font-weight: bold;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      margin: auto;
-    }
+
   }
 
   .profileIcon {

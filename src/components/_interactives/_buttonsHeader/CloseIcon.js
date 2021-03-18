@@ -7,17 +7,25 @@ import './style.scss';
 import './animation.scss';
 
 // == Composant
-const CloseIcon = ({ onClickButtonMenu, onClickToShowPopUp, useCase }) => {
+const CloseIcon = ({
+  onClickButtonMenu, onClickToChangeGlobal, useCase, className,
+}) => {
   const onClick = () => {
     if (useCase === 'menu') {
       onClickButtonMenu();
     }
     if (useCase === 'showPopUp') {
-      onClickToShowPopUp();
+      onClickToChangeGlobal(true, 'showPopUp');
+    }
+    if (useCase === 'hideAbout') {
+      onClickToChangeGlobal(false, 'showAbout');
     }
   };
+
+  const classDiv = `closeIcon closeIcon--${className}`;
+
   return (
-    <button type="button" className="closeIcon closeIcon--topLeftDesktop" onClick={onClick}>
+    <button type="button" className={classDiv} onClick={onClick}>
       <svg className="CloseIcon__svg" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M60.75 4.84619L56.1538 0.25H5.34619L0.75 4.84619V55.6538L5.34619 60.25H56.1538L60.75 55.6538V4.84619Z" fill="black" fillOpacity="0.85" />
         <path className="closeIcon__corners" fillRule="evenodd" clipRule="evenodd" d="M56.4829 0H40.625V4H56.625V20H60.625V4.14209L56.4829 0ZM0.625 20V4.42636L5.05136 0H20.625V4H4.625V20H0.625ZM0.625 55.8578L4.76718 60H20.625V56H4.625V40H0.625V55.8578ZM56.625 40V56H40.625V60H56.625H56.7671L60.625 56.1421V56V40H56.625Z" fill="white" />
@@ -36,8 +44,13 @@ const CloseIcon = ({ onClickButtonMenu, onClickToShowPopUp, useCase }) => {
 
 CloseIcon.propTypes = {
   onClickButtonMenu: PropTypes.func.isRequired,
-  onClickToShowPopUp: PropTypes.func.isRequired,
+  onClickToChangeGlobal: PropTypes.func.isRequired,
   useCase: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+CloseIcon.defaultProps = {
+  className: 'topLeftDesktop',
 };
 
 // == Export

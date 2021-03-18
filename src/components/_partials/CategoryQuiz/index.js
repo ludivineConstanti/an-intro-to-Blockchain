@@ -9,12 +9,14 @@ import LinkCTA from 'src/components/_interactives/LinkCTA';
 
 // == Composant
 const CategoryQuiz = ({ title, content }) => {
+  console.log(content);
   const quizLinks = content.map((quiz) => (
     <LinkCTA
       key={quiz.quiz_id}
       quizId={quiz.quiz_id}
       categoryId={quiz.categoryId}
       label={quiz.quiz_title}
+      score={quiz.score}
     />
   ));
   return (

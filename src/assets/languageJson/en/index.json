@@ -80,5 +80,21 @@
       "label": "Oh, no!",
       "text": "You won't be able to save your score, if you leave this page"
     }
+  },
+  "about": {
+    "title": {
+      "0": "How is the score calculated?",
+      "1": "Who made the questions and answers?"
+    },
+    "text": {
+      "0": {
+        "0": "You can get maximum 1 point per question.",
+        "1": "Wether there is one correct answer or multiple ones, is always written under the question.",
+        "2": "To calculate your score, we take the number of question you correctly answered and divide it by the number of correct answers there was for this question. You'll also have a penalty of -0.5 point per wrong answer."
+      },
+      "1": {
+        "0": "The questions and answers of the quiz were made by the same people who made this website. Please keep in mind that some informations might be inacurrate,as this was made as a personal project. All informations were taken from articles found on the internet. Every question provides the external link to the article used as reference, you can read it to learn more or verify it."
+      }
+    }
   }
 }
