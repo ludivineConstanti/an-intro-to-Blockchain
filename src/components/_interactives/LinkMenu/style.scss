@@ -10,8 +10,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-bottom: 2vh;
-  margin-bottom: 5vh;
+  padding-bottom: 1.25vh;
+  margin-bottom: 3.5vh;
   border-bottom: 4px solid white;
   width: calc(#{margins.$widthOutsideBorderMobile} - 5px);
   &__triangle {

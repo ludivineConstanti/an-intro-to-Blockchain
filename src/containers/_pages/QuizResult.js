@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import QuizResult from 'src/components/_pages/QuizResult';
+import { leaveQuiz } from 'src/actions/quizzesActions';
 import { changeValueGlobal } from 'src/actions/appActions';
 
 const mapStateToProps = (state) => ({
@@ -10,6 +11,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onClickToShowPopUp: () => dispatch(changeValueGlobal(true, 'showPopUp')),
+  onClickToLeaveQuiz: () => {
+    dispatch(changeValueGlobal(false, 'showPopUp'));
+    dispatch(leaveQuiz());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizResult);

@@ -54,7 +54,6 @@ const App = ({
   return (
     <div className="app">
       <Frame />
-      {loading && <Loading />}
       <Header />
       {menuOpen && (
       <Menu />

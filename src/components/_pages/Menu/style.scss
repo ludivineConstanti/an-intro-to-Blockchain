@@ -7,7 +7,7 @@
   position: fixed;
   left: margins.$outsideBorderMobile;
   // value substracted linked to the css on the linkMenu Component
-  bottom: calc(#{margins.$outsideBorderMobile} - 5vh);
+  bottom: calc(#{margins.$outsideBorderMobile} - 3.5vh);
 
   &__border {
     border: 4px solid rgba($color: #ffffff, $alpha: 0.07);
@@ -49,7 +49,7 @@
   .menu {
     left: margins.$outsideBorderDesktop;
     // value substracted linked to the css on the linkMenu Component
-    bottom: calc(#{margins.$outsideBorderDesktop} - 5vh);
+    bottom: calc(#{margins.$outsideBorderDesktop} - 3.5vh);
   &__border { 
     margin: margins.$outsideBorderDesktop;
     width: margins.$widthOutsideBorderDesktop;

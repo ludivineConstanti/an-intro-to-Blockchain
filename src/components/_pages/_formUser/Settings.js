@@ -10,7 +10,7 @@ import FormUser from 'src/components/_partials/FormUser';
 import InputText from 'src/components/_interactives/InputText';
 import SubmitButton from 'src/components/_interactives/_buttons/SubmitButton';
 import LinkButton from 'src/components/_interactives/_buttons/LinkButton';
-
+import Loading from 'src/containers/Loading';
 // == Composant
 
 const Settings = ({
@@ -26,6 +26,7 @@ const Settings = ({
   newPasswordError,
   emailError,
   emailFormatError,
+  loading,
 }) => {
   // without the language does not get updated
   const { t } = useTranslation();
@@ -105,7 +106,7 @@ const Settings = ({
     handleDeleteUser();
   };
 
-  return (
+  return !loading ? (
     <div className="settings">
       <TitlePage label={t('menu.settings')} subtitle={`${firstname} ${lastname}`} />
       <div className="settings__forms">
@@ -160,7 +161,7 @@ const Settings = ({
         </FormUser>
       </div>
     </div>
-  );
+  ) : <Loading />;
 };
 
 Settings.propTypes = {
@@ -176,6 +177,7 @@ Settings.propTypes = {
   newPasswordError: PropTypes.bool,
   emailError: PropTypes.bool,
   emailFormatError: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
 };
 
 Settings.defaultProps = {
