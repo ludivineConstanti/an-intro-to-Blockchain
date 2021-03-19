@@ -14,7 +14,6 @@
     &--topRight {
       top: margins.$outsideBorderMobile;
       right: margins.$outsideBorderMobile;
-      display: none;
     }
     &--topLeft {
       top: margins.$outsideBorderMobile;
@@ -40,7 +39,6 @@
     &--topRight {
       top: margins.$outsideBorderDesktop;
       right: margins.$outsideBorderDesktop;
-      display: block;
     }
     &--topLeft {
       top: margins.$outsideBorderDesktop;
