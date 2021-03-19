@@ -40,10 +40,10 @@ const Achievements = ({
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    if (score) {
+    if (quizzesList[categoryKeys[0]]) {
       setIsReady(true);
     }
-  }, [score]);
+  }, [quizzesList]);
 
   return isReady ? (
     <div className="border-padding">

@@ -122,8 +122,9 @@ const Register = ({
     }
   }, [isLoggedIn]);
 
-  return !loading ? (
+  return (
     <>
+      {loading && <Loading />}
       { hasFinishedQuiz && <CloseIcon useCase="showPopUp" /> }
       { hasFinishedQuiz && showPopUp && <MessagePopUp label={t('quiz.popUp.label')} text={t('quiz.popUp.text')} useCase="registerScore" path="/" /> }
       <div className="register">
@@ -159,7 +160,7 @@ const Register = ({
         </FormUser>
       </div>
     </>
-  ) : <Loading />;
+  );
 };
 
 Register.propTypes = {

@@ -106,62 +106,65 @@ const Settings = ({
     handleDeleteUser();
   };
 
-  return !loading ? (
-    <div className="settings">
-      <TitlePage label={t('menu.settings')} subtitle={`${firstname} ${lastname}`} />
-      <div className="settings__forms">
-        <FormUser className="marginB">
-          <div className="settings__column">
-            <LinkButton path="/logout" label={t('menu.signOut')} onClickLink={handleLogout} />
-          </div>
-        </FormUser>
-        <FormUser className="marginB">
-          <form onSubmit={handleSubmitSettings} className="settings__columns">
+  return (
+    <>
+      {loading && <Loading />}
+      <div className="settings">
+        <TitlePage label={t('menu.settings')} subtitle={`${firstname} ${lastname}`} />
+        <div className="settings__forms">
+          <FormUser className="marginB">
             <div className="settings__column">
-              <InputText name="oldPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordOld')} value={settingsForms.oldPassword} onChange={handleInputOnChange} />
-              <InputText name="newPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordNew')} value={settingsForms.newPassword} onChange={handleInputOnChange} />
+              <LinkButton path="/logout" label={t('menu.signOut')} onClickLink={handleLogout} />
             </div>
-            <div className="settings__column">
-              <p className="register__error">{PasswordConfirmError}</p>
-              <InputText name="controlNewPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordConfirmation')} value={settingsForms.controlNewPassword} onChange={handleInputOnChange} />
-              <span className="inputText--show-password-1" onClick={showHideForm1}>{typeFormNewPassword === 'text' ? 'Hide' : 'Show'}</span>
-              <p className="settings__error">{NewPasswordError}</p>
-              <p className="settings__error">{IncorrectPasswordError}</p>
-              <SubmitButton label={t('formUser.buttonChangePassword')} />
-            </div>
-          </form>
-        </FormUser>
-        <FormUser className="marginB">
-          <form onSubmit={handleSubmitEmail} className="settings__columns">
-            <div className="settings__column">
-              <InputText name="controlPassword" type={typeFormNewEmail} placeholder={t('formUser.password')} value={settingsForms.controlPassword} onChange={handleInputOnChange} />
-              <InputText name="newEmail" type="email" placeholder={t('formUser.emailNew')} value={settingsForms.newEmail} onChange={handleInputOnChange} />
-            </div>
-            <div className="settings__column">
-              <span className="inputText--show-password-1" onClick={showHideForm2}>{typeFormNewEmail === 'text' ? 'Hide' : 'Show'}</span>
-              <p className="settings__error">{IncorrectPasswordError}</p>
-              <p className="settings__error">{EmailFormatError}</p>
-              <p className="settings__error">{EmailError}</p>
-              <SubmitButton label={t('formUser.buttonChangeEmail')} />
-            </div>
-          </form>
-        </FormUser>
-        <FormUser className="marginB-delete">
+          </FormUser>
+          <FormUser className="marginB">
+            <form onSubmit={handleSubmitSettings} className="settings__columns">
+              <div className="settings__column">
+                <InputText name="oldPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordOld')} value={settingsForms.oldPassword} onChange={handleInputOnChange} />
+                <InputText name="newPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordNew')} value={settingsForms.newPassword} onChange={handleInputOnChange} />
+              </div>
+              <div className="settings__column">
+                <p className="register__error">{PasswordConfirmError}</p>
+                <InputText name="controlNewPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordConfirmation')} value={settingsForms.controlNewPassword} onChange={handleInputOnChange} />
+                <span className="inputText--show-password-1" onClick={showHideForm1}>{typeFormNewPassword === 'text' ? 'Hide' : 'Show'}</span>
+                <p className="settings__error">{NewPasswordError}</p>
+                <p className="settings__error">{IncorrectPasswordError}</p>
+                <SubmitButton label={t('formUser.buttonChangePassword')} />
+              </div>
+            </form>
+          </FormUser>
+          <FormUser className="marginB">
+            <form onSubmit={handleSubmitEmail} className="settings__columns">
+              <div className="settings__column">
+                <InputText name="controlPassword" type={typeFormNewEmail} placeholder={t('formUser.password')} value={settingsForms.controlPassword} onChange={handleInputOnChange} />
+                <InputText name="newEmail" type="email" placeholder={t('formUser.emailNew')} value={settingsForms.newEmail} onChange={handleInputOnChange} />
+              </div>
+              <div className="settings__column">
+                <span className="inputText--show-password-1" onClick={showHideForm2}>{typeFormNewEmail === 'text' ? 'Hide' : 'Show'}</span>
+                <p className="settings__error">{IncorrectPasswordError}</p>
+                <p className="settings__error">{EmailFormatError}</p>
+                <p className="settings__error">{EmailError}</p>
+                <SubmitButton label={t('formUser.buttonChangeEmail')} />
+              </div>
+            </form>
+          </FormUser>
+          <FormUser className="marginB-delete">
 
-          <form onSubmit={handleDelete}>
-            <div className="settings__column">
-              <InputText name="controlPasswordDelete" type={typeFormDelete} placeholder={t('formUser.password')} value={settingsForms.controlPasswordDelete} onChange={handleInputOnChange} />
-              <span className="inputText--show-password-1" onClick={showHideForm3}>{typeFormDelete === 'text' ? 'Hide' : 'Show'}</span>
-            </div>
-            <div className="settings__column">
-              <p className="settings__error">{IncorrectPasswordError}</p>
-              <SubmitButton label={t('formUser.buttonDeleteAccount')} />
-            </div>
-          </form>
-        </FormUser>
+            <form onSubmit={handleDelete}>
+              <div className="settings__column">
+                <InputText name="controlPasswordDelete" type={typeFormDelete} placeholder={t('formUser.password')} value={settingsForms.controlPasswordDelete} onChange={handleInputOnChange} />
+                <span className="inputText--show-password-1" onClick={showHideForm3}>{typeFormDelete === 'text' ? 'Hide' : 'Show'}</span>
+              </div>
+              <div className="settings__column">
+                <p className="settings__error">{IncorrectPasswordError}</p>
+                <SubmitButton label={t('formUser.buttonDeleteAccount')} />
+              </div>
+            </form>
+          </FormUser>
+        </div>
       </div>
-    </div>
-  ) : <Loading />;
+    </>
+  );
 };
 
 Settings.propTypes = {
