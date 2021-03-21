@@ -143,7 +143,7 @@ const Register = ({
               <p className="register__error">{NewPasswordError}</p>
               <div className="inputText--label-password">
                 <InputText name="password" type={type} className="input-password" placeholder={t('formUser.password')} value={registerForm.password} onChange={onChangePasswordInput} />
-                <span className="inputText--show-password" onClick={showHide}>{type === 'text' ? 'Hide' : 'Show'}</span>
+                <span className="inputText--show-password" onClick={showHide}>{type === 'text' ? t('formUser.buttonHide') : t('formUser.buttonShow')}</span>
                 <span className="inputText--strength-password" data-score={score} />
               </div>
               <p className="register__error">{PasswordConfirmError}</p>

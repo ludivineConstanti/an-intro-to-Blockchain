@@ -63,6 +63,10 @@
       font-size: fontSizes.$textDesktop;
       letter-spacing: fontSizes.$textKerningDesktop;
     }
+
+    &--paddingTop {
+      padding-top: animations.$dSubmitButtonPadding + animations.$dSubmitButtonBorder;
+    }
   
     &__triangle {
       margin-left: 15px;

@@ -45,7 +45,9 @@
     "logIn": "Me connecter",
     "buttonCreateAccount": "Créer mon compte",
     "firstname": "Prénom",
-    "lastname": "Nom de famille"
+    "lastname": "Nom de famille",
+    "buttonShow": "Montrer",
+    "buttonHide": "Cacher"
   },
   "achievements": {
     "linkReplayQuiz": "Jouer à ce quiz"

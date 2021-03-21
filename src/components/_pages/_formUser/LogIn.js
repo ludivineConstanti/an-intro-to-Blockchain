@@ -81,7 +81,7 @@ const LogIn = ({
             </div>
             <div className="login__column">
               <InputText name="password" type={type} placeholder={t('formUser.password')} value={loginForm.password} onChange={handleInputOnChange} />
-              <span className="inputText--show-password-1" onClick={showHide}>{type === 'text' ? 'Hide' : 'Show'}</span>
+              <span className="inputText--show-password-1" onClick={showHide}>{type === 'text' ? t('formUser.buttonHide') : t('formUser.buttonShow')}</span>
               <div className="login__submitButton">
                 <p className="login__error">{Error}</p>
                 <SubmitButton label={t('formUser.logIn')} />

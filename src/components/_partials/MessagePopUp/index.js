@@ -17,11 +17,15 @@ const MessagePopUp = ({
 
   const rightPart = useCase === 'registerScore'
     ? (
-      <>
+      <div className="messagePopUp__links__right">
         <LinkButton label={t('menu.register')} path="/quizResult/register" useCase="closePopUp" onClickLink={onClickToClosePopUp} />
         <LinkButton label={t('menu.login')} path="/quizResult/login" useCase="closePopUp" onClickLink={onClickToClosePopUp} />
-      </>
-    ) : (<SubmitButton label={t('quiz.popUp.linkGoBack')} onClick={onClickToClosePopUp} />);
+      </div>
+    ) : (
+      <div className="messagePopUp__button__right">
+        <SubmitButton label={t('quiz.popUp.linkGoBack')} onClick={onClickToClosePopUp} />
+      </div>
+    );
 
   return (
     <div className="messagePopUp">
@@ -33,11 +37,9 @@ const MessagePopUp = ({
         </h3>
         <div className="messagePopUp__links">
           <div className="messagePopUp__links__left" onClick={onClickToLeavePopUp}>
-            <LinkButton label={t('quiz.popUp.linkGiveUp')} path={path} onClick={onClickToLeavePopUp} />
+            <LinkButton label={t('quiz.popUp.linkGiveUp')} path={path} onClick={onClickToLeavePopUp} className="paddingTop" />
           </div>
-          <div className="messagePopUp__links__right">
-            {rightPart}
-          </div>
+          {rightPart}
         </div>
       </div>
     </div>

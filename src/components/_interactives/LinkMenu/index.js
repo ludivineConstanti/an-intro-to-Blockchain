@@ -10,8 +10,9 @@ const LinkMenu = ({
   path,
   funcOnClick,
   className,
+  classModifier,
 }) => {
-  const classLink = `linkMenu linkMenu--${className}`;
+  const classLink = `linkMenu linkMenu--${className} linkMenu--${classModifier}`;
   return (
 
     <NavLink
@@ -35,10 +36,12 @@ LinkMenu.propTypes = {
   path: PropTypes.string.isRequired,
   funcOnClick: PropTypes.func.isRequired,
   className: PropTypes.string,
+  classModifier: PropTypes.string,
 };
 
 LinkMenu.defaultProps = {
   className: 'margin1',
+  classModifier: '',
 };
 
 export default LinkMenu;
