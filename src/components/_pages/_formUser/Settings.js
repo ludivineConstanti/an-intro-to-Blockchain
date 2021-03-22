@@ -134,7 +134,7 @@ const Settings = ({
               <div className="settings__column">
                 <p className="register__error">{PasswordConfirmError}</p>
                 <InputText name="controlNewPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordConfirmation')} value={settingsForms.controlNewPassword} onChange={handleInputOnChange} />
-                <span className="inputText--show-password-1" onClick={showHideForm1}>{typeFormNewPassword === 'text' ? 'Hide' : 'Show'}</span>
+                <span className="inputText--show-password-1" onClick={showHideForm1}>{typeFormNewPassword === 'text' ? t('formUser.buttonHide') : t('formUser.buttonShow')}</span>
                 <p className="settings__error">{NewPasswordError}</p>
                 <p className="settings__error">{comparePasswordsError}</p>
                 <p className="settings__error">{IncorrectPasswordError}</p>
@@ -149,7 +149,7 @@ const Settings = ({
                 <InputText name="newEmail" type="email" placeholder={t('formUser.emailNew')} value={settingsForms.newEmail} onChange={handleInputOnChange} />
               </div>
               <div className="settings__column">
-                <span className="inputText--show-password-1" onClick={showHideForm2}>{typeFormNewEmail === 'text' ? 'Hide' : 'Show'}</span>
+                <span className="inputText--show-password-1" onClick={showHideForm2}>{typeFormNewEmail === 'text' ? t('formUser.buttonHide') : t('formUser.buttonShow')}</span>
                 <p className="settings__error">{EmailError}</p>
                 <p className="settings__error">{EmailFormatError}</p>
                 <p className="settings__error">{IncorrectPasswordError}</p>
@@ -162,7 +162,7 @@ const Settings = ({
             <form onSubmit={handleDelete}>
               <div className="settings__column">
                 <InputText name="controlPasswordDelete" type={typeFormDelete} placeholder={t('formUser.password')} value={settingsForms.controlPasswordDelete} onChange={handleInputOnChange} />
-                <span className="inputText--show-password-1" onClick={showHideForm3}>{typeFormDelete === 'text' ? 'Hide' : 'Show'}</span>
+                <span className="inputText--show-password-1" onClick={showHideForm3}>{typeFormDelete === 'text' ? t('formUser.buttonHide') : t('formUser.buttonShow')}</span>
               </div>
               <div className="settings__column">
                 <p className="settings__error">{IncorrectPasswordError}</p>

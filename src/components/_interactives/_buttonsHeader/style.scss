@@ -21,6 +21,10 @@
   &--bottomLeftDesktop {
     left: margins.$outsideBorderMobile;
     top: margins.$outsideBorderMobile;
+    // need to add that, otherwise the div is a few pixel higher
+    // and wider and doesn't align properly with the corners of the frame
+    height: 60px;
+    width: 60px;
   }
   &__username, &__questionMark {
     font-size: fontSizes.$labelS2Desktop;
@@ -53,6 +57,9 @@
 
   .profileIcon {
     display: block;
+    // otherwise content is not centered correctly
+    height: 60px;
+    width: 60px;
   }
 }
 

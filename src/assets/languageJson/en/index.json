@@ -46,7 +46,9 @@
     "buttonDeleteAccount": "Delete my account",
     "logIn": "Log in",
     "firstname": "First name",
-    "lastname": "Last name"   
+    "lastname": "Last name",
+    "buttonShow": "Show",
+    "buttonHide": "Hide"   
   },
   "achievements": {
     "linkReplayQuiz": "Play this quiz"

@@ -19,7 +19,11 @@
     height: fontSizes.$menuTriangleMobile;
     stroke-width: 1.6px;
   }
-
+  &--lastLink {
+    // takes 10 columns of the grid
+    margin-left: 5px;
+    width: calc(#{margins.$widthOutsideBorderMobile} - 10px);
+  }
 }
 
 @media only screen and (min-width: breakpoints.$desktop) {
@@ -27,7 +31,7 @@
     font-size: fontSizes.$menuDesktop;
     letter-spacing: fontSizes.$menuKerningDesktop;
     // takes 13 columns of the grid
-    width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 13);
+    width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 12);
 
   &__triangle {
     height: fontSizes.$menuTriangleDesktop;
@@ -36,6 +40,11 @@
   &--margin2 {
     // takes 10 columns of the grid
     width: calc(((100vw - #{margins.$borderDesktop}) / 16) * 10);
+  }
+  &--lastLink {
+    // takes 10 columns of the grid
+    margin-left: 5px;
+    width: calc((((100vw - #{margins.$borderDesktop}) / 16) * 10) - 5px);
   }
   }
 }
