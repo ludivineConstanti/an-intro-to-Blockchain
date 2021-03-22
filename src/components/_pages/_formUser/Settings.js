@@ -39,6 +39,7 @@ const Settings = ({
   const [typeFormNewEmail, setTypeFormNewEmail] = useState('password');
   const [typeFormDelete, setTypeFormDelete] = useState('password');
   const [EmailFormatError, setEmailFormatError] = useState('');
+  const [comparePasswordsError, setComparePasswordsError] = useState('');
 
   const showHideForm1 = (event) => {
     event.preventDefault();
@@ -83,6 +84,10 @@ const Settings = ({
       setEmailFormatError(t('formUser.errorMessage.emailFormatError'));
     }
     else setEmailFormatError('');
+    if (settingsForms.newPassword && settingsForms.oldPassword !== ('') && settingsForms.newPassword === settingsForms.oldPassword) {
+      setComparePasswordsError(t('formUser.errorMessage.sameOldAndNewPasswords'));
+    }
+    else setComparePasswordsError('');
   });
 
   const handleInputOnChange = (value, name) => {
@@ -93,7 +98,10 @@ const Settings = ({
   // and lengths of firstname and lastname
   const handleSubmitSettings = (event) => {
     event.preventDefault();
-    handleChangeSettings();
+    if (settingsForms.newPassword !== settingsForms.oldPassword
+      && settingsForms.newPassword === settingsForms.controlNewPassword) {
+      handleChangeSettings();
+    }
   };
 
   const handleSubmitEmail = (event) => {
@@ -128,6 +136,7 @@ const Settings = ({
                 <InputText name="controlNewPassword" type={typeFormNewPassword} placeholder={t('formUser.passwordConfirmation')} value={settingsForms.controlNewPassword} onChange={handleInputOnChange} />
                 <span className="inputText--show-password-1" onClick={showHideForm1}>{typeFormNewPassword === 'text' ? t('formUser.buttonHide') : t('formUser.buttonShow')}</span>
                 <p className="settings__error">{NewPasswordError}</p>
+                <p className="settings__error">{comparePasswordsError}</p>
                 <p className="settings__error">{IncorrectPasswordError}</p>
                 <SubmitButton label={t('formUser.buttonChangePassword')} />
               </div>
@@ -141,9 +150,9 @@ const Settings = ({
               </div>
               <div className="settings__column">
                 <span className="inputText--show-password-1" onClick={showHideForm2}>{typeFormNewEmail === 'text' ? t('formUser.buttonHide') : t('formUser.buttonShow')}</span>
-                <p className="settings__error">{IncorrectPasswordError}</p>
-                <p className="settings__error">{EmailFormatError}</p>
                 <p className="settings__error">{EmailError}</p>
+                <p className="settings__error">{EmailFormatError}</p>
+                <p className="settings__error">{IncorrectPasswordError}</p>
                 <SubmitButton label={t('formUser.buttonChangeEmail')} />
               </div>
             </form>

@@ -29,7 +29,8 @@
       "incorrectPassword": "Incorrect password",
       "incorrectNewPassword": "Your password must contain at least 8 characters including a capital letter and a number",
       "emptyInput": "Please fill in all fields",
-      "emailFormatError": "Invalid email address"
+      "emailFormatError": "Invalid email address",
+      "sameOldAndNewPasswords": "Old and New passwords must be different"
     },
     "password": "Password",
     "passwordOld": "Your current password",
