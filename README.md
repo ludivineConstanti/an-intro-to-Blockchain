@@ -2,7 +2,7 @@
 
 An educative website made to facilitate beginners to learn more about the Blockchain. 
 
-![Home page](https://user-images.githubusercontent.com/24965333/112191371-3ada2780-8c06-11eb-9b50-a03d203379d8.png)
+![Home page](https://user-images.githubusercontent.com/24965333/112201050-29961880-8c10-11eb-89da-15eca9ede6fd.png)
 [Here is the link to a video that presents our website (from 21:50, it might not be interesting if you don't speak French though)](https://www.youtube.com/watch?v=06W8gLqBDqg)
 
 
