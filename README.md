@@ -3,6 +3,8 @@
 An educative website made to facilitate beginners to learn more about the Blockchain. 
 
 ![Home page](https://user-images.githubusercontent.com/24965333/112191371-3ada2780-8c06-11eb-9b50-a03d203379d8.png)
+[Here is the link to a video that presents our website (from 21:50, it might not be interesting if you don't speak French though)](https://www.youtube.com/watch?v=06W8gLqBDqg)
+
 
 This website was made at the end of my bootcamp, for practise purpose. I was in a team with 3 other people. Knowing that we would have to make a project during a month, I prepared the concept, design and material to fill the website in advance. 
 
